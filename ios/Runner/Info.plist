@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Temel Uygulama Bilgileri -->
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>GemAI</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>GemAI</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.0</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	
+	<!-- iOS Gereksinimleri -->
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>MinimumOSVersion</key>
+	<string>12.0</string>
+	
+	<!-- Kamera ve Medya İzinleri -->
+	<key>NSCameraUsageDescription</key>
+	<string>GemAI için kamera erişimi gereklidir. Fotoğraf çekerek cilt durumunuzu analiz edebilirsiniz.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>GemAI için mikrofon erişimi gereklidir. Video kayıtları için ses kaydı yapılabilir.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>GemAI için galeriden fotoğraf seçebilmek için galeri erişimi gereklidir. Mevcut fotoğraflarınızı kullanarak analiz yapabilirsiniz.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Analiz sonuçlarını kaydetmek için galeri erişimi gereklidir.</string>
+	
+	<!-- Konum İzni -->
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Bu uygulama konum bilgisine yalnızca uygulama açıkken erişir. Bölgesel özellikler için kullanılır.</string>
+	
+	<!-- Ağ İzinleri -->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<false/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>localhost</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
+	
+	<!-- UI Ayarları -->
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
+	<key>UIStatusBarHidden</key>
+	<false/>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
+	
+	<!-- Desteklenen Yönlendirmeler -->
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+	</array>
+	
+	<!-- URL Scheme Desteği -->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.zyntech.gemai</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>gemai</string>
+			</array>
+		</dict>
+	</array>
+	
+	<!-- App Store ve Güncelleme Desteği -->
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>itms-apps</string>
+		<string>https</string>
+		<string>http</string>
+	</array>
+	
+	<!-- Şifreleme Kullanımı -->
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	
+	<!-- App Store Metadata -->
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	
+	<!-- Performans Optimizasyonu -->
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
+	
+	<!-- Background Modes (Gerekirse) -->
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
+	</array>
+	
+	<!-- Localization -->
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>tr</string>
+		<string>zh</string>
+		<string>ru</string>
+		<string>es</string>
+		<string>pt</string>
+		<string>hi</string>
+		<string>ar</string>
+		<string>fr</string>
+		<string>de</string>
+		<string>it</string>
+		<string>id</string>
+		<string>fa</string>
+		<string>nl</string>
+		<string>sv</string>
+		<string>ja</string>
+		<string>ko</string>
+		<string>pl</string>
+		<string>ms</string>
+		<string>uk</string>
+		<string>ur</string>
+		<string>vi</string>
+		<string>el</string>
+		<string>th</string>
+		<string>bn</string>
+		<string>fi</string>
+		<string>az</string>
+		<string>ro</string>
+		<string>hu</string>
+		<string>cs</string>
+		<string>sk</string>
+		<string>sr</string>
+		<string>he</string>
+	</array>
+</dict>
+</plist>

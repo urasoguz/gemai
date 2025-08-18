@@ -1,0 +1,631 @@
+# GetX Flutter Development Rules
+
+You are an expert Flutter developer specializing in GetX state management, MVC architecture, and clean code practices.
+
+## Core Principles
+
+### Basic Principles
+- Use English for all code and documentation
+- Always declare the type of each variable and function (parameters and return value)
+- Avoid using dynamic and var without type specification
+- Dont leave blank lines within a function
+- One export per file
+- Write short functions with a single purpose (less than 20 lines)
+- Use early returns to avoid deep nesting
+
+### Nomenclature
+- Use PascalCase for classes and controllers
+- Use camelCase for variables, functions, and methods
+- Use snake_case for file and directory names
+- Use UPPERCASE for constants and environment variables
+- Start each function with a verb
+- Use verbs for boolean variables (isLoading, hasError, canDelete, etc.)
+- Use complete words instead of abbreviations
+- Controller names should end with "Controller" (e.g., AuthController, HomeController)
+
+## GetX Specific Guidelines
+
+### State Management
+- Use GetxController for all business logic
+- Prefer Rx variables (.obs) over GetBuilder for reactive programming
+- Use GetBuilder only for performance-critical widgets with many rebuilds
+- Always dispose resources in onClose() method
+- Use ever() for listening to Rx variable changes
+- Use once() for one-time listeners
+- Use debounce() for search inputs and API calls
+
+```dart
+class AuthController extends GetxController {
+  // Rx variables
+  final RxBool isLoading = false.obs;
+  final RxString userEmail = ''.obs;
+  final Rx<User?> currentUser = Rx<User?>(null);
+  
+  @override
+  void onInit() {
+    super.onInit();
+    // Initialize listeners
+    ever(userEmail, (String email) => validateEmail(email));
+    debounce(searchQuery, searchUsers, time: Duration(milliseconds: 500));
+  }
+  
+  @override
+  void onClose() {
+    // Dispose resources
+    super.onClose();
+  }
+}
+```
+
+### Dependency Injection
+- Use Get.put() for controllers that need to stay in memory
+- Use Get.lazyPut() for controllers that should be created when needed
+- Use Get.create() for controllers that need fresh instances
+- Register dependencies in bindings
+- Use permanent: true for controllers that should never be deleted
+
+```dart
+class AuthBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut<AuthController>(() => AuthController());
+    Get.put<AuthService>(AuthService(), permanent: true);
+  }
+}
+```
+
+### Navigation
+- Use Get.toNamed() for named routes
+- Use Get.offNamed() to replace current route
+- Use Get.offAllNamed() to clear stack and navigate
+- Pass data using parameters or arguments
+- Use GetPage for route configuration
+
+```dart
+// Navigation examples
+Get.toNamed(AppRoutes.HOME, parameters: {'userId': '123'});
+Get.offNamed(AppRoutes.LOGIN);
+Get.offAllNamed(AppRoutes.DASHBOARD);
+```
+
+### Reactive Programming
+- Use Obx() for simple reactive widgets
+- Use GetX() for complex reactive widgets with controller access
+- Always check if controller is initialized before using
+- Use .value for accessing Rx variable values
+- Use .call() or () for updating Rx variables
+
+```dart
+// Reactive UI examples
+Obx(() => Text(controller.userName.value));
+GetX<AuthController>(
+  builder: (controller) => controller.isLoading.value
+    ? CircularProgressIndicator()
+    : LoginForm(),
+);
+```
+
+## Project Structure Guidelines
+
+### Module Organization
+- Each module should have: controller, view, widgets folders
+- Keep controllers focused on single responsibility
+- Create separate controllers for complex features
+- Use shared controllers for common functionality
+
+### File Organization
+```
+lib/
+├── app/
+│   ├── core/           # Core utilities and configurations
+│   ├── data/           # Data layer (API, models)
+│   ├── modules/        # Feature modules
+│   ├── routes/         # Route definitions
+│   └── shared/         # Shared components
+```
+
+### Controller Guidelines
+- One controller per feature/screen
+- Keep controllers lightweight and focused
+- Use services for business logic
+- Handle loading states consistently
+- Implement proper error handling
+
+```dart
+class HomeController extends GetxController {
+  // State variables
+  final RxList<Post> posts = <Post>[].obs;
+  final RxBool isLoading = false.obs;
+  final RxString errorMessage = ''.obs;
+  
+  // Dependencies
+  final ApiService _apiService = Get.find<ApiService>();
+  
+  @override
+  void onInit() {
+    super.onInit();
+    loadPosts();
+  }
+  
+  Future<void> loadPosts() async {
+    try {
+      isLoading.value = true;
+      errorMessage.value = '';
+      
+      final response = await _apiService.getData<List<dynamic>>('/posts');
+      if (response.body != null) {
+        posts.value = response.body!.map((json) => Post.fromJson(json)).toList();
+      }
+    } catch (error) {
+      errorMessage.value = error.toString();
+    } finally {
+      isLoading.value = false;
+    }
+  }
+  
+  void refreshPosts() => loadPosts();
+}
+```
+
+## Data Layer Guidelines
+
+### API Service
+- Use GetConnect for HTTP requests
+- Create base API service class extending GetConnect
+- Implement interceptors for common functionality
+- Handle errors consistently
+- Use proper response models
+
+```dart
+class ApiService extends GetConnect {
+  @override
+  void onInit() {
+    super.onInit();
+    
+    // Base configuration
+    httpClient.baseUrl = "https://api.example.com";
+    httpClient.timeout = Duration(seconds: 30);
+    
+    // Request interceptor
+    httpClient.addRequestModifier<dynamic>((request) {
+      request.headers['Authorization'] = 'Bearer ${getToken()}';
+      request.headers['Content-Type'] = 'application/json';
+      return request;
+    });
+    
+    // Response interceptor
+    httpClient.addResponseModifier<dynamic>((request, response) {
+      if (response.statusCode == 401) {
+        // Handle unauthorized
+        Get.offAllNamed(AppRoutes.LOGIN);
+      }
+      return response;
+    });
+    
+    // Auth interceptor
+    httpClient.addAuthenticator<dynamic>((request) async {
+      final token = await refreshToken();
+      request.headers['Authorization'] = 'Bearer $token';
+      return request;
+    });
+  }
+  
+  Future<Response<T>> getData<T>(String path) async {
+    try {
+      final response = await get<T>(path);
+      return _handleResponse<T>(response);
+    } catch (error) {
+      throw ApiException.fromGetConnectError(error);
+    }
+  }
+  
+  Future<Response<T>> postData<T>(String path, dynamic body) async {
+    try {
+      final response = await post<T>(path, body);
+      return _handleResponse<T>(response);
+    } catch (error) {
+      throw ApiException.fromGetConnectError(error);
+    }
+  }
+  
+  Future<Response<T>> putData<T>(String path, dynamic body) async {
+    try {
+      final response = await put<T>(path, body);
+      return _handleResponse<T>(response);
+    } catch (error) {
+      throw ApiException.fromGetConnectError(error);
+    }
+  }
+  
+  Future<Response<T>> deleteData<T>(String path) async {
+    try {
+      final response = await delete<T>(path);
+      return _handleResponse<T>(response);
+    } catch (error) {
+      throw ApiException.fromGetConnectError(error);
+    }
+  }
+  
+  Response<T> _handleResponse<T>(Response<T> response) {
+    if (response.hasError) {
+      throw ApiException(
+        response.statusText ?? 'Unknown error',
+        response.statusCode,
+      );
+    }
+    return response;
+  }
+  
+  String? getToken() {
+    final storage = Get.find<StorageService>();
+    return storage.getToken();
+  }
+  
+  Future<String?> refreshToken() async {
+    // Implement token refresh logic
+    return null;
+  }
+}
+```
+
+### Models
+- Use proper data classes for API responses
+- Implement fromJson and toJson methods
+- Use nullable types appropriately
+- Group related models in folders
+
+```dart
+class User {
+  final int id;
+  final String name;
+  final String email;
+  final DateTime? createdAt;
+  
+  User({
+    required this.id,
+    required this.name,
+    required this.email,
+    this.createdAt,
+  });
+  
+  factory User.fromJson(Map<String, dynamic> json) {
+    return User(
+      id: json['id'],
+      name: json['name'],
+      email: json['email'],
+      createdAt: json['created_at'] != null 
+        ? DateTime.parse(json['created_at']) 
+        : null,
+    );
+  }
+  
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'email': email,
+      'created_at': createdAt?.toIso8601String(),
+    };
+  }
+}
+```
+
+## Storage Guidelines
+
+### GetStorage
+- Use GetStorage for simple key-value storage
+- Initialize in main.dart
+- Create storage service for complex operations
+
+```dart
+class StorageService extends GetxService {
+  late GetStorage _storage;
+  
+  @override
+  Future<void> onInit() async {
+    super.onInit();
+    await GetStorage.init();
+    _storage = GetStorage();
+  }
+  
+  void saveUserData(User user) {
+    _storage.write('user', user.toJson());
+  }
+  
+  User? getUserData() {
+    final data = _storage.read('user');
+    return data != null ? User.fromJson(data) : null;
+  }
+}
+```
+
+### Hive
+- Use Hive for complex data structures
+- Create type adapters for custom objects
+- Initialize boxes in main.dart
+
+## Error Handling
+
+### Global Error Handling
+- Create custom exception classes
+- Use try-catch blocks in controllers
+- Show user-friendly error messages
+- Log errors for debugging
+
+```dart
+abstract class AppException implements Exception {
+  final String message;
+  final int? statusCode;
+  
+  AppException(this.message, [this.statusCode]);
+}
+
+class ApiException extends AppException {
+  ApiException(String message, [int? statusCode]) 
+    : super(message, statusCode);
+  
+  factory ApiException.fromGetConnectError(dynamic error) {
+    if (error is Response) {
+      return ApiException(
+        error.statusText ?? 'Unknown error',
+        error.statusCode,
+      );
+    }
+    
+    // Handle different error types
+    if (error.toString().contains('timeout')) {
+      return ApiException('Connection timeout');
+    }
+    
+    if (error.toString().contains('network')) {
+      return ApiException('Network error');
+    }
+    
+    return ApiException('Something went wrong');
+  }
+}
+```
+
+### Loading States
+- Always show loading indicators
+- Disable buttons during operations
+- Handle empty states properly
+
+```dart
+Obx(() {
+  if (controller.isLoading.value) {
+    return Center(child: CircularProgressIndicator());
+  }
+  
+  if (controller.errorMessage.value.isNotEmpty) {
+    return Center(
+      child: Column(
+        children: [
+          Text(controller.errorMessage.value),
+          ElevatedButton(
+            onPressed: controller.refreshPosts,
+            child: Text('Retry'),
+          ),
+        ],
+      ),
+    );
+  }
+  
+  if (controller.posts.isEmpty) {
+    return Center(child: Text('No posts found'));
+  }
+  
+  return ListView.builder(
+    itemCount: controller.posts.length,
+    itemBuilder: (context, index) {
+      return PostCard(post: controller.posts[index]);
+    },
+  );
+});
+```
+
+## UI Guidelines
+
+### Widget Organization
+- Create reusable widgets in shared/widgets
+- Keep widgets small and focused
+- Use const constructors when possible
+- Implement proper widget composition
+
+### Theming
+- Use ThemeData for consistent styling
+- Create custom themes in core/theme
+- Use Theme.of(context) for accessing theme data
+
+### Performance
+- Use const constructors for static widgets
+- Implement proper ListView.builder for lists
+- Use GetBuilder for performance-critical widgets
+- Avoid rebuilding entire screens
+
+## Testing Guidelines
+
+### Unit Testing
+- Test controllers independently
+- Mock dependencies using GetX dependency injection
+- Test error scenarios
+- Test reactive variables
+
+```dart
+void main() {
+  group('AuthController', () {
+    late AuthController controller;
+    
+    setUp(() {
+      Get.put<ApiService>(MockApiService());
+      controller = AuthController();
+    });
+    
+    tearDown(() {
+      Get.reset();
+    });
+    
+    test('should login successfully', () async {
+      // Arrange
+      const email = 'test@example.com';
+      const password = 'password123';
+      
+      // Act
+      await controller.login(email, password);
+      
+      // Assert
+      expect(controller.isLoggedIn.value, true);
+      expect(controller.currentUser.value, isNotNull);
+    });
+  });
+}
+
+class MockApiService extends GetConnect implements ApiService {
+  @override
+  Future<Response<T>> getData<T>(String path) async {
+    // Mock implementation
+    return Response<T>(
+      body: {'success': true} as T,
+      statusCode: 200,
+    );
+  }
+  
+  @override
+  Future<Response<T>> postData<T>(String path, dynamic body) async {
+    // Mock implementation
+    return Response<T>(
+      body: {'success': true} as T,
+      statusCode: 201,
+    );
+  }
+}
+```
+
+## Code Quality
+
+### Naming Conventions
+- Controllers: `AuthController`, `HomeController`
+- Services: `ApiService`, `StorageService`
+- Models: `User`, `Post`, `LoginRequest`
+- Views: `LoginView`, `HomeView`
+- Widgets: `CustomButton`, `UserCard`
+
+### Documentation
+- Document complex business logic
+- Add comments for non-obvious code
+- Use meaningful variable names
+- Keep functions self-documenting
+
+### Constants
+- Create constants file for strings, colors, sizes
+- Use enums for fixed values
+- Avoid magic numbers and strings
+
+```dart
+class AppConstants {
+  static const String appName = 'My App';
+  static const Duration apiTimeout = Duration(seconds: 30);
+  static const int maxRetries = 3;
+}
+
+class AppColors {
+  static const Color primary = Color(0xFF2196F3);
+  static const Color secondary = Color(0xFF03DAC6);
+  static const Color error = Color(0xFFB00020);
+}
+```
+
+Code Commenting Rules
+	•	Every function, class, variable, and complex logic must be accompanied by meaningful comments.
+	•	Comments should explain:
+	•	What the code does
+	•	Why it was written that way (if it’s not obvious)
+	•	Any special cases, assumptions, or decisions made
+	•	All comment rules are written in English, but the comment lines themselves must be in Turkish
+	•	Keep comments clear and helpful for all developers
+	•	Especially required for: API calls, validation logic, state changes, UI logic, and business rules
+Correct:
+```dart
+// Kullanıcının giriş yapıp yapmadığını kontrol eder
+final RxBool isLoggedIn = false.obs;
+
+// Giriş işlemini yapar ve başarılıysa yönlendirme yapar
+Future<void> login(String email, String password) async {
+  // Giriş isteği gönderilir
+  final response = await _apiService.postData('/login', {
+    'email': email,
+    'password': password,
+  });
+
+  // Giriş başarılıysa kullanıcı bilgisi güncellenir
+  currentUser.value = User.fromJson(response.body);
+}
+```
+
+Incorrect:
+
+```dart
+final RxBool isLoggedIn = false.obs;
+
+Future<void> login(String email, String password) async {
+  final response = await _apiService.postData('/login', {
+    'email': email,
+    'password': password,
+  });
+  currentUser.value = User.fromJson(response.body);
+}
+```
+
+## Performance Optimization
+
+### GetX Optimization
+- Use GetBuilder for widgets that rebuild frequently
+- Implement proper controller disposal
+- Use lazy loading for heavy controllers
+- Avoid unnecessary reactive variables
+
+### General Flutter Optimization
+- Use ListView.builder for long lists
+- Implement proper image caching
+- Use const constructors
+- Avoid rebuilding widgets unnecessarily
+
+## Security Guidelines
+
+### API Security
+- Never store sensitive data in plain text
+- Use proper authentication headers
+- Implement request/response encryption
+- Validate all user inputs
+
+### Local Storage Security
+- Encrypt sensitive data before storing
+- Use secure storage for tokens
+- Implement proper data validation
+
+Remember: GetX is powerful but should be used wisely. Keep your code clean, testable, and maintainable. Always consider the trade-offs between convenience and architectural purity.
+
+
+Code Style & Import Guidelines
+
+Import Rules
+	•	Always use package imports instead of relative paths for internal project files
+	•	This improves code consistency, IDE support, and prevents import path conflicts
+	•	Package name should match your project’s name defined in pubspec.yaml
+
+❌ Wrong:
+```dart
+import 'app/routes/app_routes.dart';
+import 'app/core/services/sembast_service.dart';
+```
+
+✅ Correct:
+```dart
+import 'package:gemai/app/routes/app_routes.dart';
+import 'package:gemai/app/core/services/sembast_service.dart';
+```
+
+Code Style
+
+❗️Rule: At the beginning or end of every response, clearly indicate which model is responding (e.g., “You are chatting with GPT-4” or similar). Do this consistently in every answer.
+❗️Rule: You will create a documentation file and write all tasks you do in that file. When I ask you to write a new task, check the documentation first and remember our project requirements and all steps
