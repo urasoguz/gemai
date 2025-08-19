@@ -20,3 +20,7 @@ Bu dosya, proje boyunca yapılan değişikliklerin ve alınan kararların kısa 
 - Dark/light tema sistemi kaldırıldı, tek tema (light) kullanılıyor
 - AppThemeConfig.appName 'DERMAI' → 'GEMAI' olarak güncellendi
 - Tema servisi basitleştirildi, tema değiştirme devre dışı bırakıldı
+- 181 dosyada lightColors/darkColors referansları AppThemeConfig.colors ile değiştirildi
+- Tema sistemi tamamen tek tema olarak yeniden yapılandırıldı
+- ColorPalette sınıfı kaldırıldı, tüm renkler AppThemeConfig sınıfında static const olarak tanımlandı
+- 54 dosyada AppThemeConfig.colors referansları AppThemeConfig.primary ile değiştirildi (manuel düzenleme gerekli)

@@ -22,7 +22,7 @@ class ResultImageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
 
     Widget? imageWidget;
     // Base64 görsel desteği
@@ -79,7 +79,7 @@ class ResultImageWidget extends StatelessWidget {
   /// Görsel dialog'unu gösterir
   void _showImageDialog(BuildContext context) {
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
 
     showDialog(
       context: context,
@@ -161,7 +161,7 @@ class ResultImageWidget extends StatelessWidget {
     return Builder(
       builder: (context) {
         final colors =
-            AppThemeConfig.colors;
+            AppThemeConfig.primary;
 
         return Center(
           child: Icon(

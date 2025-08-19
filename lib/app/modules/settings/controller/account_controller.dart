@@ -38,8 +38,8 @@ class AccountController extends GetxController {
       }
       final colors =
           Theme.of(Get.context!).brightness == Brightness.light
-              ? AppThemeConfig.colors
-              : AppThemeConfig.colors;
+              ? AppThemeConfig.primary
+              : AppThemeConfig.primary;
       ShrineDialogService.showError(
         'settings_restore_purchases_error'.tr,
         colors,
@@ -52,8 +52,8 @@ class AccountController extends GetxController {
     try {
       final colors =
           Theme.of(Get.context!).brightness == Brightness.light
-              ? AppThemeConfig.colors
-              : AppThemeConfig.colors;
+              ? AppThemeConfig.primary
+              : AppThemeConfig.primary;
       final url =
           Platform.isIOS
               ? 'https://apps.apple.com/account/subscriptions'

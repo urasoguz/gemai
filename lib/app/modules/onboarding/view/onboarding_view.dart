@@ -13,7 +13,7 @@ class OnboardingView extends GetView<OnboardingController> {
   @override
   Widget build(BuildContext context) {
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
     final pageController = PageController();
     return Scaffold(
       backgroundColor: colors.onboardingBackground,

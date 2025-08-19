@@ -29,7 +29,7 @@ class CamerawesomeWidget extends GetView<CameraController> {
   Widget _buildCapturedImagePreview(BuildContext context) {
     // Tema renklerini al
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
 
     return Container(
       width: double.infinity,
@@ -67,7 +67,7 @@ class CamerawesomeWidget extends GetView<CameraController> {
   Widget _buildCameraAwesome(BuildContext context) {
     // Tema renklerini al
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
 
     return Obx(
       () => CameraAwesomeBuilder.awesome(
@@ -120,7 +120,7 @@ class CamerawesomeWidget extends GetView<CameraController> {
   Widget _buildModernTopBar(BuildContext context, CameraState state) {
     // Tema renklerini al
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
@@ -189,7 +189,7 @@ class CamerawesomeWidget extends GetView<CameraController> {
   }) {
     // Tema renklerini al
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
 
     return GestureDetector(
       onTap: onTap,
@@ -234,7 +234,7 @@ class CamerawesomeWidget extends GetView<CameraController> {
   Widget _buildModernScanFrame(BuildContext context) {
     // Tema renklerini al
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
 
     // Responsive boyutlandırma
     final screenHeight = MediaQuery.of(context).size.height;
@@ -435,7 +435,7 @@ class CamerawesomeWidget extends GetView<CameraController> {
   Widget _buildModernGalleryButton(BuildContext context) {
     // Tema renklerini al
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
 
     return GestureDetector(
       onTap: () async {
@@ -480,7 +480,7 @@ class CamerawesomeWidget extends GetView<CameraController> {
   }) {
     // Tema renklerini al
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
 
     return Container(
       width: 16,

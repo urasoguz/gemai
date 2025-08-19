@@ -12,8 +12,8 @@ class ShrineDialogService {
   static void handleError(int errorCode, String errorMessage) {
     final colors =
         Theme.of(Get.context!).brightness == Brightness.light
-            ? AppThemeConfig.colors
-            : AppThemeConfig.colors;
+            ? AppThemeConfig.primary
+            : AppThemeConfig.primary;
     try {
       switch (errorCode) {
         case 400:
@@ -261,8 +261,8 @@ class ShrineDialogService {
   }) {
     final colors =
         Theme.of(Get.context!).brightness == Brightness.light
-            ? AppThemeConfig.colors
-            : AppThemeConfig.colors;
+            ? AppThemeConfig.primary
+            : AppThemeConfig.primary;
     AwesomeDialog(
       dialogBackgroundColor: colors.background,
       context: Get.context!,

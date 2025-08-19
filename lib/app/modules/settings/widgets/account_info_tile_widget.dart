@@ -18,7 +18,7 @@ class AccountInfoTileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Row(

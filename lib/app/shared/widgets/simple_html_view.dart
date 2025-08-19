@@ -19,7 +19,7 @@ class SimpleHtmlView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
 
     if (kDebugMode) {
       print('📄 SimpleHtmlView build:');

@@ -9,7 +9,7 @@ class ResultDescriptionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
     // iOS tarzı, ultra sade ve modern açıklama kartı
     return Container(
       margin: const EdgeInsets.only(bottom: 12),

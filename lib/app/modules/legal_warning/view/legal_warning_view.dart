@@ -12,7 +12,7 @@ class LegalWarningView extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.find<LegalWarningController>();
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
 
     // Dark mode için özel kontrast renkleri
     final isDark = Theme.of(context).brightness == Brightness.dark;

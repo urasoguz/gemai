@@ -365,8 +365,8 @@ class PremiumController extends GetxController
       if (offering == null) {
         final colors =
             Theme.of(Get.context!).brightness == Brightness.light
-                ? AppThemeConfig.colors
-                : AppThemeConfig.colors;
+                ? AppThemeConfig.primary
+                : AppThemeConfig.primary;
         ShrineDialogService.showError(
           'premium_no_packages'.tr,
           colors,
@@ -391,8 +391,8 @@ class PremiumController extends GetxController
       if (package == null) {
         final colors =
             Theme.of(Get.context!).brightness == Brightness.light
-                ? AppThemeConfig.colors
-                : AppThemeConfig.colors;
+                ? AppThemeConfig.primary
+                : AppThemeConfig.primary;
         ShrineDialogService.showError(
           'premium_no_selected_package'.tr,
           colors,
@@ -412,8 +412,8 @@ class PremiumController extends GetxController
       if (e.toString().contains('cancelled')) {
         final colors =
             Theme.of(Get.context!).brightness == Brightness.light
-                ? AppThemeConfig.colors
-                : AppThemeConfig.colors;
+                ? AppThemeConfig.primary
+                : AppThemeConfig.primary;
         ShrineDialogService.showInfo(
           'premium_purchase_cancelled'.tr,
           colors,
@@ -422,8 +422,8 @@ class PremiumController extends GetxController
       } else {
         final colors =
             Theme.of(Get.context!).brightness == Brightness.light
-                ? AppThemeConfig.colors
-                : AppThemeConfig.colors;
+                ? AppThemeConfig.primary
+                : AppThemeConfig.primary;
         ShrineDialogService.showError(
           'premium_purchase_failed'.tr,
           colors,
@@ -445,8 +445,8 @@ class PremiumController extends GetxController
       // Kullanıcıya başarı mesajı göster
       final colors =
           Theme.of(Get.context!).brightness == Brightness.light
-              ? AppThemeConfig.colors
-              : AppThemeConfig.colors;
+              ? AppThemeConfig.primary
+              : AppThemeConfig.primary;
       ShrineDialogService.showSuccess(
         'premium_activated'.tr,
         colors,
@@ -498,8 +498,8 @@ class PremiumController extends GetxController
       }
       final colors =
           Theme.of(Get.context!).brightness == Brightness.light
-              ? AppThemeConfig.colors
-              : AppThemeConfig.colors;
+              ? AppThemeConfig.primary
+              : AppThemeConfig.primary;
       ShrineDialogService.showError(
         'premium_restore_error'.tr,
         colors,

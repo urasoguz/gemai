@@ -19,7 +19,7 @@ class HistoryListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
     final model = item.model;
 
     return Padding(

@@ -80,7 +80,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
   @override
   Widget build(BuildContext context) {
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
     return Scaffold(
       appBar: ModularAppBar(
         title: widget.title,

@@ -74,7 +74,7 @@ class _AnalysisScanningOverlayState extends State<AnalysisScanningOverlay>
   @override
   Widget build(BuildContext context) {
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
 
     return AnimatedBuilder(
       animation: _fadeAnimation,

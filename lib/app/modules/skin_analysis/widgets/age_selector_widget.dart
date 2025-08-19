@@ -21,7 +21,7 @@ class _AgeSelectorWidgetState extends State<AgeSelectorWidget> {
       ...controller.ageList.map((e) => '$e ${'skin_analysis_age_info'.tr}'),
     ];
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
       child: Column(

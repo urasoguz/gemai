@@ -69,7 +69,7 @@ ${"contact_mail_build_number".tr}: ${deviceInfoController.buildNumber.value}
   /// İletişim popup'ını gösterir
   void showContactPopup(BuildContext context) {
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
 
     String mail = email; // Email getter'ını kullan
 

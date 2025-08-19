@@ -14,7 +14,7 @@ class LanguageView extends GetView<LangController> {
   @override
   Widget build(BuildContext context) {
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
     double lastOffset = 0;
     final LangController langController = Get.find();
     return Scaffold(
@@ -118,7 +118,7 @@ class CustomRadioListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
     return InkWell(
       onTap: () {
         HapticFeedback.selectionClick();

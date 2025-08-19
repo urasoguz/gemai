@@ -80,8 +80,8 @@ class RestorePremiumService {
   Future<void> _handleSuccessfulRestore() async {
     final colors =
         Theme.of(Get.context!).brightness == Brightness.light
-            ? AppThemeConfig.colors
-            : AppThemeConfig.colors;
+            ? AppThemeConfig.primary
+            : AppThemeConfig.primary;
     try {
       if (kDebugMode) {
         print('🔄 Restore başarılı - Ana sayfaya yönlendiriliyor...');
@@ -149,8 +149,8 @@ class RestorePremiumService {
   Future<bool> performCompleteRestore() async {
     final colors =
         Theme.of(Get.context!).brightness == Brightness.light
-            ? AppThemeConfig.colors
-            : AppThemeConfig.colors;
+            ? AppThemeConfig.primary
+            : AppThemeConfig.primary;
     try {
       if (kDebugMode) {
         print('🔄 Merkezi restore işlemi başlatılıyor...');

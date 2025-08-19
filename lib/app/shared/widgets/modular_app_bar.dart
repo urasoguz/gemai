@@ -30,7 +30,7 @@ class ModularAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
     return AppBar(
       backgroundColor: backgroundColor ?? colors.background,
       foregroundColor: foregroundColor ?? colors.textPrimary,

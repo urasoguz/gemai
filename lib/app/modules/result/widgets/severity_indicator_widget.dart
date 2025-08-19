@@ -18,7 +18,7 @@ class SeverityIndicatorWidget extends StatelessWidget {
   // Şiddet derecesine göre renk döndürür
   Color getSeverityColor(BuildContext context, int value) {
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
     if (value <= 3) return colors.severityIndicatorColor1; // Yeşil
     if (value <= 6) return colors.severityIndicatorColor2; // Sarı
     if (value <= 8) return colors.severityIndicatorColor3; // Turuncu
@@ -38,7 +38,7 @@ class SeverityIndicatorWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final color = getSeverityColor(context, value);
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
     //final label = getSeverityLabel(value);
 
     return Column(

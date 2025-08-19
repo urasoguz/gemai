@@ -13,7 +13,7 @@ class ResultReferenceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
 
     return Container(
       decoration: BoxDecoration(

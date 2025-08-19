@@ -58,8 +58,6 @@ void main() async {
   // Tarih formatlaması servisini kaydet
   Get.put<DateFormattingService>(DateFormattingService(), permanent: true);
 
-
-
   // In-app review servisini register et
   Get.put<InAppReviewService>(InAppReviewService(), permanent: true);
 
@@ -154,7 +152,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       navigatorKey: MyDialog.navigatorKey,
-      theme: _buildThemeData(AppThemeConfig.colors),
+      theme: _buildThemeData(),
       translations: AppTranslations(),
       locale: Locale(langController.currentLanguage.value),
       fallbackLocale: const Locale('en'),
@@ -190,29 +188,29 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  ThemeData _buildThemeData(ColorPalette colors) {
+  ThemeData _buildThemeData() {
     return ThemeData(
       brightness: Brightness.light,
-      primaryColor: colors.primary,
-      scaffoldBackgroundColor: colors.background,
-      cardColor: colors.card,
-      dividerColor: colors.divider,
+      primaryColor: AppThemeConfig.primary,
+      scaffoldBackgroundColor: AppThemeConfig.background,
+      cardColor: AppThemeConfig.card,
+      dividerColor: AppThemeConfig.divider,
       fontFamily: AppThemeConfig.fontFamily,
       extensions: [const ShirneDialogTheme()],
       appBarTheme: AppBarTheme(
-        backgroundColor: colors.appBar,
-        foregroundColor: colors.textPrimary,
+        backgroundColor: AppThemeConfig.appBar,
+        foregroundColor: AppThemeConfig.textPrimary,
         elevation: 4.0,
         centerTitle: true,
         titleTextStyle: TextStyle(
-          color: colors.textPrimary,
+          color: AppThemeConfig.textPrimary,
           fontSize: 20,
           fontWeight: FontWeight.w600,
           fontFamily: AppThemeConfig.fontFamily,
         ),
       ),
       cardTheme: CardThemeData(
-        color: colors.card,
+        color: AppThemeConfig.card,
         elevation: AppThemeConfig.cardElevation,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppThemeConfig.borderRadius),
@@ -220,87 +218,87 @@ class MyApp extends StatelessWidget {
       ),
       textTheme: TextTheme(
         displayLarge: TextStyle(
-          color: colors.textPrimary,
+          color: AppThemeConfig.textPrimary,
           fontFamily: AppThemeConfig.fontFamily,
           fontSize: 32,
           fontWeight: FontWeight.bold,
         ),
         displayMedium: TextStyle(
-          color: colors.textPrimary,
+          color: AppThemeConfig.textPrimary,
           fontFamily: AppThemeConfig.fontFamily,
           fontSize: 28,
           fontWeight: FontWeight.bold,
         ),
         displaySmall: TextStyle(
-          color: colors.textPrimary,
+          color: AppThemeConfig.textPrimary,
           fontFamily: AppThemeConfig.fontFamily,
           fontSize: 24,
           fontWeight: FontWeight.w600,
         ),
         headlineLarge: TextStyle(
-          color: colors.textPrimary,
+          color: AppThemeConfig.textPrimary,
           fontFamily: AppThemeConfig.fontFamily,
           fontSize: 22,
           fontWeight: FontWeight.w600,
         ),
         headlineMedium: TextStyle(
-          color: colors.textPrimary,
+          color: AppThemeConfig.textPrimary,
           fontFamily: AppThemeConfig.fontFamily,
           fontSize: 20,
           fontWeight: FontWeight.w600,
         ),
         headlineSmall: TextStyle(
-          color: colors.textPrimary,
+          color: AppThemeConfig.textPrimary,
           fontFamily: AppThemeConfig.fontFamily,
           fontSize: 18,
           fontWeight: FontWeight.w500,
         ),
         titleLarge: TextStyle(
-          color: colors.textPrimary,
+          color: AppThemeConfig.textPrimary,
           fontFamily: AppThemeConfig.fontFamily,
           fontSize: 16,
           fontWeight: FontWeight.w500,
         ),
         titleMedium: TextStyle(
-          color: colors.textPrimary,
+          color: AppThemeConfig.textPrimary,
           fontFamily: AppThemeConfig.fontFamily,
           fontSize: 14,
           fontWeight: FontWeight.w500,
         ),
         titleSmall: TextStyle(
-          color: colors.textPrimary,
+          color: AppThemeConfig.textPrimary,
           fontFamily: AppThemeConfig.fontFamily,
           fontSize: 12,
           fontWeight: FontWeight.w500,
         ),
         bodyLarge: TextStyle(
-          color: colors.textPrimary,
+          color: AppThemeConfig.textPrimary,
           fontFamily: AppThemeConfig.fontFamily,
           fontSize: 16,
         ),
         bodyMedium: TextStyle(
-          color: colors.textPrimary,
+          color: AppThemeConfig.textPrimary,
           fontFamily: AppThemeConfig.fontFamily,
           fontSize: 14,
         ),
         bodySmall: TextStyle(
-          color: colors.textSecondary,
+          color: AppThemeConfig.textSecondary,
           fontFamily: AppThemeConfig.fontFamily,
           fontSize: 12,
         ),
         labelLarge: TextStyle(
-          color: colors.textPrimary,
+          color: AppThemeConfig.textPrimary,
           fontFamily: AppThemeConfig.fontFamily,
           fontSize: 14,
           fontWeight: FontWeight.w500,
         ),
         labelMedium: TextStyle(
-          color: colors.textSecondary,
+          color: AppThemeConfig.textSecondary,
           fontFamily: AppThemeConfig.fontFamily,
           fontSize: 12,
         ),
         labelSmall: TextStyle(
-          color: colors.textHint,
+          color: AppThemeConfig.textHint,
           fontFamily: AppThemeConfig.fontFamily,
           fontSize: 10,
         ),

@@ -41,7 +41,7 @@ class _ComplaintsInputWidgetState extends State<ComplaintsInputWidget> {
   @override
   Widget build(BuildContext context) {
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
       child: Column(

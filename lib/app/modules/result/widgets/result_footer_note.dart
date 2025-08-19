@@ -8,7 +8,7 @@ class ResultFooterNote extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
     // iOS tarzı, ultra sade ve modern footer notu
     return Container(
       margin: const EdgeInsets.only(bottom: 10),

@@ -14,7 +14,7 @@ class OnboardingImageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
     return TweenAnimationBuilder<double>(
       tween: Tween(begin: 0.8, end: 1.0),
       duration: const Duration(milliseconds: 700),

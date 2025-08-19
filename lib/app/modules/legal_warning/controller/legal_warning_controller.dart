@@ -38,8 +38,8 @@ class LegalWarningController extends GetxController {
   Future<void> acceptLegalWarning() async {
     final colors =
         Theme.of(Get.context!).brightness == Brightness.light
-            ? AppThemeConfig.colors
-            : AppThemeConfig.colors;
+            ? AppThemeConfig.primary
+            : AppThemeConfig.primary;
 
     if (!isAccepted.value) {
       // Checkbox işaretli değilse uyarı göster
@@ -113,8 +113,8 @@ class LegalWarningController extends GetxController {
   Future<void> openPrivacyPolicy() async {
     final colors =
         Theme.of(Get.context!).brightness == Brightness.light
-            ? AppThemeConfig.colors
-            : AppThemeConfig.colors;
+            ? AppThemeConfig.primary
+            : AppThemeConfig.primary;
     try {
       Get.toNamed(AppRoutes.pageDetail, arguments: {'slug': 'privacy'});
     } catch (e) {
@@ -133,8 +133,8 @@ class LegalWarningController extends GetxController {
   Future<void> openTermsOfService() async {
     final colors =
         Theme.of(Get.context!).brightness == Brightness.light
-            ? AppThemeConfig.colors
-            : AppThemeConfig.colors;
+            ? AppThemeConfig.primary
+            : AppThemeConfig.primary;
     try {
       Get.toNamed(AppRoutes.pageDetail, arguments: {'slug': 'terms'});
     } catch (e) {

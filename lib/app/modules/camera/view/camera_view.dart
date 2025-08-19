@@ -13,7 +13,7 @@ class CameraView extends StatelessWidget {
   Widget build(BuildContext context) {
     // Tema renklerini al
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
 
     // Controller'ı bağla
     final CameraController controller = Get.put(CameraController());
@@ -47,7 +47,7 @@ class CameraView extends StatelessWidget {
   ) {
     // Tema renklerini al
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
 
     return Container(
       color: colors.cameraAnalyzeBackground.withValues(alpha: 0.9),
@@ -215,7 +215,7 @@ class ScanEffectPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
 
     final paint =
         Paint()

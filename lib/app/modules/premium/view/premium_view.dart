@@ -12,7 +12,7 @@ class PremiumView extends GetView<PremiumController> {
   Widget build(BuildContext context) {
     // Dark/Light mode uyumlu renkler
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
 
     final isDark = Theme.of(context).brightness == Brightness.dark;
 

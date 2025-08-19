@@ -73,7 +73,7 @@ class _SplashScreenState extends State<SplashScreen>
   Widget build(BuildContext context) {
     // Tema renklerini al
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
 
     return Scaffold(
       backgroundColor: colors.background,

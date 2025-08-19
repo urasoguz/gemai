@@ -19,8 +19,8 @@ class ApiUsageExample {
   Future<void> loginExample() async {
     final colors =
         Theme.of(Get.context!).brightness == Brightness.light
-            ? AppThemeConfig.colors
-            : AppThemeConfig.colors;
+            ? AppThemeConfig.primary
+            : AppThemeConfig.primary;
     try {
       // API çağrısı yap
       final response = await _authApiService.login(
@@ -55,8 +55,8 @@ class ApiUsageExample {
   Future<void> analyzeSkinExample() async {
     final colors =
         Theme.of(Get.context!).brightness == Brightness.light
-            ? AppThemeConfig.colors
-            : AppThemeConfig.colors;
+            ? AppThemeConfig.primary
+            : AppThemeConfig.primary;
     try {
       // Dosya seçimi (örnek)
       // File imageFile = await ImagePicker().pickImage(source: ImageSource.camera);
@@ -116,8 +116,8 @@ class ApiUsageExample {
   Future<void> updateProfileExample() async {
     final colors =
         Theme.of(Get.context!).brightness == Brightness.light
-            ? AppThemeConfig.colors
-            : AppThemeConfig.colors;
+            ? AppThemeConfig.primary
+            : AppThemeConfig.primary;
     try {
       final response = await _authApiService.updateProfile(
         name: 'Yeni İsim',

@@ -102,8 +102,8 @@ class SettingsController extends GetxController {
       }
       final colors =
           Theme.of(Get.context!).brightness == Brightness.light
-              ? AppThemeConfig.colors
-              : AppThemeConfig.colors;
+              ? AppThemeConfig.primary
+              : AppThemeConfig.primary;
       ShrineDialogService.showError(
         'settings_restore_purchases_error'.tr,
         colors,

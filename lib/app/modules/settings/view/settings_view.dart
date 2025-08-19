@@ -27,7 +27,7 @@ class _SettingsViewState extends State<SettingsView> {
   @override
   Widget build(BuildContext context) {
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
     return Scaffold(
       appBar: ModularAppBar(
         title: 'settings_title'.tr,

@@ -15,7 +15,7 @@ class AccountView extends GetView<AccountController> {
   @override
   Widget build(BuildContext context) {
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
     return Scaffold(
       appBar: ModularAppBar(
         title: 'account_title'.tr,

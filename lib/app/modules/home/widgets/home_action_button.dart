@@ -10,7 +10,7 @@ class HomeActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     // Tema renklerini al
     final colors =
-        AppThemeConfig.colors;
+        AppThemeConfig.primary;
 
     return GestureDetector(
       onTap: onPressed,
