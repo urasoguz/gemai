@@ -24,3 +24,6 @@ Bu dosya, proje boyunca yapılan değişikliklerin ve alınan kararların kısa 
 - Tema sistemi tamamen tek tema olarak yeniden yapılandırıldı
 - ColorPalette sınıfı kaldırıldı, tüm renkler AppThemeConfig sınıfında static const olarak tanımlandı
 - 54 dosyada AppThemeConfig.colors referansları AppThemeConfig.primary ile değiştirildi (manuel düzenleme gerekli)
+- Tüm package:dermai import'ları package:gemai olarak güncellendi
+- 82 dosyada toplam 853 ekleme, 1106 silme işlemi yapıldı
+- Flutter analyze'da sadece 12 uyarı kaldı (kritik hata yok)
