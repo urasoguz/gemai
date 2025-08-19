@@ -1,4 +1,4 @@
-import 'package:dermai/app/data/model/response/scan_result_model.dart';
+import 'package:gemai/app/data/model/response/scan_result_model.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sembast/sembast_io.dart';
 import 'package:flutter/foundation.dart';
@@ -28,7 +28,7 @@ class SembastService {
   // Veritabanı başlatma (optimize edilmiş)
   Future<Database> _initDatabase() async {
     final dir = await getApplicationDocumentsDirectory();
-    final dbPath = '${dir.path}/dermai.db';
+    final dbPath = '${dir.path}/gemai.db';
     return await databaseFactoryIo.openDatabase(dbPath, version: _dbVersion);
   }
 

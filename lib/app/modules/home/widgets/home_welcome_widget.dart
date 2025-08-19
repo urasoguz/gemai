@@ -9,9 +9,7 @@ class HomeWelcomeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     // Tema renklerini al
     final colors =
-        Theme.of(context).brightness == Brightness.light
-            ? AppThemeConfig.lightColors
-            : AppThemeConfig.darkColors;
+        AppThemeConfig.colors;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24),

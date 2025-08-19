@@ -8,9 +8,7 @@ class OnboardingDescWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors =
-        Theme.of(context).brightness == Brightness.light
-            ? AppThemeConfig.lightColors
-            : AppThemeConfig.darkColors;
+        AppThemeConfig.colors;
     return AnimatedDefaultTextStyle(
       duration: const Duration(milliseconds: 400),
       style: TextStyle(fontSize: 16, color: colors.onboardingDescTextColor),

@@ -23,9 +23,7 @@ class ResultView extends GetView<ResultController> {
   @override
   Widget build(BuildContext context) {
     final colors =
-        Theme.of(context).brightness == Brightness.light
-            ? AppThemeConfig.lightColors
-            : AppThemeConfig.darkColors;
+        AppThemeConfig.colors;
 
     return Scaffold(
       backgroundColor: colors.background,
@@ -215,9 +213,7 @@ class ResultView extends GetView<ResultController> {
   Future<void> _shareResult(BuildContext context) async {
     try {
       final colors =
-          Theme.of(context).brightness == Brightness.light
-              ? AppThemeConfig.lightColors
-              : AppThemeConfig.darkColors;
+          AppThemeConfig.colors;
 
       final result = controller.result.value!;
 

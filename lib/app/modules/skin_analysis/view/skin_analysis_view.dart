@@ -38,9 +38,7 @@ class _SkinAnalysisViewState extends State<SkinAnalysisView> {
   @override
   Widget build(BuildContext context) {
     final colors =
-        Theme.of(context).brightness == Brightness.light
-            ? AppThemeConfig.lightColors
-            : AppThemeConfig.darkColors;
+        AppThemeConfig.colors;
     Get.put(SkinAnalysisController());
 
     return GetBuilder<SkinAnalysisController>(

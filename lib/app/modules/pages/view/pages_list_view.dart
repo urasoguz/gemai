@@ -12,9 +12,7 @@ class PagesListView extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.find<PagesController>();
     final colors =
-        Theme.of(context).brightness == Brightness.light
-            ? AppThemeConfig.lightColors
-            : AppThemeConfig.darkColors;
+        AppThemeConfig.colors;
 
     return Scaffold(
       backgroundColor: colors.background,

@@ -15,9 +15,7 @@ class ResultChipCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors =
-        Theme.of(context).brightness == Brightness.light
-            ? AppThemeConfig.lightColors
-            : AppThemeConfig.darkColors;
+        AppThemeConfig.colors;
     if (items.isEmpty) return const SizedBox.shrink();
     // Sade chip kartı
     return Container(

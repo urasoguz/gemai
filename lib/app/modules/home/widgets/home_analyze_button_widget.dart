@@ -46,9 +46,7 @@ class _HomeAnalyzeButtonWidgetState extends State<HomeAnalyzeButtonWidget>
 
   void _onTapUp(TapUpDetails details) {
     final colors =
-        Theme.of(context).brightness == Brightness.light
-            ? AppThemeConfig.lightColors
-            : AppThemeConfig.darkColors;
+        AppThemeConfig.colors;
     _controller.reverse();
     if (remainingToken == 0 && ispremium == true) {
       ShrineDialogService.showInfo('scan_dialog_125'.tr, colors);
@@ -67,9 +65,7 @@ class _HomeAnalyzeButtonWidgetState extends State<HomeAnalyzeButtonWidget>
   Widget build(BuildContext context) {
     // Tema renklerini al
     final colors =
-        Theme.of(context).brightness == Brightness.light
-            ? AppThemeConfig.lightColors
-            : AppThemeConfig.darkColors;
+        AppThemeConfig.colors;
 
     return Column(
       children: [

@@ -29,8 +29,8 @@ class HomeAppBar extends StatelessWidget {
                         letterSpacing: 2,
                         color:
                             Theme.of(context).brightness == Brightness.light
-                                ? AppThemeConfig.lightColors.textPrimary
-                                : AppThemeConfig.darkColors.textPrimary,
+                                ? AppThemeConfig.colors.textPrimary
+                                : AppThemeConfig.colors.textPrimary,
                       ),
                     ),
                   ),
@@ -41,8 +41,8 @@ class HomeAppBar extends StatelessWidget {
                     size: 26,
                     color:
                         Theme.of(context).brightness == Brightness.light
-                            ? AppThemeConfig.lightColors.textPrimary
-                            : AppThemeConfig.darkColors.textPrimary,
+                            ? AppThemeConfig.colors.textPrimary
+                            : AppThemeConfig.colors.textPrimary,
                   ),
                   onPressed: () {
                     Get.toNamed(AppRoutes.settings);
@@ -64,8 +64,8 @@ class HomeAppBar extends StatelessWidget {
             thickness: 1,
             color:
                 Theme.of(context).brightness == Brightness.light
-                    ? AppThemeConfig.lightColors.divider
-                    : AppThemeConfig.darkColors.divider,
+                    ? AppThemeConfig.colors.divider
+                    : AppThemeConfig.colors.divider,
           ),
         ],
       ),

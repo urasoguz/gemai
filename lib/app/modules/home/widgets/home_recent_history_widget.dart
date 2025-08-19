@@ -12,9 +12,7 @@ class HomeRecentHistoryWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     // Tema renklerini al
     final colors =
-        Theme.of(context).brightness == Brightness.light
-            ? AppThemeConfig.lightColors
-            : AppThemeConfig.darkColors;
+        AppThemeConfig.colors;
 
     final homeController = Get.find<HomeController>();
     return Column(

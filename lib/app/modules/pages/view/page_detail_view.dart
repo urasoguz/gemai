@@ -12,9 +12,7 @@ class PageDetailView extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.find<PageDetailController>();
     final colors =
-        Theme.of(context).brightness == Brightness.light
-            ? AppThemeConfig.lightColors
-            : AppThemeConfig.darkColors;
+        AppThemeConfig.colors;
 
     // Controller'a arguments'ı yükle
     controller.loadPageFromArguments();

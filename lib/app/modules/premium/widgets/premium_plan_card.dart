@@ -33,10 +33,7 @@ class PremiumPlanCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Dark/Light mode uyumlu renkler
-    final colors =
-        Theme.of(context).brightness == Brightness.light
-            ? AppThemeConfig.lightColors
-            : AppThemeConfig.darkColors;
+            final colors = AppThemeConfig.colors;
 
     final isDark = Theme.of(context).brightness == Brightness.dark;
 

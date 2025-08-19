@@ -249,7 +249,7 @@ class _HtmlViewScreenState extends State<HtmlViewScreen> {
   /// Tema renklerini alır
   dynamic _getColors() {
     // Build context olmadan çağrıldığı için varsayılan renkleri kullanıyoruz
-    return AppThemeConfig.lightColors;
+    return AppThemeConfig.colors;
   }
 
   /// Color'ı hex string'e çevirir
@@ -264,10 +264,7 @@ class _HtmlViewScreenState extends State<HtmlViewScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final colors =
-        Theme.of(context).brightness == Brightness.light
-            ? AppThemeConfig.lightColors
-            : AppThemeConfig.darkColors;
+            final colors = AppThemeConfig.colors;
 
     return Scaffold(
       backgroundColor: colors.background,

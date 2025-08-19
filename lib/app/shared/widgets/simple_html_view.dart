@@ -19,9 +19,7 @@ class SimpleHtmlView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors =
-        Theme.of(context).brightness == Brightness.light
-            ? AppThemeConfig.lightColors
-            : AppThemeConfig.darkColors;
+        AppThemeConfig.colors;
 
     if (kDebugMode) {
       print('📄 SimpleHtmlView build:');

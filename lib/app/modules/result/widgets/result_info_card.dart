@@ -15,9 +15,7 @@ class ResultInfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors =
-        Theme.of(context).brightness == Brightness.light
-            ? AppThemeConfig.lightColors
-            : AppThemeConfig.darkColors;
+        AppThemeConfig.colors;
     // Sade bilgi kartı
     return Container(
       margin: const EdgeInsets.only(bottom: 12),

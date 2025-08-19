@@ -139,8 +139,8 @@ class SkinAnalysisController extends GetxController {
   bool _checkTokenAndPremiumStatus() {
     final colors =
         Theme.of(Get.context!).brightness == Brightness.light
-            ? AppThemeConfig.lightColors
-            : AppThemeConfig.darkColors;
+            ? AppThemeConfig.colors
+            : AppThemeConfig.colors;
     try {
       // GetStorage'dan direkt oku
       final remainingToken = userData.read(MyHelper.accountRemainingToken) ?? 0;
@@ -180,8 +180,8 @@ class SkinAnalysisController extends GetxController {
   Future<void> startAnalysis() async {
     final colors =
         Theme.of(Get.context!).brightness == Brightness.light
-            ? AppThemeConfig.lightColors
-            : AppThemeConfig.darkColors;
+            ? AppThemeConfig.colors
+            : AppThemeConfig.colors;
     // Validasyon
     if (selectedBodyParts.isEmpty) {
       ShrineDialogService.showError(

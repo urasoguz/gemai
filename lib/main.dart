@@ -1,26 +1,26 @@
-import 'package:dermai/app/core/localization/translations.dart';
-import 'package:dermai/app/core/services/theme_service.dart';
-import 'package:dermai/app/core/services/date_formatting_service.dart';
-import 'package:dermai/app/core/services/in_app_review_service.dart';
-import 'package:dermai/app/shared/controllers/lang_controller.dart';
+import 'package:gemai/app/core/localization/translations.dart';
+
+import 'package:gemai/app/core/services/date_formatting_service.dart';
+import 'package:gemai/app/core/services/in_app_review_service.dart';
+import 'package:gemai/app/shared/controllers/lang_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:dermai/app/routes/app_pages.dart';
-import 'package:dermai/app/routes/app_routes.dart';
-import 'package:dermai/app/core/services/sembast_service.dart';
+import 'package:gemai/app/routes/app_pages.dart';
+import 'package:gemai/app/routes/app_routes.dart';
+import 'package:gemai/app/core/services/sembast_service.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
-import 'package:dermai/app/core/bindings/api_bindings.dart';
-import 'package:dermai/app/core/bindings/app_settings_binding.dart';
-import 'package:dermai/app/core/network/api_client.dart';
-import 'package:dermai/app/data/api/api_endpoints.dart';
-import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/core/bindings/api_bindings.dart';
+import 'package:gemai/app/core/bindings/app_settings_binding.dart';
+import 'package:gemai/app/core/network/api_client.dart';
+import 'package:gemai/app/data/api/api_endpoints.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:shirne_dialog/shirne_dialog.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:dermai/app/core/localization/languages.dart';
-import 'package:dermai/app/core/services/network_service.dart';
-import 'package:dermai/app/shared/widgets/no_internet_screen.dart';
+import 'package:gemai/app/core/localization/languages.dart';
+import 'package:gemai/app/core/services/network_service.dart';
+import 'package:gemai/app/shared/widgets/no_internet_screen.dart';
 import 'package:upgrader/upgrader.dart';
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -58,8 +58,7 @@ void main() async {
   // Tarih formatlaması servisini kaydet
   Get.put<DateFormattingService>(DateFormattingService(), permanent: true);
 
-  // Tema servisini register et
-  Get.put<ThemeService>(ThemeService(), permanent: true);
+
 
   // In-app review servisini register et
   Get.put<InAppReviewService>(InAppReviewService(), permanent: true);
@@ -150,15 +149,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeService = Get.find<ThemeService>();
     final networkService = Get.find<NetworkService>();
 
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       navigatorKey: MyDialog.navigatorKey,
-      theme: _buildThemeData(AppThemeConfig.lightColors, Brightness.light),
-      darkTheme: _buildThemeData(AppThemeConfig.darkColors, Brightness.dark),
-      themeMode: themeService.theme,
+      theme: _buildThemeData(AppThemeConfig.colors),
       translations: AppTranslations(),
       locale: Locale(langController.currentLanguage.value),
       fallbackLocale: const Locale('en'),
@@ -194,9 +190,9 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  ThemeData _buildThemeData(ColorPalette colors, Brightness brightness) {
+  ThemeData _buildThemeData(ColorPalette colors) {
     return ThemeData(
-      brightness: brightness,
+      brightness: Brightness.light,
       primaryColor: colors.primary,
       scaffoldBackgroundColor: colors.background,
       cardColor: colors.card,

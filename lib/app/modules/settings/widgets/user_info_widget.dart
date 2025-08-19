@@ -12,9 +12,7 @@ class UserInfoWidget extends GetView<UserController> {
   @override
   Widget build(BuildContext context) {
     final colors =
-        Theme.of(context).brightness == Brightness.light
-            ? AppThemeConfig.lightColors
-            : AppThemeConfig.darkColors;
+        AppThemeConfig.colors;
     return Material(
       color: Colors.transparent,
       child: InkWell(

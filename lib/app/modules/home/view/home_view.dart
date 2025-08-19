@@ -22,9 +22,7 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     // Tema renklerini al
     final colors =
-        Theme.of(context).brightness == Brightness.light
-            ? AppThemeConfig.lightColors
-            : AppThemeConfig.darkColors;
+        AppThemeConfig.colors;
     final ispremium = GetStorage().read(MyHelper.isAccountPremium);
     final remainingToken = GetStorage().read(MyHelper.accountRemainingToken);
 

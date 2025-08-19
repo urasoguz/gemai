@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 /// Tüm tema ayarlarını merkezi olarak yöneten dosya
 /// Sadece bu dosyayı değiştirerek yeni bir uygulama oluşturabilirsiniz
 class AppThemeConfig {
-  static const String appName = 'DERMAI';
+  static const String appName = 'GEMAI';
   static const String fontFamily =
       'Roboto'; // Varsayılan font - KoHo sadece AppBar'da kullanılıyor
 
-  /// Light renk paleti - Mevcut uygulamadan alınan gerçek renkler
-  static const ColorPalette lightColors = ColorPalette(
+  /// Tek renk paleti - gemAI için özel tasarım
+  static const ColorPalette colors = ColorPalette(
     // Ana Renkler - Gradient'ten alınan renkler
     primary: Color(0xFF134E5E), // Koyu yeşil-mavi (gradient başlangıcı)
     secondary: Color(0xFF71B280), // Açık yeşil (gradient bitişi)
@@ -115,110 +115,7 @@ class AppThemeConfig {
     borderColor: Color(0xFFE0E0E0),
   );
 
-  /// Dark renk paleti - Light paletten türetilen koyu versiyonlar
-  static const ColorPalette darkColors = ColorPalette(
-    // Ana Renkler - Koyu versiyonlar
-    primary: Color(0xFF0A2E3A), // Koyu yeşil-mavi
-    secondary: Color(0xFF4A7A5A), // Koyu yeşil
-    // Arka Plan Renkleri
-    background: Color(0xFF181A20), // Koyu arka plan
-    surface: Color(0xFF23242B), // Koyu yüzey
-    card: Color(0xFF23242B), // Koyu kart rengi
-    // Metin Renkleri
-    textPrimary: Color(0xFFFFFFFF), // Beyaz metin
-    textSecondary: Color(0xFFBDBDBD), // Açık gri metin
-    textTertiary: Color(0xFFD3D3D3), // üçüncü metin rengi (gri)
-    textHint: Color(0xFF757575), // Orta gri metin
-    textLink: Color(0xFF1268A4), // Link metin rengi (mavi)
-    // UI Element Renkleri
-    appBar: Color(0xFF23242B), // Koyu AppBar
-    bottomNav: Color(0xFF23242B), // Koyu alt navigasyon
-    divider: Color(0xFF31313A), // Koyu ayırıcı
-    // Durum Renkleri (aynı kalabilir)
-    success: Color(0xFF4CAF50),
-    warning: Color(0xFFFFC700),
-    error: Color(0xFFF44336),
-    info: Color(0xFF2196F3),
-    // Gradient Renkleri
-    gradientPrimary: Color(0xFF134E5E),
-    gradientSecondary: Color(0xFF71B280),
-    //bottom navbar
-    buttonIcon: Color(0xFFFFFFFF),
-    buttonBorder: Color(0xFFFFFFFF),
-    buttonShadow: Colors.black,
-    black: Colors.black,
-    orange: Color(0xFFFF9800),
-    red: Color(0xFFF44336),
-    buttonText: Color(0xFFFFFFFF),
-    //analyze button
-    analyzeButton: Color(0xFFFFFFFF),
-    analyzeButtonIcon: Color(0xFF134E5E),
-    //camera
-    cameraScaffold: Color(0xFF000000), // Siyah arka plan
-    cameraCapturedBackground: Color(0xFF000000), // Siyah arka plan
-    cameraControlButtonIcon: Color(0xffffffff),
-    cameraBottomActionsBackgroundColor: Color(0xFF000000), // Siyah arka plan
-    cameraThemeBackgroundColor: Color(0xffffffff),
-    cameraThemeForegroundColor: Color(0xffffffff),
-    cameraCircleButtonIcon: Color(0xffffffff),
-    cameraCircleButtonBackgroundColor: Color(0xffffffff),
-    cameraCircleButtonBorder: Color(0xffffffff),
-    cameraCircleButtonShadow: Color(0xFF000000),
-    cameraScanFrameTitleText: Color(0xffffffff),
-    cameraScanFrameBorder: Color(0xFF71B280),
-    cameraScanDecorationBackground: Color(0xffffffff),
-    cameraScanDecorationShadow: Color(0xffffffff),
-    cameraScanDecorationText: Color(0xFF000000),
-    cameraScanFrameBackground: Color(0xFF000000),
-    cameraGalleryButtonBackgroundColor: Color(0xffffffff),
-    cameraGalleryButtonBorder: Color(0xffffffff),
-    cameraGalleryButtonIcon: Color(0xffffffff),
 
-    cameraAnalyzeBackground: Color(0xFF000000),
-    cameraAnalyzeBackgroundShadow: Color(0xFF000000),
-    cameraAnalyzeTitleText: Color(0xffffffff),
-    cameraAnalyzeText: Color(0xFFC7C7C7),
-    cameraAnalyzeProgressBackground: Color(0xffffffff),
-    cameraAnalyzeProgressBar: Color(0xFF71B280),
-    cameraAnalyzeLogoIcon: Color(0xffffffff),
-    cameraAnalyzeLogoIconShadow: Color(0xFF71B280),
-    cameraAnalyzeEffect: Color(0xFF71B280),
-
-    //skin analysis
-    skinAnalysisYearText: Color(0xFF134E5E),
-    symptomChipColor: Color(0xFFD32F2F),
-    bodyPartChipColor: Color(0xFFFF9800),
-    riskFactorChipColor: Color(0xFF7B1FA2),
-    treatmentChipColor: Color(0xFF009688),
-    preventionChipColor: Color(0xFF388E3C),
-    alternativeTreatmentChipColor: Color(0xFF43A047),
-
-    //result
-    severityIndicatorColor1: Color(0xFF4CAF50),
-    severityIndicatorColor2: Color(0xFFFFC107),
-    severityIndicatorColor3: Color(0xFFFF9800),
-    severityIndicatorColor4: Color(0xFFE53935),
-
-    //splash
-    splashTextColor: Color(0xFFFFFFFF),
-    splashTextShadowColor: Color(0xFF000000),
-
-    //onboarding
-    onboardingBackground: Color(0xFF181A20),
-    onboardingPageIndicatorActive: Color(0xFFFFFFFF),
-    onboardingPageIndicatorInactive: Color(0xFF757575),
-    onboardingButtonText: Color(0xFF000000),
-    onboardingButtonBackground: Color(0xFFFFFFFF),
-    onboardingButtonShadow: Color(0xFF000000),
-    onboardingSkipTextColor: Color(0xFFFFFFFF),
-    onboardingDescTextColor: Colors.white70,
-    onboardingTitleTextColor: Color(0xFFFFFFFF),
-    onboardingImageBackground: Color(0xFF181A20),
-    onboardingImageShadow: Color(0xFF000000),
-    onboardingImageIcon: Color(0xFFFFFFFF),
-    cardBackground: Color(0xFF23242B),
-    borderColor: Color(0xFF31313A),
-  );
 
   /// Tema ayarları (köşe yarıçapı, animasyon vs.)
   static const double borderRadius = 16.0; // Mevcut uygulamada kullanılan değer

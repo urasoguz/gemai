@@ -17,3 +17,6 @@ Bu dosya, proje boyunca yapılan değişikliklerin ve alınan kararların kısa 
 ## Tamamlananlar
 - Legal warning kontrolü devre dışı bırakıldı (onboarding ve splash controller'larda)
 - Legal warning modülü korundu ama kullanımı kapatıldı
+- Dark/light tema sistemi kaldırıldı, tek tema (light) kullanılıyor
+- AppThemeConfig.appName 'DERMAI' → 'GEMAI' olarak güncellendi
+- Tema servisi basitleştirildi, tema değiştirme devre dışı bırakıldı

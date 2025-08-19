@@ -12,9 +12,7 @@ class ImageResultWidget extends GetView<SkinAnalysisController> {
   @override
   Widget build(BuildContext context) {
     final colors =
-        Theme.of(context).brightness == Brightness.light
-            ? AppThemeConfig.lightColors
-            : AppThemeConfig.darkColors;
+        AppThemeConfig.colors;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
@@ -118,9 +116,7 @@ class ImageResultWidget extends GetView<SkinAnalysisController> {
 
   void _showImageDialog(BuildContext context) {
     final colors =
-        Theme.of(context).brightness == Brightness.light
-            ? AppThemeConfig.lightColors
-            : AppThemeConfig.darkColors;
+        AppThemeConfig.colors;
     showDialog(
       context: context,
       builder: (BuildContext context) {
