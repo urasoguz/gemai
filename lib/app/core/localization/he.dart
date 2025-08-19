@@ -1,5 +1,5 @@
 const Map<String, String> he = {
-  'title': 'gemai',
+  'title': 'DERMAI',
   //settings
   'settings_title': 'הגדרות',
   'settings_language': 'שנה שפה',
@@ -82,12 +82,12 @@ const Map<String, String> he = {
   // שתף
   'share_result_title': 'שתף תוצאה',
   'share_result_error': 'שגיאה בשיתוף:',
-  'share_result_share_text': 'gemai - תוצאת ניתוח\nנתח את העור שלך עם gemai!',
+  'share_result_share_text': 'DermAI - תוצאת ניתוח\nנתח את העור שלך עם DermAI!',
 
   // תכונות פרימיום
 
   //onboarding
-  'onboarding_title_1': 'ברוכים הבאים ל-gemai!',
+  'onboarding_title_1': 'ברוכים הבאים ל-DermAI!',
   'onboarding_desc_1':
       'צלם תמונה או בחר תמונה לניתוח העור. גלה את בעיות העור שלך מיד',
   'onboarding_title_2': 'בינה מלאכותית חזקה',
@@ -112,8 +112,8 @@ const Map<String, String> he = {
   'history': 'היסטוריה',
 
   //camera
-  'camera_scan_title': 'סורק עור gemai',
-  'camera_scanning': 'gemai מנתח',
+  'camera_scan_title': 'סורק עור DermAI',
+  'camera_scanning': 'DermAI מנתח',
   'camera_scanning_desc': 'מחלת העור שלך נסרקת...',
   'camera_scan_desc': 'הנח את מחלת העור במסגרת',
 
@@ -130,7 +130,7 @@ const Map<String, String> he = {
 
   // דוא"ל יצירת קשר
   'contact_text': 'אתה יכול להשתמש בכתובת הדוא"ל למטה כדי ליצור איתנו קשר',
-  'contact_mail_subject': 'gemai - בקשת יצירת קשר',
+  'contact_mail_subject': 'DermAI - בקשת יצירת קשר',
   'contact_mail_body_write_here': 'כתוב את ההודעה שלך כאן...',
   'contact_mail_user_id': 'מזהה משתמש',
   'contact_mail_device_type': 'סוג מכשיר',
@@ -172,6 +172,8 @@ const Map<String, String> he = {
   'result_severity_very_high': 'חמור',
   'result_severity_very_very_high': 'חמור מאוד',
   'result_severity_very_very_very_high': 'חמור ביותר',
+  'result_reference': 'מקור',
+  'result_reference_error': 'לא ניתן לפתוח קישור מקור:',
 
   //דיאלוגי סריקה
   'scan_dialog_title': 'שגיאה',
@@ -195,7 +197,7 @@ const Map<String, String> he = {
   //דיאלוג יצירת קשר
   'contact_dialog_title': 'צור קשר',
   'contact_dialog_message':
-      'האם תרצה לפתוח את אפליקציית הדוא"ל כדי לשלוח לנו דוא"ל?\n\nכתובת דוא"ל: contact@gemai.us',
+      'האם תרצה לפתוח את אפליקציית הדוא"ל כדי לשלוח לנו דוא"ל?\n\nכתובת דוא"ל: contact@dermai.us',
   'contact_email_copied': 'כתובת הדוא"ל הועתקה',
   'contact_dialog_cancel': 'ביטול',
   'contact_dialog_send': 'שלח דוא"ל',

@@ -1,5 +1,5 @@
 const Map<String, String> ur = {
-  'title': 'gemai',
+  'title': 'DERMAI',
   //settings
   'settings_title': 'ترتیبات',
   'settings_language': 'زبان تبدیل کریں',
@@ -84,12 +84,12 @@ const Map<String, String> ur = {
   'share_result_title': 'نتیجہ شیئر کریں',
   'share_result_error': 'شیئر کرنے میں خرابی:',
   'share_result_share_text':
-      'gemai - تجزیہ کا نتیجہ\ngemai کے ساتھ اپنی جلد کا تجزیہ کریں!',
+      'DermAI - تجزیہ کا نتیجہ\nDermAI کے ساتھ اپنی جلد کا تجزیہ کریں!',
 
   // پریمیم خصوصیات
 
   //onboarding
-  'onboarding_title_1': 'gemai میں خوش آمدید!',
+  'onboarding_title_1': 'DermAI میں خوش آمدید!',
   'onboarding_desc_1':
       'جلد کی تجزیہ کے لیے تصویر کھینچیں یا تصویر منتخب کریں۔ اپنی جلد کی مسائل کو فوراً دریافت کریں۔',
   'onboarding_title_2': 'طاقتور مصنوعی ذہانت',
@@ -116,8 +116,8 @@ const Map<String, String> ur = {
   'history': 'تاریخ',
 
   //camera
-  'camera_scan_title': 'gemai جلد اسکینر',
-  'camera_scanning': 'gemai تجزیہ کر رہا ہے',
+  'camera_scan_title': 'DermAI جلد اسکینر',
+  'camera_scanning': 'DermAI تجزیہ کر رہا ہے',
   'camera_scanning_desc': 'آپ کی جلد کی بیماری اسکین ہو رہی ہے...',
   'camera_scan_desc': 'جلد کی بیماری کو فریم میں رکھیں',
 
@@ -135,7 +135,7 @@ const Map<String, String> ur = {
   // رابطہ میل
   'contact_text':
       'ہم سے رابطہ کرنے کے لیے آپ نیچے دیے گئے ای میل پتے کا استعمال کر سکتے ہیں۔',
-  'contact_mail_subject': 'gemai - رابطے کی درخواست',
+  'contact_mail_subject': 'DermAI - رابطے کی درخواست',
   'contact_mail_body_write_here': 'اپنا پیغام یہاں لکھیں...',
   'contact_mail_user_id': 'صارف کی شناخت',
   'contact_mail_device_type': 'ڈیوائس کی قسم',
@@ -177,6 +177,8 @@ const Map<String, String> ur = {
   'result_severity_very_high': 'شدید',
   'result_severity_very_very_high': 'بہت شدید',
   'result_severity_very_very_very_high': 'انتہائی شدید',
+  'result_reference': 'ریفرنس',
+  'result_reference_error': 'ریفرنس لنک کھولنے میں خرابی آئی۔',
 
   //اسکین ڈائیلاگ
   'scan_dialog_title': 'خرابی',
@@ -201,7 +203,7 @@ const Map<String, String> ur = {
   //رابطہ ڈائیلاگ
   'contact_dialog_title': 'رابطہ',
   'contact_dialog_message':
-      'کیا آپ ہمیں میل بھیجنے کے لیے اپنی میل ایپ کھولنا چاہتے ہیں؟\n\nمیل کا پتہ: contact@gemai.us',
+      'کیا آپ ہمیں میل بھیجنے کے لیے اپنی میل ایپ کھولنا چاہتے ہیں؟\n\nمیل کا پتہ: contact@dermai.us',
   'contact_email_copied': 'میل کا پتہ کاپی ہو گیا',
   'contact_dialog_cancel': 'منسوخ کریں',
   'contact_dialog_send': 'میل بھیجیں',

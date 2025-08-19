@@ -1,8 +1,8 @@
-import 'package:gemai/app/data/api/base_api_service.dart';
-import 'package:gemai/app/data/api/api_endpoints.dart';
-import 'package:gemai/app/data/model/response/response_model.dart';
-import 'package:gemai/app/data/model/skin_analysis/skin_analysis_request_model.dart';
-import 'package:gemai/app/data/model/response/scan_result_model.dart';
+import 'package:dermai/app/data/api/base_api_service.dart';
+import 'package:dermai/app/data/api/api_endpoints.dart';
+import 'package:dermai/app/data/model/response/response_model.dart';
+import 'package:dermai/app/data/model/skin_analysis/skin_analysis_request_model.dart';
+import 'package:dermai/app/data/model/response/scan_result_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 

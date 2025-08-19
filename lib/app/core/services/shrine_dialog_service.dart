@@ -1,11 +1,11 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
-import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:dermai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:shirne_dialog/shirne_dialog.dart';
-import 'package:gemai/app/routes/app_routes.dart';
+import 'package:dermai/app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
-import 'package:gemai/app/data/model/response/response_model.dart';
+import 'package:dermai/app/data/model/response/response_model.dart';
 
 class ShrineDialogService {
   /// Hata koduna göre uygun shirne dialog'u gösterir

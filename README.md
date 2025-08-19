@@ -1,4 +1,4 @@
-# gemai
+# dermai
 
 A new Flutter project.
 

@@ -1,5 +1,5 @@
 const Map<String, String> ku = {
-  'title': 'gemai',
+  'title': 'DERMAI',
   //settings
   'settings_title': 'Mîhengên',
   'settings_language': 'Zimanî biguherîne',
@@ -88,12 +88,12 @@ const Map<String, String> ku = {
   'share_result_title': 'Encamê Parve Bike',
   'share_result_error': 'Di parvekirinê de çewtiyek çêbû:',
   'share_result_share_text':
-      'gemai - Encama Analîza\nPîstê xwe bi gemai analîz bikin!',
+      'DermAI - Encama Analîza\nPîstê xwe bi DermAI analîz bikin!',
 
   // Taybetmendiyên premium
 
   //onboarding
-  'onboarding_title_1': 'Bi xêr hatî gemai!',
+  'onboarding_title_1': 'Bi xêr hatî DermAI!',
   'onboarding_desc_1':
       'Ji bo analîza çermê wêneyek bigire an jî wêneyekê hilbijêre. Pirsgirêkên çermê yên we bi lezkeşf bike',
   'onboarding_title_2': 'AI ya bihêz',
@@ -120,8 +120,8 @@ const Map<String, String> ku = {
   'history': 'Dîrok',
 
   //camera
-  'camera_scan_title': 'Skanera çermê ya gemai',
-  'camera_scanning': 'gemai analîz dike',
+  'camera_scan_title': 'Skanera çermê ya DermAI',
+  'camera_scanning': 'DermAI analîz dike',
   'camera_scanning_desc': 'Nexweşiya çermê ya we tê skan kirin...',
   'camera_scan_desc': 'Nexweşiya çermê ya we di çarçoveyê de bixe',
 
@@ -139,7 +139,7 @@ const Map<String, String> ku = {
   // Poçta têkilî
   'contact_text':
       'Hûn dikarin ji bo têkilî bi me re navnîşana e-name ya jêrîn bikar bînin',
-  'contact_mail_subject': 'gemai - Daxwaza têkilî',
+  'contact_mail_subject': 'DermAI - Daxwaza têkilî',
   'contact_mail_body_write_here': 'Peyama xwe li vir binivîse...',
   'contact_mail_user_id': 'Nasnameya bikarhêner',
   'contact_mail_device_type': 'Cureya amûrê',
@@ -181,6 +181,8 @@ const Map<String, String> ku = {
   'result_severity_very_high': 'Giranîya bilind',
   'result_severity_very_very_high': 'Pir bilind giran',
   'result_severity_very_very_very_high': 'Giranîya pir zêde bilind',
+  'result_reference': 'Merkê',
+  'result_reference_error': 'Merkê linkê nehat vekirin',
 
   //diyalogên skanê
   'scan_dialog_title': 'Çewtiye',
@@ -205,7 +207,7 @@ const Map<String, String> ku = {
   //Diyaloga têkilî
   'contact_dialog_title': 'Têkilî',
   'contact_dialog_message':
-      'Hûn dixwazin serlêdana e-name ya xwe veke ji bo şandina e-nameyekê bi me re?\n\nNavnîşana e-nameyê: contact@gemai.us',
+      'Hûn dixwazin serlêdana e-name ya xwe veke ji bo şandina e-nameyekê bi me re?\n\nNavnîşana e-nameyê: contact@dermai.us',
   'contact_email_copied': 'Navnîşana e-nameyê hat kopîkirin',
   'contact_dialog_cancel': 'Betal bike',
   'contact_dialog_send': 'E-nameyê bişîne',

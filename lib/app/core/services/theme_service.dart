@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:gemai/app/shared/helpers/my_helper.dart';
+import 'package:dermai/app/shared/helpers/my_helper.dart';
 
 class ThemeService {
   final _box = GetStorage();

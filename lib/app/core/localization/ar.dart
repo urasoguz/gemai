@@ -1,5 +1,5 @@
 const Map<String, String> ar = {
-  'title': 'gemai',
+  'title': 'DERMAI',
   //settings
   'settings_title': 'الإعدادات',
   'settings_language': 'تغيير اللغة',
@@ -81,12 +81,12 @@ const Map<String, String> ar = {
   // مشاركة
   'share_result_title': 'مشاركة النتيجة',
   'share_result_error': 'خطأ في المشاركة:',
-  'share_result_share_text': 'gemai - نتيجة تحليل\nحلل بشرتك مع gemai!',
+  'share_result_share_text': 'DermAI - نتيجة تحليل\nحلل بشرتك مع DermAI!',
 
   // الميزات المميزة
 
   //onboarding
-  'onboarding_title_1': 'مرحباً بك في gemai!',
+  'onboarding_title_1': 'مرحباً بك في DermAI!',
   'onboarding_desc_1':
       'التقط صورة أو اختر صورة لتحليل الجلد. اكتشف مشاكل بشرتك فوراً.',
   'onboarding_title_2': 'ذكاء اصطناعي قوي',
@@ -111,8 +111,8 @@ const Map<String, String> ar = {
   'history': 'السجل',
 
   //camera
-  'camera_scan_title': 'ماسح الجلد gemai',
-  'camera_scanning': 'gemai يقوم بالتحليل',
+  'camera_scan_title': 'ماسح الجلد DermAI',
+  'camera_scanning': 'DermAI يقوم بالتحليل',
   'camera_scanning_desc': 'يتم مسح مرض الجلد الخاص بك...',
   'camera_scan_desc': 'ضع مرض الجلد الخاص بك داخل الإطار',
 
@@ -129,7 +129,7 @@ const Map<String, String> ar = {
 
   // بريد الاتصال
   'contact_text': 'يمكنك استخدام عنوان البريد الإلكتروني التالي للاتصال بنا.',
-  'contact_mail_subject': 'gemai - طلب الاتصال',
+  'contact_mail_subject': 'DermAI - طلب الاتصال',
   'contact_mail_body_write_here': 'اكتب رسالتك هنا...',
   'contact_mail_user_id': 'معرف المستخدم',
   'contact_mail_device_type': 'نوع الجهاز',
@@ -171,6 +171,8 @@ const Map<String, String> ar = {
   'result_severity_very_high': 'خطورة عالية',
   'result_severity_very_very_high': 'خطورة عالية جداً',
   'result_severity_very_very_very_high': 'خطورة عالية للغاية',
+  'result_reference': 'المصدر',
+  'result_reference_error': 'لا يمكن فتح رابط المصدر:',
 
   //حوارات المسح
   'scan_dialog_title': 'خطأ',
@@ -195,7 +197,7 @@ const Map<String, String> ar = {
   //حوار الاتصال
   'contact_dialog_title': 'اتصل بنا',
   'contact_dialog_message':
-      'هل تريد فتح تطبيق البريد الإلكتروني لإرسال رسالة إلينا؟\n\nعنوان البريد: contact@gemai.us',
+      'هل تريد فتح تطبيق البريد الإلكتروني لإرسال رسالة إلينا؟\n\nعنوان البريد: contact@dermai.us',
   'contact_email_copied': 'تم نسخ عنوان البريد الإلكتروني',
   'contact_dialog_cancel': 'إلغاء',
   'contact_dialog_send': 'إرسال البريد',

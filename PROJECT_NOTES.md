@@ -13,3 +13,7 @@ Bu dosya, proje boyunca yapılan değişikliklerin ve alınan kararların kısa 
 - UI teması ve bileşenlerinin gemAI tasarımına uyarlanması
 - Kalan `package:dermai` importlarının tamamının `package:gemai` ile güncellenmesi
 - Modüllerin gereksiz kısımlarının kaldırılması ve yeni özelliklerin eklenmesi
+
+## Tamamlananlar
+- Legal warning kontrolü devre dışı bırakıldı (onboarding ve splash controller'larda)
+- Legal warning modülü korundu ama kullanımı kapatıldı

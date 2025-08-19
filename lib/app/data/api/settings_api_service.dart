@@ -1,7 +1,7 @@
-import 'package:gemai/app/data/api/base_api_service.dart';
-import 'package:gemai/app/data/api/api_endpoints.dart';
-import 'package:gemai/app/data/model/response/response_model.dart';
-import 'package:gemai/app/shared/models/app_settings_model.dart';
+import 'package:dermai/app/data/api/base_api_service.dart';
+import 'package:dermai/app/data/api/api_endpoints.dart';
+import 'package:dermai/app/data/model/response/response_model.dart';
+import 'package:dermai/app/shared/models/app_settings_model.dart';
 import 'package:flutter/foundation.dart';
 
 // Ayarlar API servisi - Uygulama ayarlarını çeker

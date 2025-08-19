@@ -1,12 +1,12 @@
 import 'package:dash_flags/dash_flags.dart';
-import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:dermai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:gemai/app/shared/controllers/lang_controller.dart';
-import 'package:gemai/app/core/localization/languages.dart';
-import 'package:gemai/app/shared/widgets/modular_app_bar.dart';
+import 'package:dermai/app/shared/controllers/lang_controller.dart';
+import 'package:dermai/app/core/localization/languages.dart';
+import 'package:dermai/app/shared/widgets/modular_app_bar.dart';
 
 class LanguageView extends GetView<LangController> {
   const LanguageView({super.key});
@@ -148,6 +148,7 @@ class CustomRadioListTile extends StatelessWidget {
               groupValue: groupValue,
               onChanged: onChanged,
               activeColor: colors.textLink,
+              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
             ),
           ],
         ),

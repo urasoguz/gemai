@@ -1,11 +1,11 @@
-# 📱 gemai Yayın Rehberi - Adım Adım
+# 📱 DermAI Yayın Rehberi - Adım Adım
 
 ## 🚀 **1. ANDROID PACKAGE NAME AYARLAMA**
 
 ### ✅ **Tamamlandı:**
 - `android/app/build.gradle.kts` dosyasında:
-  - `namespace = "com.gemai.app"`
-  - `applicationId = "com.gemai.app"`
+  - `namespace = "com.dermai.app"`
+  - `applicationId = "com.dermai.app"`
 
 ### 🔧 **Kontrol:**
 ```bash
@@ -20,14 +20,14 @@ flutter build apk --release
 1. **https://appstoreconnect.apple.com** → **"My Apps"**
 2. **"+"** → **"New App"**
 3. **Platforms**: iOS
-4. **Bundle ID**: `com.gemai.app`
-5. **App Name**: `gemai`
+4. **Bundle ID**: `com.dermai.app`
+5. **App Name**: `DermAI`
 6. **Primary Language**: Turkish
-7. **SKU**: `gemai_skin_analysis`
+7. **SKU**: `dermai_skin_analysis`
 8. **User Access**: Full Access
 
 ### **Adım 2: App Information**
-- **App Name**: `gemai`
+- **App Name**: `DermAI`
 - **Subtitle**: `AI Cilt Analizi`
 - **Keywords**: `skin,analysis,ai,artificial,intelligence,dermatology,beauty,health`
 - **Description**: `ios/AppStoreMetadata.md` dosyasındaki metni kopyalayın
@@ -48,14 +48,14 @@ flutter build apk --release
 
 ### **Adım 1: App Oluşturma**
 1. **https://play.google.com/console** → **"Create app"**
-2. **App name**: `gemai`
+2. **App name**: `DermAI`
 3. **Default language**: Turkish
 4. **App or game**: App
 5. **Free or paid**: Free
 6. **Create app**
 
 ### **Adım 2: Store Listing**
-- **App name**: `gemai`
+- **App name**: `DermAI`
 - **Short description**: `AI destekli cilt analizi uygulaması`
 - **Full description**: `android/PlayStoreMetadata.md` dosyasındaki metni kopyalayın
 - **App category**: `Medical` veya `Health & Fitness`
@@ -74,8 +74,8 @@ flutter build apk --release
 ## 📋 **4. YAYIN ÖNCESİ KONTROL LİSTESİ**
 
 ### **App Store:**
-- [ ] Bundle ID: `com.gemai.app`
-- [ ] App Name: `gemai`
+- [ ] Bundle ID: `com.dermai.app`
+- [ ] App Name: `DermAI`
 - [ ] Version: `1.0.0`
 - [ ] Screenshots hazır
 - [ ] Description yazıldı
@@ -84,8 +84,8 @@ flutter build apk --release
 - [ ] Support URL eklendi
 
 ### **Play Store:**
-- [ ] Package Name: `com.gemai.app`
-- [ ] App Name: `gemai`
+- [ ] Package Name: `com.dermai.app`
+- [ ] App Name: `DermAI`
 - [ ] Version: `1.0.0`
 - [ ] Screenshots hazır
 - [ ] Description yazıldı
@@ -138,7 +138,7 @@ flutter build appbundle --release
 
 ## 🎯 **SONUÇ**
 
-**gemai uygulamanız şu anda %95 yayına hazır!**
+**DermAI uygulamanız şu anda %95 yayına hazır!**
 
 Sadece App Store Connect ve Google Play Console'da metadata girmeniz gerekiyor. Tüm teknik konfigürasyonlar tamamlandı!
 

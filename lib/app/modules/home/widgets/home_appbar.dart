@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gemai/app/routes/app_routes.dart';
+import 'package:dermai/app/routes/app_routes.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:dermai/app/core/theme/app_theme_config.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({super.key});

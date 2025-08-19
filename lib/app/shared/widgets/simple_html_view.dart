@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:dermai/app/core/theme/app_theme_config.dart';
 
 /// Basit HTML içerik gösterici - Sadece text olarak
 class SimpleHtmlView extends StatelessWidget {

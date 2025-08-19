@@ -1,14 +1,14 @@
 import 'dart:io';
-import 'package:gemai/app/core/theme/app_theme_config.dart';
-import 'package:gemai/app/routes/app_routes.dart';
+import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:dermai/app/routes/app_routes.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:camerawesome/camerawesome_plugin.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:gemai/app/modules/camera/controller/camera_controller.dart';
+import 'package:dermai/app/modules/camera/controller/camera_controller.dart';
 
-/// gemai için Camerawesome ile gömülü kamera widget'ı
+/// DermAI için Camerawesome ile gömülü kamera widget'ı
 class CamerawesomeWidget extends GetView<CameraController> {
   const CamerawesomeWidget({super.key});
 
@@ -246,95 +246,174 @@ class CamerawesomeWidget extends GetView<CameraController> {
             ? AppThemeConfig.lightColors
             : AppThemeConfig.darkColors;
 
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          // gemai başlığı
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            decoration: BoxDecoration(
-              color: colors.cameraScanFrameBackground.withValues(alpha: 0.6),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Text(
-              'camera_scan_title'.tr,
-              style: TextStyle(
-                color: colors.cameraScanFrameTitleText,
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ),
-          const SizedBox(height: 40),
+    // Responsive boyutlandırma
+    final screenHeight = MediaQuery.of(context).size.height;
+    final isSmallScreen = screenHeight < 700;
+    final isVerySmallScreen = screenHeight < 650;
 
-          // Tarama çerçevesi
-          Container(
-            width: 280,
-            height: 280,
-            decoration: BoxDecoration(
-              border: Border.all(color: colors.cameraScanFrameBorder, width: 2),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Stack(
-              children: [
-                // Köşe işaretleri
-                Positioned(
-                  top: -1,
-                  left: -1,
-                  child: _cornerBox(topLeft: true, context: context),
-                ),
-                Positioned(
-                  top: -1,
-                  right: -1,
-                  child: _cornerBox(topRight: true, context: context),
-                ),
-                Positioned(
-                  bottom: -1,
-                  left: -1,
-                  child: _cornerBox(bottomLeft: true, context: context),
-                ),
-                Positioned(
-                  bottom: -1,
-                  right: -1,
-                  child: _cornerBox(bottomRight: true, context: context),
-                ),
-              ],
-            ),
-          ),
+    // Responsive boyutlar
+    final frameSize =
+        isVerySmallScreen
+            ? 200.0
+            : isSmallScreen
+            ? 240.0
+            : 280.0;
+    final middleSpacing =
+        isVerySmallScreen
+            ? 20.0
+            : isSmallScreen
+            ? 30.0
+            : 40.0;
+    final bottomSpacing =
+        isVerySmallScreen
+            ? 16.0
+            : isSmallScreen
+            ? 20.0
+            : 30.0;
 
-          const SizedBox(height: 30),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        // Ekran boyutlarını kontrol et
+        final availableHeight = constraints.maxHeight;
+        final isMediumScreen = screenHeight >= 650 && screenHeight < 750;
 
-          // Talimat metni
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-            decoration: BoxDecoration(
-              color: colors.cameraScanDecorationBackground.withValues(
-                alpha: 0.9,
-              ),
-              borderRadius: BorderRadius.circular(20),
-              boxShadow: [
-                BoxShadow(
-                  color: colors.cameraScanDecorationShadow.withValues(
-                    alpha: 0.1,
+        return SizedBox(
+          width: double.infinity,
+          height: availableHeight,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // Üst boşluk - grup ortada olsun diye
+              const Expanded(flex: 1, child: SizedBox.shrink()),
+
+              // Ana içerik grubu
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  // DermAI başlığı - Responsive
+                  Container(
+                    margin: EdgeInsets.symmetric(
+                      horizontal: isSmallScreen ? 24 : 32,
+                    ),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: isSmallScreen ? 16 : 20,
+                      vertical: isSmallScreen ? 8 : 10,
+                    ),
+                    decoration: BoxDecoration(
+                      color: colors.cameraScanFrameBackground.withValues(
+                        alpha: 0.6,
+                      ),
+                      borderRadius: BorderRadius.circular(
+                        isSmallScreen ? 16 : 20,
+                      ),
+                    ),
+                    child: Text(
+                      'camera_scan_title'.tr,
+                      style: TextStyle(
+                        color: colors.cameraScanFrameTitleText,
+                        fontSize: isSmallScreen ? 14 : 16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                   ),
-                  blurRadius: 10,
-                  offset: const Offset(0, 4),
-                ),
-              ],
-            ),
-            child: Text(
-              'camera_scan_desc'.tr,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-                color: colors.cameraScanDecorationText,
+
+                  SizedBox(height: middleSpacing),
+
+                  // Tarama çerçevesi - Responsive
+                  Container(
+                    width: frameSize,
+                    height: frameSize,
+                    margin: EdgeInsets.symmetric(
+                      horizontal: isSmallScreen ? 24 : 32,
+                    ),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: colors.cameraScanFrameBorder,
+                        width: 2,
+                      ),
+                      borderRadius: BorderRadius.circular(
+                        isSmallScreen ? 16 : 20,
+                      ),
+                    ),
+                    child: Stack(
+                      children: [
+                        // Köşe işaretleri
+                        Positioned(
+                          top: -1,
+                          left: -1,
+                          child: _cornerBox(topLeft: true, context: context),
+                        ),
+                        Positioned(
+                          top: -1,
+                          right: -1,
+                          child: _cornerBox(topRight: true, context: context),
+                        ),
+                        Positioned(
+                          bottom: -1,
+                          left: -1,
+                          child: _cornerBox(bottomLeft: true, context: context),
+                        ),
+                        Positioned(
+                          bottom: -1,
+                          right: -1,
+                          child: _cornerBox(
+                            bottomRight: true,
+                            context: context,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  SizedBox(height: bottomSpacing),
+
+                  // Talimat metni - Responsive
+                  Container(
+                    margin: EdgeInsets.symmetric(
+                      horizontal: isSmallScreen ? 24 : 32,
+                    ),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: isSmallScreen ? 16 : 24,
+                      vertical: isSmallScreen ? 8 : 12,
+                    ),
+                    decoration: BoxDecoration(
+                      color: colors.cameraScanDecorationBackground.withValues(
+                        alpha: 0.9,
+                      ),
+                      borderRadius: BorderRadius.circular(
+                        isSmallScreen ? 16 : 20,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: colors.cameraScanDecorationShadow.withValues(
+                            alpha: 0.1,
+                          ),
+                          blurRadius: 10,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                    child: Text(
+                      'camera_scan_desc'.tr,
+                      style: TextStyle(
+                        fontSize: isSmallScreen ? 14 : 16,
+                        fontWeight: FontWeight.w500,
+                        color: colors.cameraScanDecorationText,
+                      ),
+                      textAlign: TextAlign.center,
+                      maxLines: isMediumScreen ? 2 : 3,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ],
               ),
-              textAlign: TextAlign.center,
-            ),
+
+              // Alt boşluk - grup ortada olsun diye
+              const Expanded(flex: 1, child: SizedBox.shrink()),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 

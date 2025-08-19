@@ -1,5 +1,5 @@
 const Map<String, String> vi = {
-  'title': 'gemai',
+  'title': 'DERMAI',
   //settings
   'settings_title': 'Cài đặt',
   'settings_language': 'Thay đổi Ngôn ngữ',
@@ -86,12 +86,12 @@ const Map<String, String> vi = {
   'share_result_title': 'Chia sẻ Kết quả',
   'share_result_error': 'Lỗi khi chia sẻ:',
   'share_result_share_text':
-      'gemai - Kết quả Phân tích\nPhân tích da của bạn với gemai!',
+      'DermAI - Kết quả Phân tích\nPhân tích da của bạn với DermAI!',
 
   // Tính năng Premium
 
   //onboarding
-  'onboarding_title_1': 'Chào mừng đến với gemai!',
+  'onboarding_title_1': 'Chào mừng đến với DermAI!',
   'onboarding_desc_1':
       'Chụp ảnh hoặc chọn hình ảnh để phân tích da. Khám phá các vấn đề về da của bạn ngay lập tức.',
   'onboarding_title_2': 'Trí tuệ Nhân tạo Mạnh mẽ',
@@ -118,8 +118,8 @@ const Map<String, String> vi = {
   'history': 'Lịch sử',
 
   //camera
-  'camera_scan_title': 'Máy quét Da gemai',
-  'camera_scanning': 'gemai đang Phân tích',
+  'camera_scan_title': 'Máy quét Da DermAI',
+  'camera_scanning': 'DermAI đang Phân tích',
   'camera_scanning_desc': 'Bệnh da của bạn đang được quét...',
   'camera_scan_desc': 'Đặt bệnh da trong khung',
 
@@ -137,7 +137,7 @@ const Map<String, String> vi = {
   // Liên hệ email
   'contact_text':
       'Bạn có thể sử dụng địa chỉ email dưới đây để liên hệ với chúng tôi.',
-  'contact_mail_subject': 'gemai - Yêu cầu Liên hệ',
+  'contact_mail_subject': 'DermAI - Yêu cầu Liên hệ',
   'contact_mail_body_write_here': 'Viết tin nhắn của bạn ở đây...',
   'contact_mail_user_id': 'ID Người dùng',
   'contact_mail_device_type': 'Loại Thiết bị',
@@ -179,6 +179,8 @@ const Map<String, String> vi = {
   'result_severity_very_high': 'Nặng',
   'result_severity_very_very_high': 'Rất Nặng',
   'result_severity_very_very_very_high': 'Cực kỳ Nặng',
+  'result_reference': 'Tham khảo',
+  'result_reference_error': 'Không thể mở liên kết tham khảo:',
 
   //hộp thoại quét
   'scan_dialog_title': 'Lỗi',
@@ -202,7 +204,7 @@ const Map<String, String> vi = {
   //Hộp thoại liên hệ
   'contact_dialog_title': 'Liên hệ',
   'contact_dialog_message':
-      'Bạn có muốn mở ứng dụng email để gửi tin nhắn cho chúng tôi không?\n\nĐịa chỉ Email: contact@gemai.us',
+      'Bạn có muốn mở ứng dụng email để gửi tin nhắn cho chúng tôi không?\n\nĐịa chỉ Email: contact@dermai.us',
   'contact_email_copied': 'Địa chỉ email đã được sao chép',
   'contact_dialog_cancel': 'Hủy',
   'contact_dialog_send': 'Gửi Email',

@@ -1,5 +1,5 @@
 const Map<String, String> ru = {
-  'title': 'gemai',
+  'title': 'DERMAI',
 
   //settings
   'settings_title': 'Настройки',
@@ -87,7 +87,7 @@ const Map<String, String> ru = {
   'share_result_title': 'Поделиться Результатом',
   'share_result_error': 'Ошибка при обмене:',
   'share_result_share_text':
-      'gemai - Результат Анализа\nПроанализируйте свою кожу с gemai!',
+      'DermAI - Результат Анализа\nПроанализируйте свою кожу с DermAI!',
 
   //onboarding
   'onboarding_title_1': 'Добро пожаловать в Дермай!',
@@ -177,6 +177,8 @@ const Map<String, String> ru = {
   'result_severity_very_high': 'Тяжелая',
   'result_severity_very_very_high': 'Очень тяжелая',
   'result_severity_very_very_very_high': 'Крайне тяжелая',
+  'result_reference': 'Ссылка',
+  'result_reference_error': 'Не удалось открыть ссылку:',
 
   //scan dialogs
   'scan_dialog_title': 'Ошибка',
@@ -205,7 +207,7 @@ const Map<String, String> ru = {
   //Contact dialog
   'contact_dialog_title': 'Контакты',
   'contact_dialog_message':
-      'Хотите ли вы открыть приложение электронной почты, чтобы отправить нам сообщение?\n\nАдрес электронной почты: contact@gemai.us',
+      'Хотите ли вы открыть приложение электронной почты, чтобы отправить нам сообщение?\n\nАдрес электронной почты: contact@dermai.us',
   'contact_email_copied': 'Адрес электронной почты скопирован',
   'contact_dialog_cancel': 'Отмена',
   'contact_dialog_send': 'Отправить письмо',

@@ -1,5 +1,5 @@
 const Map<String, String> id = {
-  'title': 'gemai',
+  'title': 'DERMAI',
   //settings
   'settings_title': 'Pengaturan',
   'settings_language': 'Ubah Bahasa',
@@ -85,12 +85,12 @@ const Map<String, String> id = {
   'share_result_title': 'Bagikan Hasil',
   'share_result_error': 'Terjadi kesalahan saat berbagi:',
   'share_result_share_text':
-      'gemai - Hasil Analisis\nAnalisis kulit Anda dengan gemai!',
+      'DermAI - Hasil Analisis\nAnalisis kulit Anda dengan DermAI!',
 
   // Fitur Premium
 
   //onboarding
-  'onboarding_title_1': 'Selamat Datang di gemai!',
+  'onboarding_title_1': 'Selamat Datang di DermAI!',
   'onboarding_desc_1':
       'Ambil foto atau pilih gambar untuk melakukan analisis kulit. Temukan masalah kulit Anda secara instan.',
   'onboarding_title_2': 'Kecerdasan Buatan yang Kuat',
@@ -116,8 +116,8 @@ const Map<String, String> id = {
   'history': 'Riwayat',
 
   //camera
-  'camera_scan_title': 'Pemindai Kulit gemai',
-  'camera_scanning': 'gemai Menganalisis',
+  'camera_scan_title': 'Pemindai Kulit DermAI',
+  'camera_scanning': 'DermAI Menganalisis',
   'camera_scanning_desc': 'Penyakit kulit Anda sedang dipindai...',
   'camera_scan_desc': 'Tempatkan penyakit kulit Anda dalam bingkai',
 
@@ -135,7 +135,7 @@ const Map<String, String> id = {
   // Email kontak
   'contact_text':
       'Anda dapat menghubungi kami menggunakan alamat email berikut.',
-  'contact_mail_subject': 'gemai - Permintaan Kontak',
+  'contact_mail_subject': 'DermAI - Permintaan Kontak',
   'contact_mail_body_write_here': 'Tulis pesan Anda di sini...',
   'contact_mail_user_id': 'ID Pengguna',
   'contact_mail_device_type': 'Jenis Perangkat',
@@ -177,6 +177,8 @@ const Map<String, String> id = {
   'result_severity_very_high': 'Berat',
   'result_severity_very_very_high': 'Sangat Berat',
   'result_severity_very_very_very_high': 'Sangat Sangat Berat',
+  'result_reference': 'Referensi',
+  'result_reference_error': 'Tautan referensi tidak dapat dibuka:',
 
   //dialog pemindaian
   'scan_dialog_title': 'Kesalahan',
@@ -201,7 +203,7 @@ const Map<String, String> id = {
   //dialog kontak
   'contact_dialog_title': 'Kontak',
   'contact_dialog_message':
-      'Apakah Anda ingin membuka aplikasi email untuk mengirim pesan kepada kami?\n\nAlamat Email: contact@gemai.us',
+      'Apakah Anda ingin membuka aplikasi email untuk mengirim pesan kepada kami?\n\nAlamat Email: contact@dermai.us',
   'contact_email_copied': 'Alamat email disalin',
   'contact_dialog_cancel': 'Batal',
   'contact_dialog_send': 'Kirim Email',

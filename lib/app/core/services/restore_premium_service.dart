@@ -1,9 +1,9 @@
-import 'package:gemai/app/core/network/api_client.dart';
-import 'package:gemai/app/core/services/shrine_dialog_service.dart';
-import 'package:gemai/app/core/theme/app_theme_config.dart';
-import 'package:gemai/app/data/api/api_endpoints.dart';
-import 'package:gemai/app/modules/auth/controller/user_controller.dart';
-import 'package:gemai/app/routes/app_routes.dart';
+import 'package:dermai/app/core/network/api_client.dart';
+import 'package:dermai/app/core/services/shrine_dialog_service.dart';
+import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:dermai/app/data/api/api_endpoints.dart';
+import 'package:dermai/app/modules/auth/controller/user_controller.dart';
+import 'package:dermai/app/routes/app_routes.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

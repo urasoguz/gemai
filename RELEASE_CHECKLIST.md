@@ -1,4 +1,4 @@
-# 🚀 gemai Yayın Öncesi Kontrol Listesi
+# 🚀 DermAI Yayın Öncesi Kontrol Listesi
 
 ## ✅ **KOD KALİTESİ VE TEKNİK KONTROLLER**
 
@@ -37,14 +37,14 @@
 
 ### **6. iOS (App Store)**
 - [x] `Info.plist` düzeltildi
-- [x] Uygulama adı "gemai" olarak ayarlandı
+- [x] Uygulama adı "DermAI" olarak ayarlandı
 - [x] Versiyon numarası doğru
 - [x] Gerekli izinler eklendi
 - [x] Camera, Photo Library izinleri
 
 ### **7. Android (Play Store)**
 - [x] `AndroidManifest.xml` düzeltildi
-- [x] Uygulama adı "gemai" olarak ayarlandı
+- [x] Uygulama adı "DermAI" olarak ayarlandı
 - [x] Gerekli izinler eklendi
 - [x] `data_extraction_rules.xml` oluşturuldu
 - [x] Backup ve security ayarları
@@ -145,5 +145,5 @@
 
 ---
 
-**🎯 HEDEF: Tüm kontroller tamamlandığında gemai yayına hazır olacak!**
+**🎯 HEDEF: Tüm kontroller tamamlandığında DermAI yayına hazır olacak!**
 

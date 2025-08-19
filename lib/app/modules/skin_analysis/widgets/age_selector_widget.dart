@@ -1,8 +1,8 @@
-import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:dermai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gemai/app/modules/skin_analysis/controller/skin_analysis_controller.dart';
+import 'package:dermai/app/modules/skin_analysis/controller/skin_analysis_controller.dart';
 
 /// Yaş seçici widget'ı
 /// Dropdown menü ile yaş seçimi

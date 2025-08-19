@@ -1,17 +1,17 @@
-import 'package:gemai/app/core/theme/app_theme_config.dart';
-import 'package:gemai/app/routes/app_routes.dart';
-import 'package:gemai/app/shared/helpers/my_helper.dart';
+import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:dermai/app/routes/app_routes.dart';
+import 'package:dermai/app/shared/helpers/my_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:gemai/app/modules/settings/controller/settings_controller.dart';
-import 'package:gemai/app/modules/settings/widgets/user_info_widget.dart';
-import 'package:gemai/app/shared/controllers/lang_controller.dart';
-import 'package:gemai/app/core/localization/languages.dart';
-import 'package:gemai/app/shared/widgets/modular_app_bar.dart';
+import 'package:dermai/app/modules/settings/controller/settings_controller.dart';
+import 'package:dermai/app/modules/settings/widgets/user_info_widget.dart';
+import 'package:dermai/app/shared/controllers/lang_controller.dart';
+import 'package:dermai/app/core/localization/languages.dart';
+import 'package:dermai/app/shared/widgets/modular_app_bar.dart';
 import 'package:get_storage/get_storage.dart';
-//import 'package:gemai/app/core/services/revenuecat_service.dart';
+//import 'package:dermai/app/core/services/revenuecat_service.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SettingsView extends StatefulWidget {

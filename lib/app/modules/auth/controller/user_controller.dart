@@ -1,13 +1,13 @@
 import 'dart:async';
 import 'dart:io';
-import 'package:gemai/app/data/model/user/user.dart';
-import 'package:gemai/app/shared/helpers/my_helper.dart';
+import 'package:dermai/app/data/model/user/user.dart';
+import 'package:dermai/app/shared/helpers/my_helper.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:device_info_plus/device_info_plus.dart';
-import 'package:gemai/app/core/network/api_client.dart';
-import 'package:gemai/app/data/api/auth_api_service.dart';
+import 'package:dermai/app/core/network/api_client.dart';
+import 'package:dermai/app/data/api/auth_api_service.dart';
 
 class UserController extends GetxController {
   final ApiClient apiClient;

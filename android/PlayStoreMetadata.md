@@ -1,8 +1,8 @@
-# Google Play Store Yayını - gemai
+# Google Play Store Yayını - DermAI
 
 ## 📱 Uygulama Bilgileri
-- **Uygulama Adı**: gemai
-- **Package Name**: com.gemai.app (build.gradle'da ayarlanmalı)
+- **Uygulama Adı**: DermAI
+- **Package Name**: com.dermai.app (build.gradle'da ayarlanmalı)
 - **Versiyon**: 1.0.0
 - **Version Code**: 1
 
@@ -14,7 +14,7 @@ AI destekli cilt analizi uygulaması
 
 **Uzun Açıklama:**
 ```
-gemai ile cildinizi yapay zeka teknolojisi ile analiz edin!
+DermAI ile cildinizi yapay zeka teknolojisi ile analiz edin!
 
 📸 Fotoğraf çekin veya galeriden seçin
 🤖 Gelişmiş AI modelleri ile anında analiz
@@ -22,7 +22,7 @@ gemai ile cildinizi yapay zeka teknolojisi ile analiz edin!
 📊 Detaylı sonuçlar ve öneriler
 🌍 40+ dil desteği
 
-gemai, profesyonel cilt analizi için geliştirilmiş yapay zeka destekli mobil uygulamadır. Cildinizdeki sorunları anında tespit eder ve size özel öneriler sunar.
+DermAI, profesyonel cilt analizi için geliştirilmiş yapay zeka destekli mobil uygulamadır. Cildinizdeki sorunları anında tespit eder ve size özel öneriler sunar.
 
 ÖZELLİKLER:
 • Anında cilt analizi

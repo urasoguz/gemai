@@ -1,5 +1,5 @@
 const Map<String, String> hu = {
-  'title': 'gemai',
+  'title': 'DERMAI',
   //settings
   'settings_title': 'Beállítások',
   'settings_language': 'Nyelv váltása',
@@ -87,12 +87,12 @@ const Map<String, String> hu = {
   'share_result_title': 'Eredmény Megosztása',
   'share_result_error': 'Hiba történt a megosztás során:',
   'share_result_share_text':
-      'gemai - Elemzés Eredménye\nElemezd a bőröd gemai-val!',
+      'DermAI - Elemzés Eredménye\nElemezd a bőröd DermAI-val!',
 
   // Premium funkciók
 
   //onboarding
-  'onboarding_title_1': 'Üdvözöljük a gemai-ben!',
+  'onboarding_title_1': 'Üdvözöljük a DermAI-ben!',
   'onboarding_desc_1':
       'Készítsen fényképet vagy válasszon képet a bőranalízishez. Fedezze fel bőrproblémáit azonnal',
   'onboarding_title_2': 'Erős mesterséges intelligencia',
@@ -119,8 +119,8 @@ const Map<String, String> hu = {
   'history': 'Előzmények',
 
   //camera
-  'camera_scan_title': 'gemai bőrscanner',
-  'camera_scanning': 'gemai elemzi',
+  'camera_scan_title': 'DermAI bőrscanner',
+  'camera_scanning': 'DermAI elemzi',
   'camera_scanning_desc': 'A bőrbetegség szkennelése...',
   'camera_scan_desc': 'Helyezze a bőrbetegséget a keretbe',
 
@@ -137,7 +137,7 @@ const Map<String, String> hu = {
 
   // Kapcsolat e-mail
   'contact_text': 'Az alábbi e-mail címet használhatja kapcsolatfelvételhez',
-  'contact_mail_subject': 'gemai - Kapcsolatfelvételi kérelem',
+  'contact_mail_subject': 'DermAI - Kapcsolatfelvételi kérelem',
   'contact_mail_body_write_here': 'Írja ide az üzenetét...',
   'contact_mail_user_id': 'Felhasználó azonosító',
   'contact_mail_device_type': 'Eszköz típusa',
@@ -179,6 +179,8 @@ const Map<String, String> hu = {
   'result_severity_very_high': 'Súlyos',
   'result_severity_very_very_high': 'Nagyon súlyos',
   'result_severity_very_very_very_high': 'Extrém súlyos',
+  'result_reference': 'Hivatkozás',
+  'result_reference_error': 'A hivatkozás nem nyitható meg:',
 
   //szkenning párbeszédek
   'scan_dialog_title': 'Hiba',
@@ -203,7 +205,7 @@ const Map<String, String> hu = {
   //Kapcsolat párbeszéd
   'contact_dialog_title': 'Kapcsolat',
   'contact_dialog_message':
-      'Szeretné megnyitni az e-mail alkalmazást, hogy e-mailt küldjön nekünk?\n\nE-mail cím: contact@gemai.us',
+      'Szeretné megnyitni az e-mail alkalmazást, hogy e-mailt küldjön nekünk?\n\nE-mail cím: contact@dermai.us',
   'contact_email_copied': 'Az e-mail cím másolva',
   'contact_dialog_cancel': 'Mégse',
   'contact_dialog_send': 'E-mail küldése',

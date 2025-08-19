@@ -1,15 +1,15 @@
-import 'package:gemai/app/core/services/shrine_dialog_service.dart';
-import 'package:gemai/app/core/theme/app_theme_config.dart';
-import 'package:gemai/app/modules/auth/controller/user_controller.dart';
-import 'package:gemai/app/shared/controllers/lang_controller.dart';
+import 'package:dermai/app/core/services/shrine_dialog_service.dart';
+import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:dermai/app/modules/auth/controller/user_controller.dart';
+import 'package:dermai/app/shared/controllers/lang_controller.dart';
 import 'package:flutter/foundation.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
-import 'package:gemai/app/routes/app_routes.dart';
+import 'package:dermai/app/routes/app_routes.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:gemai/app/shared/paywall/premium_config_service.dart';
-import 'package:gemai/app/core/services/app_settings_service.dart';
-import 'package:gemai/app/core/services/restore_premium_service.dart';
+import 'package:dermai/app/shared/paywall/premium_config_service.dart';
+import 'package:dermai/app/core/services/app_settings_service.dart';
+import 'package:dermai/app/core/services/restore_premium_service.dart';
 
 /// Premium Controller - Premium ekranı işlemlerini yönetir
 ///

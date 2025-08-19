@@ -117,7 +117,7 @@ static const ColorPalette darkColors = ColorPalette(
 
 ### Sağlık Uygulamaları
 ```dart
-// gemai - Pembe/Mor
+// DermAI - Pembe/Mor
 primary: Color(0xFFE91E63)
 secondary: Color(0xFF9C27B0)
 

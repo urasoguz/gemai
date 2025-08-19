@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gemai/app/core/theme/app_theme_config.dart';
-import 'package:gemai/app/modules/pages/controller/page_detail_controller.dart';
-import 'package:gemai/app/shared/widgets/simple_html_view.dart';
+import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:dermai/app/modules/pages/controller/page_detail_controller.dart';
+import 'package:dermai/app/shared/widgets/simple_html_view.dart';
 
 /// Sayfa detayı view'ı
 class PageDetailView extends StatelessWidget {

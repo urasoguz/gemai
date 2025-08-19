@@ -1,9 +1,9 @@
-import 'package:gemai/app/routes/app_routes.dart';
+import 'package:dermai/app/routes/app_routes.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:camerawesome/camerawesome_plugin.dart';
 
-/// gemai için kamera controller'ı
+/// DermAI için kamera controller'ı
 /// Fotoğraf çekimi, galeri seçimi ve analiz sürecini yönetir
 class CameraController extends GetxController {
   // Kamera durumları
@@ -30,7 +30,7 @@ class CameraController extends GetxController {
     isAnalyzing.value = true;
     scanProgress.value = 0.0;
     if (kDebugMode) {
-      print('🔍 gemai analizi başlatılıyor...');
+      print('🔍 DermAI analizi başlatılıyor...');
     }
 
     // Yukarıdan aşağıya tarama efekti (3 saniye)
@@ -82,7 +82,7 @@ class CameraController extends GetxController {
   @override
   void onClose() {
     if (kDebugMode) {
-      print('📱 gemai Kamera controller kapatıldı');
+      print('📱 DermAI Kamera controller kapatıldı');
     }
     super.onClose();
   }

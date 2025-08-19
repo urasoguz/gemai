@@ -1,8 +1,8 @@
-import 'package:gemai/app/routes/app_routes.dart';
+import 'package:dermai/app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gemai/app/modules/history/controller/history_controller.dart';
-import 'package:gemai/app/modules/history/widgets/history_list_item.dart';
+import '../controller/history_controller.dart';
+import '../widgets/history_list_item.dart';
 
 class HistoryView extends StatelessWidget {
   HistoryView({super.key});

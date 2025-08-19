@@ -1,5 +1,5 @@
 const Map<String, String> az = {
-  'title': 'gemai',
+  'title': 'DERMAI',
   //settings
   'settings_title': 'Parametrlər',
   'settings_language': 'Dili dəyişdir',
@@ -84,12 +84,12 @@ const Map<String, String> az = {
   'share_result_title': 'Nəticəni Paylaş',
   'share_result_error': 'Paylaşarkən xəta baş verdi:',
   'share_result_share_text':
-      'gemai - Analiz Nəticəsi\nDərinizi gemai ilə analiz edin!',
+      'DermAI - Analiz Nəticəsi\nDərinizi DermAI ilə analiz edin!',
 
   // Premium xüsusiyyətləri
 
   //onboarding
-  'onboarding_title_1': 'gemai-yə xoş gəlmisiniz!',
+  'onboarding_title_1': 'DermAI-yə xoş gəlmisiniz!',
   'onboarding_desc_1':
       'Dəri analizi üçün fotoşəkil çəkin və ya görüntü seçin. Dəri problemlərinizi dərhal kəşf edin',
   'onboarding_title_2': 'Güclü süni intellekt',
@@ -116,8 +116,8 @@ const Map<String, String> az = {
   'history': 'Tarixçə',
 
   //camera
-  'camera_scan_title': 'gemai dəri skaneri',
-  'camera_scanning': 'gemai analiz edir',
+  'camera_scan_title': 'DermAI dəri skaneri',
+  'camera_scanning': 'DermAI analiz edir',
   'camera_scanning_desc': 'Dəri xəstəliyiniz skan edilir...',
   'camera_scan_desc': 'Dəri xəstəliyinizi çərçivə içərisinə alın',
 
@@ -135,7 +135,7 @@ const Map<String, String> az = {
   // Əlaqə poçt
   'contact_text':
       'Bizimlə əlaqə saxlamaq üçün aşağıdakı elektron poçt ünvanından istifadə edə bilərsiniz',
-  'contact_mail_subject': 'gemai - Əlaqə tələbi',
+  'contact_mail_subject': 'DermAI - Əlaqə tələbi',
   'contact_mail_body_write_here': 'Mesajınızı buraya yazın...',
   'contact_mail_user_id': 'İstifadəçi ID',
   'contact_mail_device_type': 'Cihaz növü',
@@ -177,6 +177,8 @@ const Map<String, String> az = {
   'result_severity_very_high': 'Yüksək ciddi',
   'result_severity_very_very_high': 'Çox yüksək ciddi',
   'result_severity_very_very_very_high': 'Həddindən artıq yüksək ciddi',
+  'result_reference': 'Mənbə',
+  'result_reference_error': 'Mənbə linki açıla bilmədi:',
 
   //skan dialoqları
   'scan_dialog_title': 'Xəta',
@@ -204,7 +206,7 @@ const Map<String, String> az = {
   //Əlaqə dialoğu
   'contact_dialog_title': 'Əlaqə',
   'contact_dialog_message':
-      'Bizə poçt göndərmək üçün poçt tətbiqinizi açmaq istəyirsinizmi?\n\nPoçt ünvanı: contact@gemai.us',
+      'Bizə poçt göndərmək üçün poçt tətbiqinizi açmaq istəyirsinizmi?\n\nPoçt ünvanı: contact@dermai.us',
   'contact_email_copied': 'Poçt ünvanı kopyalandı',
   'contact_dialog_cancel': 'Ləğv et',
   'contact_dialog_send': 'Poçt göndər',

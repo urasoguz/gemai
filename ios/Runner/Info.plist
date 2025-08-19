@@ -30,19 +30,18 @@
 	<key>MinimumOSVersion</key>
 	<string>12.0</string>
 	
-	<!-- Kamera ve Medya İzinleri -->
+	<!-- Kamera ve Galeri İzinleri -->
 	<key>NSCameraUsageDescription</key>
-	<string>GemAI için kamera erişimi gereklidir. Fotoğraf çekerek cilt durumunuzu analiz edebilirsiniz.</string>
+	<string>Camera access is required to analyze skin conditions using photos.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>GemAI için mikrofon erişimi gereklidir. Video kayıtları için ses kaydı yapılabilir.</string>
+	<string>Microphone access may be required when recording videos during analysis.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>GemAI için galeriden fotoğraf seçebilmek için galeri erişimi gereklidir. Mevcut fotoğraflarınızı kullanarak analiz yapabilirsiniz.</string>
+	<string>Photo library access is required to select photos for skin analysis.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Analiz sonuçlarını kaydetmek için galeri erişimi gereklidir.</string>
-	
-	<!-- Konum İzni -->
+	<string>Photo library access is required to save analysis results.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Bu uygulama konum bilgisine yalnızca uygulama açıkken erişir. Bölgesel özellikler için kullanılır.</string>
+	<string>This app accesses your location only while in use to support regional features.</string>
+	
 	
 	<!-- Ağ İzinleri -->
 	<key>NSAppTransportSecurity</key>
@@ -78,10 +77,7 @@
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	
 	<!-- URL Scheme Desteği -->
@@ -89,7 +85,7 @@
 	<array>
 		<dict>
 			<key>CFBundleURLName</key>
-			<string>com.zyntech.gemai</string>
+			<string>com.zyntec.gemaiapp</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>gemai</string>
@@ -109,20 +105,11 @@
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	
-	<!-- App Store Metadata -->
-	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
-	
 	<!-- Performans Optimizasyonu -->
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	
-	<!-- Background Modes (Gerekirse) -->
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>fetch</string>
-		<string>remote-notification</string>
-	</array>
+
 	
 	<!-- Localization -->
 	<key>CFBundleLocalizations</key>

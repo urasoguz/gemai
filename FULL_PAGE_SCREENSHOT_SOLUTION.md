@@ -1,4 +1,4 @@
-# 📱 gemai Tam Sayfa Ekran Görüntüsü Çözümü
+# 📱 DermAI Tam Sayfa Ekran Görüntüsü Çözümü
 
 ## 🎯 **PROBLEM**
 
@@ -138,7 +138,7 @@ RepaintBoundary(
 
 ## 🎉 **SONUÇ**
 
-**gemai paylaşım özelliği artık tam sayfa ekran görüntüsü alıyor!**
+**DermAI paylaşım özelliği artık tam sayfa ekran görüntüsü alıyor!**
 
 ✅ **Çözüldü**: Scroll edilebilir alt içerik yakalanıyor
 ✅ **Yüksek kalite**: 2x pixelRatio ile retina kalitesi

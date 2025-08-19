@@ -1,5 +1,5 @@
 const Map<String, String> uk = {
-  'title': 'gemai',
+  'title': 'DERMAI',
   //settings
   'settings_title': 'Налаштування',
   'settings_language': 'Змінити Мову',
@@ -87,12 +87,12 @@ const Map<String, String> uk = {
   'share_result_title': 'Поділитися Результатом',
   'share_result_error': 'Помилка при обміні:',
   'share_result_share_text':
-      'gemai - Результат Аналізу\nПроаналізуйте свою шкіру з gemai!',
+      'DermAI - Результат Аналізу\nПроаналізуйте свою шкіру з DermAI!',
 
   // Преміум функції
 
   //onboarding
-  'onboarding_title_1': 'Ласкаво Просимо до gemai!',
+  'onboarding_title_1': 'Ласкаво Просимо до DermAI!',
   'onboarding_desc_1':
       'Зробіть фото або виберіть зображення для аналізу шкіри. Відкрийте свої проблеми зі шкірою миттєво.',
   'onboarding_title_2': 'Потужний Штучний Інтелект',
@@ -119,8 +119,8 @@ const Map<String, String> uk = {
   'history': 'Історія',
 
   //camera
-  'camera_scan_title': 'Сканер Шкіри gemai',
-  'camera_scanning': 'gemai Аналізує',
+  'camera_scan_title': 'Сканер Шкіри DermAI',
+  'camera_scanning': 'DermAI Аналізує',
   'camera_scanning_desc': 'Ваше захворювання шкіри сканується...',
   'camera_scan_desc': 'Помістіть захворювання шкіри в рамку',
 
@@ -138,7 +138,7 @@ const Map<String, String> uk = {
   // Контактна пошта
   'contact_text':
       'Ви можете використовувати наступну адресу електронної пошти, щоб зв\'язатися з нами.',
-  'contact_mail_subject': 'gemai - Запит на Зв\'язок',
+  'contact_mail_subject': 'DermAI - Запит на Зв\'язок',
   'contact_mail_body_write_here': 'Напишіть ваше повідомлення тут...',
   'contact_mail_user_id': 'ID Користувача',
   'contact_mail_device_type': 'Тип Пристрою',
@@ -180,6 +180,8 @@ const Map<String, String> uk = {
   'result_severity_very_high': 'Важка',
   'result_severity_very_very_high': 'Дуже Важка',
   'result_severity_very_very_very_high': 'Надзвичайно Важка',
+  'result_reference': 'Посилання',
+  'result_reference_error': 'Не вдалося відкрити посилання:',
 
   //діалоги сканування
   'scan_dialog_title': 'Помилка',
@@ -207,7 +209,7 @@ const Map<String, String> uk = {
   //Діалог контактів
   'contact_dialog_title': 'Контакти',
   'contact_dialog_message':
-      'Чи хочете ви відкрити додаток пошти, щоб надіслати нам повідомлення?\n\nАдреса Електронної Пошти: contact@gemai.us',
+      'Чи хочете ви відкрити додаток пошти, щоб надіслати нам повідомлення?\n\nАдреса Електронної Пошти: contact@dermai.us',
   'contact_email_copied': 'Адресу електронної пошти скопійовано',
   'contact_dialog_cancel': 'Скасувати',
   'contact_dialog_send': 'Надіслати Пошту',

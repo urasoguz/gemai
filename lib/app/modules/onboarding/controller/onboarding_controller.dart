@@ -51,21 +51,9 @@ class OnboardingController extends GetxController {
         print('✅ Onboarding tamamlandı ve kaydedildi');
       }
 
-      // Yasal uyarı kontrolü
-      final isLegalWarningAccepted =
-          box.read(MyHelper.isLegalWarningAccepted) ?? false;
-
+      // Legal warning kontrolü kaldırıldı - direkt ana sayfaya yönlendir
       if (kDebugMode) {
-        print('📋 Yasal uyarı durumu: $isLegalWarningAccepted');
-      }
-
-      if (!isLegalWarningAccepted) {
-        // Yasal uyarı gösterilmemişse göster
-        if (kDebugMode) {
-          print('📋 Yasal uyarı ekranına yönlendiriliyor...');
-        }
-        Get.offAllNamed(AppRoutes.legalWarning);
-        return;
+        print('📋 Legal warning kontrolü devre dışı bırakıldı');
       }
 
       if (kDebugMode) {

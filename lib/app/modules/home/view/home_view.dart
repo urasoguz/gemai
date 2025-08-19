@@ -1,18 +1,18 @@
-import 'package:gemai/app/core/services/shrine_dialog_service.dart';
-import 'package:gemai/app/core/theme/app_theme_config.dart';
-import 'package:gemai/app/shared/helpers/my_helper.dart';
+import 'package:dermai/app/core/services/shrine_dialog_service.dart';
+import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:dermai/app/shared/helpers/my_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gemai/app/modules/home/controller/home_controller.dart';
-import 'package:gemai/app/modules/home/widgets/home_appbar.dart';
-import 'package:gemai/app/modules/home/widgets/home_action_button.dart';
-import 'package:gemai/app/modules/home/widgets/home_bottom_navbar.dart';
-import 'package:gemai/app/modules/history/view/history_view.dart';
-import 'package:gemai/app/modules/home/widgets/home_welcome_widget.dart';
-import 'package:gemai/app/modules/home/widgets/home_analyze_button_widget.dart';
-import 'package:gemai/app/modules/home/widgets/home_tip_widget.dart';
-import 'package:gemai/app/modules/home/widgets/home_recent_history_widget.dart';
-import 'package:gemai/app/routes/app_routes.dart';
+import 'package:dermai/app/modules/home/controller/home_controller.dart';
+import 'package:dermai/app/modules/home/widgets/home_appbar.dart';
+import 'package:dermai/app/modules/home/widgets/home_action_button.dart';
+import 'package:dermai/app/modules/home/widgets/home_bottom_navbar.dart';
+import 'package:dermai/app/modules/history/view/history_view.dart';
+import 'package:dermai/app/modules/home/widgets/home_welcome_widget.dart';
+import 'package:dermai/app/modules/home/widgets/home_analyze_button_widget.dart';
+import 'package:dermai/app/modules/home/widgets/home_tip_widget.dart';
+import 'package:dermai/app/modules/home/widgets/home_recent_history_widget.dart';
+import 'package:dermai/app/routes/app_routes.dart';
 import 'package:get_storage/get_storage.dart';
 
 class HomeView extends GetView<HomeController> {

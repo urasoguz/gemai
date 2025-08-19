@@ -1,5 +1,5 @@
 const Map<String, String> sv = {
-  'title': 'gemai',
+  'title': 'DERMAI',
   //settings
   'settings_title': 'Inställningar',
   'settings_language': 'Ändra Språk',
@@ -86,12 +86,12 @@ const Map<String, String> sv = {
   'share_result_title': 'Dela Resultat',
   'share_result_error': 'Fel vid delning:',
   'share_result_share_text':
-      'gemai - Analysresultat\nAnalysera din hud med gemai!',
+      'DermAI - Analysresultat\nAnalysera din hud med DermAI!',
 
   // Premium-funktioner
 
   //onboarding
-  'onboarding_title_1': 'Välkommen till gemai!',
+  'onboarding_title_1': 'Välkommen till DermAI!',
   'onboarding_desc_1':
       'Ta ett foto eller välj en bild för hudanalys. Upptäck dina hudproblem direkt.',
   'onboarding_title_2': 'Kraftfull Artificiell Intelligens',
@@ -117,8 +117,8 @@ const Map<String, String> sv = {
   'history': 'Historik',
 
   //camera
-  'camera_scan_title': 'gemai Hudskanner',
-  'camera_scanning': 'gemai Analyserar',
+  'camera_scan_title': 'DermAI Hudskanner',
+  'camera_scanning': 'DermAI Analyserar',
   'camera_scanning_desc': 'Din hudåkomma skannas...',
   'camera_scan_desc': 'Ram in din hudåkomma',
 
@@ -135,7 +135,7 @@ const Map<String, String> sv = {
 
   // Kontakt e-post
   'contact_text': 'Du kan använda följande e-postadress för att kontakta oss.',
-  'contact_mail_subject': 'gemai - Kontaktförfrågan',
+  'contact_mail_subject': 'DermAI - Kontaktförfrågan',
   'contact_mail_body_write_here': 'Skriv ditt meddelande här...',
   'contact_mail_user_id': 'Användar-ID',
   'contact_mail_device_type': 'Enhetstyp',
@@ -177,6 +177,8 @@ const Map<String, String> sv = {
   'result_severity_very_high': 'Allvarlig',
   'result_severity_very_very_high': 'Mycket Allvarlig',
   'result_severity_very_very_very_high': 'Extremt Allvarlig',
+  'result_reference': 'Referens',
+  'result_reference_error': 'Kunde inte öppna referenslänken:',
 
   //skanningsdialoger
   'scan_dialog_title': 'Fel',
@@ -201,7 +203,7 @@ const Map<String, String> sv = {
   //Kontaktdialog
   'contact_dialog_title': 'Kontakt',
   'contact_dialog_message':
-      'Vill du öppna din e-postapp för att skicka oss ett meddelande?\n\nE-postadress: contact@gemai.us',
+      'Vill du öppna din e-postapp för att skicka oss ett meddelande?\n\nE-postadress: contact@dermai.us',
   'contact_email_copied': 'E-postadress kopierad',
   'contact_dialog_cancel': 'Avbryt',
   'contact_dialog_send': 'Skicka E-post',

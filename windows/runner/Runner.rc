@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "gemai" "\0"
+            VALUE "FileDescription", "dermai" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "gemai" "\0"
+            VALUE "InternalName", "dermai" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2025 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "gemai.exe" "\0"
-            VALUE "ProductName", "gemai" "\0"
+            VALUE "OriginalFilename", "dermai.exe" "\0"
+            VALUE "ProductName", "dermai" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

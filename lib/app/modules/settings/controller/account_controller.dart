@@ -1,13 +1,13 @@
 import 'dart:io';
-import 'package:gemai/app/core/services/shrine_dialog_service.dart';
-import 'package:gemai/app/core/theme/app_theme_config.dart';
-import 'package:gemai/app/routes/app_routes.dart';
+import 'package:dermai/app/core/services/shrine_dialog_service.dart';
+import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:dermai/app/routes/app_routes.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:gemai/app/modules/auth/controller/user_controller.dart';
-import 'package:gemai/app/core/services/restore_premium_service.dart';
+import 'package:dermai/app/modules/auth/controller/user_controller.dart';
+import 'package:dermai/app/core/services/restore_premium_service.dart';
 
 class AccountController extends GetxController {
   final UserController userController = Get.find<UserController>();

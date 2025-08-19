@@ -275,8 +275,7 @@ class SplashController extends GetxController {
       // Onboarding kontrolü
       final box = GetStorage();
       final completed = box.read(MyHelper.isOnboardingCompleted) ?? false;
-      final legalWarningAccepted =
-          box.read(MyHelper.isLegalWarningAccepted) ?? false;
+      // Legal warning kontrolü kaldırıldı
 
       if (kDebugMode) {
         print('📊 Onboarding durumu kontrol ediliyor:');
@@ -295,13 +294,7 @@ class SplashController extends GetxController {
         return;
       }
 
-      if (!legalWarningAccepted) {
-        if (kDebugMode) {
-          print('📚 Yasal uyarı ekranına yönlendiriliyor...');
-        }
-        Get.offAllNamed(AppRoutes.legalWarning);
-        return;
-      }
+      // Legal warning kontrolü kaldırıldı - direkt paywall kontrolüne geç
 
       // Paywall kontrolü
       if (_shouldShowPaywallBasedOnSettings()) {

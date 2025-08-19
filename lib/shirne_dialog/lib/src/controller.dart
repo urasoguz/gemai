@@ -38,7 +38,7 @@ abstract class DialogController<T> extends ChangeNotifier
 
   void remove();
 
-  set value(v) {
+  set value(dynamic v) {
     _value = v;
     if (_isClosed) return;
     notifyListeners();
@@ -143,7 +143,7 @@ class ProgressController extends OverlayController<double> {
           child: child,
         );
 
-  void bind(ac) {
+  void bind(dynamic ac) {
     aController = ac;
   }
 
@@ -162,7 +162,7 @@ class ProgressController extends OverlayController<double> {
   }
 
   @override
-  set value(double v) {
+  set value(dynamic v) {
     if (isClose) return;
     if (aController == null) {
       super.value = v;

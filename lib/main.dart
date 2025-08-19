@@ -1,31 +1,39 @@
-import 'package:gemai/app/core/localization/translations.dart';
-import 'package:gemai/app/core/services/theme_service.dart';
-import 'package:gemai/app/core/services/date_formatting_service.dart';
-import 'package:gemai/app/core/services/in_app_review_service.dart';
-import 'package:gemai/app/shared/controllers/lang_controller.dart';
+import 'package:dermai/app/core/localization/translations.dart';
+import 'package:dermai/app/core/services/theme_service.dart';
+import 'package:dermai/app/core/services/date_formatting_service.dart';
+import 'package:dermai/app/core/services/in_app_review_service.dart';
+import 'package:dermai/app/shared/controllers/lang_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:gemai/app/routes/app_pages.dart';
-import 'package:gemai/app/routes/app_routes.dart';
-import 'package:gemai/app/core/services/sembast_service.dart';
+import 'package:dermai/app/routes/app_pages.dart';
+import 'package:dermai/app/routes/app_routes.dart';
+import 'package:dermai/app/core/services/sembast_service.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
-import 'package:gemai/app/core/bindings/api_bindings.dart';
-import 'package:gemai/app/core/bindings/app_settings_binding.dart';
-import 'package:gemai/app/core/network/api_client.dart';
-import 'package:gemai/app/data/api/api_endpoints.dart';
-import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:dermai/app/core/bindings/api_bindings.dart';
+import 'package:dermai/app/core/bindings/app_settings_binding.dart';
+import 'package:dermai/app/core/network/api_client.dart';
+import 'package:dermai/app/data/api/api_endpoints.dart';
+import 'package:dermai/app/core/theme/app_theme_config.dart';
 import 'package:shirne_dialog/shirne_dialog.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:gemai/app/core/localization/languages.dart';
-import 'package:gemai/app/core/services/network_service.dart';
-import 'package:gemai/app/shared/widgets/no_internet_screen.dart';
+import 'package:dermai/app/core/localization/languages.dart';
+import 'package:dermai/app/core/services/network_service.dart';
+import 'package:dermai/app/shared/widgets/no_internet_screen.dart';
 import 'package:upgrader/upgrader.dart';
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+//import 'package:device_preview/device_preview.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Uygulama genelinde sadece portrait mode'u etkinleştir
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
 
   try {
     // SharedPreferences'ı önce başlat
@@ -71,7 +79,13 @@ void main() async {
     permanent: true,
   );
 
-  runApp(Phoenix(child: const MyApp()));
+  runApp(
+    // DevicePreview(
+    //   enabled: !kReleaseMode,
+    //   builder: (context) => Phoenix(child: const MyApp()),
+    // ),
+    Phoenix(child: const MyApp()),
+  );
 }
 
 /// Tüm desteklenen diller için locale verilerini başlatır
@@ -201,7 +215,7 @@ class MyApp extends StatelessWidget {
           fontFamily: AppThemeConfig.fontFamily,
         ),
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: colors.card,
         elevation: AppThemeConfig.cardElevation,
         shape: RoundedRectangleBorder(

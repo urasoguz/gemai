@@ -1,11 +1,11 @@
-import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:dermai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gemai/app/modules/camera/controller/camera_controller.dart';
-import 'package:gemai/app/modules/camera/widgets/camera_preview_widget.dart';
+import 'package:dermai/app/modules/camera/controller/camera_controller.dart';
+import 'package:dermai/app/modules/camera/widgets/camera_preview_widget.dart';
 import 'dart:io';
 
-/// gemai için Camerawesome ile gömülü kamera view'ı
+/// DermAI için Camerawesome ile gömülü kamera view'ı
 class CameraView extends StatelessWidget {
   const CameraView({super.key});
 
@@ -76,113 +76,131 @@ class CameraView extends StatelessWidget {
             ),
           ),
 
-          // Merkez içerik
+          // Merkez içerik - Responsive
           Center(
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-              decoration: BoxDecoration(
-                color: colors.cameraAnalyzeBackground.withValues(alpha: 0.65),
-                borderRadius: BorderRadius.circular(24),
-                boxShadow: [
-                  BoxShadow(
-                    color: colors.cameraAnalyzeBackgroundShadow.withValues(
-                      alpha: 0.18,
-                    ),
-                    blurRadius: 16,
-                    offset: const Offset(0, 6),
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                final screenHeight = MediaQuery.of(context).size.height;
+                final isSmallScreen = screenHeight < 700;
+
+                return Container(
+                  margin: EdgeInsets.symmetric(
+                    horizontal: isSmallScreen ? 16 : 24,
                   ),
-                ],
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // gemai logo animasyonu
-                  Container(
-                    width: 80,
-                    height: 80,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      gradient: LinearGradient(
-                        colors: [
-                          colors.gradientPrimary,
-                          colors.gradientSecondary,
-                        ],
+                  padding: EdgeInsets.symmetric(
+                    horizontal: isSmallScreen ? 16 : 24,
+                    vertical: isSmallScreen ? 16 : 24,
+                  ),
+                  decoration: BoxDecoration(
+                    color: colors.cameraAnalyzeBackground.withValues(
+                      alpha: 0.65,
+                    ),
+                    borderRadius: BorderRadius.circular(
+                      isSmallScreen ? 16 : 24,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: colors.cameraAnalyzeBackgroundShadow.withValues(
+                          alpha: 0.18,
+                        ),
+                        blurRadius: 16,
+                        offset: const Offset(0, 6),
                       ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: colors.cameraAnalyzeLogoIconShadow.withValues(
-                            alpha: 0.4,
+                    ],
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      // DermAI logo animasyonu - Responsive
+                      Container(
+                        width: isSmallScreen ? 60.0 : 80.0,
+                        height: isSmallScreen ? 60.0 : 80.0,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          gradient: LinearGradient(
+                            colors: [
+                              colors.gradientPrimary,
+                              colors.gradientSecondary,
+                            ],
                           ),
-                          blurRadius: 20,
-                          offset: const Offset(0, 8),
+                          boxShadow: [
+                            BoxShadow(
+                              color: colors.cameraAnalyzeLogoIconShadow
+                                  .withValues(alpha: 0.4),
+                              blurRadius: 20,
+                              offset: const Offset(0, 8),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                    child: Icon(
-                      Icons.medical_services,
-                      color: colors.cameraAnalyzeLogoIcon,
-                      size: 40,
-                    ),
-                  ),
-                  const SizedBox(height: 24),
-
-                  // Başlık
-                  Text(
-                    'camera_scanning'.tr,
-                    style: TextStyle(
-                      color: colors.cameraAnalyzeTitleText,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-
-                  // Alt başlık
-                  Text(
-                    'camera_scanning_desc'.tr,
-                    style: TextStyle(
-                      color: colors.cameraAnalyzeText,
-                      fontSize: 16,
-                    ),
-                  ),
-                  const SizedBox(height: 32),
-
-                  // İlerleme çubuğu
-                  Container(
-                    width: 200,
-                    height: 4,
-                    decoration: BoxDecoration(
-                      color: colors.cameraAnalyzeProgressBackground.withValues(
-                        alpha: 0.2,
-                      ),
-                      borderRadius: BorderRadius.circular(2),
-                    ),
-                    child: Obx(
-                      () => LinearProgressIndicator(
-                        value: controller.scanProgress.value,
-                        backgroundColor: Colors.transparent,
-                        valueColor: AlwaysStoppedAnimation<Color>(
-                          colors.cameraAnalyzeProgressBar,
+                        child: Icon(
+                          Icons.medical_services,
+                          color: colors.cameraAnalyzeLogoIcon,
+                          size: isSmallScreen ? 30.0 : 40.0,
                         ),
                       ),
-                    ),
-                  ),
-                  const SizedBox(height: 16),
+                      SizedBox(height: isSmallScreen ? 16 : 24),
 
-                  // İlerleme yüzdesi
-                  Obx(
-                    () => Text(
-                      '${(controller.scanProgress.value * 100).toInt()}%',
-                      style: TextStyle(
-                        color: colors.cameraAnalyzeText,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
+                      // Başlık - Responsive
+                      Text(
+                        'camera_scanning'.tr,
+                        style: TextStyle(
+                          color: colors.cameraAnalyzeTitleText,
+                          fontSize: isSmallScreen ? 16 : 20,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                    ),
+                      SizedBox(height: isSmallScreen ? 8 : 12),
+
+                      // Alt başlık - Responsive
+                      Text(
+                        'camera_scanning_desc'.tr,
+                        style: TextStyle(
+                          color: colors.cameraAnalyzeText,
+                          fontSize: isSmallScreen ? 14 : 16,
+                        ),
+                        textAlign: TextAlign.center,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      SizedBox(height: isSmallScreen ? 20 : 32),
+
+                      // İlerleme çubuğu - Responsive
+                      Container(
+                        width: isSmallScreen ? 160 : 200,
+                        height: 4,
+                        decoration: BoxDecoration(
+                          color: colors.cameraAnalyzeProgressBackground
+                              .withValues(alpha: 0.2),
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                        child: Obx(
+                          () => LinearProgressIndicator(
+                            value: controller.scanProgress.value,
+                            backgroundColor: Colors.transparent,
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                              colors.cameraAnalyzeProgressBar,
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: isSmallScreen ? 12 : 16),
+
+                      // İlerleme yüzdesi - Responsive
+                      Obx(
+                        () => Text(
+                          '${(controller.scanProgress.value * 100).toInt()}%',
+                          style: TextStyle(
+                            color: colors.cameraAnalyzeText,
+                            fontSize: isSmallScreen ? 16 : 18,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                );
+              },
             ),
           ),
         ],

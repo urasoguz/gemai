@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:gemai/app/data/api/auth_api_service.dart';
-import 'package:gemai/app/data/api/skin_analysis_api_service.dart';
-import 'package:gemai/app/core/services/image_processing_service.dart';
+import 'package:dermai/app/data/api/auth_api_service.dart';
+import 'package:dermai/app/data/api/skin_analysis_api_service.dart';
+import 'package:dermai/app/core/services/image_processing_service.dart';
 
 /// API servisleri için dependency injection binding'leri
 ///

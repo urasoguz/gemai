@@ -1,5 +1,5 @@
 const Map<String, String> ja = {
-  'title': 'gemai',
+  'title': 'DERMAI',
   //settings
   'settings_title': '設定',
   'settings_language': '言語を変更',
@@ -80,12 +80,12 @@ const Map<String, String> ja = {
   // 共有
   'share_result_title': '結果を共有',
   'share_result_error': '共有中にエラーが発生しました：',
-  'share_result_share_text': 'gemai - 分析結果\ngemaiで肌を分析しましょう！',
+  'share_result_share_text': 'DermAI - 分析結果\nDermAIで肌を分析しましょう！',
 
   // プレミアム機能
 
   //onboarding
-  'onboarding_title_1': 'gemaiへようこそ！',
+  'onboarding_title_1': 'DermAIへようこそ！',
   'onboarding_desc_1': '写真を撮るか、画像を選択して肌分析を行います。肌の問題を即座に発見しましょう。',
   'onboarding_title_2': '強力な人工知能',
   'onboarding_desc_2': '最先端の人工知能を使用して、最高の精度で肌分析を行います。',
@@ -107,8 +107,8 @@ const Map<String, String> ja = {
   'history': '履歴',
 
   //camera
-  'camera_scan_title': 'gemai肌スキャナー',
-  'camera_scanning': 'gemaiが分析中',
+  'camera_scan_title': 'DermAI肌スキャナー',
+  'camera_scanning': 'DermAIが分析中',
   'camera_scanning_desc': '肌の病気をスキャン中...',
   'camera_scan_desc': '肌の病気を枠内に配置してください',
 
@@ -125,7 +125,7 @@ const Map<String, String> ja = {
 
   // お問い合わせメール
   'contact_text': '以下のメールアドレスを使用してお問い合わせください。',
-  'contact_mail_subject': 'gemai - お問い合わせ',
+  'contact_mail_subject': 'DermAI - お問い合わせ',
   'contact_mail_body_write_here': 'ここにメッセージを書いてください...',
   'contact_mail_user_id': 'ユーザーID',
   'contact_mail_device_type': 'デバイスタイプ',
@@ -166,6 +166,8 @@ const Map<String, String> ja = {
   'result_severity_very_high': '重度',
   'result_severity_very_very_high': '非常に重度',
   'result_severity_very_very_very_high': '極度に重度',
+  'result_reference': '参考文献',
+  'result_reference_error': '参考文献のリンクを開けませんでした',
 
   //スキャンダイアログ
   'scan_dialog_title': 'エラー',
@@ -188,7 +190,7 @@ const Map<String, String> ja = {
   //お問い合わせダイアログ
   'contact_dialog_title': 'お問い合わせ',
   'contact_dialog_message':
-      'メールアプリを開いてメッセージを送信しますか？\n\nメールアドレス: contact@gemai.us',
+      'メールアプリを開いてメッセージを送信しますか？\n\nメールアドレス: contact@dermai.us',
   'contact_email_copied': 'メールアドレスがコピーされました',
   'contact_dialog_cancel': 'キャンセル',
   'contact_dialog_send': 'メール送信',

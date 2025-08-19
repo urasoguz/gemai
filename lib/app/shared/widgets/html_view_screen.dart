@@ -1,5 +1,5 @@
-import 'package:gemai/app/core/theme/app_theme_config.dart';
-import 'package:gemai/app/shared/widgets/modular_app_bar.dart';
+import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:dermai/app/shared/widgets/modular_app_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

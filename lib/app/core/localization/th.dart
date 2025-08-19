@@ -1,5 +1,5 @@
 const Map<String, String> th = {
-  'title': 'gemai',
+  'title': 'DERMAI',
   //settings
   'settings_title': 'การตั้งค่า',
   'settings_language': 'เปลี่ยนภาษา',
@@ -85,12 +85,12 @@ const Map<String, String> th = {
   'share_result_title': 'แชร์ผลลัพธ์',
   'share_result_error': 'เกิดข้อผิดพลาดในการแชร์:',
   'share_result_share_text':
-      'gemai - ผลการวิเคราะห์\nวิเคราะห์ผิวของคุณด้วย gemai!',
+      'DermAI - ผลการวิเคราะห์\nวิเคราะห์ผิวของคุณด้วย DermAI!',
 
   // คุณสมบัติพรีเมียม
 
   //onboarding
-  'onboarding_title_1': 'ยินดีต้อนรับสู่ gemai!',
+  'onboarding_title_1': 'ยินดีต้อนรับสู่ DermAI!',
   'onboarding_desc_1':
       'ถ่ายภาพหรือเลือกภาพเพื่อวิเคราะห์ผิวหนัง ค้นพบปัญหาผิวหนังของคุณทันที',
   'onboarding_title_2': 'ปัญญาประดิษฐ์ที่ทรงพลัง',
@@ -117,8 +117,8 @@ const Map<String, String> th = {
   'history': 'ประวัติ',
 
   //camera
-  'camera_scan_title': 'gemai สแกนเนอร์ผิวหนัง',
-  'camera_scanning': 'gemai กำลังวิเคราะห์',
+  'camera_scan_title': 'DermAI สแกนเนอร์ผิวหนัง',
+  'camera_scanning': 'DermAI กำลังวิเคราะห์',
   'camera_scanning_desc': 'โรคผิวหนังของคุณกำลังถูกสแกน...',
   'camera_scan_desc': 'วางโรคผิวหนังในกรอบ',
 
@@ -135,7 +135,7 @@ const Map<String, String> th = {
 
   // ติดต่ออีเมล
   'contact_text': 'คุณสามารถใช้ที่อยู่อีเมลด้านล่างเพื่อติดต่อกับเรา',
-  'contact_mail_subject': 'gemai - คำขอติดต่อ',
+  'contact_mail_subject': 'DermAI - คำขอติดต่อ',
   'contact_mail_body_write_here': 'เขียนข้อความของคุณที่นี่...',
   'contact_mail_user_id': 'รหัสผู้ใช้',
   'contact_mail_device_type': 'ประเภทอุปกรณ์',
@@ -177,6 +177,8 @@ const Map<String, String> th = {
   'result_severity_very_high': 'สูง',
   'result_severity_very_very_high': 'สูงมาก',
   'result_severity_very_very_very_high': 'สูงมากที่สุด',
+  'result_reference': 'การอ้างอิง',
+  'result_reference_error': 'ไม่สามารถเปิดลิงก์การอ้างอิงได้:',
 
   //ไดอะล็อกสแกน
   'scan_dialog_title': 'ข้อผิดพลาด',
@@ -200,7 +202,7 @@ const Map<String, String> th = {
   //ไดอะล็อกติดต่อ
   'contact_dialog_title': 'ติดต่อ',
   'contact_dialog_message':
-      'คุณต้องการเปิดแอปอีเมลเพื่อส่งข้อความถึงเราหรือไม่?\n\nที่อยู่อีเมล: contact@gemai.us',
+      'คุณต้องการเปิดแอปอีเมลเพื่อส่งข้อความถึงเราหรือไม่?\n\nที่อยู่อีเมล: contact@dermai.us',
   'contact_email_copied': 'คัดลอกที่อยู่อีเมลแล้ว',
   'contact_dialog_cancel': 'ยกเลิก',
   'contact_dialog_send': 'ส่งอีเมล',

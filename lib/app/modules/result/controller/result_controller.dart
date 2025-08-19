@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 import 'package:flutter/foundation.dart';
-import 'package:gemai/app/core/services/sembast_service.dart';
-import 'package:gemai/app/core/services/in_app_review_service.dart';
-import 'package:gemai/app/data/model/response/scan_result_model.dart';
+import 'package:dermai/app/core/services/sembast_service.dart';
+import 'package:dermai/app/core/services/in_app_review_service.dart';
+import 'package:dermai/app/data/model/response/scan_result_model.dart';
 
 class ResultController extends GetxController {
   final Rx<ScanResultModel?> result = Rx<ScanResultModel?>(null);

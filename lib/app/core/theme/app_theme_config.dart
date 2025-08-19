@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 /// Tüm tema ayarlarını merkezi olarak yöneten dosya
 /// Sadece bu dosyayı değiştirerek yeni bir uygulama oluşturabilirsiniz
 class AppThemeConfig {
-  static const String appName = 'gemai';
+  static const String appName = 'DERMAI';
   static const String fontFamily =
       'Roboto'; // Varsayılan font - KoHo sadece AppBar'da kullanılıyor
 
@@ -111,6 +111,8 @@ class AppThemeConfig {
     onboardingImageBackground: Color(0xFFFFFFFF),
     onboardingImageShadow: Color(0xFF000000),
     onboardingImageIcon: Color(0xFF000000),
+    cardBackground: Color(0xFFFFFFFF),
+    borderColor: Color(0xFFE0E0E0),
   );
 
   /// Dark renk paleti - Light paletten türetilen koyu versiyonlar
@@ -214,6 +216,8 @@ class AppThemeConfig {
     onboardingImageBackground: Color(0xFF181A20),
     onboardingImageShadow: Color(0xFF000000),
     onboardingImageIcon: Color(0xFFFFFFFF),
+    cardBackground: Color(0xFF23242B),
+    borderColor: Color(0xFF31313A),
   );
 
   /// Tema ayarları (köşe yarıçapı, animasyon vs.)
@@ -305,6 +309,8 @@ class ColorPalette {
   final Color black;
   final Color orange;
   final Color red;
+  final Color cardBackground;
+  final Color borderColor;
 
   const ColorPalette({
     required this.primary,
@@ -388,5 +394,7 @@ class ColorPalette {
     required this.black,
     required this.orange,
     required this.red,
+    required this.cardBackground,
+    required this.borderColor,
   });
 }

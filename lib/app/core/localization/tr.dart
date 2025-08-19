@@ -1,5 +1,5 @@
 const Map<String, String> tr = {
-  'title': 'gemai',
+  'title': 'DERMAI',
   //settings
   'settings_title': 'Ayarlar',
   'settings_language': 'Dil Değiştir',
@@ -28,7 +28,7 @@ const Map<String, String> tr = {
   'share_result_title': 'Sonucu Paylaş',
   'share_result_error': 'Paylaşım sırasında hata oluştu:',
   'share_result_share_text':
-      'gemai - Analiz Sonucu\ngemai ile cildinizi analiz edin!',
+      'DermAI - Analiz Sonucu\nDermAI ile cildinizi analiz edin!',
 
   //account
   'account_title': 'Hesap',
@@ -90,7 +90,7 @@ const Map<String, String> tr = {
   // Premium özellikleri
 
   //onboarding
-  'onboarding_title_1': 'gemai\'ye Hoş Geldin!',
+  'onboarding_title_1': 'Dermai\'ye Hoş Geldin!',
   'onboarding_desc_1':
       'Cilt analizi yapmak için fotoğraf çekin veya görsel seçin. Cilt sorunlarınızı anında keşfedin.',
   'onboarding_title_2': 'Güçlü Yapay Zeka',
@@ -117,8 +117,8 @@ const Map<String, String> tr = {
   'history': 'Geçmiş',
 
   //camera
-  'camera_scan_title': 'gemai Cilt Tarayıcı',
-  'camera_scanning': 'gemai Analiz Ediyor',
+  'camera_scan_title': 'DermAI Cilt Tarayıcı',
+  'camera_scanning': 'DermAI Analiz Ediyor',
   'camera_scanning_desc': 'Cilt hastalığınız taranıyor...',
   'camera_scan_desc': 'Cilt hastalığınızı çerçeve içine alın',
 
@@ -136,7 +136,7 @@ const Map<String, String> tr = {
   // Contact mail
   'contact_text':
       'Bizimle iletişime geçmek için aşağıdaki e-posta adresini kullanabilirsiniz.',
-  'contact_mail_subject': 'gemai - İletişim Talebi',
+  'contact_mail_subject': 'DermAI - İletişim Talebi',
   'contact_mail_body_write_here': 'Mesajınızı buraya yazın...',
   'contact_mail_user_id': 'Kullanıcı ID',
   'contact_mail_device_type': 'Cihaz Tipi',
@@ -178,6 +178,8 @@ const Map<String, String> tr = {
   'result_severity_very_high': 'Yüksek Şiddetli',
   'result_severity_very_very_high': 'Çok Yüksek Şiddetli',
   'result_severity_very_very_very_high': 'Aşırı Yüksek Şiddetli',
+  'result_reference': 'Kaynak',
+  'result_reference_error': 'Kaynak linki açılamadı:',
 
   //scan dialogları
   'scan_dialog_title': 'Hata',
@@ -202,7 +204,7 @@ const Map<String, String> tr = {
   //İletişim dialog
   'contact_dialog_title': 'İletişim',
   'contact_dialog_message':
-      'Bize mail göndermek için mail uygulamanızı açmak istiyor musunuz?\n\nMail Adresi: contact@gemai.us',
+      'Bize mail göndermek için mail uygulamanızı açmak istiyor musunuz?\n\nMail Adresi: contact@dermai.us',
   'contact_email_copied': 'Mail adresi kopyalandı',
   'contact_dialog_cancel': 'İptal',
   'contact_dialog_send': 'Mail Gönder',

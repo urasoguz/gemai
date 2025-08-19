@@ -1,12 +1,12 @@
-import 'package:gemai/app/core/services/shrine_dialog_service.dart';
+import 'package:dermai/app/core/services/shrine_dialog_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:gemai/app/modules/settings/controller/device_info_controller.dart';
-import 'package:gemai/app/core/services/app_settings_service.dart';
-import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:dermai/app/modules/settings/controller/device_info_controller.dart';
+import 'package:dermai/app/core/services/app_settings_service.dart';
+import 'package:dermai/app/core/theme/app_theme_config.dart';
 
 /// İletişim mail controller'ı
 class ContactMailController extends GetxController {

@@ -1,4 +1,4 @@
-import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:dermai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingImageWidget extends StatelessWidget {
@@ -27,9 +27,9 @@ class OnboardingImageWidget extends StatelessWidget {
             child:
                 imagePath != null
                     ? Container(
-                      width: double.infinity,
-                      height: 400,
-                      margin: const EdgeInsets.symmetric(horizontal: 20),
+                      width: 300,
+                      height: 300,
+                      margin: const EdgeInsets.symmetric(horizontal: 12),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
@@ -46,9 +46,11 @@ class OnboardingImageWidget extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                         child: Image.asset(
                           imagePath!,
-                          width: double.infinity,
-                          height: 300,
                           fit: BoxFit.contain,
+                          alignment: Alignment.center,
+                          errorBuilder:
+                              (context, error, stackTrace) =>
+                                  const SizedBox.shrink(),
                         ),
                       ),
                     )

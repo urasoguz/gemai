@@ -1,5 +1,5 @@
 const Map<String, String> ro = {
-  'title': 'gemai',
+  'title': 'DERMAI',
   //settings
   'settings_title': 'Setări',
   'settings_language': 'Schimbă limba',
@@ -91,12 +91,12 @@ const Map<String, String> ro = {
   'share_result_title': 'Împărtășește Rezultatul',
   'share_result_error': 'Eroare la împărtășire:',
   'share_result_share_text':
-      'gemai - Rezultatul Analizei\nAnalizează-ți pielea cu gemai!',
+      'DermAI - Rezultatul Analizei\nAnalizează-ți pielea cu DermAI!',
 
   // Caracteristici premium
 
   //onboarding
-  'onboarding_title_1': 'Bun venit la gemai!',
+  'onboarding_title_1': 'Bun venit la DermAI!',
   'onboarding_desc_1':
       'Fă o fotografie sau selectează o imagine pentru analiza pielii. Descoperă problemele pielii instantaneu',
   'onboarding_title_2': 'Inteligență artificială puternică',
@@ -123,8 +123,8 @@ const Map<String, String> ro = {
   'history': 'Istoric',
 
   //camera
-  'camera_scan_title': 'Scannerul gemai pentru piele',
-  'camera_scanning': 'gemai analizează',
+  'camera_scan_title': 'Scannerul DermAI pentru piele',
+  'camera_scanning': 'DermAI analizează',
   'camera_scanning_desc': 'Boala pielii este scanată...',
   'camera_scan_desc': 'Pune boala pielii în cadru',
 
@@ -142,7 +142,7 @@ const Map<String, String> ro = {
   // Contact e-mail
   'contact_text':
       'Puteți folosi adresa de e-mail de mai jos pentru a ne contacta',
-  'contact_mail_subject': 'gemai - Cerere de contact',
+  'contact_mail_subject': 'DermAI - Cerere de contact',
   'contact_mail_body_write_here': 'Scrieți mesajul aici...',
   'contact_mail_user_id': 'ID utilizator',
   'contact_mail_device_type': 'Tipul dispozitivului',
@@ -184,6 +184,8 @@ const Map<String, String> ro = {
   'result_severity_very_high': 'Foarte severă',
   'result_severity_very_very_high': 'Extrem de severă',
   'result_severity_very_very_very_high': 'Excesiv de severă',
+  'result_reference': 'Referință',
+  'result_reference_error': 'Nu s-a putut deschide link-ul de referință:',
 
   //dialoguri de scanare
   'scan_dialog_title': 'Eroare',
@@ -211,7 +213,7 @@ const Map<String, String> ro = {
   //Dialogul de contact
   'contact_dialog_title': 'Contact',
   'contact_dialog_message':
-      'Doriți să deschideți aplicația de e-mail pentru a ne trimite un e-mail?\n\nAdresa de e-mail: contact@gemai.us',
+      'Doriți să deschideți aplicația de e-mail pentru a ne trimite un e-mail?\n\nAdresa de e-mail: contact@dermai.us',
   'contact_email_copied': 'Adresa de e-mail a fost copiată',
   'contact_dialog_cancel': 'Anulează',
   'contact_dialog_send': 'Trimite e-mail',

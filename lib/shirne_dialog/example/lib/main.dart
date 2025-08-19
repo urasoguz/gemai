@@ -25,7 +25,7 @@ class MyAppState extends State<MyApp> {
     extensions: [const ShirneDialogTheme()],
   );
 
-  setTheme(ThemeData newTheme) {
+  void setTheme(ThemeData newTheme) {
     setState(() {
       theme = newTheme.copyWith(
         visualDensity: VisualDensity.standard,
@@ -38,7 +38,6 @@ class MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Shirne Dialog Demo',
-
       supportedLocales: const [Locale('en'), Locale('zh', 'CN'), Locale('zh')],
       navigatorKey: MyDialog.navigatorKey,
       theme: theme,
@@ -52,12 +51,12 @@ class MyCustomScrollBehavior extends MaterialScrollBehavior {
   // Override behavior methods and getters like dragDevices
   @override
   Set<PointerDeviceKind> get dragDevices => {
-    PointerDeviceKind.touch,
-    PointerDeviceKind.mouse,
-    PointerDeviceKind.stylus,
-    PointerDeviceKind.invertedStylus,
-    PointerDeviceKind.unknown,
-  };
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+        PointerDeviceKind.stylus,
+        PointerDeviceKind.invertedStylus,
+        PointerDeviceKind.unknown,
+      };
 }
 
 class MyHomePage extends StatefulWidget {

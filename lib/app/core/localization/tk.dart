@@ -1,5 +1,5 @@
 const Map<String, String> tk = {
-  'title': 'gemai',
+  'title': 'DERMAI',
   //settings
   'settings_title': 'Sazlamalar',
   'settings_language': 'Dili üýtget',
@@ -85,12 +85,12 @@ const Map<String, String> tk = {
   'share_result_title': 'Netijäni Paýlaş',
   'share_result_error': 'Paýlaşmakda ýalňyşlyk:',
   'share_result_share_text':
-      'gemai - Analiz Netijäsi\ngemai bilen deriňizi analiz ediň!',
+      'DermAI - Analiz Netijäsi\nDermAI bilen deriňizi analiz ediň!',
 
   // Premium aýratynlyklary
 
   //onboarding
-  'onboarding_title_1': 'gemai-e hoş geldiňiz!',
+  'onboarding_title_1': 'DermAI-e hoş geldiňiz!',
   'onboarding_desc_1':
       'Deri analizi etmek üçin surat çekiň ýa-da surat saýlaň. Deri kynçylyklaryňyzy derrew tapyň',
   'onboarding_title_2': 'Güýçli Ýapay akyl',
@@ -117,8 +117,8 @@ const Map<String, String> tk = {
   'history': 'Taryh',
 
   //camera
-  'camera_scan_title': 'gemai deri skaneri',
-  'camera_scanning': 'gemai analiz edýär',
+  'camera_scan_title': 'DermAI deri skaneri',
+  'camera_scanning': 'DermAI analiz edýär',
   'camera_scanning_desc': 'Deri keseliňiz skanir edilýär...',
   'camera_scan_desc': 'Deri keseliňizi çarçewe içine alyň',
 
@@ -136,7 +136,7 @@ const Map<String, String> tk = {
   // Habarlaşmak poçta
   'contact_text':
       'Biziň bilen habarlaşmak üçin aşakdaky elektron poçta salgysyny ulanyp bilersiňiz',
-  'contact_mail_subject': 'gemai - Habarlaşmak talaby',
+  'contact_mail_subject': 'DermAI - Habarlaşmak talaby',
   'contact_mail_body_write_here': 'Habar ýazyňyzy şu ýere...',
   'contact_mail_user_id': 'Ulanyjy ID',
   'contact_mail_device_type': 'Enjam görnüşi',
@@ -178,6 +178,8 @@ const Map<String, String> tk = {
   'result_severity_very_high': 'Ýokary çeşmeli',
   'result_severity_very_very_high': 'Iň ýokary çeşmeli',
   'result_severity_very_very_very_high': 'Aşak ýokary çeşmeli',
+  'result_reference': 'Referans',
+  'result_reference_error': 'Referans linkini açylmady',
 
   //skan dialogalary
   'scan_dialog_title': 'Ýalňyş',
@@ -201,7 +203,7 @@ const Map<String, String> tk = {
   //Habarlaşmak dialog
   'contact_dialog_title': 'Habarlaşmak',
   'contact_dialog_message':
-      'Bize poçta ibermek üçin poçta ulgamyňyzy açmak isleýärsiňizmi?\n\nPoçta salgysy: contact@gemai.us',
+      'Bize poçta ibermek üçin poçta ulgamyňyzy açmak isleýärsiňizmi?\n\nPoçta salgysy: contact@dermai.us',
   'contact_email_copied': 'Poçta salgysy göçürildi',
   'contact_dialog_cancel': 'Ýatyr',
   'contact_dialog_send': 'Poçta iber',

@@ -1,5 +1,5 @@
 const Map<String, String> sr = {
-  'title': 'gemai',
+  'title': 'DERMAI',
   //settings
   'settings_title': 'Подешавања',
   'settings_language': 'Промени језик',
@@ -86,12 +86,12 @@ const Map<String, String> sr = {
   'share_result_title': 'Подели Резултат',
   'share_result_error': 'Грешка при дељењу:',
   'share_result_share_text':
-      'gemai - Резултат Анализе\nАнализирајте своју кожу са gemai!',
+      'DermAI - Резултат Анализе\nАнализирајте своју кожу са DermAI!',
 
   // Премиум функције
 
   //onboarding
-  'onboarding_title_1': 'Добро пожаловали у gemai!',
+  'onboarding_title_1': 'Добро пожаловали у DermAI!',
   'onboarding_desc_1':
       'Направите фотографију или изаберите слику за анализу коже. Откријте своје кожне проблеме одмах',
   'onboarding_title_2': 'Снажна вештачка интелигенција',
@@ -118,8 +118,8 @@ const Map<String, String> sr = {
   'history': 'Историја',
 
   //camera
-  'camera_scan_title': 'gemai скенер коже',
-  'camera_scanning': 'gemai анализира',
+  'camera_scan_title': 'DermAI скенер коже',
+  'camera_scanning': 'DermAI анализира',
   'camera_scanning_desc': 'Ваша кожна болест се скенира...',
   'camera_scan_desc': 'Ставите кожну болест у оквир',
 
@@ -136,7 +136,7 @@ const Map<String, String> sr = {
 
   // Контактни е-маил
   'contact_text': 'За контакт са нама можете користити доњу е-маил адресу',
-  'contact_mail_subject': 'gemai - Захтев за контакт',
+  'contact_mail_subject': 'DermAI - Захтев за контакт',
   'contact_mail_body_write_here': 'Напишите своју поруку овде...',
   'contact_mail_user_id': 'ID корисника',
   'contact_mail_device_type': 'Тип уређаја',
@@ -178,6 +178,8 @@ const Map<String, String> sr = {
   'result_severity_very_high': 'Озбиљна',
   'result_severity_very_very_high': 'Врло озбиљна',
   'result_severity_very_very_very_high': 'Екстремно озбиљна',
+  'result_reference': 'Референца',
+  'result_reference_error': 'Не могу да отворите линк референце:',
 
   //дијалози скенирања
   'scan_dialog_title': 'Грешка',
@@ -204,7 +206,7 @@ const Map<String, String> sr = {
   //Контактни дијалог
   'contact_dialog_title': 'Контакт',
   'contact_dialog_message':
-      'Да ли желите да отворите е-маил апликацију за слање е-маила?\n\nЕ-маил адреса: contact@gemai.us',
+      'Да ли желите да отворите е-маил апликацију за слање е-маила?\n\nЕ-маил адреса: contact@dermai.us',
   'contact_email_copied': 'Е-маил адреса је копирана',
   'contact_dialog_cancel': 'Откажи',
   'contact_dialog_send': 'Пошаљи е-маил',

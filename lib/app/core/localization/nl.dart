@@ -1,5 +1,5 @@
 const Map<String, String> nl = {
-  'title': 'gemai',
+  'title': 'DERMAI',
   //settings
   'settings_title': 'Instellingen',
   'settings_language': 'Taal Wijzigen',
@@ -85,12 +85,12 @@ const Map<String, String> nl = {
   'share_result_title': 'Resultaat Delen',
   'share_result_error': 'Fout bij delen:',
   'share_result_share_text':
-      'gemai - Analyse Resultaat\nAnalyseer je huid met gemai!',
+      'DermAI - Analyse Resultaat\nAnalyseer je huid met DermAI!',
 
   // Premium functies
 
   //onboarding
-  'onboarding_title_1': 'Welkom bij gemai!',
+  'onboarding_title_1': 'Welkom bij DermAI!',
   'onboarding_desc_1':
       'Maak een foto of selecteer een afbeelding voor huidanalyse. Ontdek uw huidproblemen direct.',
   'onboarding_title_2': 'Krachtige Kunstmatige Intelligentie',
@@ -117,8 +117,8 @@ const Map<String, String> nl = {
   'history': 'Geschiedenis',
 
   //camera
-  'camera_scan_title': 'gemai Huidscanner',
-  'camera_scanning': 'gemai Analyseert',
+  'camera_scan_title': 'DermAI Huidscanner',
+  'camera_scanning': 'DermAI Analyseert',
   'camera_scanning_desc': 'Uw huidaandoening wordt gescand...',
   'camera_scan_desc': 'Kader uw huidaandoening in',
 
@@ -136,7 +136,7 @@ const Map<String, String> nl = {
   // Contact e-mail
   'contact_text':
       'U kunt het volgende e-mailadres gebruiken om contact met ons op te nemen.',
-  'contact_mail_subject': 'gemai - Contactverzoek',
+  'contact_mail_subject': 'DermAI - Contactverzoek',
   'contact_mail_body_write_here': 'Schrijf hier uw bericht...',
   'contact_mail_user_id': 'Gebruikers-ID',
   'contact_mail_device_type': 'Apparaat Type',
@@ -178,6 +178,8 @@ const Map<String, String> nl = {
   'result_severity_very_high': 'Ernstig',
   'result_severity_very_very_high': 'Zeer Ernstig',
   'result_severity_very_very_very_high': 'Extreem Ernstig',
+  'result_reference': 'Referentie',
+  'result_reference_error': 'Referentie link kon niet worden geopend',
 
   //scan dialogen
   'scan_dialog_title': 'Fout',
@@ -203,7 +205,7 @@ const Map<String, String> nl = {
   //Contact dialoog
   'contact_dialog_title': 'Contact',
   'contact_dialog_message':
-      'Wilt u uw e-mail app openen om ons een bericht te sturen?\n\nE-mailadres: contact@gemai.us',
+      'Wilt u uw e-mail app openen om ons een bericht te sturen?\n\nE-mailadres: contact@dermai.us',
   'contact_email_copied': 'E-mailadres gekopieerd',
   'contact_dialog_cancel': 'Annuleren',
   'contact_dialog_send': 'E-mail Versturen',

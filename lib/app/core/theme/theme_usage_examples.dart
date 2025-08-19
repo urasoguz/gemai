@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:dermai/app/core/theme/app_theme_config.dart';
 
 /// TEMA KULLANIM ÖRNEKLERİ
 /// Bu dosya, tema sisteminin nasıl kullanılacağını gösterir

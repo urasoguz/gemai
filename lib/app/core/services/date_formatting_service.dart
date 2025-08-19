@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:gemai/app/shared/controllers/lang_controller.dart';
+import 'package:dermai/app/shared/controllers/lang_controller.dart';
 
 /// Tarih formatlaması için modüler servis
 /// Çok dilli uygulamalarda tarih ve zaman ifadelerini formatlar

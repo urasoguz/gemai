@@ -1,4 +1,4 @@
-# 📱 gemai Paylaşım Özelliği Demo - Tüm Sayfa Screenshot
+# 📱 DermAI Paylaşım Özelliği Demo - Tüm Sayfa Screenshot
 
 ## 🎯 **ÖZELLİK AÇIKLAMASI**
 
@@ -174,7 +174,7 @@ final Uint8List? imageBytes = await _screenshotController.capture(
 
 ## 🎉 **SONUÇ**
 
-**gemai paylaşım özelliği başarıyla güncellendi!**
+**DermAI paylaşım özelliği başarıyla güncellendi!**
 
 ✅ **Yeni Özellikler:**
 - App bar'da paylaşım icon'u

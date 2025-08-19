@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:gemai/app/core/theme/app_theme_config.dart';
-import 'package:gemai/app/modules/legal_warning/controller/legal_warning_controller.dart';
+import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:dermai/app/modules/legal_warning/controller/legal_warning_controller.dart';
 
 /// Yasal uyarı sayfası - Modern, kompakt ve ekrana sığan tasarım (geri butonu yok)
 class LegalWarningView extends StatelessWidget {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gemai/app/core/theme/app_theme_config.dart';
-import 'package:gemai/app/modules/pages/controller/pages_controller.dart';
-import 'package:gemai/app/routes/app_routes.dart';
+import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:dermai/app/modules/pages/controller/pages_controller.dart';
+import 'package:dermai/app/routes/app_routes.dart';
 
 /// Pages listesi view'ı
 class PagesListView extends StatelessWidget {

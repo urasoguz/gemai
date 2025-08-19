@@ -1,5 +1,5 @@
 const Map<String, String> fi = {
-  'title': 'gemai',
+  'title': 'DERMAI',
   //settings
   'settings_title': 'Asetukset',
   'settings_language': 'Vaihda kieltä',
@@ -85,12 +85,12 @@ const Map<String, String> fi = {
   'share_result_title': 'Jaa Tulos',
   'share_result_error': 'Virhe jaettaessa:',
   'share_result_share_text':
-      'gemai - Analyysin Tulos\nAnalysoi ihosi gemai:lla!',
+      'DermAI - Analyysin Tulos\nAnalysoi ihosi DermAI:lla!',
 
   // Premium-ominaisuudet
 
   //onboarding
-  'onboarding_title_1': 'Tervetuloa gemai:hin!',
+  'onboarding_title_1': 'Tervetuloa DermAI:hin!',
   'onboarding_desc_1':
       'Ota kuva tai valitse kuva ihon analysointiin. Löydä ihon ongelmasi heti',
   'onboarding_title_2': 'Voimakas tekoäly',
@@ -116,8 +116,8 @@ const Map<String, String> fi = {
   'history': 'Historia',
 
   //camera
-  'camera_scan_title': 'gemai ihoskanneri',
-  'camera_scanning': 'gemai analysoi',
+  'camera_scan_title': 'DermAI ihoskanneri',
+  'camera_scanning': 'DermAI analysoi',
   'camera_scanning_desc': 'Ihosi sairautta skannataan...',
   'camera_scan_desc': 'Aseta ihosi sairaus kehykseen',
 
@@ -135,7 +135,7 @@ const Map<String, String> fi = {
   // Yhteystiedot sähköposti
   'contact_text':
       'Voit käyttää alla olevaa sähköpostiosoitetta ottaaksesi yhteyttä meihin',
-  'contact_mail_subject': 'gemai - Yhteydenottopyyntö',
+  'contact_mail_subject': 'DermAI - Yhteydenottopyyntö',
   'contact_mail_body_write_here': 'Kirjoita viestisi tähän...',
   'contact_mail_user_id': 'Käyttäjän ID',
   'contact_mail_device_type': 'Laitteen tyyppi',
@@ -177,6 +177,8 @@ const Map<String, String> fi = {
   'result_severity_very_high': 'Korkea',
   'result_severity_very_very_high': 'Erittäin korkea',
   'result_severity_very_very_very_high': 'Äärimmäisen korkea',
+  'result_reference': 'Merkitys',
+  'result_reference_error': 'Merkityksen linkkiä ei voitu avata:',
 
   //skannausvalintaikkunat
   'scan_dialog_title': 'Virhe',
@@ -202,7 +204,7 @@ const Map<String, String> fi = {
   //Yhteydenottovalintaikkuna
   'contact_dialog_title': 'Yhteystiedot',
   'contact_dialog_message':
-      'Haluatko avata sähköpostisovelluksesi lähettääksesi meille viestin?\n\nSähköpostiosoite: contact@gemai.us',
+      'Haluatko avata sähköpostisovelluksesi lähettääksesi meille viestin?\n\nSähköpostiosoite: contact@dermai.us',
   'contact_email_copied': 'Sähköpostiosoite kopioitu',
   'contact_dialog_cancel': 'Peruuta',
   'contact_dialog_send': 'Lähetä sähköposti',

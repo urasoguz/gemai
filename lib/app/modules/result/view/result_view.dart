@@ -1,5 +1,5 @@
-import 'package:gemai/app/core/theme/app_theme_config.dart';
-import 'package:gemai/app/shared/widgets/modular_app_bar.dart';
+import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:dermai/app/shared/widgets/modular_app_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,6 +15,7 @@ import '../widgets/result_info_card.dart';
 import '../widgets/result_chip_card.dart';
 import '../widgets/result_description_card.dart';
 import '../widgets/result_footer_note.dart';
+import '../widgets/result_reference_card.dart';
 
 class ResultView extends GetView<ResultController> {
   const ResultView({super.key});
@@ -193,6 +194,13 @@ class ResultView extends GetView<ResultController> {
                 chipColor: colors.alternativeTreatmentChipColor,
               ),
 
+              // Reference card'ı
+              if (result.reference != null) ...[
+                const SizedBox(height: 10),
+                ResultReferenceCard(reference: result.reference!),
+                const SizedBox(height: 10),
+              ],
+
               // Footer notu
               ResultFooterNote(),
               const SizedBox(height: 20),
@@ -361,6 +369,13 @@ class ResultView extends GetView<ResultController> {
                     chipColor: colors.alternativeTreatmentChipColor,
                   ),
 
+                  // Reference card'ı
+                  if (result.reference != null) ...[
+                    const SizedBox(height: 10),
+                    ResultReferenceCard(reference: result.reference!),
+                    const SizedBox(height: 10),
+                  ],
+
                   // Footer notu
                   ResultFooterNote(),
                   const SizedBox(height: 20),
@@ -376,7 +391,7 @@ class ResultView extends GetView<ResultController> {
       // Geçici dosya oluştur
       final Directory tempDir = await getTemporaryDirectory();
       final String fileName =
-          'gemai_result_${DateTime.now().millisecondsSinceEpoch}.png';
+          'dermai_result_${DateTime.now().millisecondsSinceEpoch}.png';
       final File tempFile = File('${tempDir.path}/$fileName');
 
       // Dosyaya kaydet

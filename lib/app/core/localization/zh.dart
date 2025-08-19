@@ -1,5 +1,5 @@
 const Map<String, String> zh = {
-  'title': 'gemai',
+  'title': 'DERMAI',
 
   //settings
   'settings_title': '设置',
@@ -81,10 +81,10 @@ const Map<String, String> zh = {
   // 分享
   'share_result_title': '分享结果',
   'share_result_error': '分享时发生错误：',
-  'share_result_share_text': 'gemai - 分析结果\n使用gemai分析您的皮肤！',
+  'share_result_share_text': 'DermAI - 分析结果\n使用DermAI分析您的皮肤！',
 
   //onboarding
-  'onboarding_title_1': '欢迎使用gemai！',
+  'onboarding_title_1': '欢迎使用DermAI！',
   'onboarding_desc_1': '拍摄照片或选择图像来分析您的皮肤。立即发现皮肤问题。',
   'onboarding_title_2': '强大的AI',
   'onboarding_desc_2': '我们使用先进的AI来准确分析皮肤问题。',
@@ -106,8 +106,8 @@ const Map<String, String> zh = {
   'history': '历史',
 
   //camera
-  'camera_scan_title': 'gemai 皮肤扫描器',
-  'camera_scanning': 'gemai 分析中',
+  'camera_scan_title': 'DermAI 皮肤扫描器',
+  'camera_scanning': 'DermAI 分析中',
   'camera_scanning_desc': '正在扫描您的皮肤问题...',
   'camera_scan_desc': '将您的皮肤问题框选起来',
 
@@ -124,7 +124,7 @@ const Map<String, String> zh = {
 
   // Contact mail
   'contact_text': '您可以通过以下电子邮件地址与我们联系。',
-  'contact_mail_subject': 'gemai - 联系请求',
+  'contact_mail_subject': 'DermAI - 联系请求',
   'contact_mail_body_write_here': '请在这里写下您的消息...',
   'contact_mail_user_id': '用户ID',
   'contact_mail_device_type': '设备类型',
@@ -165,6 +165,8 @@ const Map<String, String> zh = {
   'result_severity_very_high': '严重',
   'result_severity_very_very_high': '非常严重',
   'result_severity_very_very_very_high': '极其严重',
+  'result_reference': '参考',
+  'result_reference_error': '无法打开参考链接：',
 
   //scan dialogs
   'scan_dialog_title': '错误',
@@ -186,7 +188,7 @@ const Map<String, String> zh = {
 
   //Contact dialog
   'contact_dialog_title': '联系我们',
-  'contact_dialog_message': '您想要打开邮件应用向我们发送消息吗？\n\n邮件地址：contact@gemai.us',
+  'contact_dialog_message': '您想要打开邮件应用向我们发送消息吗？\n\n邮件地址：contact@dermai.us',
   'contact_email_copied': '邮件地址已复制',
   'contact_dialog_cancel': '取消',
   'contact_dialog_send': '发送邮件',

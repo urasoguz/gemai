@@ -1,5 +1,5 @@
 const Map<String, String> en = {
-  'title': 'gemai',
+  'title': 'DERMAI',
 
   //settings
   'settings_title': 'Settings',
@@ -10,7 +10,7 @@ const Map<String, String> en = {
   'settings_contact': 'Contact',
   'settings_about': 'About',
   'settings_privacy': 'Privacy Policy',
-  'settings_terms': 'Terms of Service',
+  'settings_terms': 'Terms of Use',
   'settings_faq': 'FAQ',
   'settings_version': 'Version',
   'settings_restore_purchases': 'Restore Purchases',
@@ -20,7 +20,7 @@ const Map<String, String> en = {
   'settings_restore_purchases_error': 'Failed to restore purchases:',
   'settings_privacy_error': 'Could not open privacy policy page',
   'settings_faq_error': 'Could not open FAQ page',
-  'settings_terms_error': 'Could not open terms of service page',
+  'settings_terms_error': 'Could not open terms of use page',
   'settings_about_error': 'Could not open about page',
   'settings_cancel_subscription_error':
       'Could not open subscription cancellation page',
@@ -29,7 +29,7 @@ const Map<String, String> en = {
   'share_result_title': 'Share Result',
   'share_result_error': 'Error occurred while sharing:',
   'share_result_share_text':
-      'gemai - Analysis Result\nAnalyze your skin with gemai!',
+      'DermAI - Analysis Result\nAnalyze your skin with DermAI!',
 
   //account
   'account_title': 'Account',
@@ -76,7 +76,7 @@ const Map<String, String> en = {
   'premium_desc_2': 'Use Latest AI Models',
   'premium_desc_3': 'View Analysis History',
   'premium_restore': 'Restore',
-  'premium_terms': 'Terms of Service',
+  'premium_terms': 'Terms of Use',
   'premium_privacy': 'Privacy Policy',
   'premium_trial_not_available': 'Free trial not available.',
   'premium_continue_without': 'Continue without Premium',
@@ -88,7 +88,7 @@ const Map<String, String> en = {
   'premium_restore_error': 'An error occurred during restore',
 
   //onboarding
-  'onboarding_title_1': 'Welcome to gemai!',
+  'onboarding_title_1': 'Welcome to DermAI!',
   'onboarding_desc_1':
       'Take a photo or select an image to analyze your skin. Discover skin issues instantly.',
   'onboarding_title_2': 'Powerful AI',
@@ -115,8 +115,8 @@ const Map<String, String> en = {
   'history': 'History',
 
   //camera
-  'camera_scan_title': 'gemai Skin Scanner',
-  'camera_scanning': 'gemai Analyzing',
+  'camera_scan_title': 'DermAI Skin Scanner',
+  'camera_scanning': 'DermAI Analyzing',
   'camera_scanning_desc': 'Your skin condition is being scanned...',
   'camera_scan_desc': 'Frame your skin condition within the camera view',
 
@@ -133,7 +133,7 @@ const Map<String, String> en = {
 
   // Contact mail
   'contact_text': 'You can contact us through the following email address.',
-  'contact_mail_subject': 'gemai - Contact Request',
+  'contact_mail_subject': 'DermAI - Contact Request',
   'contact_mail_body_write_here': 'Write your message here...',
   'contact_mail_user_id': 'User ID',
   'contact_mail_device_type': 'Device Type',
@@ -175,6 +175,8 @@ const Map<String, String> en = {
   'result_severity_very_high': 'Severe',
   'result_severity_very_very_high': 'Very Severe',
   'result_severity_very_very_very_high': 'Extremely Severe',
+  'result_reference': 'Reference',
+  'result_reference_error': 'Could not open reference link:',
 
   //scan dialogs
   'scan_dialog_title': 'Error',
@@ -198,7 +200,7 @@ const Map<String, String> en = {
   //Contact dialog
   'contact_dialog_title': 'Contact',
   'contact_dialog_message':
-      'Would you like to open your email app to send us a message?\n\nEmail Address: contact@gemai.us',
+      'Would you like to open your email app to send us a message?\n\nEmail Address: contact@dermai.us',
   'contact_email_copied': 'Email address copied',
   'contact_dialog_cancel': 'Cancel',
   'contact_dialog_send': 'Send Email',

@@ -1,4 +1,4 @@
-import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:dermai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -1,15 +1,15 @@
-# App Store Yayını - gemai
+# App Store Yayını - DermAI
 
 ## 📱 Uygulama Bilgileri
-- **Uygulama Adı**: gemai
-- **Bundle ID**: com.gemai.app (Xcode'da ayarlanmalı)
+- **Uygulama Adı**: DermAI
+- **Bundle ID**: com.dermai.app (Xcode'da ayarlanmalı)
 - **Versiyon**: 1.0.0
 - **Build**: 1
 
 ## 🎯 Uygulama Açıklaması
 **Türkçe:**
 ```
-gemai ile cildinizi yapay zeka teknolojisi ile analiz edin! 
+DermAI ile cildinizi yapay zeka teknolojisi ile analiz edin! 
 
 📸 Fotoğraf çekin veya galeriden seçin
 🤖 Gelişmiş AI modelleri ile anında analiz
@@ -17,7 +17,7 @@ gemai ile cildinizi yapay zeka teknolojisi ile analiz edin!
 📊 Detaylı sonuçlar ve öneriler
 🌍 40+ dil desteği
 
-gemai, profesyonel cilt analizi için geliştirilmiş yapay zeka destekli mobil uygulamadır. Cildinizdeki sorunları anında tespit eder ve size özel öneriler sunar.
+DermAI, profesyonel cilt analizi için geliştirilmiş yapay zeka destekli mobil uygulamadır. Cildinizdeki sorunları anında tespit eder ve size özel öneriler sunar.
 
 Özellikler:
 • Anında cilt analizi
@@ -31,7 +31,7 @@ Hemen indirin ve cildinizi keşfedin!
 
 **İngilizce:**
 ```
-Analyze your skin with artificial intelligence technology using gemai!
+Analyze your skin with artificial intelligence technology using DermAI!
 
 📸 Take a photo or select from gallery
 🤖 Instant analysis with advanced AI models
@@ -39,7 +39,7 @@ Analyze your skin with artificial intelligence technology using gemai!
 📊 Detailed results and recommendations
 🌍 40+ language support
 
-gemai is an AI-powered mobile application developed for professional skin analysis. It instantly detects problems in your skin and offers personalized recommendations.
+DermAI is an AI-powered mobile application developed for professional skin analysis. It instantly detects problems in your skin and offers personalized recommendations.
 
 Features:
 • Instant skin analysis

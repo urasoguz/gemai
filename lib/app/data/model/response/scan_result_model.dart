@@ -15,6 +15,7 @@ class ScanResultModel {
   final String? imagePath;
   final DateTime? createdAt;
   final OptimizationInfo? optimizationInfo;
+  final ReferenceModel? reference;
 
   ScanResultModel({
     this.name,
@@ -33,9 +34,15 @@ class ScanResultModel {
     this.imagePath,
     this.createdAt,
     this.optimizationInfo,
+    this.reference,
   });
 
   factory ScanResultModel.fromMap(Map<String, dynamic> map) {
+    final reference =
+        map['reference'] != null
+            ? ReferenceModel.fromMap(map['reference'])
+            : null;
+
     return ScanResultModel(
       name: map['name'] as String?,
       altName: map['alt_name'] as String?,
@@ -63,6 +70,7 @@ class ScanResultModel {
           map['optimization_info'] != null
               ? OptimizationInfo.fromMap(map['optimization_info'])
               : null,
+      reference: reference,
     );
   }
 
@@ -84,7 +92,27 @@ class ScanResultModel {
       'imagePath': imagePath,
       'createdAt': createdAt?.toIso8601String(),
       'optimization_info': optimizationInfo?.toMap(),
+      'reference': reference?.toMap(),
     };
+  }
+}
+
+/// Referans bilgileri için model
+class ReferenceModel {
+  final String label;
+  final String url;
+
+  ReferenceModel({required this.label, required this.url});
+
+  factory ReferenceModel.fromMap(Map<String, dynamic> map) {
+    return ReferenceModel(
+      label: map['label'] as String? ?? '',
+      url: map['url'] as String? ?? '',
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {'label': label, 'url': url};
   }
 }
 

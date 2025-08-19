@@ -1,10 +1,10 @@
-import 'package:gemai/app/core/theme/app_theme_config.dart';
-import 'package:gemai/app/routes/app_routes.dart';
-import 'package:gemai/app/shared/helpers/my_helper.dart';
+import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:dermai/app/routes/app_routes.dart';
+import 'package:dermai/app/shared/helpers/my_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gemai/app/core/services/shrine_dialog_service.dart';
+import 'package:dermai/app/core/services/shrine_dialog_service.dart';
 import 'package:get_storage/get_storage.dart';
 
 class HomeAnalyzeButtonWidget extends StatefulWidget {

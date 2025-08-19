@@ -1,5 +1,5 @@
 const Map<String, String> it = {
-  'title': 'gemai',
+  'title': 'DERMAI',
   //settings
   'settings_title': 'Impostazioni',
   'settings_language': 'Cambia lingua',
@@ -88,12 +88,12 @@ const Map<String, String> it = {
   'share_result_title': 'Condividi Risultato',
   'share_result_error': 'Errore durante la condivisione:',
   'share_result_share_text':
-      'gemai - Risultato Analisi\nAnalizza la tua pelle con gemai!',
+      'DermAI - Risultato Analisi\nAnalizza la tua pelle con DermAI!',
 
   // Funzionalità Premium
 
   //onboarding
-  'onboarding_title_1': 'Benvenuto in gemai!',
+  'onboarding_title_1': 'Benvenuto in DermAI!',
   'onboarding_desc_1':
       'Scatta una foto o seleziona un\'immagine per analizzare la pelle. Scopri i tuoi problemi della pelle istantaneamente.',
   'onboarding_title_2': 'Intelligenza artificiale potente',
@@ -120,8 +120,8 @@ const Map<String, String> it = {
   'history': 'Cronologia',
 
   //camera
-  'camera_scan_title': 'Scanner pelle gemai',
-  'camera_scanning': 'gemai sta analizzando',
+  'camera_scan_title': 'Scanner pelle DermAI',
+  'camera_scanning': 'DermAI sta analizzando',
   'camera_scanning_desc': 'La tua malattia della pelle viene scansionata...',
   'camera_scan_desc': 'Posiziona la tua malattia della pelle nel riquadro',
 
@@ -138,7 +138,7 @@ const Map<String, String> it = {
 
   // Mail di contatto
   'contact_text': 'Puoi contattarci utilizzando il seguente indirizzo email.',
-  'contact_mail_subject': 'gemai - Richiesta di contatto',
+  'contact_mail_subject': 'DermAI - Richiesta di contatto',
   'contact_mail_body_write_here': 'Scrivi il tuo messaggio qui...',
   'contact_mail_user_id': 'ID utente',
   'contact_mail_device_type': 'Tipo di dispositivo',
@@ -180,6 +180,8 @@ const Map<String, String> it = {
   'result_severity_very_high': 'Grave',
   'result_severity_very_very_high': 'Molto grave',
   'result_severity_very_very_very_high': 'Estremamente grave',
+  'result_reference': 'Riferimento',
+  'result_reference_error': 'Impossibile aprire il link di riferimento:',
 
   //dialoghi di scansione
   'scan_dialog_title': 'Errore',
@@ -203,7 +205,7 @@ const Map<String, String> it = {
   //dialogo di contatto
   'contact_dialog_title': 'Contatti',
   'contact_dialog_message':
-      'Vuoi aprire la tua app email per inviarci un messaggio?\n\nIndirizzo email: contact@gemai.us',
+      'Vuoi aprire la tua app email per inviarci un messaggio?\n\nIndirizzo email: contact@dermai.us',
   'contact_email_copied': 'Indirizzo email copiato',
   'contact_dialog_cancel': 'Annulla',
   'contact_dialog_send': 'Invia email',

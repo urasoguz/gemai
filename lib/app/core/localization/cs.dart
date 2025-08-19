@@ -1,5 +1,5 @@
 const Map<String, String> cs = {
-  'title': 'gemai',
+  'title': 'DERMAI',
   //settings
   'settings_title': 'Nastavení',
   'settings_language': 'Změnit jazyk',
@@ -86,12 +86,12 @@ const Map<String, String> cs = {
   'share_result_title': 'Sdílet Výsledek',
   'share_result_error': 'Chyba při sdílení:',
   'share_result_share_text':
-      'gemai - Výsledek Analýzy\nAnalyzujte svou pokožku s gemai!',
+      'DermAI - Výsledek Analýzy\nAnalyzujte svou pokožku s DermAI!',
 
   // Premium funkce
 
   //onboarding
-  'onboarding_title_1': 'Vítejte v gemai!',
+  'onboarding_title_1': 'Vítejte v DermAI!',
   'onboarding_desc_1':
       'Pořiďte fotografii nebo vyberte obrázek pro analýzu kůže. Objevte své kožní problémy okamžitě',
   'onboarding_title_2': 'Silná umělá inteligence',
@@ -117,8 +117,8 @@ const Map<String, String> cs = {
   'history': 'Historie',
 
   //camera
-  'camera_scan_title': 'gemai skener kůže',
-  'camera_scanning': 'gemai analyzuje',
+  'camera_scan_title': 'DermAI skener kůže',
+  'camera_scanning': 'DermAI analyzuje',
   'camera_scanning_desc': 'Vaše kožní onemocnění se skenuje...',
   'camera_scan_desc': 'Umístěte kožní onemocnění do rámečku',
 
@@ -136,7 +136,7 @@ const Map<String, String> cs = {
   // Kontaktní e-mail
   'contact_text':
       'Pro kontakt s námi můžete použít níže uvedenou e-mailovou adresu',
-  'contact_mail_subject': 'gemai - Žádost o kontakt',
+  'contact_mail_subject': 'DermAI - Žádost o kontakt',
   'contact_mail_body_write_here': 'Napište zde svou zprávu...',
   'contact_mail_user_id': 'ID uživatele',
   'contact_mail_device_type': 'Typ zařízení',
@@ -178,6 +178,8 @@ const Map<String, String> cs = {
   'result_severity_very_high': 'Závažné',
   'result_severity_very_very_high': 'Velmi závažné',
   'result_severity_very_very_very_high': 'Extrémně závažné',
+  'result_reference': 'Mějte na paměti',
+  'result_reference_error': 'Nelze otevřít odkaz na mějte na paměti:',
 
   //dialogy skenování
   'scan_dialog_title': 'Chyba',
@@ -203,7 +205,7 @@ const Map<String, String> cs = {
   //Kontaktní dialog
   'contact_dialog_title': 'Kontakt',
   'contact_dialog_message':
-      'Chcete otevřít e-mailovou aplikaci pro odeslání e-mailu?\n\nE-mailová adresa: contact@gemai.us',
+      'Chcete otevřít e-mailovou aplikaci pro odeslání e-mailu?\n\nE-mailová adresa: contact@dermai.us',
   'contact_email_copied': 'E-mailová adresa byla zkopírována',
   'contact_dialog_cancel': 'Zrušit',
   'contact_dialog_send': 'Odeslat e-mail',

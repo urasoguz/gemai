@@ -1,5 +1,5 @@
 const Map<String, String> hi = {
-  'title': 'gemai',
+  'title': 'DERMAI',
   //settings
   'settings_title': 'सेटिंग्स',
   'settings_language': 'भाषा बदलें',
@@ -86,7 +86,7 @@ const Map<String, String> hi = {
   'share_result_title': 'परिणाम साझा करें',
   'share_result_error': 'साझा करने में त्रुटि:',
   'share_result_share_text':
-      'gemai - विश्लेषण परिणाम\ngemai के साथ अपनी त्वचा का विश्लेषण करें!',
+      'DermAI - विश्लेषण परिणाम\nDermAI के साथ अपनी त्वचा का विश्लेषण करें!',
 
   // Premium सुविधाएं
 
@@ -179,6 +179,8 @@ const Map<String, String> hi = {
   'result_severity_very_high': 'उच्च गंभीर',
   'result_severity_very_very_high': 'बहुत उच्च गंभीर',
   'result_severity_very_very_very_high': 'अत्यधिक उच्च गंभीर',
+  'result_reference': 'संदर्भ',
+  'result_reference_error': 'संदर्भ लिंक खोलने में विफल:',
 
   //scan संवाद
   'scan_dialog_title': 'त्रुटि',
@@ -203,7 +205,7 @@ const Map<String, String> hi = {
   //संपर्क संवाद
   'contact_dialog_title': 'संपर्क',
   'contact_dialog_message':
-      'क्या आप हमें मेल भेजने के लिए अपना मेल ऐप खोलना चाहते हैं?\n\nमेल पता: contact@gemai.us',
+      'क्या आप हमें मेल भेजने के लिए अपना मेल ऐप खोलना चाहते हैं?\n\nमेल पता: contact@dermai.us',
   'contact_email_copied': 'मेल पता कॉपी किया गया',
   'contact_dialog_cancel': 'रद्द करें',
   'contact_dialog_send': 'मेल भेजें',

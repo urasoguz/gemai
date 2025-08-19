@@ -1,5 +1,5 @@
 const Map<String, String> de = {
-  'title': 'gemai',
+  'title': 'DERMAI',
   //settings
   'settings_title': 'Einstellungen',
   'settings_language': 'Sprache ändern',
@@ -90,12 +90,12 @@ const Map<String, String> de = {
   'share_result_title': 'Ergebnis Teilen',
   'share_result_error': 'Fehler beim Teilen:',
   'share_result_share_text':
-      'gemai - Analyseergebnis\nAnalysiere deine Haut mit gemai!',
+      'DermAI - Analyseergebnis\nAnalysiere deine Haut mit DermAI!',
 
   // Premium-Funktionen
 
   //onboarding
-  'onboarding_title_1': 'Willkommen bei gemai!',
+  'onboarding_title_1': 'Willkommen bei DermAI!',
   'onboarding_desc_1':
       'Machen Sie ein Foto oder wählen Sie ein Bild zur Hautanalyse. Entdecken Sie Ihre Hautprobleme sofort.',
   'onboarding_title_2': 'Leistungsstarke künstliche Intelligenz',
@@ -122,8 +122,8 @@ const Map<String, String> de = {
   'history': 'Verlauf',
 
   //camera
-  'camera_scan_title': 'gemai Hautscanner',
-  'camera_scanning': 'gemai analysiert',
+  'camera_scan_title': 'DermAI Hautscanner',
+  'camera_scanning': 'DermAI analysiert',
   'camera_scanning_desc': 'Ihre Hauterkrankung wird gescannt...',
   'camera_scan_desc': 'Platzieren Sie Ihre Hauterkrankung in den Rahmen',
 
@@ -141,7 +141,7 @@ const Map<String, String> de = {
   // Kontakt-E-Mail
   'contact_text':
       'Sie können uns über die folgende E-Mail-Adresse kontaktieren.',
-  'contact_mail_subject': 'gemai - Kontaktanfrage',
+  'contact_mail_subject': 'DermAI - Kontaktanfrage',
   'contact_mail_body_write_here': 'Schreiben Sie Ihre Nachricht hier...',
   'contact_mail_user_id': 'Benutzer-ID',
   'contact_mail_device_type': 'Gerätetyp',
@@ -183,6 +183,8 @@ const Map<String, String> de = {
   'result_severity_very_high': 'Schwer',
   'result_severity_very_very_high': 'Sehr schwer',
   'result_severity_very_very_very_high': 'Extrem schwer',
+  'result_reference': 'Merkwürdig',
+  'result_reference_error': 'Konnte Referenzlink nicht öffnen:',
 
   //Scan-Dialoge
   'scan_dialog_title': 'Fehler',
@@ -210,7 +212,7 @@ const Map<String, String> de = {
   //Kontakt-Dialog
   'contact_dialog_title': 'Kontakt',
   'contact_dialog_message':
-      'Möchten Sie Ihre E-Mail-App öffnen, um uns eine Nachricht zu senden?\n\nE-Mail-Adresse: contact@gemai.us',
+      'Möchten Sie Ihre E-Mail-App öffnen, um uns eine Nachricht zu senden?\n\nE-Mail-Adresse: contact@dermai.us',
   'contact_email_copied': 'E-Mail-Adresse kopiert',
   'contact_dialog_cancel': 'Abbrechen',
   'contact_dialog_send': 'E-Mail senden',

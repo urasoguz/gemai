@@ -1,5 +1,5 @@
 const Map<String, String> ko = {
-  'title': 'gemai',
+  'title': 'DERMAI',
   //settings
   'settings_title': '설정',
   'settings_language': '언어 변경',
@@ -80,12 +80,12 @@ const Map<String, String> ko = {
   // 공유
   'share_result_title': '결과 공유',
   'share_result_error': '공유 중 오류가 발생했습니다:',
-  'share_result_share_text': 'gemai - 분석 결과\ngemai로 피부를 분석하세요!',
+  'share_result_share_text': 'DermAI - 분석 결과\nDermAI로 피부를 분석하세요!',
 
   // 프리미엄 기능
 
   //onboarding
-  'onboarding_title_1': 'gemai에 오신 것을 환영합니다!',
+  'onboarding_title_1': 'DermAI에 오신 것을 환영합니다!',
   'onboarding_desc_1': '피부 분석을 위해 사진을 찍거나 이미지를 선택하세요. 피부 문제를 즉시 발견하세요.',
   'onboarding_title_2': '강력한 인공지능',
   'onboarding_desc_2': '가장 진보된 인공지능을 사용하여 최고의 정확도로 피부 분석을 수행합니다.',
@@ -107,8 +107,8 @@ const Map<String, String> ko = {
   'history': '기록',
 
   //camera
-  'camera_scan_title': 'gemai 피부 스캐너',
-  'camera_scanning': 'gemai 분석 중',
+  'camera_scan_title': 'DermAI 피부 스캐너',
+  'camera_scanning': 'DermAI 분석 중',
   'camera_scanning_desc': '피부 질환이 스캔되고 있습니다...',
   'camera_scan_desc': '피부 질환을 프레임에 맞추세요',
 
@@ -125,7 +125,7 @@ const Map<String, String> ko = {
 
   // 연락처 이메일
   'contact_text': '저희에게 연락하려면 아래 이메일 주소를 사용할 수 있습니다.',
-  'contact_mail_subject': 'gemai - 연락 요청',
+  'contact_mail_subject': 'DermAI - 연락 요청',
   'contact_mail_body_write_here': '여기에 메시지를 작성하세요...',
   'contact_mail_user_id': '사용자 ID',
   'contact_mail_device_type': '기기 유형',
@@ -166,6 +166,8 @@ const Map<String, String> ko = {
   'result_severity_very_high': '심각',
   'result_severity_very_very_high': '매우 심각',
   'result_severity_very_very_very_high': '극도로 심각',
+  'result_reference': '참고',
+  'result_reference_error': '참고 링크를 열 수 없습니다',
 
   //스캔 대화상자
   'scan_dialog_title': '오류',
@@ -188,7 +190,7 @@ const Map<String, String> ko = {
   //연락처 대화상자
   'contact_dialog_title': '연락처',
   'contact_dialog_message':
-      '저희에게 메시지를 보내기 위해 이메일 앱을 열고 싶으신가요?\n\n이메일 주소: contact@gemai.us',
+      '저희에게 메시지를 보내기 위해 이메일 앱을 열고 싶으신가요?\n\n이메일 주소: contact@dermai.us',
   'contact_email_copied': '이메일 주소가 복사되었습니다',
   'contact_dialog_cancel': '취소',
   'contact_dialog_send': '이메일 보내기',

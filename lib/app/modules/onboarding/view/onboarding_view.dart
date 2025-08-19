@@ -1,10 +1,11 @@
-import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:dermai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:gemai/app/modules/onboarding/controller/onboarding_controller.dart';
-import 'package:gemai/app/modules/onboarding/widgets/onboarding_image_widget.dart';
-import 'package:gemai/app/modules/onboarding/widgets/onboarding_title_widget.dart';
-import 'package:gemai/app/modules/onboarding/widgets/onboarding_desc_widget.dart';
+import 'package:dermai/app/modules/onboarding/controller/onboarding_controller.dart';
+import 'package:dermai/app/modules/onboarding/widgets/onboarding_image_widget.dart';
+import 'package:dermai/app/modules/onboarding/widgets/onboarding_title_widget.dart';
+import 'package:dermai/app/modules/onboarding/widgets/onboarding_desc_widget.dart';
 
 class OnboardingView extends GetView<OnboardingController> {
   const OnboardingView({super.key});
@@ -100,18 +101,18 @@ class OnboardingView extends GetView<OnboardingController> {
                         alignment:
                             isLast ? Alignment.center : Alignment.centerRight,
                         child: ElevatedButton(
-                          onPressed:
-                              isLast
-                                  ? controller.completeOnboarding
-                                  : () {
-                                    pageController.nextPage(
-                                      duration: const Duration(
-                                        milliseconds: 400,
-                                      ),
-                                      curve: Curves.easeInOut,
-                                    );
-                                    controller.nextPage();
-                                  },
+                          onPressed: () {
+                            HapticFeedback.selectionClick();
+                            if (isLast) {
+                              controller.completeOnboarding();
+                            } else {
+                              pageController.nextPage(
+                                duration: const Duration(milliseconds: 400),
+                                curve: Curves.easeInOut,
+                              );
+                              controller.nextPage();
+                            }
+                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: colors.onboardingButtonBackground,
                             foregroundColor: colors.onboardingButtonText,
@@ -168,15 +169,49 @@ class _OnboardingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        OnboardingImageWidget(icon: image, imagePath: imagePath),
-        const SizedBox(height: 40),
-        OnboardingTitleWidget(title: title),
-        const SizedBox(height: 20),
-        OnboardingDescWidget(desc: desc),
-      ],
+    // Dikey taşmayı kesin çözmek için görüntü ve metni oranlayarak dağıtıyoruz
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final Size screen = MediaQuery.of(context).size;
+        final bool isTablet = screen.shortestSide >= 600;
+        // Küçük cihazlarda görseli biraz küçült, metne daha fazla alan ver
+        final int imageFlex = isTablet ? 6 : 5;
+        final int textFlex = isTablet ? 4 : 5;
+
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              flex: imageFlex,
+              child: Center(
+                child: FractionallySizedBox(
+                  widthFactor: isTablet ? 0.72 : 0.88,
+                  child: FittedBox(
+                    fit: BoxFit.contain,
+                    child: OnboardingImageWidget(
+                      icon: image,
+                      imagePath: imagePath,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Expanded(
+              flex: textFlex,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const SizedBox(height: 12),
+                  OnboardingTitleWidget(title: title),
+                  const SizedBox(height: 12),
+                  OnboardingDescWidget(desc: desc),
+                ],
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }

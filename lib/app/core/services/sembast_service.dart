@@ -1,4 +1,4 @@
-import 'package:gemai/app/data/model/response/scan_result_model.dart';
+import 'package:dermai/app/data/model/response/scan_result_model.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sembast/sembast_io.dart';
 import 'package:flutter/foundation.dart';
@@ -28,7 +28,7 @@ class SembastService {
   // Veritabanı başlatma (optimize edilmiş)
   Future<Database> _initDatabase() async {
     final dir = await getApplicationDocumentsDirectory();
-    final dbPath = '${dir.path}/gemai.db';
+    final dbPath = '${dir.path}/dermai.db';
     return await databaseFactoryIo.openDatabase(dbPath, version: _dbVersion);
   }
 
@@ -103,6 +103,8 @@ class SembastService {
             imagePath:
                 snap.value['base64_image'] as String?, // Base64 görseli ata
             createdAt: model.createdAt,
+            optimizationInfo: model.optimizationInfo,
+            reference: model.reference,
           ),
         );
       }
@@ -115,8 +117,13 @@ class SembastService {
     final snapshot = await _store.record(key).getSnapshot(await db);
     if (snapshot != null) {
       final model = ScanResultModel.fromMap(snapshot.value);
+
       // Base64 görseli varsa imagePath'e ata
       if (snapshot.value['base64_image'] != null) {
+        if (kDebugMode) {
+          print('🔍 getResult - Base64 image found, creating new model...');
+        }
+
         return ScanResultModel(
           name: model.name,
           altName: model.altName,
@@ -134,6 +141,8 @@ class SembastService {
           imagePath:
               snapshot.value['base64_image'] as String?, // Base64 görseli ata
           createdAt: model.createdAt,
+          optimizationInfo: model.optimizationInfo,
+          reference: model.reference,
         );
       }
       return model;

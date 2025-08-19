@@ -1,5 +1,5 @@
 const Map<String, String> pl = {
-  'title': 'gemai',
+  'title': 'DERMAI',
   //settings
   'settings_title': 'Ustawienia',
   'settings_language': 'Zmień Język',
@@ -86,12 +86,12 @@ const Map<String, String> pl = {
   'share_result_title': 'Udostępnij Wynik',
   'share_result_error': 'Błąd podczas udostępniania:',
   'share_result_share_text':
-      'gemai - Wynik Analizy\nPrzeanalizuj swoją skórę z gemai!',
+      'DermAI - Wynik Analizy\nPrzeanalizuj swoją skórę z DermAI!',
 
   // Funkcje Premium
 
   //onboarding
-  'onboarding_title_1': 'Witamy w gemai!',
+  'onboarding_title_1': 'Witamy w DermAI!',
   'onboarding_desc_1':
       'Zrób zdjęcie lub wybierz obraz do analizy skóry. Odkryj swoje problemy ze skórą natychmiast.',
   'onboarding_title_2': 'Potężna Sztuczna Inteligencja',
@@ -118,8 +118,8 @@ const Map<String, String> pl = {
   'history': 'Historia',
 
   //camera
-  'camera_scan_title': 'Skaner Skóry gemai',
-  'camera_scanning': 'gemai Analizuje',
+  'camera_scan_title': 'Skaner Skóry DermAI',
+  'camera_scanning': 'DermAI Analizuje',
   'camera_scanning_desc': 'Twoja choroba skóry jest skanowana...',
   'camera_scan_desc': 'Umieść chorobę skóry w ramce',
 
@@ -137,7 +137,7 @@ const Map<String, String> pl = {
   // E-mail kontaktowy
   'contact_text':
       'Możesz użyć poniższego adresu e-mail, aby się z nami skontaktować.',
-  'contact_mail_subject': 'gemai - Prośba o kontakt',
+  'contact_mail_subject': 'DermAI - Prośba o kontakt',
   'contact_mail_body_write_here': 'Napisz tutaj swoją wiadomość...',
   'contact_mail_user_id': 'ID Użytkownika',
   'contact_mail_device_type': 'Typ Urządzenia',
@@ -179,6 +179,8 @@ const Map<String, String> pl = {
   'result_severity_very_high': 'Ciężka',
   'result_severity_very_very_high': 'Bardzo Ciężka',
   'result_severity_very_very_very_high': 'Ekstremalnie Ciężka',
+  'result_reference': 'Referencja',
+  'result_reference_error': 'Nie można otworzyć linku referencyjnego:',
 
   //dialogi skanowania
   'scan_dialog_title': 'Błąd',
@@ -202,7 +204,7 @@ const Map<String, String> pl = {
   //Dialog kontaktowy
   'contact_dialog_title': 'Kontakt',
   'contact_dialog_message':
-      'Czy chcesz otworzyć aplikację e-mail, aby wysłać nam wiadomość?\n\nAdres e-mail: contact@gemai.us',
+      'Czy chcesz otworzyć aplikację e-mail, aby wysłać nam wiadomość?\n\nAdres e-mail: contact@dermai.us',
   'contact_email_copied': 'Adres e-mail został skopiowany',
   'contact_dialog_cancel': 'Anuluj',
   'contact_dialog_send': 'Wyślij E-mail',

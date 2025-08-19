@@ -1,5 +1,5 @@
 const Map<String, String> bn = {
-  'title': 'gemai',
+  'title': 'DERMAI',
   //settings
   'settings_title': 'সেটিংস',
   'settings_language': 'ভাষা পরিবর্তন করুন',
@@ -87,12 +87,12 @@ const Map<String, String> bn = {
   'share_result_title': 'ফলাফল শেয়ার করুন',
   'share_result_error': 'শেয়ার করার সময় ত্রুটি:',
   'share_result_share_text':
-      'gemai - বিশ্লেষণের ফলাফল\ngemai দিয়ে আপনার ত্বক বিশ্লেষণ করুন!',
+      'DermAI - বিশ্লেষণের ফলাফল\nDermAI দিয়ে আপনার ত্বক বিশ্লেষণ করুন!',
 
   // প্রিমিয়াম বৈশিষ্ট্য
 
   //onboarding
-  'onboarding_title_1': 'gemai-তে স্বাগতম!',
+  'onboarding_title_1': 'DermAI-তে স্বাগতম!',
   'onboarding_desc_1':
       'ত্বক বিশ্লেষণের জন্য ছবি তুলুন বা ছবি নির্বাচন করুন। আপনার ত্বকের সমস্যাগুলি তৎক্ষণাৎ আবিষ্কার করুন',
   'onboarding_title_2': 'শক্তিশালী কৃত্রিম বুদ্ধিমত্তা',
@@ -119,8 +119,8 @@ const Map<String, String> bn = {
   'history': 'ইতিহাস',
 
   //camera
-  'camera_scan_title': 'gemai ত্বক স্ক্যানার',
-  'camera_scanning': 'gemai বিশ্লেষণ করছে',
+  'camera_scan_title': 'DermAI ত্বক স্ক্যানার',
+  'camera_scanning': 'DermAI বিশ্লেষণ করছে',
   'camera_scanning_desc': 'আপনার ত্বকের রোগ স্ক্যান করা হচ্ছে...',
   'camera_scan_desc': 'ত্বকের রোগ ফ্রেমে রাখুন',
 
@@ -138,7 +138,7 @@ const Map<String, String> bn = {
   // যোগাযোগ ইমেইল
   'contact_text':
       'আমাদের সাথে যোগাযোগ করতে আপনি নীচের ইমেইল ঠিকানা ব্যবহার করতে পারেন',
-  'contact_mail_subject': 'gemai - যোগাযোগের অনুরোধ',
+  'contact_mail_subject': 'DermAI - যোগাযোগের অনুরোধ',
   'contact_mail_body_write_here': 'আপনার বার্তা এখানে লিখুন...',
   'contact_mail_user_id': 'ব্যবহারকারী আইডি',
   'contact_mail_device_type': 'ডিভাইসের ধরন',
@@ -180,6 +180,8 @@ const Map<String, String> bn = {
   'result_severity_very_high': 'উচ্চ',
   'result_severity_very_very_high': 'খুব উচ্চ',
   'result_severity_very_very_very_high': 'অত্যন্ত উচ্চ',
+  'result_reference': 'মূল',
+  'result_reference_error': 'মূল লিঙ্ক খুলতে পারলাম না:',
 
   //স্ক্যান ডায়ালগ
   'scan_dialog_title': 'ত্রুটি',
@@ -204,7 +206,7 @@ const Map<String, String> bn = {
   //যোগাযোগ ডায়ালগ
   'contact_dialog_title': 'যোগাযোগ',
   'contact_dialog_message':
-      'আমাদের কাছে ইমেইল পাঠাতে আপনি কি আপনার ইমেইল অ্যাপ খুলতে চান?\n\nইমেইল ঠিকানা: contact@gemai.us',
+      'আমাদের কাছে ইমেইল পাঠাতে আপনি কি আপনার ইমেইল অ্যাপ খুলতে চান?\n\nইমেইল ঠিকানা: contact@dermai.us',
   'contact_email_copied': 'ইমেইল ঠিকানা কপি করা হয়েছে',
   'contact_dialog_cancel': 'বাতিল',
   'contact_dialog_send': 'ইমেইল পাঠান',

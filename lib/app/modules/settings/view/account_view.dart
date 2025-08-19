@@ -1,12 +1,12 @@
-import 'package:gemai/app/core/services/shrine_dialog_service.dart';
-import 'package:gemai/app/core/theme/app_theme_config.dart';
-import 'package:gemai/app/shared/helpers/my_helper.dart';
-import 'package:gemai/app/shared/widgets/modular_app_bar.dart';
+import 'package:dermai/app/core/services/shrine_dialog_service.dart';
+import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:dermai/app/shared/helpers/my_helper.dart';
+import 'package:dermai/app/shared/widgets/modular_app_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:gemai/app/modules/settings/controller/account_controller.dart';
+import 'package:dermai/app/modules/settings/controller/account_controller.dart';
 import 'package:get_storage/get_storage.dart';
 
 class AccountView extends GetView<AccountController> {

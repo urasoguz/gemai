@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gemai/app/core/services/network_service.dart';
-import 'package:gemai/app/core/theme/app_colors.dart';
+import 'package:dermai/app/core/services/network_service.dart';
+import 'package:dermai/app/core/theme/app_colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 /// Internet bağlantısı olmadığında gösterilen ekran

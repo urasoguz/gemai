@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import 'package:gemai/app/data/api/pages_api_service.dart';
-import 'package:gemai/app/data/model/pages/page_model.dart';
-import 'package:gemai/app/shared/controllers/lang_controller.dart';
+import 'package:dermai/app/data/api/pages_api_service.dart';
+import 'package:dermai/app/data/model/pages/page_model.dart';
+import 'package:dermai/app/shared/controllers/lang_controller.dart';
 
 /// Pages controller - Sayfa listesi yönetimi
 class PagesController extends GetxController {

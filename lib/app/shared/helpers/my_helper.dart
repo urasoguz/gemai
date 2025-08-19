@@ -1,7 +1,7 @@
 class MyHelper {
   // Web sayfaları için base URL
-  static const String baseUrl = "https://gemai.us";
-  static const String appname = "gemai";
+  static const String baseUrl = "https://dermai.us";
+  static const String appname = "Dermai";
 
   /// RevenueCat API anahtarları
   /// iOS için ayrı, Android için ayrı kullanılır

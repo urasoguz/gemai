@@ -1,5 +1,5 @@
-import 'package:gemai/app/core/network/api_client.dart';
-import 'package:gemai/app/core/services/restore_premium_service.dart';
+import 'package:dermai/app/core/network/api_client.dart';
+import 'package:dermai/app/core/services/restore_premium_service.dart';
 import 'package:get/get.dart';
 
 /// RestorePremiumService için dependency injection

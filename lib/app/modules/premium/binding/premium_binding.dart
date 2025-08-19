@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
-import 'package:gemai/app/modules/premium/controller/premium_controller.dart';
-import 'package:gemai/app/shared/paywall/premium_config_service.dart';
-import 'package:gemai/app/core/bindings/restore_premium_binding.dart';
-import 'package:gemai/app/modules/auth/controller/user_controller.dart';
-import 'package:gemai/app/core/network/api_client.dart';
+import 'package:dermai/app/modules/premium/controller/premium_controller.dart';
+import 'package:dermai/app/shared/paywall/premium_config_service.dart';
+import 'package:dermai/app/core/bindings/restore_premium_binding.dart';
+import 'package:dermai/app/modules/auth/controller/user_controller.dart';
+import 'package:dermai/app/core/network/api_client.dart';
 
 class PremiumBinding extends Bindings {
   @override

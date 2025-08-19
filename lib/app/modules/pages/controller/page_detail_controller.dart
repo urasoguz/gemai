@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import 'package:gemai/app/data/api/pages_api_service.dart';
-import 'package:gemai/app/data/model/pages/page_detail_model.dart';
+import 'package:dermai/app/data/api/pages_api_service.dart';
+import 'package:dermai/app/data/model/pages/page_detail_model.dart';
 
 /// Page Detail controller - Sayfa detayı yönetimi
 class PageDetailController extends GetxController {

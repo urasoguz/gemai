@@ -1,5 +1,5 @@
 const Map<String, String> el = {
-  'title': 'gemai',
+  'title': 'DERMAI',
   //settings
   'settings_title': 'Ρυθμίσεις',
   'settings_language': 'Αλλαγή Γλώσσας',
@@ -86,12 +86,12 @@ const Map<String, String> el = {
   'share_result_title': 'Μοιραστείτε το Αποτέλεσμα',
   'share_result_error': 'Σφάλμα κατά τη διαμοιρασμό:',
   'share_result_share_text':
-      'gemai - Αποτέλεσμα Ανάλυσης\nΑναλύστε το δέρμα σας με το gemai!',
+      'DermAI - Αποτέλεσμα Ανάλυσης\nΑναλύστε το δέρμα σας με το DermAI!',
 
   // Χαρακτηριστικά Premium
 
   //onboarding
-  'onboarding_title_1': 'Καλώς ήρθατε στο gemai!',
+  'onboarding_title_1': 'Καλώς ήρθατε στο DermAI!',
   'onboarding_desc_1':
       'Τραβήξτε φωτογραφία ή επιλέξτε εικόνα για ανάλυση δέρματος. Ανακαλύψτε τα προβλήματα δέρματος σας άμεσα.',
   'onboarding_title_2': 'Ισχυρή Τεχνητή Νοημοσύνη',
@@ -119,8 +119,8 @@ const Map<String, String> el = {
   'history': 'Ιστορικό',
 
   //camera
-  'camera_scan_title': 'gemai Σκάνερ Δέρματος',
-  'camera_scanning': 'Το gemai Αναλύει',
+  'camera_scan_title': 'DermAI Σκάνερ Δέρματος',
+  'camera_scanning': 'Το DermAI Αναλύει',
   'camera_scanning_desc': 'Η δερματική ασθένειά σας σκανάρεται...',
   'camera_scan_desc': 'Τοποθετήστε τη δερματική ασθένεια στο πλαίσιο',
 
@@ -138,7 +138,7 @@ const Map<String, String> el = {
   // Επικοινωνία email
   'contact_text':
       'Μπορείτε να χρησιμοποιήσετε την παρακάτω διεύθυνση email για να επικοινωνήσετε μαζί μας.',
-  'contact_mail_subject': 'gemai - Αίτημα Επικοινωνίας',
+  'contact_mail_subject': 'DermAI - Αίτημα Επικοινωνίας',
   'contact_mail_body_write_here': 'Γράψτε το μήνυμά σας εδώ...',
   'contact_mail_user_id': 'Ταυτότητα Χρήστη',
   'contact_mail_device_type': 'Τύπος Συσκευής',
@@ -180,6 +180,8 @@ const Map<String, String> el = {
   'result_severity_very_high': 'Υψηλή',
   'result_severity_very_very_high': 'Πολύ Υψηλή',
   'result_severity_very_very_very_high': 'Εξαιρετικά Υψηλή',
+  'result_reference': 'Μελέτη',
+  'result_reference_error': 'Δεν ήταν δυνατό να ανοίξει ο σύνδεσμος:',
 
   //διαλόγους σκάν
   'scan_dialog_title': 'Σφάλμα',
@@ -207,7 +209,7 @@ const Map<String, String> el = {
   //Διάλογος επικοινωνίας
   'contact_dialog_title': 'Επικοινωνία',
   'contact_dialog_message':
-      'Θέλετε να ανοίξετε την εφαρμογή email για να μας στείλετε μήνυμα;\n\nΔιεύθυνση Email: contact@gemai.us',
+      'Θέλετε να ανοίξετε την εφαρμογή email για να μας στείλετε μήνυμα;\n\nΔιεύθυνση Email: contact@dermai.us',
   'contact_email_copied': 'Η διεύθυνση email αντιγράφηκε',
   'contact_dialog_cancel': 'Ακύρωση',
   'contact_dialog_send': 'Αποστολή Email',

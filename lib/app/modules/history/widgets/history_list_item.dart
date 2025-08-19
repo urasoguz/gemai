@@ -1,9 +1,9 @@
-import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:dermai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gemai/app/core/services/sembast_service.dart';
-import 'package:gemai/app/core/services/date_formatting_service.dart';
-import 'package:gemai/app/modules/result/widgets/result_image_widget.dart';
+import 'package:dermai/app/core/services/sembast_service.dart';
+import 'package:dermai/app/core/services/date_formatting_service.dart';
+import 'package:dermai/app/modules/result/widgets/result_image_widget.dart';
 
 class HistoryListItem extends StatelessWidget {
   final HistoryItem item;
