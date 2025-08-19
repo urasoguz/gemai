@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:get/get.dart';
-import 'package:dermai/app/core/network/api_client.dart';
-import 'package:dermai/app/data/model/response/response_model.dart';
+import 'package:gemai/app/core/network/api_client.dart';
+import 'package:gemai/app/data/model/response/response_model.dart';
 
 /// Temel API servis sınıfı - Tüm API çağrıları için ortak fonksiyonlar
 ///

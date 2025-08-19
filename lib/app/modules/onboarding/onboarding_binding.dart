@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:dermai/app/modules/onboarding/controller/onboarding_controller.dart';
-import 'package:dermai/app/core/network/api_client.dart';
-import 'package:dermai/app/shared/paywall/paywall_service.dart';
+import 'package:gemai/app/modules/onboarding/controller/onboarding_controller.dart';
+import 'package:gemai/app/core/network/api_client.dart';
+import 'package:gemai/app/shared/paywall/paywall_service.dart';
 import 'package:flutter/foundation.dart';
 
 class OnboardingBinding extends Bindings {

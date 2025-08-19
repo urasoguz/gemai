@@ -1,10 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import 'package:dermai/app/data/api/api_endpoints.dart';
-import 'package:dermai/app/data/api/base_api_service.dart';
-import 'package:dermai/app/data/model/pages/page_model.dart';
-import 'package:dermai/app/data/model/pages/page_detail_model.dart';
-import 'package:dermai/app/shared/controllers/lang_controller.dart';
+import 'package:gemai/app/data/api/api_endpoints.dart';
+import 'package:gemai/app/data/api/base_api_service.dart';
+import 'package:gemai/app/data/model/pages/page_model.dart';
+import 'package:gemai/app/data/model/pages/page_detail_model.dart';
+import 'package:gemai/app/shared/controllers/lang_controller.dart';
 
 /// Pages API servisi
 class PagesApiService extends BaseApiService {

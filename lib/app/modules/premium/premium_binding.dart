@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:dermai/app/modules/premium/controller/premium_controller.dart';
-import 'package:dermai/app/shared/paywall/premium_config_service.dart';
+import 'package:gemai/app/modules/premium/controller/premium_controller.dart';
+import 'package:gemai/app/shared/paywall/premium_config_service.dart';
 
 class PremiumBinding extends Bindings {
   @override
