@@ -7,14 +7,12 @@ class OnboardingTitleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors =
-        AppThemeConfig.primary;
     return AnimatedDefaultTextStyle(
       duration: const Duration(milliseconds: 400),
       style: TextStyle(
         fontSize: 28,
         fontWeight: FontWeight.bold,
-        color: colors.onboardingTitleTextColor,
+        color: AppThemeConfig.textPrimary,
       ),
       child: Text(title, textAlign: TextAlign.center),
     );

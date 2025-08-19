@@ -1,7 +1,7 @@
-import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dermai/app/modules/skin_analysis/controller/skin_analysis_controller.dart';
+import 'package:gemai/app/modules/skin_analysis/controller/skin_analysis_controller.dart';
 
 class ComplaintsInputWidget extends StatefulWidget {
   final VoidCallback? onFocus;
@@ -40,8 +40,6 @@ class _ComplaintsInputWidgetState extends State<ComplaintsInputWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final colors =
-        AppThemeConfig.primary;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
       child: Column(
@@ -54,18 +52,18 @@ class _ComplaintsInputWidgetState extends State<ComplaintsInputWidget> {
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
-                color: colors.textPrimary,
+                color: AppThemeConfig.textPrimary,
               ),
             ),
           ),
           Container(
             decoration: BoxDecoration(
-              color: colors.card,
+              color: AppThemeConfig.card,
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: colors.divider, width: 1),
+              border: Border.all(color: AppThemeConfig.divider, width: 1),
               boxShadow: [
                 BoxShadow(
-                  color: colors.buttonShadow.withValues(alpha: 0.05),
+                  color: AppThemeConfig.buttonShadow.withValues(alpha: 0.05),
                   blurRadius: 4,
                   offset: const Offset(0, 2),
                 ),
@@ -90,11 +88,14 @@ class _ComplaintsInputWidgetState extends State<ComplaintsInputWidget> {
                 onSubmitted: (_) => FocusScope.of(context).unfocus(),
                 decoration: InputDecoration(
                   hintText: 'skin_analysis_complaints_hint'.tr,
-                  hintStyle: TextStyle(color: colors.textHint, fontSize: 14),
+                  hintStyle: TextStyle(
+                    color: AppThemeConfig.textHint,
+                    fontSize: 14,
+                  ),
                   border: InputBorder.none,
                   contentPadding: EdgeInsets.all(16),
                   counterStyle: TextStyle(
-                    color: colors.textSecondary,
+                    color: AppThemeConfig.textSecondary,
                     fontSize: 12,
                   ),
                 ),
@@ -102,8 +103,8 @@ class _ComplaintsInputWidgetState extends State<ComplaintsInputWidget> {
                   fontSize: 14,
                   color:
                       controller.isAnalyzing.value
-                          ? colors.textHint
-                          : colors.textPrimary,
+                          ? AppThemeConfig.textHint
+                          : AppThemeConfig.textPrimary,
                   height: 1.4,
                 ),
               ),
@@ -118,7 +119,9 @@ class _ComplaintsInputWidgetState extends State<ComplaintsInputWidget> {
                 style: TextStyle(
                   fontSize: 12,
                   color:
-                      charCount > 450 ? colors.warning : colors.textSecondary,
+                      charCount > 450
+                          ? AppThemeConfig.warning
+                          : AppThemeConfig.textSecondary,
                   fontWeight: FontWeight.w500,
                 ),
               ),

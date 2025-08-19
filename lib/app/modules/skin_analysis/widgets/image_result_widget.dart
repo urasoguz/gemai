@@ -1,8 +1,8 @@
 import 'dart:io';
-import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dermai/app/modules/skin_analysis/controller/skin_analysis_controller.dart';
+import 'package:gemai/app/modules/skin_analysis/controller/skin_analysis_controller.dart';
 
 /// Görsel sonuç widget'ı
 /// Çekilen fotoğrafı gösterir
@@ -11,15 +11,13 @@ class ImageResultWidget extends GetView<SkinAnalysisController> {
 
   @override
   Widget build(BuildContext context) {
-    final colors =
-        AppThemeConfig.primary;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(
-            color: colors.buttonShadow.withValues(alpha: 0.01),
+            color: AppThemeConfig.buttonShadow.withValues(alpha: 0.01),
             blurRadius: 4,
             offset: const Offset(0, 2),
           ),
@@ -37,7 +35,7 @@ class ImageResultWidget extends GetView<SkinAnalysisController> {
                   width: 3,
                   height: 14,
                   decoration: BoxDecoration(
-                    color: colors.gradientSecondary,
+                    color: AppThemeConfig.gradientSecondary,
                     borderRadius: BorderRadius.circular(2),
                   ),
                 ),
@@ -47,7 +45,7 @@ class ImageResultWidget extends GetView<SkinAnalysisController> {
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
-                    color: colors.textPrimary,
+                    color: AppThemeConfig.textPrimary,
                   ),
                 ),
               ],
@@ -59,14 +57,14 @@ class ImageResultWidget extends GetView<SkinAnalysisController> {
               return Container(
                 height: 120,
                 decoration: BoxDecoration(
-                  color: colors.card,
+                  color: AppThemeConfig.card,
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Center(
                   child: Icon(
                     Icons.image_not_supported,
                     size: 36,
-                    color: colors.textHint,
+                    color: AppThemeConfig.textHint,
                   ),
                 ),
               );
@@ -80,7 +78,9 @@ class ImageResultWidget extends GetView<SkinAnalysisController> {
                   borderRadius: BorderRadius.circular(8),
                   boxShadow: [
                     BoxShadow(
-                      color: colors.buttonShadow.withValues(alpha: 0.05),
+                      color: AppThemeConfig.buttonShadow.withValues(
+                        alpha: 0.05,
+                      ),
                       blurRadius: 2,
                       offset: const Offset(0, 1),
                     ),
@@ -93,12 +93,12 @@ class ImageResultWidget extends GetView<SkinAnalysisController> {
                     fit: BoxFit.contain,
                     errorBuilder: (context, error, stackTrace) {
                       return Container(
-                        color: colors.card,
+                        color: AppThemeConfig.card,
                         child: Center(
                           child: Icon(
                             Icons.error_outline,
                             size: 36,
-                            color: colors.textHint,
+                            color: AppThemeConfig.textHint,
                           ),
                         ),
                       );
@@ -115,8 +115,6 @@ class ImageResultWidget extends GetView<SkinAnalysisController> {
   }
 
   void _showImageDialog(BuildContext context) {
-    final colors =
-        AppThemeConfig.primary;
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -126,7 +124,7 @@ class ImageResultWidget extends GetView<SkinAnalysisController> {
             width: double.infinity,
             height: double.infinity,
             decoration: BoxDecoration(
-              color: colors.cameraScaffold.withValues(alpha: 0.9),
+              color: AppThemeConfig.cameraScaffold.withValues(alpha: 0.9),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Stack(
@@ -141,7 +139,7 @@ class ImageResultWidget extends GetView<SkinAnalysisController> {
                         child: Icon(
                           Icons.error_outline,
                           size: 64,
-                          color: colors.cameraAnalyzeText,
+                          color: AppThemeConfig.cameraAnalyzeText,
                         ),
                       );
                     },
@@ -157,12 +155,14 @@ class ImageResultWidget extends GetView<SkinAnalysisController> {
                       width: 40,
                       height: 40,
                       decoration: BoxDecoration(
-                        color: colors.buttonShadow.withValues(alpha: 0.1),
+                        color: AppThemeConfig.buttonShadow.withValues(
+                          alpha: 0.1,
+                        ),
                         shape: BoxShape.circle,
                       ),
                       child: Icon(
                         Icons.close,
-                        color: colors.cameraAnalyzeText,
+                        color: AppThemeConfig.cameraAnalyzeText,
                         size: 24,
                       ),
                     ),

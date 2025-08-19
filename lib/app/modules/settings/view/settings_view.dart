@@ -1,17 +1,17 @@
-import 'package:dermai/app/core/theme/app_theme_config.dart';
-import 'package:dermai/app/routes/app_routes.dart';
-import 'package:dermai/app/shared/helpers/my_helper.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/routes/app_routes.dart';
+import 'package:gemai/app/shared/helpers/my_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:dermai/app/modules/settings/controller/settings_controller.dart';
-import 'package:dermai/app/modules/settings/widgets/user_info_widget.dart';
-import 'package:dermai/app/shared/controllers/lang_controller.dart';
-import 'package:dermai/app/core/localization/languages.dart';
-import 'package:dermai/app/shared/widgets/modular_app_bar.dart';
+import 'package:gemai/app/modules/settings/controller/settings_controller.dart';
+import 'package:gemai/app/modules/settings/widgets/user_info_widget.dart';
+import 'package:gemai/app/shared/controllers/lang_controller.dart';
+import 'package:gemai/app/core/localization/languages.dart';
+import 'package:gemai/app/shared/widgets/modular_app_bar.dart';
 import 'package:get_storage/get_storage.dart';
-//import 'package:dermai/app/core/services/revenuecat_service.dart';
+//import 'package:gemai/app/core/services/revenuecat_service.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SettingsView extends StatefulWidget {
@@ -26,8 +26,6 @@ class _SettingsViewState extends State<SettingsView> {
 
   @override
   Widget build(BuildContext context) {
-    final colors =
-        AppThemeConfig.primary;
     return Scaffold(
       appBar: ModularAppBar(
         title: 'settings_title'.tr,
@@ -44,7 +42,7 @@ class _SettingsViewState extends State<SettingsView> {
         ),
       ),
 
-      backgroundColor: colors.background,
+      backgroundColor: AppThemeConfig.background,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(left: 5, right: 5),
@@ -53,7 +51,7 @@ class _SettingsViewState extends State<SettingsView> {
               // Kullanıcı bilgileri
               const UserInfoWidget(),
 
-              Divider(height: 1, thickness: 1, color: colors.divider),
+              Divider(height: 1, thickness: 1, color: AppThemeConfig.divider),
 
               // Dil ayarları
               Material(
@@ -83,7 +81,7 @@ class _SettingsViewState extends State<SettingsView> {
                           Text(
                             'settings_language'.tr,
                             style: TextStyle(
-                              color: colors.textPrimary,
+                              color: AppThemeConfig.textPrimary,
                               fontSize: 18,
                             ),
                           ),
@@ -99,7 +97,7 @@ class _SettingsViewState extends State<SettingsView> {
                                       ) ??
                                       'English',
                                   style: TextStyle(
-                                    color: colors.textPrimary,
+                                    color: AppThemeConfig.textPrimary,
                                     fontSize: 14,
                                   ),
                                 ),
@@ -107,7 +105,7 @@ class _SettingsViewState extends State<SettingsView> {
                               const SizedBox(width: 8),
                               Icon(
                                 Icons.arrow_forward_ios,
-                                color: colors.textPrimary,
+                                color: AppThemeConfig.textPrimary,
                                 size: 16,
                               ),
                             ],
@@ -136,7 +134,7 @@ class _SettingsViewState extends State<SettingsView> {
                         Text(
                           'settings_dark_mode'.tr,
                           style: TextStyle(
-                            color: colors.textPrimary,
+                            color: AppThemeConfig.textPrimary,
                             fontSize: 18,
                           ),
                         ),
@@ -153,7 +151,7 @@ class _SettingsViewState extends State<SettingsView> {
                 ),
               ),
 
-              Divider(height: 1, thickness: 1, color: colors.divider),
+              Divider(height: 1, thickness: 1, color: AppThemeConfig.divider),
 
               // SSS
               Material(
@@ -180,13 +178,13 @@ class _SettingsViewState extends State<SettingsView> {
                           Text(
                             'settings_faq'.tr,
                             style: TextStyle(
-                              color: colors.textPrimary,
+                              color: AppThemeConfig.textPrimary,
                               fontSize: 18,
                             ),
                           ),
                           Icon(
                             Icons.arrow_forward_ios,
-                            color: colors.textPrimary,
+                            color: AppThemeConfig.textPrimary,
                             size: 16,
                           ),
                         ],
@@ -221,13 +219,13 @@ class _SettingsViewState extends State<SettingsView> {
                           Text(
                             'settings_about'.tr,
                             style: TextStyle(
-                              color: colors.textPrimary,
+                              color: AppThemeConfig.textPrimary,
                               fontSize: 18,
                             ),
                           ),
                           Icon(
                             Icons.arrow_forward_ios,
-                            color: colors.textPrimary,
+                            color: AppThemeConfig.textPrimary,
                             size: 16,
                           ),
                         ],
@@ -262,13 +260,13 @@ class _SettingsViewState extends State<SettingsView> {
                           Text(
                             'settings_contact'.tr,
                             style: TextStyle(
-                              color: colors.textPrimary,
+                              color: AppThemeConfig.textPrimary,
                               fontSize: 18,
                             ),
                           ),
                           Icon(
                             Icons.arrow_forward_ios,
-                            color: colors.textPrimary,
+                            color: AppThemeConfig.textPrimary,
                             size: 16,
                           ),
                         ],
@@ -278,7 +276,7 @@ class _SettingsViewState extends State<SettingsView> {
                 ),
               ),
 
-              Divider(height: 1, thickness: 1, color: colors.divider),
+              Divider(height: 1, thickness: 1, color: AppThemeConfig.divider),
 
               // // Premium'a geç
               // Material(
@@ -350,13 +348,13 @@ class _SettingsViewState extends State<SettingsView> {
                             Text(
                               'settings_restore_purchases'.tr,
                               style: TextStyle(
-                                color: colors.textPrimary,
+                                color: AppThemeConfig.textPrimary,
                                 fontSize: 18,
                               ),
                             ),
                             Icon(
                               Icons.arrow_forward_ios,
-                              color: colors.textPrimary,
+                              color: AppThemeConfig.textPrimary,
                               size: 16,
                             ),
                           ],
@@ -391,13 +389,13 @@ class _SettingsViewState extends State<SettingsView> {
                           Text(
                             'settings_share'.tr,
                             style: TextStyle(
-                              color: colors.textPrimary,
+                              color: AppThemeConfig.textPrimary,
                               fontSize: 18,
                             ),
                           ),
                           Icon(
                             Icons.arrow_forward_ios,
-                            color: colors.textPrimary,
+                            color: AppThemeConfig.textPrimary,
                             size: 16,
                           ),
                         ],
@@ -432,13 +430,13 @@ class _SettingsViewState extends State<SettingsView> {
                           Text(
                             'settings_rate'.tr,
                             style: TextStyle(
-                              color: colors.textPrimary,
+                              color: AppThemeConfig.textPrimary,
                               fontSize: 18,
                             ),
                           ),
                           Icon(
                             Icons.arrow_forward_ios,
-                            color: colors.textPrimary,
+                            color: AppThemeConfig.textPrimary,
                             size: 16,
                           ),
                         ],
@@ -448,7 +446,7 @@ class _SettingsViewState extends State<SettingsView> {
                 ),
               ),
 
-              Divider(height: 1, thickness: 1, color: colors.divider),
+              Divider(height: 1, thickness: 1, color: AppThemeConfig.divider),
 
               const SizedBox(height: 20),
 
@@ -461,7 +459,7 @@ class _SettingsViewState extends State<SettingsView> {
                     style: GoogleFonts.koHo(
                       fontSize: 36,
                       fontWeight: FontWeight.w600,
-                      color: colors.textPrimary,
+                      color: AppThemeConfig.textPrimary,
                     ),
                   ),
                   Obx(
@@ -469,7 +467,7 @@ class _SettingsViewState extends State<SettingsView> {
                       '${'settings_version'.tr} ${controller.appVersion.value}',
                       style: GoogleFonts.koHo(
                         fontSize: 14,
-                        color: colors.textPrimary,
+                        color: AppThemeConfig.textPrimary,
                       ),
                     ),
                   ),
@@ -499,7 +497,7 @@ class _SettingsViewState extends State<SettingsView> {
                             child: Text(
                               'settings_privacy'.tr,
                               style: TextStyle(
-                                color: colors.textPrimary,
+                                color: AppThemeConfig.textPrimary,
                                 fontSize: 14,
                               ),
                             ),
@@ -512,7 +510,10 @@ class _SettingsViewState extends State<SettingsView> {
                         padding: EdgeInsets.symmetric(horizontal: 4),
                         child: Text(
                           '•',
-                          style: TextStyle(color: colors.divider, fontSize: 16),
+                          style: TextStyle(
+                            color: AppThemeConfig.divider,
+                            fontSize: 16,
+                          ),
                         ),
                       ),
 
@@ -535,7 +536,7 @@ class _SettingsViewState extends State<SettingsView> {
                             child: Text(
                               'settings_terms'.tr,
                               style: TextStyle(
-                                color: colors.textPrimary,
+                                color: AppThemeConfig.textPrimary,
                                 fontSize: 14,
                               ),
                             ),

@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:dermai/app/core/services/sembast_service.dart';
+import 'package:gemai/app/core/services/sembast_service.dart';
 
 class HistoryController extends GetxController {
   final RxList<HistoryItem> items = <HistoryItem>[].obs;

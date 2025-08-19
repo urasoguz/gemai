@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:get/get.dart';
 
 class AnalysisScanningOverlay extends StatefulWidget {
@@ -73,9 +73,6 @@ class _AnalysisScanningOverlayState extends State<AnalysisScanningOverlay>
 
   @override
   Widget build(BuildContext context) {
-    final colors =
-        AppThemeConfig.primary;
-
     return AnimatedBuilder(
       animation: _fadeAnimation,
       builder: (context, child) {
@@ -95,7 +92,9 @@ class _AnalysisScanningOverlayState extends State<AnalysisScanningOverlay>
                     child: Container(
                       padding: const EdgeInsets.all(32),
                       decoration: BoxDecoration(
-                        color: colors.background.withValues(alpha: 0.95),
+                        color: AppThemeConfig.background.withValues(
+                          alpha: 0.95,
+                        ),
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
@@ -121,7 +120,7 @@ class _AnalysisScanningOverlayState extends State<AnalysisScanningOverlay>
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     border: Border.all(
-                                      color: colors.primary.withValues(
+                                      color: AppThemeConfig.primary.withValues(
                                         alpha: 0.3,
                                       ),
                                       width: 2,
@@ -143,7 +142,7 @@ class _AnalysisScanningOverlayState extends State<AnalysisScanningOverlay>
                                           gradient: LinearGradient(
                                             colors: [
                                               Colors.transparent,
-                                              colors.primary,
+                                              AppThemeConfig.primary,
                                               Colors.transparent,
                                             ],
                                           ),
@@ -159,21 +158,20 @@ class _AnalysisScanningOverlayState extends State<AnalysisScanningOverlay>
                                     width: 60,
                                     height: 60,
                                     decoration: BoxDecoration(
-                                      color: colors.primary.withValues(
+                                      color: AppThemeConfig.primary.withValues(
                                         alpha: 0.2,
                                       ),
                                       shape: BoxShape.circle,
                                       border: Border.all(
-                                        color: colors.primary.withValues(
-                                          alpha: 0.3,
-                                        ),
+                                        color: AppThemeConfig.primary
+                                            .withValues(alpha: 0.3),
                                         width: 2,
                                       ),
                                     ),
                                     child: Icon(
                                       Icons.biotech_rounded, // DNA/analiz ikonu
                                       size: 28,
-                                      color: colors.primary,
+                                      color: AppThemeConfig.primary,
                                     ),
                                   ),
                                 ),
@@ -189,7 +187,7 @@ class _AnalysisScanningOverlayState extends State<AnalysisScanningOverlay>
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
-                              color: colors.textPrimary,
+                              color: AppThemeConfig.textPrimary,
                             ),
                           ),
 
@@ -200,7 +198,7 @@ class _AnalysisScanningOverlayState extends State<AnalysisScanningOverlay>
                             'skin_analysis_scanning_desc'.tr,
                             style: TextStyle(
                               fontSize: 14,
-                              color: colors.textSecondary,
+                              color: AppThemeConfig.textSecondary,
                               height: 1.4,
                             ),
                             textAlign: TextAlign.center,
@@ -213,7 +211,7 @@ class _AnalysisScanningOverlayState extends State<AnalysisScanningOverlay>
                             width: 200,
                             height: 4,
                             decoration: BoxDecoration(
-                              color: colors.divider,
+                              color: AppThemeConfig.divider,
                               borderRadius: BorderRadius.circular(2),
                             ),
                             child: AnimatedBuilder(
@@ -225,7 +223,7 @@ class _AnalysisScanningOverlayState extends State<AnalysisScanningOverlay>
                                       (_scanAnimation.value * 0.7) + 0.3,
                                   child: Container(
                                     decoration: BoxDecoration(
-                                      color: colors.primary,
+                                      color: AppThemeConfig.primary,
                                       borderRadius: BorderRadius.circular(2),
                                     ),
                                   ),

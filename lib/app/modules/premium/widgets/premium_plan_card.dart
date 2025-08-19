@@ -32,11 +32,6 @@ class PremiumPlanCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Dark/Light mode uyumlu renkler
-    final colors = AppThemeConfig.primary;
-
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-
     // Paywall ayarlarını al
     final appSettingsService = Get.find<AppSettingsService>();
     final paywallDelayedCloseButton =
@@ -51,34 +46,26 @@ class PremiumPlanCard extends StatelessWidget {
         margin: EdgeInsets.only(bottom: isTrial ? 0 : 16),
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
         decoration: BoxDecoration(
-          color: colors.card,
+          color: AppThemeConfig.card,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
             color:
                 selected
                     ? checkColor
-                    : (isDark
-                        ? colors.divider.withValues(alpha: 0.3)
-                        : Colors.grey.shade300),
+                    : AppThemeConfig.divider.withValues(alpha: 0.3),
             width: selected ? 1 : 1,
           ),
           boxShadow: [
             if (selected)
               BoxShadow(
-                color:
-                    isDark
-                        ? Colors.black.withValues(alpha: 0.4)
-                        : Colors.black.withValues(alpha: 0.18),
+                color: Colors.black.withValues(alpha: 0.18),
                 blurRadius: 32,
                 spreadRadius: 2,
                 offset: const Offset(0, 12),
               )
             else
               BoxShadow(
-                color:
-                    isDark
-                        ? Colors.black.withValues(alpha: 0.1)
-                        : Colors.black.withValues(alpha: 0.04),
+                color: Colors.black.withValues(alpha: 0.04),
                 blurRadius: 8,
                 spreadRadius: 0.5,
                 offset: const Offset(0, 2),
@@ -96,7 +83,7 @@ class PremiumPlanCard extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
-                      color: colors.textPrimary,
+                      color: AppThemeConfig.textPrimary,
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -106,7 +93,7 @@ class PremiumPlanCard extends StatelessWidget {
                         subtitle,
                         style: TextStyle(
                           fontSize: 12,
-                          color: colors.textSecondary,
+                          color: AppThemeConfig.textSecondary,
                         ),
                       ),
                       if (periodText != null && periodText!.isNotEmpty) ...[
@@ -115,7 +102,7 @@ class PremiumPlanCard extends StatelessWidget {
                           periodText!,
                           style: TextStyle(
                             fontSize: 12,
-                            color: colors.textHint,
+                            color: AppThemeConfig.textHint,
                           ),
                         ),
                       ],
@@ -131,15 +118,14 @@ class PremiumPlanCard extends StatelessWidget {
                   vertical: isTrial ? 8 : 6,
                 ),
                 decoration: BoxDecoration(
-                  color:
-                      isTrial
-                          ? (isDark ? colors.card : badgeColor)
-                          : badgeColor,
+                  color: isTrial ? badgeColor : badgeColor,
                   borderRadius: BorderRadius.circular(isTrial ? 8 : 5),
                   border:
-                      isTrial && isDark
+                      isTrial
                           ? Border.all(
-                            color: colors.primary.withValues(alpha: 0.3),
+                            color: AppThemeConfig.primary.withValues(
+                              alpha: 0.3,
+                            ),
                             width: 1,
                           )
                           : null,
@@ -147,10 +133,7 @@ class PremiumPlanCard extends StatelessWidget {
                 child: Text(
                   badgeText,
                   style: TextStyle(
-                    color:
-                        isTrial
-                            ? (isDark ? colors.textPrimary : Colors.black)
-                            : Colors.white,
+                    color: isTrial ? AppThemeConfig.textPrimary : Colors.white,
                     fontSize:
                         isTrial ? (paywallDelayedCloseButton ? 16 : 12) : 12,
                     fontWeight: FontWeight.bold,
@@ -167,9 +150,7 @@ class PremiumPlanCard extends StatelessWidget {
                   color:
                       selected
                           ? checkColor
-                          : (isDark
-                              ? colors.divider.withValues(alpha: 0.5)
-                              : Colors.grey.shade400),
+                          : AppThemeConfig.divider.withValues(alpha: 0.5),
                   width: 2,
                 ),
                 color: selected ? checkColor : Colors.transparent,

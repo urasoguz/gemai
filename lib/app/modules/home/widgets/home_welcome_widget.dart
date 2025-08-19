@@ -1,4 +1,4 @@
-import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,8 +8,6 @@ class HomeWelcomeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Tema renklerini al
-    final colors =
-        AppThemeConfig.primary;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -21,7 +19,7 @@ class HomeWelcomeWidget extends StatelessWidget {
             style: TextStyle(
               fontSize: 26,
               fontWeight: FontWeight.w700,
-              color: colors.textPrimary,
+              color: AppThemeConfig.textPrimary,
               letterSpacing: 0.2,
             ),
           ),
@@ -30,7 +28,7 @@ class HomeWelcomeWidget extends StatelessWidget {
             'home_welcome_desc'.tr,
             style: TextStyle(
               fontSize: 15,
-              color: colors.textSecondary,
+              color: AppThemeConfig.textSecondary,
               fontWeight: FontWeight.w400,
             ),
           ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:get/get.dart';
 
 // Modern ve minimal şiddet derecesi göstergesi
@@ -17,12 +17,10 @@ class SeverityIndicatorWidget extends StatelessWidget {
 
   // Şiddet derecesine göre renk döndürür
   Color getSeverityColor(BuildContext context, int value) {
-    final colors =
-        AppThemeConfig.primary;
-    if (value <= 3) return colors.severityIndicatorColor1; // Yeşil
-    if (value <= 6) return colors.severityIndicatorColor2; // Sarı
-    if (value <= 8) return colors.severityIndicatorColor3; // Turuncu
-    return colors.severityIndicatorColor4; // Kırmızı
+    if (value <= 3) return AppThemeConfig.severityIndicatorColor1; // Yeşil
+    if (value <= 6) return AppThemeConfig.severityIndicatorColor2; // Sarı
+    if (value <= 8) return AppThemeConfig.severityIndicatorColor3; // Turuncu
+    return AppThemeConfig.severityIndicatorColor4; // Kırmızı
   }
 
   // Şiddet derecesine göre başlık döndürür
@@ -37,8 +35,6 @@ class SeverityIndicatorWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final color = getSeverityColor(context, value);
-    final colors =
-        AppThemeConfig.primary;
     //final label = getSeverityLabel(value);
 
     return Column(
@@ -69,7 +65,6 @@ class SeverityIndicatorWidget extends StatelessWidget {
                 painter: _SeverityBarPainter(
                   percent: percent,
                   color: color,
-                  colors: colors,
                   barHeight: 5,
                   markerRadius: 8,
                 ),
@@ -88,12 +83,10 @@ class _SeverityBarPainter extends CustomPainter {
   final Color color;
   final double barHeight;
   final double markerRadius;
-  final ColorPalette colors;
 
   _SeverityBarPainter({
     required this.percent,
     required this.color,
-    required this.colors,
     this.barHeight = 5,
     this.markerRadius = 8,
   });
@@ -107,7 +100,7 @@ class _SeverityBarPainter extends CustomPainter {
     // Arka plan barı (çok silik)
     final bgPaint =
         Paint()
-          ..color = colors.divider.withValues(alpha: 0.18)
+          ..color = AppThemeConfig.divider.withValues(alpha: 0.18)
           ..strokeWidth = barHeight
           ..strokeCap = StrokeCap.round;
     canvas.drawLine(start, end, bgPaint);
@@ -115,10 +108,10 @@ class _SeverityBarPainter extends CustomPainter {
     // Dolan bar (soft gradient)
     final gradient = LinearGradient(
       colors: [
-        colors.severityIndicatorColor1,
-        colors.severityIndicatorColor2,
-        colors.severityIndicatorColor3,
-        colors.severityIndicatorColor4,
+        AppThemeConfig.severityIndicatorColor1,
+        AppThemeConfig.severityIndicatorColor2,
+        AppThemeConfig.severityIndicatorColor3,
+        AppThemeConfig.severityIndicatorColor4,
       ],
       stops: [0.0, 0.4, 0.7, 1.0],
     );
@@ -142,7 +135,7 @@ class _SeverityBarPainter extends CustomPainter {
     // Dış kenar (beyaz, çok ince)
     final borderPaint =
         Paint()
-          ..color = colors.divider.withValues(alpha: 0.85)
+          ..color = AppThemeConfig.divider.withValues(alpha: 0.85)
           ..style = PaintingStyle.stroke
           ..strokeWidth = 1;
     canvas.drawCircle(Offset(markerX, markerY), markerRadius, borderPaint);

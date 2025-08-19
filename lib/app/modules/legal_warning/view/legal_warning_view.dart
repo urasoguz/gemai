@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:dermai/app/core/theme/app_theme_config.dart';
-import 'package:dermai/app/modules/legal_warning/controller/legal_warning_controller.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/modules/legal_warning/controller/legal_warning_controller.dart';
 
 /// Yasal uyarı sayfası - Modern, kompakt ve ekrana sığan tasarım (geri butonu yok)
 class LegalWarningView extends StatelessWidget {
@@ -11,14 +11,10 @@ class LegalWarningView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<LegalWarningController>();
-    final colors =
-        AppThemeConfig.primary;
-
-    // Dark mode için özel kontrast renkleri
-    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final colors = AppThemeConfig.primary;
 
     return Scaffold(
-      backgroundColor: colors.background,
+      backgroundColor: AppThemeConfig.background,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -33,25 +29,16 @@ class LegalWarningView extends StatelessWidget {
                     width: 44,
                     height: 44,
                     decoration: BoxDecoration(
-                      color:
-                          isDark
-                              ? colors.primary.withValues(alpha: 0.25)
-                              : colors.primary.withValues(alpha: 0.12),
+                      color: AppThemeConfig.primary.withValues(alpha: 0.25),
                       borderRadius: BorderRadius.circular(12),
-                      border:
-                          isDark
-                              ? Border.all(
-                                color: colors.primary.withValues(alpha: 0.3),
-                                width: 1,
-                              )
-                              : null,
+                      border: Border.all(
+                        color: AppThemeConfig.primary.withValues(alpha: 0.3),
+                        width: 1,
+                      ),
                     ),
                     child: Icon(
                       Icons.shield_outlined,
-                      color:
-                          isDark
-                              ? const Color(0xFF71B280) // Daha parlak yeşil
-                              : colors.primary,
+                      color: AppThemeConfig.primary,
                       size: 22,
                     ),
                   ),
@@ -61,7 +48,7 @@ class LegalWarningView extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w700,
-                      color: colors.textPrimary,
+                      color: AppThemeConfig.textPrimary,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -70,7 +57,7 @@ class LegalWarningView extends StatelessWidget {
                     'legal_warning_subtitle'.tr,
                     style: TextStyle(
                       fontSize: 13,
-                      color: colors.textSecondary,
+                      color: AppThemeConfig.textSecondary,
                       height: 1.2,
                       fontWeight: FontWeight.w500,
                     ),
@@ -86,21 +73,15 @@ class LegalWarningView extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(14),
                   decoration: BoxDecoration(
-                    color: colors.card,
+                    color: AppThemeConfig.card,
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
-                      color:
-                          isDark
-                              ? colors.divider.withValues(alpha: 0.3)
-                              : colors.divider.withValues(alpha: 0.15),
+                      color: AppThemeConfig.divider.withValues(alpha: 0.15),
                       width: 1,
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color:
-                            isDark
-                                ? Colors.black.withValues(alpha: 0.2)
-                                : colors.divider.withValues(alpha: 0.05),
+                        color: AppThemeConfig.divider.withValues(alpha: 0.05),
                         blurRadius: 6,
                         offset: const Offset(0, 2),
                       ),
@@ -132,20 +113,14 @@ class LegalWarningView extends StatelessWidget {
                         Container(
                           padding: const EdgeInsets.all(12),
                           decoration: BoxDecoration(
-                            color:
-                                isDark
-                                    ? const Color(
-                                      0xFF71B280,
-                                    ).withValues(alpha: 0.15)
-                                    : colors.primary.withValues(alpha: 0.08),
+                            color: AppThemeConfig.primary.withValues(
+                              alpha: 0.08,
+                            ),
                             borderRadius: BorderRadius.circular(8),
                             border: Border.all(
-                              color:
-                                  isDark
-                                      ? const Color(
-                                        0xFF71B280,
-                                      ).withValues(alpha: 0.4)
-                                      : colors.primary.withValues(alpha: 0.2),
+                              color: AppThemeConfig.primary.withValues(
+                                alpha: 0.2,
+                              ),
                               width: 1,
                             ),
                           ),
@@ -156,10 +131,7 @@ class LegalWarningView extends StatelessWidget {
                                 children: [
                                   Icon(
                                     Icons.gavel_rounded,
-                                    color:
-                                        isDark
-                                            ? const Color(0xFF71B280)
-                                            : colors.primary,
+                                    color: AppThemeConfig.primary,
                                     size: 14,
                                   ),
                                   const SizedBox(width: 6),
@@ -168,7 +140,7 @@ class LegalWarningView extends StatelessWidget {
                                     style: TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w700,
-                                      color: colors.textPrimary,
+                                      color: AppThemeConfig.textPrimary,
                                     ),
                                   ),
                                 ],
@@ -209,25 +181,18 @@ class LegalWarningView extends StatelessWidget {
                   child: Container(
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      color: colors.card,
+                      color: AppThemeConfig.card,
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(
                         color:
                             controller.isAccepted.value
-                                ? (isDark
-                                    ? const Color(0xFF71B280)
-                                    : colors.primary)
-                                : (isDark
-                                    ? colors.divider.withValues(alpha: 0.5)
-                                    : colors.divider.withValues(alpha: 0.3)),
+                                ? AppThemeConfig.primary
+                                : AppThemeConfig.divider.withValues(alpha: 0.3),
                         width: 1.5,
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color:
-                              isDark
-                                  ? Colors.black.withValues(alpha: 0.3)
-                                  : colors.divider.withValues(alpha: 0.05),
+                          color: AppThemeConfig.divider.withValues(alpha: 0.05),
                           blurRadius: 4,
                           offset: const Offset(0, 1),
                         ),
@@ -242,24 +207,16 @@ class LegalWarningView extends StatelessWidget {
                           decoration: BoxDecoration(
                             color:
                                 controller.isAccepted.value
-                                    ? (isDark
-                                        ? const Color(0xFF71B280)
-                                        : colors.primary)
+                                    ? AppThemeConfig.primary
                                     : Colors.transparent,
                             borderRadius: BorderRadius.circular(4),
                             border: Border.all(
                               color:
                                   controller.isAccepted.value
-                                      ? (isDark
-                                          ? const Color(0xFF71B280)
-                                          : colors.primary)
-                                      : (isDark
-                                          ? colors.divider.withValues(
-                                            alpha: 0.7,
-                                          )
-                                          : colors.divider.withValues(
-                                            alpha: 0.5,
-                                          )),
+                                      ? AppThemeConfig.primary
+                                      : AppThemeConfig.divider.withValues(
+                                        alpha: 0.5,
+                                      ),
                               width: 1.5,
                             ),
                           ),
@@ -278,7 +235,7 @@ class LegalWarningView extends StatelessWidget {
                             'legal_warning_checkbox_text'.tr,
                             style: TextStyle(
                               fontSize: 12,
-                              color: colors.textPrimary,
+                              color: AppThemeConfig.textPrimary,
                               fontWeight: FontWeight.w600,
                               height: 1.2,
                             ),
@@ -307,12 +264,8 @@ class LegalWarningView extends StatelessWidget {
                       backgroundColor:
                           controller.isAccepted.value &&
                                   !controller.isLoading.value
-                              ? (isDark
-                                  ? const Color(0xFF71B280)
-                                  : colors.primary)
-                              : (isDark
-                                  ? colors.divider.withValues(alpha: 0.4)
-                                  : colors.divider.withValues(alpha: 0.3)),
+                              ? AppThemeConfig.primary
+                              : AppThemeConfig.divider.withValues(alpha: 0.3),
                       foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
@@ -347,19 +300,22 @@ class LegalWarningView extends StatelessWidget {
   }
 
   /// Açıklama metni widget'ı - kompakt
-  Widget _buildDescriptionText(String text, dynamic colors) {
+  Widget _buildDescriptionText(String text, Color colors) {
     return Container(
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: colors.background,
+        color: AppThemeConfig.background,
         borderRadius: BorderRadius.circular(6),
-        border: Border.all(color: colors.divider.withOpacity(0.08), width: 1),
+        border: Border.all(
+          color: AppThemeConfig.divider.withOpacity(0.08),
+          width: 1,
+        ),
       ),
       child: Text(
         text,
         style: TextStyle(
           fontSize: 12,
-          color: colors.textSecondary,
+          color: AppThemeConfig.textSecondary,
           height: 1.3,
           fontWeight: FontWeight.w500,
         ),

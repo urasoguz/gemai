@@ -1,12 +1,12 @@
 import 'dart:io';
-import 'package:dermai/app/core/theme/app_theme_config.dart';
-import 'package:dermai/app/routes/app_routes.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/routes/app_routes.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:camerawesome/camerawesome_plugin.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:dermai/app/modules/camera/controller/camera_controller.dart';
+import 'package:gemai/app/modules/camera/controller/camera_controller.dart';
 
 /// DermAI için Camerawesome ile gömülü kamera widget'ı
 class CamerawesomeWidget extends GetView<CameraController> {
@@ -27,14 +27,10 @@ class CamerawesomeWidget extends GetView<CameraController> {
 
   /// Çekilen fotoğraf önizlemesi
   Widget _buildCapturedImagePreview(BuildContext context) {
-    // Tema renklerini al
-    final colors =
-        AppThemeConfig.primary;
-
     return Container(
       width: double.infinity,
       height: double.infinity,
-      color: colors.cameraCapturedBackground,
+      color: AppThemeConfig.cameraCapturedBackground,
       child: Stack(
         children: [
           // Fotoğraf
@@ -52,7 +48,7 @@ class CamerawesomeWidget extends GetView<CameraController> {
             child: IconButton(
               icon: Icon(
                 Icons.close,
-                color: colors.cameraControlButtonIcon,
+                color: AppThemeConfig.cameraControlButtonIcon,
                 size: 32,
               ),
               onPressed: controller.clearPhoto,
@@ -65,10 +61,6 @@ class CamerawesomeWidget extends GetView<CameraController> {
 
   /// Kamera arayüzü
   Widget _buildCameraAwesome(BuildContext context) {
-    // Tema renklerini al
-    final colors =
-        AppThemeConfig.primary;
-
     return Obx(
       () => CameraAwesomeBuilder.awesome(
         saveConfig: SaveConfig.photo(),
@@ -80,15 +72,14 @@ class CamerawesomeWidget extends GetView<CameraController> {
         ),
         previewFit: CameraPreviewFit.contain,
         theme: AwesomeTheme(
-          bottomActionsBackgroundColor: colors
+          bottomActionsBackgroundColor: AppThemeConfig
               .cameraBottomActionsBackgroundColor
               .withValues(alpha: 0.3),
           buttonTheme: AwesomeButtonTheme(
-            backgroundColor: colors.cameraThemeBackgroundColor.withValues(
-              alpha: 0.2,
-            ),
+            backgroundColor: AppThemeConfig.cameraThemeBackgroundColor
+                .withValues(alpha: 0.2),
             iconSize: 24,
-            foregroundColor: colors.cameraThemeForegroundColor,
+            foregroundColor: AppThemeConfig.cameraThemeForegroundColor,
             padding: const EdgeInsets.all(16),
           ),
         ),
@@ -118,14 +109,10 @@ class CamerawesomeWidget extends GetView<CameraController> {
 
   /// Modern üst bar
   Widget _buildModernTopBar(BuildContext context, CameraState state) {
-    // Tema renklerini al
-    final colors =
-        AppThemeConfig.primary;
-
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
       height: 70,
-      color: colors.cameraScaffold,
+      color: AppThemeConfig.cameraScaffold,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -187,34 +174,38 @@ class CamerawesomeWidget extends GetView<CameraController> {
     required BuildContext context,
     VoidCallback? onTap,
   }) {
-    // Tema renklerini al
-    final colors =
-        AppThemeConfig.primary;
-
     return GestureDetector(
       onTap: onTap,
       child: Container(
         width: 44,
         height: 44,
         decoration: BoxDecoration(
-          color: colors.cameraCircleButtonBackgroundColor.withValues(
+          color: AppThemeConfig.cameraCircleButtonBackgroundColor.withValues(
             alpha: 0.12,
           ),
           borderRadius: BorderRadius.circular(22),
           border: Border.all(
-            color: colors.cameraCircleButtonBorder.withValues(alpha: 0.2),
+            color: AppThemeConfig.cameraCircleButtonBorder.withValues(
+              alpha: 0.2,
+            ),
             width: 1,
           ),
           boxShadow: [
             BoxShadow(
-              color: colors.cameraCircleButtonShadow.withValues(alpha: 0.08),
+              color: AppThemeConfig.cameraCircleButtonShadow.withValues(
+                alpha: 0.08,
+              ),
               blurRadius: 8,
               offset: const Offset(0, 2),
             ),
           ],
         ),
         child: Center(
-          child: Icon(icon, color: colors.cameraCircleButtonIcon, size: 22),
+          child: Icon(
+            icon,
+            color: AppThemeConfig.cameraCircleButtonIcon,
+            size: 22,
+          ),
         ),
       ),
     );
@@ -233,8 +224,7 @@ class CamerawesomeWidget extends GetView<CameraController> {
 
   Widget _buildModernScanFrame(BuildContext context) {
     // Tema renklerini al
-    final colors =
-        AppThemeConfig.primary;
+    final colors = AppThemeConfig.primary;
 
     // Responsive boyutlandırma
     final screenHeight = MediaQuery.of(context).size.height;
@@ -290,9 +280,8 @@ class CamerawesomeWidget extends GetView<CameraController> {
                       vertical: isSmallScreen ? 8 : 10,
                     ),
                     decoration: BoxDecoration(
-                      color: colors.cameraScanFrameBackground.withValues(
-                        alpha: 0.6,
-                      ),
+                      color: AppThemeConfig.cameraScanFrameBackground
+                          .withValues(alpha: 0.6),
                       borderRadius: BorderRadius.circular(
                         isSmallScreen ? 16 : 20,
                       ),
@@ -300,7 +289,7 @@ class CamerawesomeWidget extends GetView<CameraController> {
                     child: Text(
                       'camera_scan_title'.tr,
                       style: TextStyle(
-                        color: colors.cameraScanFrameTitleText,
+                        color: AppThemeConfig.cameraScanFrameTitleText,
                         fontSize: isSmallScreen ? 14 : 16,
                         fontWeight: FontWeight.w600,
                       ),
@@ -318,7 +307,7 @@ class CamerawesomeWidget extends GetView<CameraController> {
                     ),
                     decoration: BoxDecoration(
                       border: Border.all(
-                        color: colors.cameraScanFrameBorder,
+                        color: AppThemeConfig.cameraScanFrameBorder,
                         width: 2,
                       ),
                       borderRadius: BorderRadius.circular(
@@ -367,17 +356,15 @@ class CamerawesomeWidget extends GetView<CameraController> {
                       vertical: isSmallScreen ? 8 : 12,
                     ),
                     decoration: BoxDecoration(
-                      color: colors.cameraScanDecorationBackground.withValues(
-                        alpha: 0.9,
-                      ),
+                      color: AppThemeConfig.cameraScanDecorationBackground
+                          .withValues(alpha: 0.9),
                       borderRadius: BorderRadius.circular(
                         isSmallScreen ? 16 : 20,
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: colors.cameraScanDecorationShadow.withValues(
-                            alpha: 0.1,
-                          ),
+                          color: AppThemeConfig.cameraScanDecorationShadow
+                              .withValues(alpha: 0.1),
                           blurRadius: 10,
                           offset: const Offset(0, 4),
                         ),
@@ -388,7 +375,7 @@ class CamerawesomeWidget extends GetView<CameraController> {
                       style: TextStyle(
                         fontSize: isSmallScreen ? 14 : 16,
                         fontWeight: FontWeight.w500,
-                        color: colors.cameraScanDecorationText,
+                        color: AppThemeConfig.cameraScanDecorationText,
                       ),
                       textAlign: TextAlign.center,
                       maxLines: isMediumScreen ? 2 : 3,
@@ -433,10 +420,6 @@ class CamerawesomeWidget extends GetView<CameraController> {
   }
 
   Widget _buildModernGalleryButton(BuildContext context) {
-    // Tema renklerini al
-    final colors =
-        AppThemeConfig.primary;
-
     return GestureDetector(
       onTap: () async {
         final picker = ImagePicker();
@@ -451,19 +434,21 @@ class CamerawesomeWidget extends GetView<CameraController> {
         width: 60,
         height: 60,
         decoration: BoxDecoration(
-          color: colors.cameraGalleryButtonBackgroundColor.withValues(
+          color: AppThemeConfig.cameraGalleryButtonBackgroundColor.withValues(
             alpha: 0.2,
           ),
           borderRadius: BorderRadius.circular(15),
           border: Border.all(
-            color: colors.cameraGalleryButtonBorder.withValues(alpha: 0.3),
+            color: AppThemeConfig.cameraGalleryButtonBorder.withValues(
+              alpha: 0.3,
+            ),
             width: 1,
           ),
         ),
         child: Center(
           child: Icon(
             Icons.photo_library,
-            color: colors.cameraGalleryButtonIcon,
+            color: AppThemeConfig.cameraGalleryButtonIcon,
             size: 28,
           ),
         ),
@@ -478,15 +463,11 @@ class CamerawesomeWidget extends GetView<CameraController> {
     bool bottomLeft = false,
     bool bottomRight = false,
   }) {
-    // Tema renklerini al
-    final colors =
-        AppThemeConfig.primary;
-
     return Container(
       width: 16,
       height: 16,
       decoration: BoxDecoration(
-        color: colors.cameraScanFrameBorder,
+        color: AppThemeConfig.cameraScanFrameBorder,
         borderRadius: BorderRadius.only(
           topLeft: topLeft ? const Radius.circular(16) : Radius.zero,
           topRight: topRight ? const Radius.circular(16) : Radius.zero,

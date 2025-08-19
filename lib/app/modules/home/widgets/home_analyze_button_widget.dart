@@ -1,10 +1,10 @@
-import 'package:dermai/app/core/theme/app_theme_config.dart';
-import 'package:dermai/app/routes/app_routes.dart';
-import 'package:dermai/app/shared/helpers/my_helper.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/routes/app_routes.dart';
+import 'package:gemai/app/shared/helpers/my_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dermai/app/core/services/shrine_dialog_service.dart';
+import 'package:gemai/app/core/services/shrine_dialog_service.dart';
 import 'package:get_storage/get_storage.dart';
 
 class HomeAnalyzeButtonWidget extends StatefulWidget {
@@ -45,11 +45,12 @@ class _HomeAnalyzeButtonWidgetState extends State<HomeAnalyzeButtonWidget>
   }
 
   void _onTapUp(TapUpDetails details) {
-    final colors =
-        AppThemeConfig.primary;
     _controller.reverse();
     if (remainingToken == 0 && ispremium == true) {
-      ShrineDialogService.showInfo('scan_dialog_125'.tr, colors);
+      ShrineDialogService.showInfo(
+        'scan_dialog_125'.tr,
+        AppThemeConfig.primary,
+      );
     } else if (remainingToken == 0 && ispremium == false) {
       Get.toNamed(AppRoutes.premium);
     } else {
@@ -63,10 +64,6 @@ class _HomeAnalyzeButtonWidgetState extends State<HomeAnalyzeButtonWidget>
 
   @override
   Widget build(BuildContext context) {
-    // Tema renklerini al
-    final colors =
-        AppThemeConfig.primary;
-
     return Column(
       children: [
         GestureDetector(
@@ -87,15 +84,17 @@ class _HomeAnalyzeButtonWidgetState extends State<HomeAnalyzeButtonWidget>
                     shape: BoxShape.circle,
                     gradient: LinearGradient(
                       colors: [
-                        colors.gradientPrimary,
-                        colors.gradientSecondary,
+                        AppThemeConfig.gradientPrimary,
+                        AppThemeConfig.gradientSecondary,
                       ],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: colors.buttonShadow.withValues(alpha: 0.10),
+                        color: AppThemeConfig.buttonShadow.withValues(
+                          alpha: 0.10,
+                        ),
                         blurRadius: 24,
                         offset: const Offset(0, 8),
                       ),
@@ -106,11 +105,13 @@ class _HomeAnalyzeButtonWidgetState extends State<HomeAnalyzeButtonWidget>
                       width: 64,
                       height: 64,
                       decoration: BoxDecoration(
-                        color: colors.analyzeButton,
+                        color: AppThemeConfig.primary,
                         shape: BoxShape.circle,
                         boxShadow: [
                           BoxShadow(
-                            color: colors.buttonShadow.withValues(alpha: 0.04),
+                            color: AppThemeConfig.buttonShadow.withValues(
+                              alpha: 0.04,
+                            ),
                             blurRadius: 8,
                             offset: const Offset(0, 2),
                           ),
@@ -118,7 +119,7 @@ class _HomeAnalyzeButtonWidgetState extends State<HomeAnalyzeButtonWidget>
                       ),
                       child: Icon(
                         CupertinoIcons.camera_viewfinder,
-                        color: colors.analyzeButtonIcon,
+                        color: AppThemeConfig.analyzeButtonIcon,
                         size: 38,
                       ),
                     ),
@@ -129,7 +130,7 @@ class _HomeAnalyzeButtonWidgetState extends State<HomeAnalyzeButtonWidget>
                   'home_analyze_button_title'.tr,
                   style: TextStyle(
                     fontSize: 14,
-                    color: colors.textTertiary,
+                    color: AppThemeConfig.textTertiary,
                     fontWeight: FontWeight.w500,
                   ),
                 ),

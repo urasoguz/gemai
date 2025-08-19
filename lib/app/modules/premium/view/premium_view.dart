@@ -1,27 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dermai/app/modules/premium/controller/premium_controller.dart';
-import 'package:dermai/app/modules/premium/widgets/premium_plan_card.dart';
-import 'package:dermai/app/modules/premium/widgets/animated_app_icon.dart';
-import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/modules/premium/controller/premium_controller.dart';
+import 'package:gemai/app/modules/premium/widgets/premium_plan_card.dart';
+import 'package:gemai/app/modules/premium/widgets/animated_app_icon.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
 
 class PremiumView extends GetView<PremiumController> {
   const PremiumView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Dark/Light mode uyumlu renkler
-    final colors =
-        AppThemeConfig.primary;
-
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-
     // Küçük ekran kontrolü
     final screenHeight = MediaQuery.of(context).size.height;
     final isSmallScreen = screenHeight < 700;
 
     return Scaffold(
-      backgroundColor: colors.background,
+      backgroundColor: AppThemeConfig.background,
       body: SafeArea(
         child: SingleChildScrollView(
           physics: const ClampingScrollPhysics(),
@@ -48,7 +42,6 @@ class PremiumView extends GetView<PremiumController> {
                                 controller.isRestoring.value
                                     ? null
                                     : controller.restorePurchases,
-                            colors: colors,
                           ),
                         ),
                         // Kapat butonu sağ üstte (backend ayarına göre)
@@ -106,14 +99,8 @@ class PremiumView extends GetView<PremiumController> {
                                                 child: Icon(
                                                   Icons.close,
                                                   color:
-                                                      isDark
-                                                          ? colors.textSecondary
-                                                          : const Color.fromARGB(
-                                                            255,
-                                                            228,
-                                                            228,
-                                                            228,
-                                                          ),
+                                                      AppThemeConfig
+                                                          .textSecondary,
                                                   size: 40,
                                                 ),
                                               )
@@ -128,15 +115,7 @@ class PremiumView extends GetView<PremiumController> {
                             return IconButton(
                               icon: Icon(
                                 Icons.close,
-                                color:
-                                    isDark
-                                        ? colors.textSecondary
-                                        : const Color.fromARGB(
-                                          255,
-                                          228,
-                                          228,
-                                          228,
-                                        ),
+                                color: AppThemeConfig.textSecondary,
                                 size: 40,
                               ),
                               onPressed: controller.closeScreen,
@@ -153,9 +132,7 @@ class PremiumView extends GetView<PremiumController> {
                       size: isSmallScreen ? 120 : 170,
                       backgroundColor: Colors.transparent,
                       child: Image.asset(
-                        isDark
-                            ? 'assets/premium/dark_logo.png'
-                            : 'assets/premium/light_logo.png',
+                        'assets/premium/dark_logo.png',
                         width: isSmallScreen ? 100 : 150,
                         height: isSmallScreen ? 100 : 150,
                         fit: BoxFit.contain,
@@ -171,7 +148,7 @@ class PremiumView extends GetView<PremiumController> {
                     style: TextStyle(
                       fontSize: isSmallScreen ? 24 : 30,
                       fontWeight: FontWeight.w600,
-                      color: colors.textPrimary,
+                      color: AppThemeConfig.textPrimary,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -209,7 +186,7 @@ class PremiumView extends GetView<PremiumController> {
                                       feature['title'] as String,
                                       style: TextStyle(
                                         fontSize: isSmallScreen ? 14 : 16,
-                                        color: colors.textPrimary,
+                                        color: AppThemeConfig.textPrimary,
                                       ),
                                       overflow: TextOverflow.ellipsis,
                                     ),
@@ -247,14 +224,9 @@ class PremiumView extends GetView<PremiumController> {
                                     selected
                                         ? [
                                           BoxShadow(
-                                            color:
-                                                isDark
-                                                    ? Colors.black.withValues(
-                                                      alpha: 0.3,
-                                                    )
-                                                    : Colors.black.withValues(
-                                                      alpha: 0.08,
-                                                    ),
+                                            color: Colors.black.withValues(
+                                              alpha: 0.08,
+                                            ),
                                             blurRadius: 16,
                                             offset: const Offset(0, 4),
                                           ),
@@ -289,7 +261,7 @@ class PremiumView extends GetView<PremiumController> {
                               child: Text(
                                 'premium_trial_not_available'.tr,
                                 style: TextStyle(
-                                  color: colors.error,
+                                  color: AppThemeConfig.error,
                                   fontSize: 15,
                                 ),
                                 textAlign: TextAlign.center,
@@ -319,7 +291,7 @@ class PremiumView extends GetView<PremiumController> {
                           height: 32,
                           child: CircularProgressIndicator(
                             valueColor: AlwaysStoppedAnimation<Color>(
-                              colors.textPrimary,
+                              AppThemeConfig.textPrimary,
                             ),
                             strokeWidth: 3,
                           ),
@@ -333,22 +305,14 @@ class PremiumView extends GetView<PremiumController> {
                       child: ElevatedButton(
                         onPressed: controller.startTrial,
                         style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              isDark
-                                  ? const Color(
-                                    0xFF71B280,
-                                  ) // Parlak yeşil dark modda
-                                  : Colors.black,
+                          backgroundColor: const Color(0xFF71B280),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16),
                           ),
-                          elevation: isDark ? 2 : 0,
-                          shadowColor:
-                              isDark
-                                  ? const Color(
-                                    0xFF71B280,
-                                  ).withValues(alpha: 0.3)
-                                  : Colors.transparent,
+                          elevation: 2,
+                          shadowColor: const Color(
+                            0xFF71B280,
+                          ).withValues(alpha: 0.3),
                         ),
                         child: AnimatedSwitcher(
                           duration: const Duration(milliseconds: 250),
@@ -391,7 +355,7 @@ class PremiumView extends GetView<PremiumController> {
                         child: TextButton(
                           onPressed: controller.closeScreen,
                           style: TextButton.styleFrom(
-                            foregroundColor: colors.textPrimary,
+                            foregroundColor: AppThemeConfig.textPrimary,
                             padding: const EdgeInsets.symmetric(
                               horizontal: 24,
                               vertical: 8,
@@ -402,7 +366,7 @@ class PremiumView extends GetView<PremiumController> {
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w500,
-                              color: colors.textPrimary,
+                              color: AppThemeConfig.textPrimary,
                             ),
                           ),
                         ),
@@ -417,12 +381,10 @@ class PremiumView extends GetView<PremiumController> {
                       _buildFooterButton(
                         text: 'premium_terms'.tr,
                         onPressed: controller.openTerms,
-                        colors: colors,
                       ),
                       _buildFooterButton(
                         text: 'premium_privacy'.tr,
                         onPressed: controller.openPrivacy,
-                        colors: colors,
                       ),
                     ],
                   ),
@@ -441,7 +403,6 @@ class PremiumView extends GetView<PremiumController> {
   Widget _buildFooterButton({
     required String text,
     required VoidCallback onPressed,
-    required dynamic colors,
   }) {
     return TextButton(
       onPressed: onPressed,
@@ -449,7 +410,7 @@ class PremiumView extends GetView<PremiumController> {
         overlayColor: WidgetStateProperty.all(Colors.transparent),
         splashFactory: NoSplash.splashFactory,
         shadowColor: WidgetStateProperty.all(Colors.transparent),
-        foregroundColor: WidgetStateProperty.all(colors.textSecondary),
+        foregroundColor: WidgetStateProperty.all(AppThemeConfig.textSecondary),
         backgroundColor: WidgetStateProperty.all(Colors.transparent),
         padding: WidgetStateProperty.all(
           const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
@@ -457,7 +418,7 @@ class PremiumView extends GetView<PremiumController> {
       ),
       child: Text(
         text,
-        style: TextStyle(color: colors.textSecondary, fontSize: 12),
+        style: TextStyle(color: AppThemeConfig.textSecondary, fontSize: 12),
         textAlign: TextAlign.center,
         maxLines: 2,
         overflow: TextOverflow.ellipsis,
@@ -469,7 +430,6 @@ class PremiumView extends GetView<PremiumController> {
   Widget _buildTopRestoreButton({
     required bool isRestoring,
     required VoidCallback? onPressed,
-    required dynamic colors,
   }) {
     return TextButton(
       onPressed: onPressed,
@@ -477,7 +437,7 @@ class PremiumView extends GetView<PremiumController> {
         overlayColor: WidgetStateProperty.all(Colors.transparent),
         splashFactory: NoSplash.splashFactory,
         shadowColor: WidgetStateProperty.all(Colors.transparent),
-        foregroundColor: WidgetStateProperty.all(colors.textSecondary),
+        foregroundColor: WidgetStateProperty.all(AppThemeConfig.textSecondary),
         backgroundColor: WidgetStateProperty.all(Colors.transparent),
         padding: WidgetStateProperty.all(
           const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
@@ -490,7 +450,7 @@ class PremiumView extends GetView<PremiumController> {
                 height: 16,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
-                    colors.textSecondary,
+                    AppThemeConfig.textSecondary,
                   ),
                   strokeWidth: 2,
                 ),
@@ -500,7 +460,7 @@ class PremiumView extends GetView<PremiumController> {
                 style: TextStyle(
                   color:
                       Get.isDarkMode
-                          ? colors.textSecondary
+                          ? AppThemeConfig.textSecondary
                           : const Color.fromARGB(255, 209, 209, 209),
                   fontSize: 14,
                 ),

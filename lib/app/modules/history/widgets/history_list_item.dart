@@ -1,9 +1,9 @@
-import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dermai/app/core/services/sembast_service.dart';
-import 'package:dermai/app/core/services/date_formatting_service.dart';
-import 'package:dermai/app/modules/result/widgets/result_image_widget.dart';
+import 'package:gemai/app/core/services/sembast_service.dart';
+import 'package:gemai/app/core/services/date_formatting_service.dart';
+import 'package:gemai/app/modules/result/widgets/result_image_widget.dart';
 
 class HistoryListItem extends StatelessWidget {
   final HistoryItem item;
@@ -18,28 +18,26 @@ class HistoryListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors =
-        AppThemeConfig.primary;
     final model = item.model;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 3),
       child: Material(
-        color: colors.background,
+        color: AppThemeConfig.background,
         borderRadius: BorderRadius.circular(14),
         elevation: 0,
         child: InkWell(
           borderRadius: BorderRadius.circular(14),
           onTap: onTap,
-          splashColor: colors.divider.withValues(alpha: 0.06),
-          highlightColor: colors.divider.withValues(alpha: 0.03),
+          splashColor: AppThemeConfig.divider.withValues(alpha: 0.06),
+          highlightColor: AppThemeConfig.divider.withValues(alpha: 0.03),
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(14),
-              border: Border.all(color: colors.divider, width: 1),
+              border: Border.all(color: AppThemeConfig.divider, width: 1),
               boxShadow: [
                 BoxShadow(
-                  color: colors.buttonShadow.withValues(alpha: 0.025),
+                  color: AppThemeConfig.buttonShadow.withValues(alpha: 0.025),
                   blurRadius: 4,
                   offset: const Offset(0, 1),
                 ),
@@ -52,7 +50,7 @@ class HistoryListItem extends StatelessWidget {
                   width: 38,
                   height: 38,
                   decoration: BoxDecoration(
-                    color: colors.card,
+                    color: AppThemeConfig.card,
                     shape: BoxShape.circle,
                   ),
                   child: Center(
@@ -68,7 +66,7 @@ class HistoryListItem extends StatelessWidget {
                             : Icon(
                               Icons.image,
                               size: 20,
-                              color: colors.textHint,
+                              color: AppThemeConfig.textHint,
                             ),
                   ),
                 ),
@@ -83,7 +81,7 @@ class HistoryListItem extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
-                          color: colors.textPrimary,
+                          color: AppThemeConfig.textPrimary,
                           letterSpacing: 0.05,
                         ),
                         maxLines: 1,
@@ -97,7 +95,7 @@ class HistoryListItem extends StatelessWidget {
                               model.altName ?? '',
                               style: TextStyle(
                                 fontSize: 12,
-                                color: colors.textSecondary,
+                                color: AppThemeConfig.textSecondary,
                                 fontWeight: FontWeight.w400,
                               ),
                               maxLines: 1,
@@ -114,7 +112,7 @@ class HistoryListItem extends StatelessWidget {
                                     snapshot.data!,
                                     style: TextStyle(
                                       fontSize: 11,
-                                      color: colors.textSecondary,
+                                      color: AppThemeConfig.textSecondary,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   );
@@ -132,7 +130,7 @@ class HistoryListItem extends StatelessWidget {
                 Icon(
                   Icons.chevron_right_rounded,
                   size: 18,
-                  color: colors.textHint,
+                  color: AppThemeConfig.textHint,
                 ),
               ],
             ),

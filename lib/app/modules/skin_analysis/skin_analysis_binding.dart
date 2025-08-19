@@ -1,7 +1,7 @@
-import 'package:dermai/app/core/services/sembast_service.dart';
-import 'package:dermai/app/modules/skin_analysis/controller/skin_analysis_controller.dart';
-import 'package:dermai/app/modules/auth/controller/user_controller.dart';
-import 'package:dermai/app/core/network/api_client.dart';
+import 'package:gemai/app/core/services/sembast_service.dart';
+import 'package:gemai/app/modules/skin_analysis/controller/skin_analysis_controller.dart';
+import 'package:gemai/app/modules/auth/controller/user_controller.dart';
+import 'package:gemai/app/core/network/api_client.dart';
 import 'package:get/get.dart';
 
 /// Camera modülü için binding sınıfı

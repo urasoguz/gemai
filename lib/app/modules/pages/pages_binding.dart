@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:dermai/app/data/api/pages_api_service.dart';
-import 'package:dermai/app/modules/pages/controller/pages_controller.dart';
-import 'package:dermai/app/modules/pages/controller/page_detail_controller.dart';
+import 'package:gemai/app/data/api/pages_api_service.dart';
+import 'package:gemai/app/modules/pages/controller/pages_controller.dart';
+import 'package:gemai/app/modules/pages/controller/page_detail_controller.dart';
 
 /// Pages modülü binding'i
 class PagesBinding extends Bindings {

@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
 
 class HomeActionButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -9,8 +8,6 @@ class HomeActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Tema renklerini al
-    final colors =
-        AppThemeConfig.primary;
 
     return GestureDetector(
       onTap: onPressed,
@@ -19,10 +16,10 @@ class HomeActionButton extends StatelessWidget {
         width: 72,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: colors.surface,
+          color: AppThemeConfig.primary,
           boxShadow: [
             BoxShadow(
-              color: colors.buttonShadow.withValues(alpha: 0.08),
+              color: AppThemeConfig.buttonShadow.withValues(alpha: 0.08),
               blurRadius: 12,
               offset: const Offset(0, 4),
             ),
@@ -35,14 +32,17 @@ class HomeActionButton extends StatelessWidget {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               gradient: LinearGradient(
-                colors: [colors.gradientPrimary, colors.gradientSecondary],
+                colors: [
+                  AppThemeConfig.gradientPrimary,
+                  AppThemeConfig.gradientSecondary,
+                ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
             ),
             child: Icon(
               CupertinoIcons.camera_viewfinder,
-              color: colors.buttonIcon,
+              color: AppThemeConfig.buttonIcon,
               size: 32,
             ),
           ),

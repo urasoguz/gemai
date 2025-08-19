@@ -79,14 +79,12 @@ class _WebViewScreenState extends State<WebViewScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final colors =
-        AppThemeConfig.primary;
     return Scaffold(
       appBar: ModularAppBar(
         title: widget.title,
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(CupertinoIcons.back, color: colors.textPrimary),
+          icon: Icon(CupertinoIcons.back, color: AppThemeConfig.textPrimary),
           onPressed: () async {
             if (await _controller.canGoBack()) {
               _controller.goBack();
@@ -96,11 +94,11 @@ class _WebViewScreenState extends State<WebViewScreen> {
             }
           },
         ),
-        backgroundColor: colors.background,
+        backgroundColor: AppThemeConfig.background,
         elevation: 0,
         // actions parametresi yanlış, ModularAppBar'da doğru parametreyi kullanmalısınız
         trailing: IconButton(
-          icon: Icon(Icons.close, color: colors.textPrimary),
+          icon: Icon(Icons.close, color: AppThemeConfig.textPrimary),
           onPressed: () {
             Navigator.of(context).pop();
           },

@@ -1,4 +1,4 @@
-import 'package:dermai/app/routes/app_routes.dart';
+import 'package:gemai/app/routes/app_routes.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:camerawesome/camerawesome_plugin.dart';

@@ -1,4 +1,4 @@
-import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/material.dart';
 
 class ResultChipCard extends StatelessWidget {
@@ -14,17 +14,15 @@ class ResultChipCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors =
-        AppThemeConfig.primary;
     if (items.isEmpty) return const SizedBox.shrink();
     // Sade chip kartı
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       decoration: BoxDecoration(
-        color: colors.card,
+        color: AppThemeConfig.card,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: colors.divider, width: 0.7),
+        border: Border.all(color: AppThemeConfig.divider, width: 0.7),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,7 +32,7 @@ class ResultChipCard extends StatelessWidget {
               Icon(
                 Icons.label_important_outline,
                 size: 16,
-                color: colors.textSecondary,
+                color: AppThemeConfig.textSecondary,
               ),
               const SizedBox(width: 6),
               Text(
@@ -42,7 +40,7 @@ class ResultChipCard extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 13,
-                  color: colors.textSecondary,
+                  color: AppThemeConfig.textSecondary,
                 ),
               ),
             ],
@@ -66,7 +64,7 @@ class ResultChipCard extends StatelessWidget {
                         child: Text(
                           e,
                           style: TextStyle(
-                            color: colors.textPrimary,
+                            color: AppThemeConfig.textPrimary,
                             fontWeight: FontWeight.w600,
                             fontSize: 15,
                             letterSpacing: 0.1,

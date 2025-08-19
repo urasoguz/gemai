@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:dermai/app/modules/camera/controller/camera_controller.dart';
+import 'package:gemai/app/modules/camera/controller/camera_controller.dart';
 
 /// Camera modülü için binding sınıfı
 /// CameraController'ı GetX dependency injection sistemine kaydeder

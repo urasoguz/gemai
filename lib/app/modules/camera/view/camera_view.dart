@@ -1,8 +1,8 @@
-import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dermai/app/modules/camera/controller/camera_controller.dart';
-import 'package:dermai/app/modules/camera/widgets/camera_preview_widget.dart';
+import 'package:gemai/app/modules/camera/controller/camera_controller.dart';
+import 'package:gemai/app/modules/camera/widgets/camera_preview_widget.dart';
 import 'dart:io';
 
 /// DermAI için Camerawesome ile gömülü kamera view'ı
@@ -11,15 +11,11 @@ class CameraView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Tema renklerini al
-    final colors =
-        AppThemeConfig.primary;
-
     // Controller'ı bağla
     final CameraController controller = Get.put(CameraController());
 
     return Scaffold(
-      backgroundColor: colors.cameraScaffold,
+      backgroundColor: AppThemeConfig.cameraScaffold,
       body: SafeArea(
         child: Stack(
           children: [
@@ -45,12 +41,8 @@ class CameraView extends StatelessWidget {
     BuildContext context,
     CameraController controller,
   ) {
-    // Tema renklerini al
-    final colors =
-        AppThemeConfig.primary;
-
     return Container(
-      color: colors.cameraAnalyzeBackground.withValues(alpha: 0.9),
+      color: AppThemeConfig.cameraAnalyzeBackground.withValues(alpha: 0.9),
       child: Stack(
         children: [
           // Arka plan görseli (çekilen fotoğraf)
@@ -88,7 +80,7 @@ class CameraView extends StatelessWidget {
                     vertical: isSmallScreen ? 16 : 24,
                   ),
                   decoration: BoxDecoration(
-                    color: colors.cameraAnalyzeBackground.withValues(
+                    color: AppThemeConfig.cameraAnalyzeBackground.withValues(
                       alpha: 0.65,
                     ),
                     borderRadius: BorderRadius.circular(
@@ -96,9 +88,8 @@ class CameraView extends StatelessWidget {
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: colors.cameraAnalyzeBackgroundShadow.withValues(
-                          alpha: 0.18,
-                        ),
+                        color: AppThemeConfig.cameraAnalyzeBackgroundShadow
+                            .withValues(alpha: 0.18),
                         blurRadius: 16,
                         offset: const Offset(0, 6),
                       ),
@@ -116,13 +107,13 @@ class CameraView extends StatelessWidget {
                           shape: BoxShape.circle,
                           gradient: LinearGradient(
                             colors: [
-                              colors.gradientPrimary,
-                              colors.gradientSecondary,
+                              AppThemeConfig.gradientPrimary,
+                              AppThemeConfig.gradientSecondary,
                             ],
                           ),
                           boxShadow: [
                             BoxShadow(
-                              color: colors.cameraAnalyzeLogoIconShadow
+                              color: AppThemeConfig.cameraAnalyzeLogoIconShadow
                                   .withValues(alpha: 0.4),
                               blurRadius: 20,
                               offset: const Offset(0, 8),
@@ -131,7 +122,7 @@ class CameraView extends StatelessWidget {
                         ),
                         child: Icon(
                           Icons.medical_services,
-                          color: colors.cameraAnalyzeLogoIcon,
+                          color: AppThemeConfig.cameraAnalyzeLogoIcon,
                           size: isSmallScreen ? 30.0 : 40.0,
                         ),
                       ),
@@ -141,7 +132,7 @@ class CameraView extends StatelessWidget {
                       Text(
                         'camera_scanning'.tr,
                         style: TextStyle(
-                          color: colors.cameraAnalyzeTitleText,
+                          color: AppThemeConfig.cameraAnalyzeTitleText,
                           fontSize: isSmallScreen ? 16 : 20,
                           fontWeight: FontWeight.w600,
                         ),
@@ -152,7 +143,7 @@ class CameraView extends StatelessWidget {
                       Text(
                         'camera_scanning_desc'.tr,
                         style: TextStyle(
-                          color: colors.cameraAnalyzeText,
+                          color: AppThemeConfig.cameraAnalyzeText,
                           fontSize: isSmallScreen ? 14 : 16,
                         ),
                         textAlign: TextAlign.center,
@@ -166,7 +157,7 @@ class CameraView extends StatelessWidget {
                         width: isSmallScreen ? 160 : 200,
                         height: 4,
                         decoration: BoxDecoration(
-                          color: colors.cameraAnalyzeProgressBackground
+                          color: AppThemeConfig.cameraAnalyzeProgressBackground
                               .withValues(alpha: 0.2),
                           borderRadius: BorderRadius.circular(2),
                         ),
@@ -175,7 +166,7 @@ class CameraView extends StatelessWidget {
                             value: controller.scanProgress.value,
                             backgroundColor: Colors.transparent,
                             valueColor: AlwaysStoppedAnimation<Color>(
-                              colors.cameraAnalyzeProgressBar,
+                              AppThemeConfig.cameraAnalyzeProgressBar,
                             ),
                           ),
                         ),
@@ -187,7 +178,7 @@ class CameraView extends StatelessWidget {
                         () => Text(
                           '${(controller.scanProgress.value * 100).toInt()}%',
                           style: TextStyle(
-                            color: colors.cameraAnalyzeText,
+                            color: AppThemeConfig.cameraAnalyzeText,
                             fontSize: isSmallScreen ? 16 : 18,
                             fontWeight: FontWeight.w600,
                           ),
@@ -214,12 +205,9 @@ class ScanEffectPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final colors =
-        AppThemeConfig.primary;
-
     final paint =
         Paint()
-          ..color = colors.cameraAnalyzeEffect.withValues(alpha: 0.3)
+          ..color = AppThemeConfig.cameraAnalyzeEffect.withValues(alpha: 0.3)
           ..style = PaintingStyle.fill;
 
     // Tarama çizgisi
@@ -243,9 +231,9 @@ class ScanEffectPainter extends CustomPainter {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              colors.cameraAnalyzeEffect.withValues(alpha: 0.1),
-              colors.cameraAnalyzeEffect.withValues(alpha: 0.3),
-              colors.cameraAnalyzeEffect.withValues(alpha: 0.1),
+              AppThemeConfig.cameraAnalyzeEffect.withValues(alpha: 0.1),
+              AppThemeConfig.cameraAnalyzeEffect.withValues(alpha: 0.3),
+              AppThemeConfig.cameraAnalyzeEffect.withValues(alpha: 0.1),
             ],
             stops: [0.0, 0.5, 1.0],
           ).createShader(Rect.fromLTWH(0, 0, size.width, size.height));

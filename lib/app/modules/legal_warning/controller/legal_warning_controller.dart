@@ -1,12 +1,12 @@
-import 'package:dermai/app/core/services/shrine_dialog_service.dart';
-import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/core/services/shrine_dialog_service.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:dermai/app/shared/helpers/my_helper.dart';
-import 'package:dermai/app/routes/app_routes.dart';
-import 'package:dermai/app/shared/paywall/paywall_service.dart';
+import 'package:gemai/app/shared/helpers/my_helper.dart';
+import 'package:gemai/app/routes/app_routes.dart';
+import 'package:gemai/app/shared/paywall/paywall_service.dart';
 
 /// Yasal uyarı sayfası controller'ı
 class LegalWarningController extends GetxController {
@@ -36,10 +36,7 @@ class LegalWarningController extends GetxController {
 
   /// Yasal uyarıyı kabul eder ve kaydeder
   Future<void> acceptLegalWarning() async {
-    final colors =
-        Theme.of(Get.context!).brightness == Brightness.light
-            ? AppThemeConfig.primary
-            : AppThemeConfig.primary;
+    final colors = AppThemeConfig.primary;
 
     if (!isAccepted.value) {
       // Checkbox işaretli değilse uyarı göster
@@ -111,10 +108,7 @@ class LegalWarningController extends GetxController {
 
   /// Gizlilik politikası linkini açar
   Future<void> openPrivacyPolicy() async {
-    final colors =
-        Theme.of(Get.context!).brightness == Brightness.light
-            ? AppThemeConfig.primary
-            : AppThemeConfig.primary;
+    final colors = AppThemeConfig.primary;
     try {
       Get.toNamed(AppRoutes.pageDetail, arguments: {'slug': 'privacy'});
     } catch (e) {
@@ -131,10 +125,7 @@ class LegalWarningController extends GetxController {
 
   /// Kullanım şartları linkini açar
   Future<void> openTermsOfService() async {
-    final colors =
-        Theme.of(Get.context!).brightness == Brightness.light
-            ? AppThemeConfig.primary
-            : AppThemeConfig.primary;
+    final colors = AppThemeConfig.primary;
     try {
       Get.toNamed(AppRoutes.pageDetail, arguments: {'slug': 'terms'});
     } catch (e) {

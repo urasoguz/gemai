@@ -1,16 +1,16 @@
-import 'package:dermai/app/core/theme/app_theme_config.dart';
-import 'package:dermai/app/routes/app_routes.dart';
-import 'package:dermai/app/shared/widgets/modular_app_bar.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/routes/app_routes.dart';
+import 'package:gemai/app/shared/widgets/modular_app_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dermai/app/modules/skin_analysis/controller/skin_analysis_controller.dart';
-import 'package:dermai/app/modules/skin_analysis/widgets/image_result_widget.dart';
-import 'package:dermai/app/modules/skin_analysis/widgets/age_selector_widget.dart';
-import 'package:dermai/app/modules/skin_analysis/widgets/body_parts_selector_widget.dart';
-import 'package:dermai/app/modules/skin_analysis/widgets/complaints_input_widget.dart';
-import 'package:dermai/app/modules/skin_analysis/widgets/analysis_button_widget.dart';
-import 'package:dermai/app/modules/skin_analysis/widgets/analysis_scanning_overlay.dart';
+import 'package:gemai/app/modules/skin_analysis/controller/skin_analysis_controller.dart';
+import 'package:gemai/app/modules/skin_analysis/widgets/image_result_widget.dart';
+import 'package:gemai/app/modules/skin_analysis/widgets/age_selector_widget.dart';
+import 'package:gemai/app/modules/skin_analysis/widgets/body_parts_selector_widget.dart';
+import 'package:gemai/app/modules/skin_analysis/widgets/complaints_input_widget.dart';
+import 'package:gemai/app/modules/skin_analysis/widgets/analysis_button_widget.dart';
+import 'package:gemai/app/modules/skin_analysis/widgets/analysis_scanning_overlay.dart';
 
 class SkinAnalysisView extends StatefulWidget {
   const SkinAnalysisView({super.key});
@@ -37,8 +37,6 @@ class _SkinAnalysisViewState extends State<SkinAnalysisView> {
 
   @override
   Widget build(BuildContext context) {
-    final colors =
-        AppThemeConfig.primary;
     Get.put(SkinAnalysisController());
 
     return GetBuilder<SkinAnalysisController>(
@@ -57,7 +55,7 @@ class _SkinAnalysisViewState extends State<SkinAnalysisView> {
                   return true;
                 },
                 child: Scaffold(
-                  backgroundColor: colors.background,
+                  backgroundColor: AppThemeConfig.background,
                   appBar: ModularAppBar(
                     title: 'skin_analysis_title'.tr,
                     elevation: 0,

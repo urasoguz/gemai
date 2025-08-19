@@ -1,4 +1,4 @@
-import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -7,22 +7,20 @@ class ResultFooterNote extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors =
-        AppThemeConfig.primary;
     // iOS tarzı, ultra sade ve modern footer notu
     return Container(
       margin: const EdgeInsets.only(bottom: 10),
       padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
       decoration: BoxDecoration(
-        color: colors.card,
+        color: AppThemeConfig.card,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: colors.divider,
+          color: AppThemeConfig.divider,
           width: 0.7,
         ), // Çok soft border
         boxShadow: [
           BoxShadow(
-            color: colors.buttonShadow.withValues(alpha: 0.01),
+            color: AppThemeConfig.buttonShadow.withValues(alpha: 0.01),
             blurRadius: 2,
             offset: const Offset(0, 1),
           ),
@@ -30,7 +28,11 @@ class ResultFooterNote extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Icon(Icons.info_outline, size: 15, color: colors.textSecondary),
+          Icon(
+            Icons.info_outline,
+            size: 15,
+            color: AppThemeConfig.textSecondary,
+          ),
           const SizedBox(width: 7),
           Expanded(
             child: Text(
@@ -38,7 +40,7 @@ class ResultFooterNote extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.w400,
                 fontSize: 13,
-                color: colors.textSecondary,
+                color: AppThemeConfig.textSecondary,
               ),
             ),
           ),

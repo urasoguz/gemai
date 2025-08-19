@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import 'package:dermai/app/core/services/sembast_service.dart';
-import 'package:dermai/app/modules/history/controller/history_controller.dart';
+import 'package:gemai/app/core/services/sembast_service.dart';
+import 'package:gemai/app/modules/history/controller/history_controller.dart';
 
 class HomeController extends GetxController {
   /// Seçili sekme (0: Home, 1: History)

@@ -264,17 +264,18 @@ class _HtmlViewScreenState extends State<HtmlViewScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final colors = AppThemeConfig.primary;
-
     return Scaffold(
-      backgroundColor: colors.background,
+      backgroundColor: AppThemeConfig.background,
       appBar:
           widget.showAppBar
               ? ModularAppBar(
                 title: widget.title,
                 centerTitle: true,
                 leading: IconButton(
-                  icon: Icon(CupertinoIcons.back, color: colors.textPrimary),
+                  icon: Icon(
+                    CupertinoIcons.back,
+                    color: AppThemeConfig.textPrimary,
+                  ),
                   onPressed: () => Navigator.of(context).pop(),
                 ),
               )

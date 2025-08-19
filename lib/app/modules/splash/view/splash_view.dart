@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -72,11 +72,9 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     // Tema renklerini al
-    final colors =
-        AppThemeConfig.primary;
 
     return Scaffold(
-      backgroundColor: colors.background,
+      backgroundColor: AppThemeConfig.background,
       body: Container(
         width: double.infinity,
         height: double.infinity,
@@ -84,7 +82,10 @@ class _SplashScreenState extends State<SplashScreen>
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [colors.gradientPrimary, colors.gradientSecondary],
+            colors: [
+              AppThemeConfig.gradientPrimary,
+              AppThemeConfig.gradientSecondary,
+            ],
           ),
         ),
         child: Center(
@@ -102,18 +103,17 @@ class _SplashScreenState extends State<SplashScreen>
                       style: GoogleFonts.koHo(
                         fontSize: 42,
                         fontWeight: FontWeight.w600,
-                        color: colors.splashTextColor,
+                        color: AppThemeConfig.splashTextColor,
                         letterSpacing: 2.5,
                         shadows: [
                           Shadow(
-                            color: colors.splashTextShadowColor.withValues(
-                              alpha: 0.4,
-                            ),
+                            color: AppThemeConfig.splashTextShadowColor
+                                .withValues(alpha: 0.4),
                             offset: const Offset(0, 3),
                             blurRadius: 6,
                           ),
                           Shadow(
-                            color: colors.splashTextColor.withValues(
+                            color: AppThemeConfig.splashTextColor.withValues(
                               alpha: 0.2,
                             ),
                             offset: const Offset(0, 0),

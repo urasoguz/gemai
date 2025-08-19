@@ -1,5 +1,5 @@
-import 'package:dermai/app/core/theme/app_theme_config.dart';
-import 'package:dermai/app/shared/widgets/modular_app_bar.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/shared/widgets/modular_app_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -22,11 +22,8 @@ class ResultView extends GetView<ResultController> {
 
   @override
   Widget build(BuildContext context) {
-    final colors =
-        AppThemeConfig.primary;
-
     return Scaffold(
-      backgroundColor: colors.background,
+      backgroundColor: AppThemeConfig.background,
       appBar: ModularAppBar(
         title: 'result_title'.tr,
         elevation: 0,
@@ -69,7 +66,9 @@ class ResultView extends GetView<ResultController> {
                     borderRadius: BorderRadius.circular(16),
                     boxShadow: [
                       BoxShadow(
-                        color: colors.buttonShadow.withValues(alpha: 0.08),
+                        color: AppThemeConfig.buttonShadow.withValues(
+                          alpha: 0.08,
+                        ),
                         blurRadius: 16,
                         offset: const Offset(0, 6),
                       ),
@@ -117,9 +116,12 @@ class ResultView extends GetView<ResultController> {
                         vertical: 14,
                       ),
                       decoration: BoxDecoration(
-                        color: colors.card,
+                        color: AppThemeConfig.card,
                         borderRadius: BorderRadius.circular(16),
-                        border: Border.all(color: colors.divider, width: 0.7),
+                        border: Border.all(
+                          color: AppThemeConfig.divider,
+                          width: 0.7,
+                        ),
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -129,14 +131,14 @@ class ResultView extends GetView<ResultController> {
                               Icon(
                                 Icons.local_fire_department_rounded,
                                 size: 18,
-                                color: colors.textSecondary,
+                                color: AppThemeConfig.textSecondary,
                               ),
                               const SizedBox(width: 8),
                               Text(
                                 'result_severity'.tr,
                                 style: TextStyle(
                                   fontSize: 13,
-                                  color: colors.textTertiary,
+                                  color: AppThemeConfig.textTertiary,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -164,32 +166,32 @@ class ResultView extends GetView<ResultController> {
               ResultChipCard(
                 title: 'result_symptoms'.tr,
                 items: result.symptoms ?? [],
-                chipColor: colors.symptomChipColor,
+                chipColor: AppThemeConfig.symptomChipColor,
               ),
               ResultChipCard(
                 title: 'result_body_parts'.tr,
                 items: result.bodyParts ?? [],
-                chipColor: colors.bodyPartChipColor,
+                chipColor: AppThemeConfig.bodyPartChipColor,
               ),
               ResultChipCard(
                 title: 'result_risk_factors'.tr,
                 items: result.riskFactors ?? [],
-                chipColor: colors.riskFactorChipColor,
+                chipColor: AppThemeConfig.riskFactorChipColor,
               ),
               ResultChipCard(
                 title: 'result_treatment'.tr,
                 items: result.treatment ?? [],
-                chipColor: colors.treatmentChipColor,
+                chipColor: AppThemeConfig.treatmentChipColor,
               ),
               ResultChipCard(
                 title: 'result_prevention'.tr,
                 items: result.prevention ?? [],
-                chipColor: colors.preventionChipColor,
+                chipColor: AppThemeConfig.preventionChipColor,
               ),
               ResultChipCard(
                 title: 'result_alternative_treatment'.tr,
                 items: result.alternativeTreatments ?? [],
-                chipColor: colors.alternativeTreatmentChipColor,
+                chipColor: AppThemeConfig.alternativeTreatmentChipColor,
               ),
 
               // Reference card'ı
@@ -212,9 +214,6 @@ class ResultView extends GetView<ResultController> {
   // Tüm result sayfasının ekran görüntüsünü alır ve paylaşır
   Future<void> _shareResult(BuildContext context) async {
     try {
-      final colors =
-          AppThemeConfig.primary;
-
       final result = controller.result.value!;
 
       // captureFromLongWidget ile uzun içeriği yakala - TAM ÇÖZÜM!
@@ -224,7 +223,7 @@ class ResultView extends GetView<ResultController> {
         InheritedTheme.captureAll(
           context,
           Material(
-            color: colors.background,
+            color: AppThemeConfig.background,
             child: Container(
               width: MediaQuery.of(context).size.width,
               padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 18),
@@ -239,7 +238,9 @@ class ResultView extends GetView<ResultController> {
                         borderRadius: BorderRadius.circular(16),
                         boxShadow: [
                           BoxShadow(
-                            color: colors.buttonShadow.withValues(alpha: 0.08),
+                            color: AppThemeConfig.buttonShadow.withValues(
+                              alpha: 0.08,
+                            ),
                             blurRadius: 16,
                             offset: const Offset(0, 6),
                           ),
@@ -286,10 +287,10 @@ class ResultView extends GetView<ResultController> {
                             vertical: 14,
                           ),
                           decoration: BoxDecoration(
-                            color: colors.card,
+                            color: AppThemeConfig.card,
                             borderRadius: BorderRadius.circular(16),
                             border: Border.all(
-                              color: colors.divider,
+                              color: AppThemeConfig.divider,
                               width: 0.7,
                             ),
                           ),
@@ -301,14 +302,14 @@ class ResultView extends GetView<ResultController> {
                                   Icon(
                                     Icons.local_fire_department_rounded,
                                     size: 18,
-                                    color: colors.textSecondary,
+                                    color: AppThemeConfig.textSecondary,
                                   ),
                                   const SizedBox(width: 8),
                                   Text(
                                     'result_severity'.tr,
                                     style: TextStyle(
                                       fontSize: 13,
-                                      color: colors.textTertiary,
+                                      color: AppThemeConfig.textTertiary,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -337,32 +338,32 @@ class ResultView extends GetView<ResultController> {
                   ResultChipCard(
                     title: 'result_symptoms'.tr,
                     items: result.symptoms ?? [],
-                    chipColor: colors.symptomChipColor,
+                    chipColor: AppThemeConfig.symptomChipColor,
                   ),
                   ResultChipCard(
                     title: 'result_body_parts'.tr,
                     items: result.bodyParts ?? [],
-                    chipColor: colors.bodyPartChipColor,
+                    chipColor: AppThemeConfig.bodyPartChipColor,
                   ),
                   ResultChipCard(
                     title: 'result_risk_factors'.tr,
                     items: result.riskFactors ?? [],
-                    chipColor: colors.riskFactorChipColor,
+                    chipColor: AppThemeConfig.riskFactorChipColor,
                   ),
                   ResultChipCard(
                     title: 'result_treatment'.tr,
                     items: result.treatment ?? [],
-                    chipColor: colors.treatmentChipColor,
+                    chipColor: AppThemeConfig.treatmentChipColor,
                   ),
                   ResultChipCard(
                     title: 'result_prevention'.tr,
                     items: result.prevention ?? [],
-                    chipColor: colors.preventionChipColor,
+                    chipColor: AppThemeConfig.preventionChipColor,
                   ),
                   ResultChipCard(
                     title: 'result_alternative_treatment'.tr,
                     items: result.alternativeTreatments ?? [],
-                    chipColor: colors.alternativeTreatmentChipColor,
+                    chipColor: AppThemeConfig.alternativeTreatmentChipColor,
                   ),
 
                   // Reference card'ı

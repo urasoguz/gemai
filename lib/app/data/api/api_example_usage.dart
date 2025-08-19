@@ -1,12 +1,11 @@
-import 'package:dermai/app/core/services/shrine_dialog_service.dart';
-import 'package:dermai/app/core/theme/app_theme_config.dart';
-import 'package:dermai/app/data/model/skin_analysis/skin_analysis_request_model.dart';
+import 'package:gemai/app/core/services/shrine_dialog_service.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/data/model/skin_analysis/skin_analysis_request_model.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dermai/app/data/api/auth_api_service.dart';
-import 'package:dermai/app/data/api/skin_analysis_api_service.dart';
-import 'package:dermai/app/data/model/user/user_model.dart';
+import 'package:gemai/app/data/api/auth_api_service.dart';
+import 'package:gemai/app/data/api/skin_analysis_api_service.dart';
+import 'package:gemai/app/data/model/user/user_model.dart';
 
 /// API servislerinin controller'larda nasıl kullanılacağını gösteren örnek
 class ApiUsageExample {
@@ -17,10 +16,7 @@ class ApiUsageExample {
 
   /// Kullanıcı girişi örneği
   Future<void> loginExample() async {
-    final colors =
-        Theme.of(Get.context!).brightness == Brightness.light
-            ? AppThemeConfig.primary
-            : AppThemeConfig.primary;
+    final colors = AppThemeConfig.primary;
     try {
       // API çağrısı yap
       final response = await _authApiService.login(
@@ -53,10 +49,7 @@ class ApiUsageExample {
 
   /// Cilt analizi örneği
   Future<void> analyzeSkinExample() async {
-    final colors =
-        Theme.of(Get.context!).brightness == Brightness.light
-            ? AppThemeConfig.primary
-            : AppThemeConfig.primary;
+    final colors = AppThemeConfig.primary;
     try {
       // Dosya seçimi (örnek)
       // File imageFile = await ImagePicker().pickImage(source: ImageSource.camera);
@@ -114,10 +107,7 @@ class ApiUsageExample {
 
   /// Profil güncelleme örneği
   Future<void> updateProfileExample() async {
-    final colors =
-        Theme.of(Get.context!).brightness == Brightness.light
-            ? AppThemeConfig.primary
-            : AppThemeConfig.primary;
+    final colors = AppThemeConfig.primary;
     try {
       final response = await _authApiService.updateProfile(
         name: 'Yeni İsim',

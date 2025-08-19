@@ -1,4 +1,4 @@
-import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/material.dart';
 
 class AccountInfoTileWidget extends StatelessWidget {
@@ -17,8 +17,6 @@ class AccountInfoTileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors =
-        AppThemeConfig.primary;
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Row(
@@ -28,10 +26,10 @@ class AccountInfoTileWidget extends StatelessWidget {
             width: 40,
             height: 40,
             decoration: BoxDecoration(
-              color: colors.divider,
+              color: AppThemeConfig.divider,
               borderRadius: BorderRadius.circular(8),
             ),
-            child: Icon(icon, color: colors.textPrimary, size: 20),
+            child: Icon(icon, color: AppThemeConfig.textPrimary, size: 20),
           ),
 
           const SizedBox(width: 16),
@@ -43,7 +41,7 @@ class AccountInfoTileWidget extends StatelessWidget {
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
-                color: colors.textPrimary,
+                color: AppThemeConfig.textPrimary,
               ),
             ),
           ),
@@ -53,7 +51,7 @@ class AccountInfoTileWidget extends StatelessWidget {
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w600,
-              color: valueColor ?? colors.textPrimary,
+              color: valueColor ?? AppThemeConfig.textPrimary,
             ),
             child: value,
           ),

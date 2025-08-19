@@ -4,7 +4,7 @@
 
 import 'dart:convert';
 
-import 'package:dermai/app/data/model/user/user.dart';
+import 'package:gemai/app/data/model/user/user.dart';
 
 UserModel userModelFromJson(String str) => UserModel.fromJson(json.decode(str));
 

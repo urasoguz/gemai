@@ -1,9 +1,9 @@
-import 'package:dermai/app/core/network/api_client.dart';
-import 'package:dermai/app/core/services/shrine_dialog_service.dart';
-import 'package:dermai/app/core/theme/app_theme_config.dart';
-import 'package:dermai/app/data/api/api_endpoints.dart';
-import 'package:dermai/app/modules/auth/controller/user_controller.dart';
-import 'package:dermai/app/routes/app_routes.dart';
+import 'package:gemai/app/core/network/api_client.dart';
+import 'package:gemai/app/core/services/shrine_dialog_service.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/data/api/api_endpoints.dart';
+import 'package:gemai/app/modules/auth/controller/user_controller.dart';
+import 'package:gemai/app/routes/app_routes.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -78,10 +78,7 @@ class RestorePremiumService {
 
   /// Restore başarılı olduğunda yapılacak işlemler
   Future<void> _handleSuccessfulRestore() async {
-    final colors =
-        Theme.of(Get.context!).brightness == Brightness.light
-            ? AppThemeConfig.primary
-            : AppThemeConfig.primary;
+    final colors = AppThemeConfig.primary;
     try {
       if (kDebugMode) {
         print('🔄 Restore başarılı - Ana sayfaya yönlendiriliyor...');
@@ -147,10 +144,7 @@ class RestorePremiumService {
   /// RevenueCat restore yapar, backend'e gönderir, kullanıcıyı günceller
   /// Returns [bool] - İşlem başarılı mı?
   Future<bool> performCompleteRestore() async {
-    final colors =
-        Theme.of(Get.context!).brightness == Brightness.light
-            ? AppThemeConfig.primary
-            : AppThemeConfig.primary;
+    final colors = AppThemeConfig.primary;
     try {
       if (kDebugMode) {
         print('🔄 Merkezi restore işlemi başlatılıyor...');

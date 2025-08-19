@@ -1,22 +1,22 @@
-import 'package:dermai/app/core/theme/app_theme_config.dart';
-import 'package:dermai/app/routes/app_routes.dart';
-import 'package:dermai/app/shared/helpers/my_helper.dart';
-import 'package:dermai/main.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/routes/app_routes.dart';
+import 'package:gemai/app/shared/helpers/my_helper.dart';
+import 'package:gemai/main.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dermai/app/data/api/skin_analysis_api_service.dart';
-import 'package:dermai/app/data/model/skin_analysis/skin_analysis_request_model.dart';
-import 'package:dermai/app/data/model/response/scan_result_model.dart';
-import 'package:dermai/app/core/services/sembast_service.dart';
-import 'package:dermai/app/data/api/api_endpoints.dart';
-import 'package:dermai/app/core/services/image_processing_service.dart';
-import 'package:dermai/app/modules/home/controller/home_controller.dart';
-import 'package:dermai/app/modules/history/controller/history_controller.dart';
-import 'package:dermai/app/core/services/shrine_dialog_service.dart';
-//import 'package:dermai/app/modules/auth/controller/user_controller.dart';
+import 'package:gemai/app/data/api/skin_analysis_api_service.dart';
+import 'package:gemai/app/data/model/skin_analysis/skin_analysis_request_model.dart';
+import 'package:gemai/app/data/model/response/scan_result_model.dart';
+import 'package:gemai/app/core/services/sembast_service.dart';
+import 'package:gemai/app/data/api/api_endpoints.dart';
+import 'package:gemai/app/core/services/image_processing_service.dart';
+import 'package:gemai/app/modules/home/controller/home_controller.dart';
+import 'package:gemai/app/modules/history/controller/history_controller.dart';
+import 'package:gemai/app/core/services/shrine_dialog_service.dart';
+//import 'package:gemai/app/modules/auth/controller/user_controller.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:dermai/app/core/localization/languages.dart';
+import 'package:gemai/app/core/localization/languages.dart';
 
 /// Cilt analizi controller'ı
 /// Yaş, etkilenen bölgeler ve şikayetler yönetimi
@@ -137,10 +137,7 @@ class SkinAnalysisController extends GetxController {
 
   /// Token ve premium durumunu kontrol eder
   bool _checkTokenAndPremiumStatus() {
-    final colors =
-        Theme.of(Get.context!).brightness == Brightness.light
-            ? AppThemeConfig.primary
-            : AppThemeConfig.primary;
+    final colors = AppThemeConfig.primary;
     try {
       // GetStorage'dan direkt oku
       final remainingToken = userData.read(MyHelper.accountRemainingToken) ?? 0;
@@ -178,10 +175,7 @@ class SkinAnalysisController extends GetxController {
 
   /// Analizi başlatır
   Future<void> startAnalysis() async {
-    final colors =
-        Theme.of(Get.context!).brightness == Brightness.light
-            ? AppThemeConfig.primary
-            : AppThemeConfig.primary;
+    final colors = AppThemeConfig.primary;
     // Validasyon
     if (selectedBodyParts.isEmpty) {
       ShrineDialogService.showError(

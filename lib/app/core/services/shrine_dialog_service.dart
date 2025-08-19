@@ -1,19 +1,16 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
-import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:shirne_dialog/shirne_dialog.dart';
-import 'package:dermai/app/routes/app_routes.dart';
+import 'package:gemai/app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
-import 'package:dermai/app/data/model/response/response_model.dart';
+import 'package:gemai/app/data/model/response/response_model.dart';
 
 class ShrineDialogService {
   /// Hata koduna göre uygun shirne dialog'u gösterir
   static void handleError(int errorCode, String errorMessage) {
-    final colors =
-        Theme.of(Get.context!).brightness == Brightness.light
-            ? AppThemeConfig.primary
-            : AppThemeConfig.primary;
+    final colors = AppThemeConfig.primary;
     try {
       switch (errorCode) {
         case 400:
@@ -70,7 +67,7 @@ class ShrineDialogService {
               title: 'scan_dialog_title_info'.tr,
               showCancelButton: false,
               showOkButton: true,
-              okButtonColor: colors.primary,
+              okButtonColor: AppThemeConfig.primary,
               onOk: () {
                 Get.offAllNamed(AppRoutes.home);
               },
@@ -259,12 +256,8 @@ class ShrineDialogService {
     bool showOkButton, {
     Function(bool)? onConfirm,
   }) {
-    final colors =
-        Theme.of(Get.context!).brightness == Brightness.light
-            ? AppThemeConfig.primary
-            : AppThemeConfig.primary;
     AwesomeDialog(
-      dialogBackgroundColor: colors.background,
+      dialogBackgroundColor: AppThemeConfig.background,
       context: Get.context!,
       dialogType: dialogType,
       dismissOnTouchOutside: false, // Dışarıya dokununca kapanmaz

@@ -1,9 +1,9 @@
-import 'package:dermai/app/core/theme/app_theme_config.dart';
-import 'package:dermai/app/routes/app_routes.dart';
-import 'package:dermai/app/shared/helpers/my_helper.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/routes/app_routes.dart';
+import 'package:gemai/app/shared/helpers/my_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dermai/app/modules/auth/controller/user_controller.dart';
+import 'package:gemai/app/modules/auth/controller/user_controller.dart';
 import 'package:get_storage/get_storage.dart';
 
 class UserInfoWidget extends GetView<UserController> {
@@ -11,8 +11,6 @@ class UserInfoWidget extends GetView<UserController> {
 
   @override
   Widget build(BuildContext context) {
-    final colors =
-        AppThemeConfig.primary;
     return Material(
       color: Colors.transparent,
       child: InkWell(
@@ -37,7 +35,10 @@ class UserInfoWidget extends GetView<UserController> {
                   children: [
                     Text(
                       controller.user.value?.name ?? 'account_anonymous'.tr,
-                      style: TextStyle(color: colors.textPrimary, fontSize: 18),
+                      style: TextStyle(
+                        color: AppThemeConfig.textPrimary,
+                        fontSize: 18,
+                      ),
                     ),
                     const SizedBox(height: 3),
                     Row(
@@ -52,7 +53,10 @@ class UserInfoWidget extends GetView<UserController> {
                             ),
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
-                                colors: [colors.warning, colors.error],
+                                colors: [
+                                  AppThemeConfig.warning,
+                                  AppThemeConfig.error,
+                                ],
                                 begin: Alignment.centerLeft,
                                 end: Alignment.centerRight,
                               ),
@@ -63,7 +67,7 @@ class UserInfoWidget extends GetView<UserController> {
                               style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.bold,
-                                color: colors.surface,
+                                color: AppThemeConfig.surface,
                               ),
                             ),
                           ),
@@ -71,7 +75,10 @@ class UserInfoWidget extends GetView<UserController> {
                             false)
                           Text(
                             'account_type_basic'.tr,
-                            style: TextStyle(color: colors.error, fontSize: 12),
+                            style: TextStyle(
+                              color: AppThemeConfig.error,
+                              fontSize: 12,
+                            ),
                           ),
 
                         Obx(() {
@@ -83,7 +90,7 @@ class UserInfoWidget extends GetView<UserController> {
                                   width: 3,
                                   height: 3,
                                   decoration: BoxDecoration(
-                                    color: colors.textSecondary,
+                                    color: AppThemeConfig.textSecondary,
                                     shape: BoxShape.circle,
                                   ),
                                 ),
@@ -93,7 +100,7 @@ class UserInfoWidget extends GetView<UserController> {
                                     controller.user.value!.premiumExpiryDate!,
                                   ),
                                   style: TextStyle(
-                                    color: colors.textSecondary,
+                                    color: AppThemeConfig.textSecondary,
                                     fontSize: 12,
                                   ),
                                 ),
@@ -110,7 +117,7 @@ class UserInfoWidget extends GetView<UserController> {
               Icon(
                 Icons.arrow_forward_ios,
                 size: 16,
-                color: colors.textPrimary,
+                color: AppThemeConfig.textPrimary,
               ),
             ],
           ),

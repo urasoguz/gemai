@@ -18,9 +18,6 @@ class SimpleHtmlView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors =
-        AppThemeConfig.primary;
-
     if (kDebugMode) {
       print('📄 SimpleHtmlView build:');
       print('   - Title: $title');
@@ -31,22 +28,25 @@ class SimpleHtmlView extends StatelessWidget {
     }
 
     return Scaffold(
-      backgroundColor: colors.background,
+      backgroundColor: AppThemeConfig.background,
       appBar:
           showAppBar
               ? AppBar(
-                backgroundColor: colors.background,
+                backgroundColor: AppThemeConfig.background,
                 elevation: 0,
                 centerTitle: true,
                 title: Text(
                   title,
                   style: TextStyle(
-                    color: colors.textPrimary,
+                    color: AppThemeConfig.textPrimary,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 leading: IconButton(
-                  icon: Icon(Icons.arrow_back, color: colors.textPrimary),
+                  icon: Icon(
+                    Icons.arrow_back,
+                    color: AppThemeConfig.textPrimary,
+                  ),
                   onPressed: () => Navigator.of(context).pop(),
                 ),
               )
@@ -58,48 +58,51 @@ class SimpleHtmlView extends StatelessWidget {
           style: {
             "body": Style(
               fontSize: FontSize(16),
-              color: colors.textSecondary,
+              color: AppThemeConfig.textSecondary,
               lineHeight: LineHeight(1.6),
             ),
             "h1": Style(
               fontSize: FontSize(24),
               fontWeight: FontWeight.bold,
-              color: colors.textPrimary,
+              color: AppThemeConfig.textPrimary,
               margin: Margins.only(top: 24, bottom: 12),
             ),
             "h2": Style(
               fontSize: FontSize(20),
               fontWeight: FontWeight.bold,
-              color: colors.textPrimary,
+              color: AppThemeConfig.textPrimary,
               margin: Margins.only(top: 20, bottom: 10),
             ),
             "h3": Style(
               fontSize: FontSize(18),
               fontWeight: FontWeight.bold,
-              color: colors.textPrimary,
+              color: AppThemeConfig.textPrimary,
               margin: Margins.only(top: 16, bottom: 8),
             ),
             "p": Style(
               fontSize: FontSize(16),
-              color: colors.textSecondary,
+              color: AppThemeConfig.textSecondary,
               margin: Margins.only(bottom: 12),
             ),
             "ul": Style(margin: Margins.only(bottom: 16)),
             "li": Style(
               fontSize: FontSize(16),
-              color: colors.textSecondary,
+              color: AppThemeConfig.textSecondary,
               margin: Margins.only(bottom: 8),
             ),
             "strong": Style(
               fontWeight: FontWeight.bold,
-              color: colors.textPrimary,
+              color: AppThemeConfig.textPrimary,
             ),
-            "b": Style(fontWeight: FontWeight.bold, color: colors.textPrimary),
+            "b": Style(
+              fontWeight: FontWeight.bold,
+              color: AppThemeConfig.textPrimary,
+            ),
             "em": Style(fontStyle: FontStyle.italic),
             "i": Style(fontStyle: FontStyle.italic),
             "u": Style(textDecoration: TextDecoration.underline),
             "a": Style(
-              color: colors.primary,
+              color: AppThemeConfig.primary,
               textDecoration: TextDecoration.underline,
             ),
           },

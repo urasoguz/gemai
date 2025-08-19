@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dermai/app/core/services/date_formatting_service.dart';
+import 'package:gemai/app/core/services/date_formatting_service.dart';
 
 /// DateFormattingService kullanım örnekleri
 /// Bu dosya, tarih formatlaması servisinin nasıl kullanılacağını gösterir

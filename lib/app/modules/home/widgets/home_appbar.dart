@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dermai/app/routes/app_routes.dart';
+import 'package:gemai/app/routes/app_routes.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({super.key});
@@ -27,10 +27,7 @@ class HomeAppBar extends StatelessWidget {
                         fontSize: 28,
                         fontWeight: FontWeight.w600,
                         letterSpacing: 2,
-                        color:
-                            Theme.of(context).brightness == Brightness.light
-                                ? AppThemeConfig.primary.textPrimary
-                                : AppThemeConfig.primary.textPrimary,
+                        color: AppThemeConfig.textPrimary,
                       ),
                     ),
                   ),
@@ -39,10 +36,7 @@ class HomeAppBar extends StatelessWidget {
                   icon: Icon(
                     CupertinoIcons.settings,
                     size: 26,
-                    color:
-                        Theme.of(context).brightness == Brightness.light
-                            ? AppThemeConfig.primary.textPrimary
-                            : AppThemeConfig.primary.textPrimary,
+                    color: AppThemeConfig.textPrimary,
                   ),
                   onPressed: () {
                     Get.toNamed(AppRoutes.settings);
@@ -59,14 +53,7 @@ class HomeAppBar extends StatelessWidget {
               ],
             ),
           ),
-          Divider(
-            height: 1,
-            thickness: 1,
-            color:
-                Theme.of(context).brightness == Brightness.light
-                    ? AppThemeConfig.primary.divider
-                    : AppThemeConfig.primary.divider,
-          ),
+          Divider(height: 1, thickness: 1, color: AppThemeConfig.divider),
         ],
       ),
     );

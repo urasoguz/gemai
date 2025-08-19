@@ -29,11 +29,9 @@ class ModularAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors =
-        AppThemeConfig.primary;
     return AppBar(
-      backgroundColor: backgroundColor ?? colors.background,
-      foregroundColor: foregroundColor ?? colors.textPrimary,
+      backgroundColor: backgroundColor ?? AppThemeConfig.background,
+      foregroundColor: foregroundColor ?? AppThemeConfig.textPrimary,
       elevation: elevation,
       centerTitle: centerTitle,
       automaticallyImplyLeading: false,
@@ -41,7 +39,7 @@ class ModularAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: Text(
         title,
         style: TextStyle(
-          color: foregroundColor ?? colors.textPrimary,
+          color: foregroundColor ?? AppThemeConfig.textPrimary,
           fontWeight: FontWeight.w600,
           fontSize: 20,
         ),
@@ -52,7 +50,7 @@ class ModularAppBar extends StatelessWidget implements PreferredSizeWidget {
               ? PreferredSize(
                 preferredSize: Size.fromHeight(bottomBorderHeight),
                 child: Container(
-                  color: bottomBorderColor ?? colors.divider,
+                  color: bottomBorderColor ?? AppThemeConfig.divider,
                   height: bottomBorderHeight,
                 ),
               )

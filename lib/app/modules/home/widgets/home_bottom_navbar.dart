@@ -1,4 +1,4 @@
-import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,12 +13,8 @@ class HomeBottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Tema renklerini al
-    final colors =
-        AppThemeConfig.primary;
-
     return BottomAppBar(
-      color: colors.bottomNav,
+      color: AppThemeConfig.bottomNav,
       elevation: 0,
       shape: const CircularNotchedRectangle(),
       notchMargin: 8,
@@ -54,8 +50,8 @@ class HomeBottomNavBar extends StatelessWidget {
                       Icons.home_outlined,
                       color:
                           selectedTab == 0
-                              ? colors.textLink
-                              : colors.textSecondary,
+                              ? AppThemeConfig.textLink
+                              : AppThemeConfig.textSecondary,
                     ),
                     const SizedBox(height: 4),
                     Text(
@@ -64,8 +60,8 @@ class HomeBottomNavBar extends StatelessWidget {
                         fontSize: 12,
                         color:
                             selectedTab == 0
-                                ? colors.textLink
-                                : colors.textSecondary,
+                                ? AppThemeConfig.textLink
+                                : AppThemeConfig.textSecondary,
                         fontWeight:
                             selectedTab == 0
                                 ? FontWeight.bold
@@ -104,8 +100,8 @@ class HomeBottomNavBar extends StatelessWidget {
                       Icons.history,
                       color:
                           selectedTab == 1
-                              ? colors.textLink
-                              : colors.textSecondary,
+                              ? AppThemeConfig.textLink
+                              : AppThemeConfig.textSecondary,
                     ),
                     const SizedBox(height: 4),
                     Text(
@@ -114,8 +110,8 @@ class HomeBottomNavBar extends StatelessWidget {
                         fontSize: 12,
                         color:
                             selectedTab == 1
-                                ? colors.textLink
-                                : colors.textSecondary,
+                                ? AppThemeConfig.textLink
+                                : AppThemeConfig.textSecondary,
                         fontWeight:
                             selectedTab == 1
                                 ? FontWeight.bold

@@ -1,15 +1,15 @@
-import 'package:dermai/app/core/services/shrine_dialog_service.dart';
-import 'package:dermai/app/core/theme/app_theme_config.dart';
-import 'package:dermai/app/modules/auth/controller/user_controller.dart';
-import 'package:dermai/app/shared/controllers/lang_controller.dart';
+import 'package:gemai/app/core/services/shrine_dialog_service.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/modules/auth/controller/user_controller.dart';
+import 'package:gemai/app/shared/controllers/lang_controller.dart';
 import 'package:flutter/foundation.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
-import 'package:dermai/app/routes/app_routes.dart';
+import 'package:gemai/app/routes/app_routes.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:dermai/app/shared/paywall/premium_config_service.dart';
-import 'package:dermai/app/core/services/app_settings_service.dart';
-import 'package:dermai/app/core/services/restore_premium_service.dart';
+import 'package:gemai/app/shared/paywall/premium_config_service.dart';
+import 'package:gemai/app/core/services/app_settings_service.dart';
+import 'package:gemai/app/core/services/restore_premium_service.dart';
 
 /// Premium Controller - Premium ekranı işlemlerini yönetir
 ///
@@ -363,13 +363,9 @@ class PremiumController extends GetxController
       final offering = offerings.current;
 
       if (offering == null) {
-        final colors =
-            Theme.of(Get.context!).brightness == Brightness.light
-                ? AppThemeConfig.primary
-                : AppThemeConfig.primary;
         ShrineDialogService.showError(
           'premium_no_packages'.tr,
-          colors,
+          AppThemeConfig.primary,
           duration: const Duration(seconds: 3),
         );
         return;
@@ -389,13 +385,9 @@ class PremiumController extends GetxController
       }
 
       if (package == null) {
-        final colors =
-            Theme.of(Get.context!).brightness == Brightness.light
-                ? AppThemeConfig.primary
-                : AppThemeConfig.primary;
         ShrineDialogService.showError(
           'premium_no_selected_package'.tr,
-          colors,
+          AppThemeConfig.primary,
           duration: const Duration(seconds: 3),
         );
         return;
@@ -410,23 +402,15 @@ class PremiumController extends GetxController
       debugPrint('🔥 Trial başlatma hatası: $e');
 
       if (e.toString().contains('cancelled')) {
-        final colors =
-            Theme.of(Get.context!).brightness == Brightness.light
-                ? AppThemeConfig.primary
-                : AppThemeConfig.primary;
         ShrineDialogService.showInfo(
           'premium_purchase_cancelled'.tr,
-          colors,
+          AppThemeConfig.primary,
           duration: const Duration(seconds: 3),
         );
       } else {
-        final colors =
-            Theme.of(Get.context!).brightness == Brightness.light
-                ? AppThemeConfig.primary
-                : AppThemeConfig.primary;
         ShrineDialogService.showError(
           'premium_purchase_failed'.tr,
-          colors,
+          AppThemeConfig.primary,
           duration: const Duration(seconds: 3),
         );
       }
@@ -443,13 +427,9 @@ class PremiumController extends GetxController
       }
 
       // Kullanıcıya başarı mesajı göster
-      final colors =
-          Theme.of(Get.context!).brightness == Brightness.light
-              ? AppThemeConfig.primary
-              : AppThemeConfig.primary;
       ShrineDialogService.showSuccess(
         'premium_activated'.tr,
-        colors,
+        AppThemeConfig.primary,
         duration: const Duration(seconds: 3),
       );
 
@@ -496,13 +476,9 @@ class PremiumController extends GetxController
       if (kDebugMode) {
         print('❌ Premium ekranı restore exception: $e');
       }
-      final colors =
-          Theme.of(Get.context!).brightness == Brightness.light
-              ? AppThemeConfig.primary
-              : AppThemeConfig.primary;
       ShrineDialogService.showError(
         'premium_restore_error'.tr,
-        colors,
+        AppThemeConfig.primary,
         duration: const Duration(seconds: 3),
       );
     } finally {

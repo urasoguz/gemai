@@ -1,9 +1,9 @@
-import 'package:dermai/app/core/theme/app_theme_config.dart';
-import 'package:dermai/app/routes/app_routes.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dermai/app/modules/history/widgets/history_list_item.dart';
-import 'package:dermai/app/modules/home/controller/home_controller.dart';
+import 'package:gemai/app/modules/history/widgets/history_list_item.dart';
+import 'package:gemai/app/modules/home/controller/home_controller.dart';
 
 class HomeRecentHistoryWidget extends StatelessWidget {
   const HomeRecentHistoryWidget({super.key});
@@ -11,8 +11,6 @@ class HomeRecentHistoryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Tema renklerini al
-    final colors =
-        AppThemeConfig.primary;
 
     final homeController = Get.find<HomeController>();
     return Column(
@@ -30,7 +28,7 @@ class HomeRecentHistoryWidget extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
-                    color: colors.textPrimary,
+                    color: AppThemeConfig.textPrimary,
                   ),
                   // Uzun metinler için overflow kontrolü
                   overflow: TextOverflow.ellipsis,
@@ -46,7 +44,7 @@ class HomeRecentHistoryWidget extends StatelessWidget {
                     homeController.changeTab(1);
                   },
                   style: TextButton.styleFrom(
-                    foregroundColor: colors.textLink,
+                    foregroundColor: AppThemeConfig.textLink,
                     textStyle: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 13,
@@ -77,7 +75,10 @@ class HomeRecentHistoryWidget extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
               child: Text(
                 'home_recent_history_no_history'.tr,
-                style: TextStyle(color: colors.textSecondary, fontSize: 14),
+                style: TextStyle(
+                  color: AppThemeConfig.textSecondary,
+                  fontSize: 14,
+                ),
               ),
             );
           }

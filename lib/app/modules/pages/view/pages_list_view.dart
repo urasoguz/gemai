@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dermai/app/core/theme/app_theme_config.dart';
-import 'package:dermai/app/modules/pages/controller/pages_controller.dart';
-import 'package:dermai/app/routes/app_routes.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/modules/pages/controller/pages_controller.dart';
+import 'package:gemai/app/routes/app_routes.dart';
 
 /// Pages listesi view'ı
 class PagesListView extends StatelessWidget {
@@ -11,31 +11,29 @@ class PagesListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<PagesController>();
-    final colors =
-        AppThemeConfig.primary;
 
     return Scaffold(
-      backgroundColor: colors.background,
+      backgroundColor: AppThemeConfig.background,
       appBar: AppBar(
-        backgroundColor: colors.background,
+        backgroundColor: AppThemeConfig.background,
         elevation: 0,
         centerTitle: true,
         title: Text(
           'pages_title'.tr,
           style: TextStyle(
-            color: colors.textPrimary,
+            color: AppThemeConfig.textPrimary,
             fontWeight: FontWeight.w600,
           ),
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: colors.textPrimary),
+          icon: Icon(Icons.arrow_back, color: AppThemeConfig.textPrimary),
           onPressed: () => Get.back(),
         ),
       ),
       body: Obx(() {
         if (controller.isLoading.value) {
           return Center(
-            child: CircularProgressIndicator(color: colors.primary),
+            child: CircularProgressIndicator(color: AppThemeConfig.primary),
           );
         }
 
@@ -47,19 +45,22 @@ class PagesListView extends StatelessWidget {
                 Icon(
                   Icons.error_outline,
                   size: 64,
-                  color: colors.textSecondary,
+                  color: AppThemeConfig.textSecondary,
                 ),
                 const SizedBox(height: 16),
                 Text(
                   controller.errorMessage.value,
-                  style: TextStyle(color: colors.textSecondary, fontSize: 16),
+                  style: TextStyle(
+                    color: AppThemeConfig.textSecondary,
+                    fontSize: 16,
+                  ),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 24),
                 ElevatedButton(
                   onPressed: controller.refreshPages,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: colors.primary,
+                    backgroundColor: AppThemeConfig.primary,
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
@@ -80,12 +81,15 @@ class PagesListView extends StatelessWidget {
                 Icon(
                   Icons.article_outlined,
                   size: 64,
-                  color: colors.textSecondary,
+                  color: AppThemeConfig.textSecondary,
                 ),
                 const SizedBox(height: 16),
                 Text(
                   'pages_empty'.tr,
-                  style: TextStyle(color: colors.textSecondary, fontSize: 16),
+                  style: TextStyle(
+                    color: AppThemeConfig.textSecondary,
+                    fontSize: 16,
+                  ),
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -95,13 +99,13 @@ class PagesListView extends StatelessWidget {
 
         return RefreshIndicator(
           onRefresh: () async => controller.refreshPages(),
-          color: colors.primary,
+          color: AppThemeConfig.primary,
           child: ListView.builder(
             padding: const EdgeInsets.all(16),
             itemCount: controller.pages.length,
             itemBuilder: (context, index) {
               final page = controller.pages[index];
-              return _buildPageCard(page, colors);
+              return _buildPageCard(page);
             },
           ),
         );
@@ -110,7 +114,7 @@ class PagesListView extends StatelessWidget {
   }
 
   /// Sayfa kartı widget'ı
-  Widget _buildPageCard(dynamic page, dynamic colors) {
+  Widget _buildPageCard(dynamic page) {
     return Card(
       margin: const EdgeInsets.only(bottom: 12),
       elevation: 2,
@@ -128,12 +132,12 @@ class PagesListView extends StatelessWidget {
                 width: 48,
                 height: 48,
                 decoration: BoxDecoration(
-                  color: colors.primary.withValues(alpha: 0.1),
+                  color: AppThemeConfig.primary.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Icon(
                   _getPageIcon(page.slug),
-                  color: colors.primary,
+                  color: AppThemeConfig.primary,
                   size: 24,
                 ),
               ),
@@ -145,7 +149,7 @@ class PagesListView extends StatelessWidget {
                     Text(
                       page.translation.title,
                       style: TextStyle(
-                        color: colors.textPrimary,
+                        color: AppThemeConfig.textPrimary,
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
                       ),
@@ -155,7 +159,7 @@ class PagesListView extends StatelessWidget {
                       Text(
                         page.description,
                         style: TextStyle(
-                          color: colors.textSecondary,
+                          color: AppThemeConfig.textSecondary,
                           fontSize: 14,
                         ),
                         maxLines: 2,
@@ -167,7 +171,7 @@ class PagesListView extends StatelessWidget {
               ),
               Icon(
                 Icons.arrow_forward_ios,
-                color: colors.textSecondary,
+                color: AppThemeConfig.textSecondary,
                 size: 16,
               ),
             ],

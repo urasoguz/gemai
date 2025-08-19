@@ -1,24 +1,22 @@
 import 'package:dash_flags/dash_flags.dart';
-import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:dermai/app/shared/controllers/lang_controller.dart';
-import 'package:dermai/app/core/localization/languages.dart';
-import 'package:dermai/app/shared/widgets/modular_app_bar.dart';
+import 'package:gemai/app/shared/controllers/lang_controller.dart';
+import 'package:gemai/app/core/localization/languages.dart';
+import 'package:gemai/app/shared/widgets/modular_app_bar.dart';
 
 class LanguageView extends GetView<LangController> {
   const LanguageView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final colors =
-        AppThemeConfig.primary;
     double lastOffset = 0;
     final LangController langController = Get.find();
     return Scaffold(
-      backgroundColor: colors.background,
+      backgroundColor: AppThemeConfig.background,
       appBar: ModularAppBar(
         title: 'settings_language'.tr,
         elevation: 0,
@@ -60,13 +58,13 @@ class LanguageView extends GetView<LangController> {
                           langController,
                         ),
                         if (languageCode != Languages.supportedLanguages.last)
-                          Divider(color: colors.divider, height: 1),
+                          Divider(color: AppThemeConfig.divider, height: 1),
                       ],
                     ),
                 ],
               );
             }),
-            Divider(color: colors.divider, height: 1),
+            Divider(color: AppThemeConfig.divider, height: 1),
           ],
         ),
       ),
@@ -117,8 +115,6 @@ class CustomRadioListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors =
-        AppThemeConfig.primary;
     return InkWell(
       onTap: () {
         HapticFeedback.selectionClick();
@@ -134,7 +130,7 @@ class CustomRadioListTile extends StatelessWidget {
                 title,
                 style: TextStyle(
                   fontSize: 16,
-                  color: colors.textPrimary,
+                  color: AppThemeConfig.textPrimary,
                   fontWeight: FontWeight.w400,
                 ),
               ),
@@ -143,7 +139,7 @@ class CustomRadioListTile extends StatelessWidget {
               value: value,
               groupValue: groupValue,
               onChanged: onChanged,
-              activeColor: colors.textLink,
+              activeColor: AppThemeConfig.textLink,
               materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
             ),
           ],

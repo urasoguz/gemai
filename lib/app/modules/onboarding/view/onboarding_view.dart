@@ -1,22 +1,20 @@
-import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:dermai/app/modules/onboarding/controller/onboarding_controller.dart';
-import 'package:dermai/app/modules/onboarding/widgets/onboarding_image_widget.dart';
-import 'package:dermai/app/modules/onboarding/widgets/onboarding_title_widget.dart';
-import 'package:dermai/app/modules/onboarding/widgets/onboarding_desc_widget.dart';
+import 'package:gemai/app/modules/onboarding/controller/onboarding_controller.dart';
+import 'package:gemai/app/modules/onboarding/widgets/onboarding_image_widget.dart';
+import 'package:gemai/app/modules/onboarding/widgets/onboarding_title_widget.dart';
+import 'package:gemai/app/modules/onboarding/widgets/onboarding_desc_widget.dart';
 
 class OnboardingView extends GetView<OnboardingController> {
   const OnboardingView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final colors =
-        AppThemeConfig.primary;
     final pageController = PageController();
     return Scaffold(
-      backgroundColor: colors.onboardingBackground,
+      backgroundColor: AppThemeConfig.background,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -60,8 +58,8 @@ class OnboardingView extends GetView<OnboardingController> {
                       decoration: BoxDecoration(
                         color:
                             controller.pageIndex.value == i
-                                ? colors.onboardingPageIndicatorActive
-                                : colors.onboardingPageIndicatorInactive,
+                                ? AppThemeConfig.primary
+                                : AppThemeConfig.divider,
                         borderRadius: BorderRadius.circular(4),
                       ),
                     ),
@@ -79,7 +77,7 @@ class OnboardingView extends GetView<OnboardingController> {
                       TextButton(
                         onPressed: controller.skip,
                         style: TextButton.styleFrom(
-                          foregroundColor: colors.onboardingSkipTextColor,
+                          foregroundColor: AppThemeConfig.textPrimary,
                           textStyle: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
@@ -112,8 +110,8 @@ class OnboardingView extends GetView<OnboardingController> {
                             }
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: colors.onboardingButtonBackground,
-                            foregroundColor: colors.onboardingButtonText,
+                            backgroundColor: AppThemeConfig.primary,
+                            foregroundColor: AppThemeConfig.textPrimary,
                             textStyle: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -126,8 +124,9 @@ class OnboardingView extends GetView<OnboardingController> {
                               borderRadius: BorderRadius.circular(18),
                             ),
                             elevation: 6,
-                            shadowColor: colors.onboardingButtonShadow
-                                .withValues(alpha: 0.15),
+                            shadowColor: AppThemeConfig.buttonShadow.withValues(
+                              alpha: 0.15,
+                            ),
                           ),
                           child: Text(
                             isLast

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:dermai/app/core/theme/app_theme_config.dart';
-import 'package:dermai/app/data/model/response/scan_result_model.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/data/model/response/scan_result_model.dart';
 
 /// Referans bilgilerini gösteren card widget'ı
 class ResultReferenceCard extends StatelessWidget {
@@ -12,15 +12,12 @@ class ResultReferenceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors =
-        AppThemeConfig.primary;
-
     return Container(
       decoration: BoxDecoration(
-        color: colors.cardBackground,
+        color: AppThemeConfig.card,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: colors.borderColor.withValues(alpha: 0.1),
+          color: AppThemeConfig.borderColor.withValues(alpha: 0.1),
           width: 1,
         ),
       ),
@@ -30,14 +27,14 @@ class ResultReferenceCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(Icons.link_rounded, color: colors.primary, size: 20),
+              Icon(Icons.link_rounded, color: AppThemeConfig.primary, size: 20),
               const SizedBox(width: 8),
               Text(
                 'result_reference'.tr,
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
-                  color: colors.textPrimary,
+                  color: AppThemeConfig.textPrimary,
                 ),
               ),
             ],
@@ -49,10 +46,10 @@ class ResultReferenceCard extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: colors.primary.withValues(alpha: 0.1),
+                color: AppThemeConfig.primary.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(
-                  color: colors.primary.withValues(alpha: 0.2),
+                  color: AppThemeConfig.primary.withValues(alpha: 0.2),
                   width: 1,
                 ),
               ),
@@ -67,7 +64,7 @@ class ResultReferenceCard extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
-                            color: colors.primary,
+                            color: AppThemeConfig.primary,
                           ),
                         ),
                         const SizedBox(height: 4),
@@ -75,7 +72,7 @@ class ResultReferenceCard extends StatelessWidget {
                           reference.url,
                           style: TextStyle(
                             fontSize: 12,
-                            color: colors.textSecondary,
+                            color: AppThemeConfig.textSecondary,
                           ),
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
@@ -85,7 +82,7 @@ class ResultReferenceCard extends StatelessWidget {
                   ),
                   Icon(
                     Icons.open_in_new_rounded,
-                    color: colors.primary,
+                    color: AppThemeConfig.primary,
                     size: 18,
                   ),
                 ],

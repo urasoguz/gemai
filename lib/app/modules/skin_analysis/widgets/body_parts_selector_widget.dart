@@ -1,7 +1,7 @@
-import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dermai/app/modules/skin_analysis/controller/skin_analysis_controller.dart';
+import 'package:gemai/app/modules/skin_analysis/controller/skin_analysis_controller.dart';
 
 /// Vücut bölgeleri seçici widget'ı
 /// Chip'ler ile çoklu seçim
@@ -10,8 +10,6 @@ class BodyPartsSelectorWidget extends GetView<SkinAnalysisController> {
 
   @override
   Widget build(BuildContext context) {
-    final colors =
-        AppThemeConfig.primary;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
       child: Column(
@@ -25,7 +23,7 @@ class BodyPartsSelectorWidget extends GetView<SkinAnalysisController> {
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
-                color: colors.textPrimary,
+                color: AppThemeConfig.textPrimary,
               ),
             ),
           ),
@@ -54,24 +52,23 @@ class BodyPartsSelectorWidget extends GetView<SkinAnalysisController> {
                         decoration: BoxDecoration(
                           color:
                               isSelected
-                                  ? colors.gradientSecondary
-                                  : colors.card,
+                                  ? AppThemeConfig.gradientSecondary
+                                  : AppThemeConfig.card,
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(
                             color:
                                 isSelected
-                                    ? colors.gradientSecondary
-                                    : colors.divider,
+                                    ? AppThemeConfig.gradientSecondary
+                                    : AppThemeConfig.divider,
                             width: 1,
                           ),
                           boxShadow: [
                             BoxShadow(
                               color:
                                   isSelected
-                                      ? colors.gradientSecondary.withValues(
-                                        alpha: 0.3,
-                                      )
-                                      : colors.buttonShadow.withValues(
+                                      ? AppThemeConfig.gradientSecondary
+                                          .withValues(alpha: 0.3)
+                                      : AppThemeConfig.buttonShadow.withValues(
                                         alpha: 0.05,
                                       ),
                               blurRadius: isSelected ? 8 : 4,
@@ -86,8 +83,8 @@ class BodyPartsSelectorWidget extends GetView<SkinAnalysisController> {
                             fontWeight: FontWeight.w500,
                             color:
                                 isSelected
-                                    ? colors.buttonIcon
-                                    : colors.textPrimary,
+                                    ? AppThemeConfig.buttonIcon
+                                    : AppThemeConfig.textPrimary,
                           ),
                         ),
                       ),
@@ -107,7 +104,7 @@ class BodyPartsSelectorWidget extends GetView<SkinAnalysisController> {
                 '${controller.selectedBodyParts.length} ${'skin_analysis_body_parts_selected'.tr}',
                 style: TextStyle(
                   fontSize: 14,
-                  color: colors.gradientSecondary,
+                  color: AppThemeConfig.gradientSecondary,
                   fontWeight: FontWeight.w500,
                 ),
               ),

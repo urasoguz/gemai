@@ -1,7 +1,7 @@
-import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dermai/app/modules/skin_analysis/controller/skin_analysis_controller.dart';
+import 'package:gemai/app/modules/skin_analysis/controller/skin_analysis_controller.dart';
 
 /// Analiz butonu widget'ı
 /// Gradient buton ile analizi başlatır
@@ -10,8 +10,7 @@ class AnalysisButtonWidget extends GetView<SkinAnalysisController> {
 
   @override
   Widget build(BuildContext context) {
-    final colors =
-        AppThemeConfig.primary;
+    final colors = AppThemeConfig.primary;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
       child: Obx(
@@ -30,16 +29,21 @@ class AnalysisButtonWidget extends GetView<SkinAnalysisController> {
                 end: Alignment.centerRight,
                 colors:
                     controller.isLoading.value
-                        ? [colors.divider, colors.divider]
-                        : [colors.gradientPrimary, colors.gradientSecondary],
+                        ? [AppThemeConfig.divider, AppThemeConfig.divider]
+                        : [
+                          AppThemeConfig.gradientPrimary,
+                          AppThemeConfig.gradientSecondary,
+                        ],
               ),
               borderRadius: BorderRadius.circular(16),
               boxShadow: [
                 BoxShadow(
                   color:
                       controller.isLoading.value
-                          ? colors.buttonShadow.withValues(alpha: 0.3)
-                          : colors.gradientSecondary.withValues(alpha: 0.4),
+                          ? AppThemeConfig.buttonShadow.withValues(alpha: 0.3)
+                          : AppThemeConfig.gradientSecondary.withValues(
+                            alpha: 0.4,
+                          ),
                   blurRadius: 12,
                   offset: const Offset(0, 6),
                 ),
@@ -55,7 +59,7 @@ class AnalysisButtonWidget extends GetView<SkinAnalysisController> {
                             width: 20,
                             height: 20,
                             child: CircularProgressIndicator(
-                              color: colors.buttonText,
+                              color: AppThemeConfig.buttonText,
                               strokeWidth: 2,
                             ),
                           ),
@@ -63,7 +67,7 @@ class AnalysisButtonWidget extends GetView<SkinAnalysisController> {
                           Text(
                             'skin_analysis_button_title_loading'.tr,
                             style: TextStyle(
-                              color: colors.buttonText,
+                              color: AppThemeConfig.buttonText,
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
                             ),
@@ -73,7 +77,7 @@ class AnalysisButtonWidget extends GetView<SkinAnalysisController> {
                       : Text(
                         'skin_analysis_button_title'.tr,
                         style: TextStyle(
-                          color: colors.buttonText,
+                          color: AppThemeConfig.buttonText,
                           fontSize: 18,
                           fontWeight: FontWeight.w600,
                         ),

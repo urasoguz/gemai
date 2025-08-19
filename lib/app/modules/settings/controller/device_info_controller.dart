@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:dermai/app/modules/auth/controller/user_controller.dart';
-import 'package:dermai/app/data/model/user/user.dart';
+import 'package:gemai/app/modules/auth/controller/user_controller.dart';
+import 'package:gemai/app/data/model/user/user.dart';
 import 'package:get_storage/get_storage.dart';
 
 /// Cihaz bilgilerini toplayan controller

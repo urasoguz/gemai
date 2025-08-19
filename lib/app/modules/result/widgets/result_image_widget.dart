@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 
@@ -21,9 +21,6 @@ class ResultImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors =
-        AppThemeConfig.primary;
-
     Widget? imageWidget;
     // Base64 görsel desteği
     if (imagePath != null && imagePath!.startsWith('data:image')) {
@@ -43,20 +40,20 @@ class ResultImageWidget extends StatelessWidget {
         imageWidget = Icon(
           Icons.broken_image,
           size: width * 0.6,
-          color: colors.error,
+          color: AppThemeConfig.error,
         );
       }
     } else if (imagePath != null && imagePath!.isNotEmpty) {
       imageWidget = Icon(
         Icons.image,
         size: width * 0.6,
-        color: colors.textSecondary,
+        color: AppThemeConfig.textSecondary,
       );
     } else {
       imageWidget = Icon(
         Icons.image,
         size: width * 0.6,
-        color: colors.textSecondary,
+        color: AppThemeConfig.textSecondary,
       );
     }
 
@@ -68,7 +65,7 @@ class ResultImageWidget extends StatelessWidget {
         height: height,
         margin: margin ?? const EdgeInsets.only(top: 8, bottom: 18),
         decoration: BoxDecoration(
-          color: colors.card,
+          color: AppThemeConfig.card,
           borderRadius: BorderRadius.circular(borderRadius),
         ),
         child: imageWidget,
@@ -78,9 +75,6 @@ class ResultImageWidget extends StatelessWidget {
 
   /// Görsel dialog'unu gösterir
   void _showImageDialog(BuildContext context) {
-    final colors =
-        AppThemeConfig.primary;
-
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -90,7 +84,7 @@ class ResultImageWidget extends StatelessWidget {
             width: double.infinity,
             height: double.infinity,
             decoration: BoxDecoration(
-              color: colors.cameraScaffold.withValues(alpha: 0.9),
+              color: AppThemeConfig.cameraScaffold.withValues(alpha: 0.9),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Stack(
@@ -107,12 +101,14 @@ class ResultImageWidget extends StatelessWidget {
                       width: 40,
                       height: 40,
                       decoration: BoxDecoration(
-                        color: colors.buttonShadow.withValues(alpha: 0.1),
+                        color: AppThemeConfig.buttonShadow.withValues(
+                          alpha: 0.1,
+                        ),
                         shape: BoxShape.circle,
                       ),
                       child: Icon(
                         Icons.close,
-                        color: colors.cameraAnalyzeText,
+                        color: AppThemeConfig.cameraAnalyzeText,
                         size: 24,
                       ),
                     ),
@@ -160,14 +156,11 @@ class ResultImageWidget extends StatelessWidget {
   Widget _buildDialogErrorWidget() {
     return Builder(
       builder: (context) {
-        final colors =
-            AppThemeConfig.primary;
-
         return Center(
           child: Icon(
             Icons.error_outline,
             size: 64,
-            color: colors.cameraAnalyzeText,
+            color: AppThemeConfig.cameraAnalyzeText,
           ),
         );
       },

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dermai/app/modules/camera/widgets/camerawesome_widget.dart';
+import 'package:gemai/app/modules/camera/widgets/camerawesome_widget.dart';
 
 /// DermAI için kamera preview widget'ı
 class CameraPreviewWidget extends GetView {

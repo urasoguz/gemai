@@ -14,7 +14,6 @@ class Languages {
     'de',
     'it',
     'id',
-    'fa',
     'nl',
     'sv',
     'ja',
@@ -22,21 +21,12 @@ class Languages {
     'pl',
     'ms',
     'uk',
-    'ur',
     'vi',
-    'el',
     'th',
     'bn',
     'fi',
-    'tk',
-    'az',
-    'ku',
-    'ro',
-    'hu',
     'cs',
-    'sk',
     'sr',
-    'he',
   ];
   static String? getLanguageName(String languageCode) {
     Map<String, String> languageKeys = {
@@ -52,7 +42,6 @@ class Languages {
       'de': 'Deutsch',
       'it': 'Italiano',
       'id': 'Indonesia',
-      'fa': 'فارسی',
       'nl': 'Nederlands',
       'sv': 'Svenska',
       'ja': '日本語',
@@ -60,21 +49,12 @@ class Languages {
       'pl': 'Polski',
       'ms': 'Melayu',
       'uk': 'Українська',
-      'ur': 'اردو',
       'vi': 'Tiếng Việt',
-      'el': 'Ελληνικά',
       'th': 'ภาษาไทย',
       'bn': 'বাংলা',
       'fi': 'Suomi',
-      'tk': 'Türkmençe',
-      'az': 'Azərbaycanca',
-      'ku': 'Kurdî',
-      'ro': 'Română',
-      'hu': 'Magyar',
       'cs': 'Čeština',
-      'sk': 'Slovenčina',
       'sr': 'Српски',
-      'he': 'עברית',
     };
 
     return languageKeys.containsKey(languageCode)
@@ -109,8 +89,6 @@ class Languages {
         return Country.it;
       case 'id':
         return Country.id;
-      case 'fa':
-        return Country.ir;
       case 'nl':
         return Country.nl;
       case 'sv':
@@ -125,36 +103,18 @@ class Languages {
         return Country.my;
       case 'uk':
         return Country.ua;
-      case 'ur':
-        return Country.pk;
       case 'vi':
         return Country.vn;
-      case 'el':
-        return Country.gr;
       case 'th':
         return Country.th;
       case 'bn':
         return Country.bd;
       case 'fi':
         return Country.fi;
-      case 'tk':
-        return Country.tm;
-      case 'az':
-        return Country.az;
-      case 'ku':
-        return Country.iq;
-      case 'ro':
-        return Country.ro;
-      case 'hu':
-        return Country.hu;
       case 'cs':
         return Country.cz;
-      case 'sk':
-        return Country.sk;
       case 'sr':
         return Country.rs;
-      case 'he':
-        return Country.il;
       default:
         return Country.us;
     }

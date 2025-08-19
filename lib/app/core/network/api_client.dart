@@ -2,9 +2,9 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:get_storage/get_storage.dart';
-import 'package:dermai/app/shared/helpers/my_helper.dart';
-import 'package:dermai/app/data/model/response/error_response.dart';
-import 'package:dermai/app/data/api/api_endpoints.dart';
+import 'package:gemai/app/shared/helpers/my_helper.dart';
+import 'package:gemai/app/data/model/response/error_response.dart';
+import 'package:gemai/app/data/api/api_endpoints.dart';
 
 class ApiClient {
   final String appBaseUrl;

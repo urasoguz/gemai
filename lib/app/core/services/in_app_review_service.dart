@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:in_app_review/in_app_review.dart';
-import 'package:dermai/app/shared/helpers/my_helper.dart';
+import 'package:gemai/app/shared/helpers/my_helper.dart';
 
 /// In-app review servisi
 class InAppReviewService extends GetxService {

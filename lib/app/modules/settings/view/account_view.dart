@@ -1,12 +1,12 @@
-import 'package:dermai/app/core/services/shrine_dialog_service.dart';
-import 'package:dermai/app/core/theme/app_theme_config.dart';
-import 'package:dermai/app/shared/helpers/my_helper.dart';
-import 'package:dermai/app/shared/widgets/modular_app_bar.dart';
+import 'package:gemai/app/core/services/shrine_dialog_service.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/shared/helpers/my_helper.dart';
+import 'package:gemai/app/shared/widgets/modular_app_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:dermai/app/modules/settings/controller/account_controller.dart';
+import 'package:gemai/app/modules/settings/controller/account_controller.dart';
 import 'package:get_storage/get_storage.dart';
 
 class AccountView extends GetView<AccountController> {
@@ -14,8 +14,7 @@ class AccountView extends GetView<AccountController> {
 
   @override
   Widget build(BuildContext context) {
-    final colors =
-        AppThemeConfig.primary;
+    final colors = AppThemeConfig.primary;
     return Scaffold(
       appBar: ModularAppBar(
         title: 'account_title'.tr,
@@ -31,7 +30,7 @@ class AccountView extends GetView<AccountController> {
           enableFeedback: false,
         ),
       ),
-      backgroundColor: colors.background,
+      backgroundColor: AppThemeConfig.background,
       body: Column(
         children: [
           const SizedBox(height: 24),
@@ -42,13 +41,17 @@ class AccountView extends GetView<AccountController> {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               gradient: LinearGradient(
-                colors: [colors.primary, colors.secondary],
+                colors: [AppThemeConfig.primary, AppThemeConfig.secondary],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),
             ),
             child: Center(
-              child: Icon(Icons.person, size: 40, color: colors.buttonIcon),
+              child: Icon(
+                Icons.person,
+                size: 40,
+                color: AppThemeConfig.buttonIcon,
+              ),
             ),
           ),
 
@@ -61,13 +64,13 @@ class AccountView extends GetView<AccountController> {
               'account_anonymous'.tr,
               style: TextStyle(
                 fontWeight: FontWeight.w400,
-                color: colors.textPrimary,
+                color: AppThemeConfig.textPrimary,
                 fontSize: 18,
               ),
             ),
           ),
 
-          Divider(thickness: 1, color: colors.divider),
+          Divider(thickness: 1, color: AppThemeConfig.divider),
 
           // Kullanıcı bilgileri
           ListTile(
@@ -107,7 +110,11 @@ class AccountView extends GetView<AccountController> {
                       );
                     }
                   },
-                  child: Icon(Icons.copy, size: 20, color: colors.textLink),
+                  child: Icon(
+                    Icons.copy,
+                    size: 20,
+                    color: AppThemeConfig.textLink,
+                  ),
                 ),
               ],
             ),
@@ -128,7 +135,10 @@ class AccountView extends GetView<AccountController> {
                       ),
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
-                          colors: [colors.warning, colors.error],
+                          colors: [
+                            AppThemeConfig.warning,
+                            AppThemeConfig.error,
+                          ],
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight,
                         ),
@@ -139,7 +149,7 @@ class AccountView extends GetView<AccountController> {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: colors.surface,
+                          color: AppThemeConfig.surface,
                         ),
                       ),
                     )

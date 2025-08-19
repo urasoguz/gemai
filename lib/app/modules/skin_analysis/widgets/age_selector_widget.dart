@@ -1,8 +1,8 @@
-import 'package:dermai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dermai/app/modules/skin_analysis/controller/skin_analysis_controller.dart';
+import 'package:gemai/app/modules/skin_analysis/controller/skin_analysis_controller.dart';
 
 /// Yaş seçici widget'ı
 /// Dropdown menü ile yaş seçimi
@@ -20,8 +20,7 @@ class _AgeSelectorWidgetState extends State<AgeSelectorWidget> {
       'skin_analysis_age_info_1'.tr,
       ...controller.ageList.map((e) => '$e ${'skin_analysis_age_info'.tr}'),
     ];
-    final colors =
-        AppThemeConfig.primary;
+    final colors = AppThemeConfig.primary;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
       child: Column(
@@ -34,19 +33,19 @@ class _AgeSelectorWidgetState extends State<AgeSelectorWidget> {
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w600,
-                color: colors.textPrimary,
+                color: AppThemeConfig.textPrimary,
               ),
             ),
           ),
           Container(
             height: 120,
             decoration: BoxDecoration(
-              color: colors.card,
+              color: AppThemeConfig.card,
               borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: colors.divider, width: 1),
+              border: Border.all(color: AppThemeConfig.divider, width: 1),
               boxShadow: [
                 BoxShadow(
-                  color: colors.buttonShadow.withValues(alpha: 0.03),
+                  color: AppThemeConfig.buttonShadow.withValues(alpha: 0.03),
                   blurRadius: 2,
                   offset: const Offset(0, 1),
                 ),
@@ -83,8 +82,8 @@ class _AgeSelectorWidgetState extends State<AgeSelectorWidget> {
                                 fontSize: 15,
                                 color:
                                     controller.isAnalyzing.value
-                                        ? colors.textHint
-                                        : colors.textPrimary,
+                                        ? AppThemeConfig.textHint
+                                        : AppThemeConfig.textPrimary,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),

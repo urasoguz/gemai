@@ -13,8 +13,7 @@ class OnboardingImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors =
-        AppThemeConfig.primary;
+    final colors = AppThemeConfig.primary;
     return TweenAnimationBuilder<double>(
       tween: Tween(begin: 0.8, end: 1.0),
       duration: const Duration(milliseconds: 700),
@@ -32,7 +31,7 @@ class OnboardingImageWidget extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
-                            color: colors.onboardingImageShadow.withValues(
+                            color: AppThemeConfig.buttonShadow.withValues(
                               alpha: 0.1,
                             ),
                             blurRadius: 20,
@@ -56,11 +55,11 @@ class OnboardingImageWidget extends StatelessWidget {
                       width: 120,
                       height: 120,
                       decoration: BoxDecoration(
-                        color: colors.onboardingImageBackground,
+                        color: AppThemeConfig.primary,
                         shape: BoxShape.circle,
                         boxShadow: [
                           BoxShadow(
-                            color: colors.onboardingImageShadow.withValues(
+                            color: AppThemeConfig.buttonShadow.withValues(
                               alpha: 0.08,
                             ),
                             blurRadius: 32,
@@ -71,7 +70,7 @@ class OnboardingImageWidget extends StatelessWidget {
                       child: Icon(
                         icon,
                         size: 64,
-                        color: colors.onboardingImageIcon,
+                        color: AppThemeConfig.primary,
                       ),
                     ),
           ),
