@@ -68,7 +68,7 @@ class ApiUsageExample {
       if (response.isSuccess) {
         final result = response.data;
         if (kDebugMode) {
-          print('Analiz tamamlandı: ${result?.name}');
+          print('Analiz tamamlandı: ${result?.type}');
         }
 
         // Sonucu göster

@@ -71,9 +71,9 @@ const Map<String, String> tr = {
       'Restore işlemi sırasında beklenmeyen hata oluştu',
 
   'premium_title': 'Premium Özellikleri',
-  'premium_desc_1': 'Sınırsız Cilt Analizi Yap',
+  'premium_desc_1': 'Sınırsız Tanımla',
   'premium_desc_2': 'En Son AI Modellerini Kullan',
-  'premium_desc_3': 'Geçmiş Analizlerini Gör',
+  'premium_desc_3': 'Favori Tanımlarını Kaydet',
   'premium_restore': 'Geri Yükle',
   'premium_terms': 'Kullanım Koşulları',
   'premium_privacy': 'Gizlilik Politikası',

@@ -233,7 +233,17 @@ class SplashController extends GetxController {
         }
       } else {
         if (kDebugMode) {
-          print('⚠️ User ID bulunamadı, RevenueCat başlatılamadı');
+          print(
+            '⚠️ User ID bulunamadı, RevenueCat default initialize ediliyor...',
+          );
+        }
+        // User ID yoksa default initialize et
+        await Get.find<RevenueCatService>().initRevenueCat(
+          apiKey: apiKey,
+          appUserId: 'anonymous_user',
+        );
+        if (kDebugMode) {
+          print('✅ RevenueCat default initialize edildi');
         }
       }
     } catch (e) {
@@ -286,7 +296,7 @@ class SplashController extends GetxController {
       }
 
       await Future.delayed(const Duration(seconds: 4));
-      if (!completed) {
+      if (completed) {
         if (kDebugMode) {
           print('📚 Onboarding ekranına yönlendiriliyor...');
         }

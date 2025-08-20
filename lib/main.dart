@@ -24,7 +24,7 @@ import 'package:gemai/app/shared/widgets/no_internet_screen.dart';
 import 'package:upgrader/upgrader.dart';
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-//import 'package:device_preview/device_preview.dart';
+import 'package:device_preview/device_preview.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -77,11 +77,11 @@ void main() async {
   );
 
   runApp(
-    // DevicePreview(
-    //   enabled: !kReleaseMode,
-    //   builder: (context) => Phoenix(child: const MyApp()),
-    // ),
-    Phoenix(child: const MyApp()),
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => Phoenix(child: const MyApp()),
+    ),
+    //Phoenix(child: const MyApp()),
   );
 }
 

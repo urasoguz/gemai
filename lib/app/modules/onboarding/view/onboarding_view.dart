@@ -24,6 +24,8 @@ class OnboardingView extends GetView<OnboardingController> {
               Expanded(
                 child: PageView(
                   controller: pageController,
+                  physics:
+                      const NeverScrollableScrollPhysics(), // Geri gitmeyi engelle
                   onPageChanged: (i) => controller.pageIndex.value = i,
                   children: [
                     _OnboardingPage(
@@ -58,7 +60,7 @@ class OnboardingView extends GetView<OnboardingController> {
                       decoration: BoxDecoration(
                         color:
                             controller.pageIndex.value == i
-                                ? AppThemeConfig.primary
+                                ? AppThemeConfig.onboardingButtonBackground
                                 : AppThemeConfig.divider,
                         borderRadius: BorderRadius.circular(4),
                       ),
@@ -66,79 +68,59 @@ class OnboardingView extends GetView<OnboardingController> {
                   ),
                 ),
               ),
-              const SizedBox(height: 32),
-              Obx(() {
-                final isLast =
-                    controller.pageIndex.value == controller.pageCount - 1;
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    if (!isLast)
-                      TextButton(
-                        onPressed: controller.skip,
-                        style: TextButton.styleFrom(
-                          foregroundColor: AppThemeConfig.textPrimary,
-                          textStyle: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                          ),
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 24,
-                            vertical: 12,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                        ),
-                        child: Text('onboarding_skip'.tr),
-                      ),
-                    Expanded(
-                      child: Align(
-                        alignment:
-                            isLast ? Alignment.center : Alignment.centerRight,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            HapticFeedback.selectionClick();
-                            if (isLast) {
-                              controller.completeOnboarding();
-                            } else {
-                              pageController.nextPage(
-                                duration: const Duration(milliseconds: 400),
-                                curve: Curves.easeInOut,
-                              );
-                              controller.nextPage();
-                            }
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: AppThemeConfig.primary,
-                            foregroundColor: AppThemeConfig.textPrimary,
-                            textStyle: const TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 36,
-                              vertical: 16,
-                            ),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18),
-                            ),
-                            elevation: 6,
-                            shadowColor: AppThemeConfig.buttonShadow.withValues(
-                              alpha: 0.15,
-                            ),
-                          ),
-                          child: Text(
-                            isLast
-                                ? 'onboarding_start'.tr
-                                : 'onboarding_next'.tr,
-                          ),
-                        ),
-                      ),
+              const SizedBox(height: 40),
+              // Paywall continue button ile aynı tasarım
+              Container(
+                width: double.infinity,
+                height: 56,
+                margin: const EdgeInsets.only(bottom: 16),
+                child: ElevatedButton(
+                  onPressed: () {
+                    HapticFeedback.selectionClick();
+                    if (controller.pageIndex.value ==
+                        controller.pageCount - 1) {
+                      controller.completeOnboarding();
+                    } else {
+                      pageController.nextPage(
+                        duration: const Duration(milliseconds: 400),
+                        curve: Curves.easeInOut,
+                      );
+                      controller.nextPage();
+                    }
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppThemeConfig.onboardingButtonBackground,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
                     ),
-                  ],
-                );
-              }),
+                    elevation: 2,
+                    shadowColor: AppThemeConfig.onboardingButtonBackground
+                        .withValues(alpha: 0.3),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        controller.pageIndex.value == controller.pageCount - 1
+                            ? 'continue'
+                                .tr // Son sayfada paywall ile aynı metin
+                            : 'continue'.tr, // Tüm sayfalarda continue
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      const Icon(
+                        Icons.arrow_forward_ios,
+                        color: Colors.white,
+                        size: 16,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
               const SizedBox(height: 32),
             ],
           ),

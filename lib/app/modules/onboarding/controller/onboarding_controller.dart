@@ -1,5 +1,6 @@
 import 'package:gemai/app/core/network/api_client.dart';
 import 'package:gemai/app/modules/auth/controller/user_controller.dart';
+import 'package:gemai/app/shared/paywall/paywall_service.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:gemai/app/routes/app_routes.dart';
@@ -34,10 +35,6 @@ class OnboardingController extends GetxController {
     }
   }
 
-  void skip() {
-    completeOnboarding();
-  }
-
   void completeOnboarding() async {
     try {
       if (kDebugMode) {
@@ -49,11 +46,21 @@ class OnboardingController extends GetxController {
 
       if (kDebugMode) {
         print('✅ Onboarding tamamlandı ve kaydedildi');
+        print('💎 Premium ekranına yönlendiriliyor (seamless transition)...');
       }
 
       // Legal warning kontrolü kaldırıldı - direkt ana sayfaya yönlendir
       if (kDebugMode) {
         print('📋 Legal warning kontrolü devre dışı bırakıldı');
+      }
+
+      // Paywall kontrolü
+      if (_shouldShowPaywallBasedOnSettings()) {
+        if (kDebugMode) {
+          print('💎 Premium ekranına yönlendiriliyor...');
+        }
+        Get.offAllNamed(AppRoutes.premium);
+        return;
       }
 
       if (kDebugMode) {
@@ -67,6 +74,29 @@ class OnboardingController extends GetxController {
       }
       // Hata durumunda ana sayfaya yönlendir
       Get.offAllNamed(AppRoutes.home);
+    }
+  }
+
+  /// App Settings'e göre paywall gösterilip gösterilmeyeceğini kontrol eder
+  bool _shouldShowPaywallBasedOnSettings() {
+    try {
+      final paywallService = Get.find<PaywallService>();
+
+      if (kDebugMode) {
+        print('🎯 Legal Warning - Paywall kontrolü:');
+        print('   - Paywall Service: ${paywallService.shouldShowPaywall()}');
+      }
+
+      final shouldShow = paywallService.shouldShowPaywall();
+      if (kDebugMode) {
+        print('✅ Paywall gösterilecek: $shouldShow');
+      }
+      return shouldShow;
+    } catch (e) {
+      if (kDebugMode) {
+        print('❌ Paywall kontrolü yapılırken hata: $e');
+      }
+      return false;
     }
   }
 }

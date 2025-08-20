@@ -81,33 +81,38 @@ class SembastService {
       finder: Finder(sortOrders: [SortOrder('createdAt', false)]),
     );
     return snapshots.map((snap) {
-      final model = ScanResultModel.fromMap(snap.value);
-      // Base64 görseli varsa imagePath'e ata
+      // Base64 görseli varsa snap.value'ya ekle
       if (snap.value['base64_image'] != null) {
-        return HistoryItem(
-          snap.key,
-          ScanResultModel(
-            name: model.name,
-            altName: model.altName,
-            description: model.description,
-            symptoms: model.symptoms,
-            treatment: model.treatment,
-            severityRatio: model.severityRatio,
-            category: model.category,
-            contagious: model.contagious,
-            bodyParts: model.bodyParts,
-            riskFactors: model.riskFactors,
-            prevention: model.prevention,
-            recoveryTime: model.recoveryTime,
-            alternativeTreatments: model.alternativeTreatments,
-            imagePath:
-                snap.value['base64_image'] as String?, // Base64 görseli ata
-            createdAt: model.createdAt,
-            optimizationInfo: model.optimizationInfo,
-            reference: model.reference,
-          ),
-        );
+        final updatedValue = Map<String, dynamic>.from(snap.value);
+        updatedValue['imagePath'] = snap.value['base64_image'];
+        final model = ScanResultModel.fromMap(updatedValue);
+        return HistoryItem(snap.key, model);
       }
+      
+      final model = ScanResultModel.fromMap(snap.value);
+      return HistoryItem(snap.key, model);
+    }).toList();
+  }
+
+  /// Sadece favori sonuçları getirme
+  Future<List<HistoryItem>> getFavoriteResults() async {
+    final snapshots = await _store.find(
+      await db,
+      finder: Finder(
+        filter: Filter.equals('isFavorite', true),
+        sortOrders: [SortOrder('createdAt', false)],
+      ),
+    );
+    return snapshots.map((snap) {
+      // Base64 görseli varsa snap.value'ya ekle
+      if (snap.value['base64_image'] != null) {
+        final updatedValue = Map<String, dynamic>.from(snap.value);
+        updatedValue['imagePath'] = snap.value['base64_image'];
+        final model = ScanResultModel.fromMap(updatedValue);
+        return HistoryItem(snap.key, model);
+      }
+      
+      final model = ScanResultModel.fromMap(snap.value);
       return HistoryItem(snap.key, model);
     }).toList();
   }
@@ -116,38 +121,50 @@ class SembastService {
   Future<ScanResultModel?> getResult(int key) async {
     final snapshot = await _store.record(key).getSnapshot(await db);
     if (snapshot != null) {
-      final model = ScanResultModel.fromMap(snapshot.value);
-
-      // Base64 görseli varsa imagePath'e ata
+      // Base64 görseli varsa snap.value'ya ekle
       if (snapshot.value['base64_image'] != null) {
         if (kDebugMode) {
-          print('🔍 getResult - Base64 image found, creating new model...');
+          print('🔍 getResult - Base64 image found, updating imagePath...');
         }
-
-        return ScanResultModel(
-          name: model.name,
-          altName: model.altName,
-          description: model.description,
-          symptoms: model.symptoms,
-          treatment: model.treatment,
-          severityRatio: model.severityRatio,
-          category: model.category,
-          contagious: model.contagious,
-          bodyParts: model.bodyParts,
-          riskFactors: model.riskFactors,
-          prevention: model.prevention,
-          recoveryTime: model.recoveryTime,
-          alternativeTreatments: model.alternativeTreatments,
-          imagePath:
-              snapshot.value['base64_image'] as String?, // Base64 görseli ata
-          createdAt: model.createdAt,
-          optimizationInfo: model.optimizationInfo,
-          reference: model.reference,
-        );
+        final updatedValue = Map<String, dynamic>.from(snapshot.value);
+        updatedValue['imagePath'] = snapshot.value['base64_image'];
+        return ScanResultModel.fromMap(updatedValue);
       }
-      return model;
+      
+      return ScanResultModel.fromMap(snapshot.value);
     }
     return null;
+  }
+
+  /// Favori durumunu güncelle
+  Future<void> updateFavoriteStatus(int key, bool isFavorite) async {
+    try {
+      await _store.record(key).update(await db, {'isFavorite': isFavorite});
+      
+      if (kDebugMode) {
+        print('✅ Favori durumu güncellendi - ID: $key, Favori: $isFavorite');
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print('❌ Favori durumu güncelleme hatası: $e');
+      }
+      rethrow;
+    }
+  }
+
+  /// Favori durumunu değiştir (toggle)
+  Future<void> toggleFavorite(int key) async {
+    try {
+      final result = await getResult(key);
+      if (result != null) {
+        await updateFavoriteStatus(key, !result.isFavorite);
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print('❌ Favori toggle hatası: $e');
+      }
+      rethrow;
+    }
   }
 
   // Sonuç silme

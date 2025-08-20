@@ -9,6 +9,7 @@ class AppThemeConfig {
   // ===== ANA RENKLER =====
   static const Color primary = Color(0xFF134E5E); // Koyu yeşil-mavi
   static const Color secondary = Color(0xFF71B280); // Açık yeşil
+  static const Color transparent = Color(0x00000000); // Transparan
 
   // ===== ARKA PLAN RENKLERİ =====
   static const Color background = Color(0xFFF9F9F9); // Ana arka plan
@@ -42,6 +43,7 @@ class AppThemeConfig {
   static const Color buttonBorder = Color(0xFFFFFFFF);
   static const Color buttonShadow = Colors.black;
   static const Color buttonText = Color(0xFFFFFFFF);
+  static const Color buttonBackground = Colors.black;
 
   // ===== ANALYZE BUTTON =====
   static const Color analyzeButton = Color(0xFFFFFFFF);
@@ -76,6 +78,12 @@ class AppThemeConfig {
   static const Color cameraAnalyzeLogoIcon = Color(0xFFFFFFFF);
   static const Color cameraAnalyzeLogoIconShadow = Color(0xFF71B280);
   static const Color cameraAnalyzeEffect = Color(0xFF71B280);
+
+  // ===== PAYWALL RENKLERİ =====
+  static const Color paywallCloseIcon = Color.fromARGB(255, 228, 228, 228);
+  static const Color paywallCardBorder = Color(0xFFE0E0E0);
+  static const Color paywallCardBorderCheck = Color(0xFF000000);
+  static const Color paywallCardCheck = Color(0xFFBDBDBD);
 
   // ===== SKIN ANALYSIS RENKLERİ =====
   static const Color skinAnalysisYearText = Color(0xFF134E5E);

@@ -77,7 +77,7 @@ class HistoryListItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        model.name ?? '-',
+                        model.type ?? '-',
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
@@ -92,7 +92,7 @@ class HistoryListItem extends StatelessWidget {
                         children: [
                           Expanded(
                             child: Text(
-                              model.altName ?? '',
+                              model.chemicalFormula ?? '',
                               style: TextStyle(
                                 fontSize: 12,
                                 color: AppThemeConfig.textSecondary,

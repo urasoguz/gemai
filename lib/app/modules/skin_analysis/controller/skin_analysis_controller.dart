@@ -3,7 +3,7 @@ import 'package:gemai/app/routes/app_routes.dart';
 import 'package:gemai/app/shared/helpers/my_helper.dart';
 import 'package:gemai/main.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 import 'package:gemai/app/data/api/skin_analysis_api_service.dart';
 import 'package:gemai/app/data/model/skin_analysis/skin_analysis_request_model.dart';
@@ -332,26 +332,10 @@ class SkinAnalysisController extends GetxController {
     String base64Image,
   ) async {
     try {
-      // createdAt alanını ekle
-      final resultWithDate = ScanResultModel(
-        name: result.name,
-        altName: result.altName,
-        description: result.description,
-        symptoms: result.symptoms,
-        treatment: result.treatment,
-        severityRatio: result.severityRatio,
-        category: result.category,
-        contagious: result.contagious,
-        bodyParts: result.bodyParts,
-        riskFactors: result.riskFactors,
-        prevention: result.prevention,
-        recoveryTime: result.recoveryTime,
-        alternativeTreatments: result.alternativeTreatments,
-        imagePath: result.imagePath,
-        createdAt: DateTime.now(), // Şu anki tarih/saat
-        optimizationInfo: result.optimizationInfo, // Yeni field
-        reference: result.reference, // Reference field eklendi
-      );
+      // Model'i toMap ile JSON'a çevir, createdAt ekle, tekrar model'e çevir
+      final resultMap = result.toMap();
+      resultMap['createdAt'] = DateTime.now().toIso8601String();
+      final resultWithDate = ScanResultModel.fromMap(resultMap);
 
       final int id = await _sembastService.addScanResult(
         resultWithDate,
@@ -376,26 +360,11 @@ class SkinAnalysisController extends GetxController {
     String base64Image,
   ) {
     try {
-      // createdAt alanını ve base64 görseli ekle
-      final resultWithDate = ScanResultModel(
-        name: result.name,
-        altName: result.altName,
-        description: result.description,
-        symptoms: result.symptoms,
-        treatment: result.treatment,
-        severityRatio: result.severityRatio,
-        category: result.category,
-        contagious: result.contagious,
-        bodyParts: result.bodyParts,
-        riskFactors: result.riskFactors,
-        prevention: result.prevention,
-        recoveryTime: result.recoveryTime,
-        alternativeTreatments: result.alternativeTreatments,
-        imagePath: base64Image, // BASE64 GÖRSELİ BURADA KULLAN
-        createdAt: DateTime.now(), // Şu anki tarih/saat
-        optimizationInfo: result.optimizationInfo, // Yeni field
-        reference: result.reference, // Reference field eklendi
-      );
+      // Model'i toMap ile JSON'a çevir, createdAt ve base64 görseli ekle, tekrar model'e çevir
+      final resultMap = result.toMap();
+      resultMap['createdAt'] = DateTime.now().toIso8601String();
+      resultMap['imagePath'] = base64Image; // BASE64 GÖRSELİ BURADA KULLAN
+      final resultWithDate = ScanResultModel.fromMap(resultMap);
 
       // HistoryItem oluştur
       final newItem = HistoryItem(id, resultWithDate);

@@ -1,8 +1,6 @@
 import 'package:gemai/app/core/localization/de.dart';
 import 'package:gemai/app/core/localization/fr.dart';
-import 'package:gemai/app/core/localization/he.dart';
 import 'package:gemai/app/core/localization/it.dart';
-import 'package:gemai/app/core/localization/sr.dart';
 import 'package:gemai/app/core/localization/en.dart';
 import 'package:gemai/app/core/localization/tr.dart';
 import 'package:gemai/app/core/localization/ar.dart';
@@ -12,26 +10,12 @@ import 'package:gemai/app/core/localization/hi.dart';
 import 'package:gemai/app/core/localization/ru.dart';
 import 'package:gemai/app/core/localization/es.dart';
 import 'package:gemai/app/core/localization/id.dart';
-import 'package:gemai/app/core/localization/fa.dart';
 import 'package:gemai/app/core/localization/nl.dart';
-import 'package:gemai/app/core/localization/sv.dart';
 import 'package:gemai/app/core/localization/ko.dart';
 import 'package:gemai/app/core/localization/pl.dart';
-import 'package:gemai/app/core/localization/ms.dart';
 import 'package:gemai/app/core/localization/uk.dart';
-import 'package:gemai/app/core/localization/ur.dart';
 import 'package:gemai/app/core/localization/vi.dart';
-import 'package:gemai/app/core/localization/el.dart';
 import 'package:gemai/app/core/localization/th.dart';
-import 'package:gemai/app/core/localization/bn.dart';
-import 'package:gemai/app/core/localization/fi.dart';
-import 'package:gemai/app/core/localization/tk.dart';
-import 'package:gemai/app/core/localization/az.dart';
-import 'package:gemai/app/core/localization/ku.dart';
-import 'package:gemai/app/core/localization/ro.dart';
-import 'package:gemai/app/core/localization/hu.dart';
-import 'package:gemai/app/core/localization/cs.dart';
-import 'package:gemai/app/core/localization/sk.dart';
 import 'package:gemai/app/core/localization/pt.dart';
 import 'package:get/get.dart';
 
@@ -46,32 +30,16 @@ class AppTranslations extends Translations {
     'hi': hi,
     'ru': ru,
     'es': es,
-    'sr': sr,
-    'he': he,
     'fr': fr,
     'de': de,
     'it': it,
     'id': id,
-    'fa': fa,
     'nl': nl,
-    'sv': sv,
     'ko': ko,
     'pl': pl,
-    'ms': ms,
     'uk': uk,
-    'ur': ur,
     'vi': vi,
-    'el': el,
     'th': th,
-    'bn': bn,
-    'fi': fi,
-    'tk': tk,
-    'az': az,
-    'ku': ku,
-    'ro': ro,
-    'hu': hu,
-    'cs': cs,
-    'sk': sk,
     'pt': pt,
   };
 }

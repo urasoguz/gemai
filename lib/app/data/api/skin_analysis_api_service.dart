@@ -62,22 +62,7 @@ class SkinAnalysisApiService extends BaseApiService {
                 print('❌ Skin Analysis Error Response: $json');
               }
               // Hata durumunda boş ScanResultModel döndür
-              return ScanResultModel(
-                name: '',
-                altName: '',
-                description: '',
-                symptoms: [],
-                treatment: [],
-                severityRatio: '',
-                category: '',
-                contagious: '',
-                bodyParts: [],
-                riskFactors: [],
-                prevention: [],
-                recoveryTime: '',
-                alternativeTreatments: [],
-                imagePath: '',
-              );
+              return ScanResultModel(type: '', description: '', imagePath: '');
             }
 
             // Başarılı response - ScanResultModel parse et

@@ -2,7 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<!-- Temel Uygulama Bilgileri -->
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -13,105 +14,6 @@
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
-	<key>CFBundleName</key>
-	<string>GemAI</string>
-	<key>CFBundlePackageType</key>
-	<string>APPL</string>
-	<key>CFBundleShortVersionString</key>
-	<string>1.0.0</string>
-	<key>CFBundleSignature</key>
-	<string>????</string>
-	<key>CFBundleVersion</key>
-	<string>$(FLUTTER_BUILD_NUMBER)</string>
-	
-	<!-- iOS Gereksinimleri -->
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
-	<key>MinimumOSVersion</key>
-	<string>12.0</string>
-	
-	<!-- Kamera ve Galeri İzinleri -->
-	<key>NSCameraUsageDescription</key>
-	<string>Camera access is required to analyze skin conditions using photos.</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Microphone access may be required when recording videos during analysis.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Photo library access is required to select photos for skin analysis.</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Photo library access is required to save analysis results.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>This app accesses your location only while in use to support regional features.</string>
-	
-	
-	<!-- Ağ İzinleri -->
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<false/>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>localhost</key>
-			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-			</dict>
-		</dict>
-	</dict>
-	
-	<!-- UI Ayarları -->
-	<key>UIApplicationSupportsIndirectInputEvents</key>
-	<true/>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
-	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
-	<key>UIStatusBarHidden</key>
-	<false/>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<true/>
-	
-	<!-- Desteklenen Yönlendirmeler -->
-	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-	</array>
-	<key>UISupportedInterfaceOrientations~ipad</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-	</array>
-	
-	<!-- URL Scheme Desteği -->
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleURLName</key>
-			<string>com.zyntec.gemaiapp</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>gemai</string>
-			</array>
-		</dict>
-	</array>
-	
-	<!-- App Store ve Güncelleme Desteği -->
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>itms-apps</string>
-		<string>https</string>
-		<string>http</string>
-	</array>
-	
-	<!-- Şifreleme Kullanımı -->
-	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
-	
-	<!-- Performans Optimizasyonu -->
-	<key>CADisableMinimumFrameDurationOnPhone</key>
-	<true/>
-	
-
-	
-	<!-- Localization -->
 	<key>CFBundleLocalizations</key>
 	<array>
 		<string>en</string>
@@ -148,5 +50,106 @@
 		<string>sr</string>
 		<string>he</string>
 	</array>
+	<key>CFBundleName</key>
+	<string>GemAI</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.0</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.zyntec.gemai</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>gemai</string>
+			</array>
+		</dict>
+	</array>
+	<key>CFBundleVersion</key>
+	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>itms-apps</string>
+		<string>https</string>
+		<string>http</string>
+	</array>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>MinimumOSVersion</key>
+	<string>12.0</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<false/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>localhost</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
+	
+	<!-- TEST İÇİN LOCALHOST BACKEND ERİŞİMİ - SONRADAN KALDIRILACAK -->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>localhost</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+			<key>127.0.0.1</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+			<key>10.0.2.2</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
+	<!-- TEST İÇİN LOCALHOST BACKEND ERİŞİMİ - SONRADAN KALDIRILACAK -->
+
+	<key>NSCameraUsageDescription</key>
+	<string>Camera access is required to analyze skin conditions using photos.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app accesses your location only while in use to support regional features.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Microphone access may be required when recording videos during analysis.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Photo library access is required to save analysis results.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Photo library access is required to select photos for skin analysis.</string>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
+	<key>UIStatusBarHidden</key>
+	<false/>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
 </dict>
 </plist>

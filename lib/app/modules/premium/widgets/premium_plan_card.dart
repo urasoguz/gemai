@@ -49,28 +49,9 @@ class PremiumPlanCard extends StatelessWidget {
           color: AppThemeConfig.card,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
-            color:
-                selected
-                    ? checkColor
-                    : AppThemeConfig.divider.withValues(alpha: 0.3),
+            color: selected ? checkColor : AppThemeConfig.paywallCardBorder,
             width: selected ? 1 : 1,
           ),
-          boxShadow: [
-            if (selected)
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.18),
-                blurRadius: 32,
-                spreadRadius: 2,
-                offset: const Offset(0, 12),
-              )
-            else
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.04),
-                blurRadius: 8,
-                spreadRadius: 0.5,
-                offset: const Offset(0, 2),
-              ),
-          ],
         ),
         child: Row(
           children: [
@@ -123,9 +104,7 @@ class PremiumPlanCard extends StatelessWidget {
                   border:
                       isTrial
                           ? Border.all(
-                            color: AppThemeConfig.primary.withValues(
-                              alpha: 0.3,
-                            ),
+                            color: AppThemeConfig.transparent,
                             width: 1,
                           )
                           : null,
@@ -148,9 +127,7 @@ class PremiumPlanCard extends StatelessWidget {
                 shape: BoxShape.circle,
                 border: Border.all(
                   color:
-                      selected
-                          ? checkColor
-                          : AppThemeConfig.divider.withValues(alpha: 0.5),
+                      selected ? checkColor : AppThemeConfig.paywallCardCheck,
                   width: 2,
                 ),
                 color: selected ? checkColor : Colors.transparent,

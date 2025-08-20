@@ -6,7 +6,7 @@ class MyHelper {
   /// RevenueCat API anahtarları
   /// iOS için ayrı, Android için ayrı kullanılır
   static const String revenuecatApiKeyIOS =
-      "appl_UVxdbKjOvpEHJvNmZcEDYYkgAag"; // Buraya kendi iOS anahtarını yaz
+      "appl_TdVDjckAIjTwywiSssYydiRVoos"; // Buraya kendi iOS anahtarını yaz
   static const String revenuecatApiKeyAndroid =
       "goog_xxx"; // Buraya kendi Android anahtarını yaz
 

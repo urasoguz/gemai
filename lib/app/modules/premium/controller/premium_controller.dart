@@ -206,6 +206,9 @@ class PremiumController extends GetxController
     premiumConfig = Get.find<PremiumConfigService>();
     _appSettings = Get.find<AppSettingsService>();
 
+    // Paketleri yükle (RevenueCat splash'ta init edildi)
+    fetchDiscount();
+
     // Premium özellikleri zaten tanımlı
 
     // Timer animasyonu için controller
@@ -213,9 +216,6 @@ class PremiumController extends GetxController
       duration: Duration(seconds: closeButtonDelaySeconds),
       vsync: this,
     );
-
-    // Paketleri yükle
-    fetchDiscount();
 
     // Gecikmeli kapatma butonu
     if (delayedCloseButton) {
@@ -234,7 +234,24 @@ class PremiumController extends GetxController
     try {
       final offerings = await Purchases.getOfferings();
       final offering = offerings.current;
-      if (offering == null) return;
+      if (offering == null) {
+        if (kDebugMode) {
+          print('❌ Current offering null! Offerings: ${offerings.all.length}');
+        }
+        return;
+      }
+
+      if (kDebugMode) {
+        print('📦 RevenueCat offering bulundu:');
+        print('   - Available packages: ${offering.availablePackages.length}');
+        print('   - Annual: ${offering.annual != null}');
+        print('   - Weekly: ${offering.weekly != null}');
+        print('   - Monthly: ${offering.monthly != null}');
+        for (int i = 0; i < offering.availablePackages.length; i++) {
+          final pkg = offering.availablePackages[i];
+          print('   ${i + 1}. ${pkg.packageType} - ${pkg.storeProduct.title}');
+        }
+      }
 
       // Paketleri topla ve sırala
       final allPackages = <Package>[];
@@ -263,6 +280,11 @@ class PremiumController extends GetxController
       }
 
       packages.assignAll(allPackages);
+
+      if (kDebugMode) {
+        print('📦 Toplanan paketler: ${allPackages.length}');
+        print('📦 Controller packages: ${packages.length}');
+      }
 
       // Ücretsiz deneme olan planı bul ve seçili yap
       int trialIndex = -1;

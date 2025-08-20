@@ -183,61 +183,53 @@ class ShrineDialogService {
     required String message,
     IconType? iconType,
     Duration? duration,
-    required dynamic colors,
+    required Color colors,
   }) {
     MyDialog.toast(
       message,
       duration: duration,
       iconType: iconType,
-      style: ToastStyle(backgroundColor: colors.black).center(),
+      style: ToastStyle(backgroundColor: colors).center(),
     );
   }
 
   /// Başarı mesajı gösterir
-  static void showSuccess(
-    String message,
-    dynamic colors, {
-    Duration? duration,
-  }) {
+  static void showSuccess(String message, Color colors, {Duration? duration}) {
     MyDialog.toast(
       message,
       duration: duration,
       iconType: IconType.success,
-      style: ToastStyle(backgroundColor: colors.black).center(),
+      style: ToastStyle(backgroundColor: colors).center(),
     );
   }
 
   /// Hata mesajı gösterir
-  static void showError(String message, dynamic colors, {Duration? duration}) {
+  static void showError(String message, Color colors, {Duration? duration}) {
     MyDialog.toast(
       duration: duration,
       message,
       iconType: IconType.error,
-      style: ToastStyle(backgroundColor: colors.black).center(),
+      style: ToastStyle(backgroundColor: colors).center(),
     );
   }
 
   /// Uyarı mesajı gösterir
-  static void showWarning(
-    String message,
-    dynamic colors, {
-    Duration? duration,
-  }) {
+  static void showWarning(String message, Color colors, {Duration? duration}) {
     MyDialog.toast(
       message,
       duration: duration,
       iconType: IconType.warning,
-      style: ToastStyle(backgroundColor: colors.black).center(),
+      style: ToastStyle(backgroundColor: colors).center(),
     );
   }
 
   /// Bilgi mesajı gösterir
-  static void showInfo(String message, dynamic colors, {Duration? duration}) {
+  static void showInfo(String message, Color colors, {Duration? duration}) {
     MyDialog.toast(
       duration: duration,
       message,
       iconType: IconType.info,
-      style: ToastStyle(backgroundColor: colors.black).center(),
+      style: ToastStyle(backgroundColor: colors).center(),
     );
   }
 

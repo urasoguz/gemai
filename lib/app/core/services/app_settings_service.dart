@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:gemai/app/data/api/settings_api_service.dart';
 import 'package:gemai/app/shared/models/app_settings_model.dart';
+import 'dart:io';
 
 /// Uygulama ayarları servisi - Ayarları çeker, saklar ve yönetir
 ///
@@ -152,6 +153,9 @@ class AppSettingsService extends GetxService {
   /// Reklam ayarlarını döner
   AdsSettings? get adsSettings => _settings.value?.ads;
 
+  /// App Store bağlantılarını döner
+  AppStoreLinks? get appStoreLinks => _settings.value?.appStoreLinks;
+
   /// Paywall her başlangıçta gösterilsin mi?
   bool get shouldShowPaywallOnLaunch {
     final value =
@@ -177,9 +181,52 @@ class AppSettingsService extends GetxService {
   /// Reklam sağlayıcısı
   int? get adsProvider => adsSettings?.adsProvider ?? _defaultAdsProvider;
 
+  /// Apple Review modunda mı? (true = inceleme modunda, false = normal mod)
+  bool get isAppleReviewMode {
+    final value = uiSettings?.appleReview ?? _defaultAppleReview;
+    if (kDebugMode) {
+      print(
+        '🍎 AppSettingsService.isAppleReviewMode: $value (true=inceleme, false=normal)',
+      );
+    }
+    return value;
+  }
+
+  /// Google Review modunda mı? (true = inceleme modunda, false = normal mod)
+  bool get isGoogleReviewMode {
+    final value = uiSettings?.googleReview ?? _defaultGoogleReview;
+    if (kDebugMode) {
+      print(
+        '🤖 AppSettingsService.isGoogleReviewMode: $value (true=inceleme, false=normal)',
+      );
+    }
+    return value;
+  }
+
+  /// Platforma göre tekleştirilmiş inceleme modu (true=inceleme, false=normal)
+  bool get isAppReviewMode {
+    if (Platform.isIOS || Platform.isMacOS) {
+      return isAppleReviewMode;
+    }
+    if (Platform.isAndroid) {
+      return isGoogleReviewMode;
+    }
+    return true;
+  }
+
+  /// Apple Store URL'si
+  String? get appleStoreUrl => appStoreLinks?.appleStoreUrl;
+
+  /// Google Play Store URL'si
+  String? get googlePlayStoreUrl => appStoreLinks?.googlePlayStoreUrl;
+
   // Default değerler - API'den veri gelmezse kullanılır
   static const bool _defaultPaywallEveryLaunch = false;
   static const int _defaultPaywallCloseButtonDelay = 5;
   static const String _defaultContactEmail = 'contact@zyntecllc.com';
   static const int _defaultAdsProvider = 1;
+  static const bool _defaultAppleReview =
+      true; // Default inceleme modu (güvenlik için - sunucu bağlantısı yoksa inceleme modunda çalış)
+  static const bool _defaultGoogleReview =
+      true; // Default inceleme modu (güvenlik için - sunucu bağlantısı yoksa inceleme modunda çalış)
 }

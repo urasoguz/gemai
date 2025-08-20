@@ -15,18 +15,12 @@ class Languages {
     'it',
     'id',
     'nl',
-    'sv',
     'ja',
     'ko',
     'pl',
-    'ms',
     'uk',
     'vi',
     'th',
-    'bn',
-    'fi',
-    'cs',
-    'sr',
   ];
   static String? getLanguageName(String languageCode) {
     Map<String, String> languageKeys = {
@@ -43,18 +37,12 @@ class Languages {
       'it': 'Italiano',
       'id': 'Indonesia',
       'nl': 'Nederlands',
-      'sv': 'Svenska',
       'ja': '日本語',
       'ko': '한국어',
       'pl': 'Polski',
-      'ms': 'Melayu',
       'uk': 'Українська',
       'vi': 'Tiếng Việt',
       'th': 'ภาษาไทย',
-      'bn': 'বাংলা',
-      'fi': 'Suomi',
-      'cs': 'Čeština',
-      'sr': 'Српски',
     };
 
     return languageKeys.containsKey(languageCode)
@@ -91,30 +79,18 @@ class Languages {
         return Country.id;
       case 'nl':
         return Country.nl;
-      case 'sv':
-        return Country.se;
       case 'ja':
         return Country.jp;
       case 'ko':
         return Country.kr;
       case 'pl':
         return Country.pl;
-      case 'ms':
-        return Country.my;
       case 'uk':
         return Country.ua;
       case 'vi':
         return Country.vn;
       case 'th':
         return Country.th;
-      case 'bn':
-        return Country.bd;
-      case 'fi':
-        return Country.fi;
-      case 'cs':
-        return Country.cz;
-      case 'sr':
-        return Country.rs;
       default:
         return Country.us;
     }

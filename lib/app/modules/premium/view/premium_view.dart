@@ -27,6 +27,7 @@ class PremiumView extends GetView<PremiumController> {
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   // Üst kısım - Kapat ve Restore butonları
                   SizedBox(
@@ -100,7 +101,7 @@ class PremiumView extends GetView<PremiumController> {
                                                   Icons.close,
                                                   color:
                                                       AppThemeConfig
-                                                          .textSecondary,
+                                                          .paywallCloseIcon,
                                                   size: 40,
                                                 ),
                                               )
@@ -115,7 +116,7 @@ class PremiumView extends GetView<PremiumController> {
                             return IconButton(
                               icon: Icon(
                                 Icons.close,
-                                color: AppThemeConfig.textSecondary,
+                                color: AppThemeConfig.paywallCloseIcon,
                                 size: 40,
                               ),
                               onPressed: controller.closeScreen,
@@ -140,7 +141,7 @@ class PremiumView extends GetView<PremiumController> {
                     ),
                   ),
 
-                  SizedBox(height: isSmallScreen ? 16 : 24),
+                  SizedBox(height: isSmallScreen ? 10 : 16),
 
                   // Başlık - Responsive boyut
                   Text(
@@ -153,7 +154,7 @@ class PremiumView extends GetView<PremiumController> {
                     textAlign: TextAlign.center,
                   ),
 
-                  SizedBox(height: isSmallScreen ? 12 : 16),
+                  SizedBox(height: isSmallScreen ? 5 : 5),
 
                   // Premium özellikler listesi - Responsive boyut
                   SizedBox(
@@ -219,20 +220,6 @@ class PremiumView extends GetView<PremiumController> {
                             child: AnimatedContainer(
                               duration: const Duration(milliseconds: 200),
                               curve: Curves.easeInOut,
-                              decoration: BoxDecoration(
-                                boxShadow:
-                                    selected
-                                        ? [
-                                          BoxShadow(
-                                            color: Colors.black.withValues(
-                                              alpha: 0.08,
-                                            ),
-                                            blurRadius: 16,
-                                            offset: const Offset(0, 4),
-                                          ),
-                                        ]
-                                        : [],
-                              ),
                               child: PremiumPlanCard(
                                 title:
                                     info['planTitle'] ?? pkg.storeProduct.title,
@@ -241,7 +228,8 @@ class PremiumView extends GetView<PremiumController> {
                                 badgeColor: info['badgeColor'],
                                 selected: selected,
                                 onTap: () => controller.selectPlan(idx),
-                                checkColor: Colors.blue,
+                                checkColor:
+                                    AppThemeConfig.paywallCardBorderCheck,
                                 isTrial: info['isTrial'],
                                 trialTitle: info['trialTitle'],
                                 periodText: info['periodText'],
@@ -271,7 +259,12 @@ class PremiumView extends GetView<PremiumController> {
                   ),
 
                   // Paket ve buton arası boşluk
-                  SizedBox(height: isSmallScreen ? 16 : 24),
+                  SizedBox(
+                    height:
+                        isSmallScreen
+                            ? 20
+                            : (controller.showCloseButton ? 0 : 20),
+                  ),
 
                   // Satın alma butonu
                   Obx(() {
@@ -305,14 +298,13 @@ class PremiumView extends GetView<PremiumController> {
                       child: ElevatedButton(
                         onPressed: controller.startTrial,
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFF71B280),
+                          backgroundColor: AppThemeConfig.buttonBackground,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16),
                           ),
                           elevation: 2,
-                          shadowColor: const Color(
-                            0xFF71B280,
-                          ).withValues(alpha: 0.3),
+                          shadowColor: AppThemeConfig.buttonBackground
+                              .withValues(alpha: 0.3),
                         ),
                         child: AnimatedSwitcher(
                           duration: const Duration(milliseconds: 250),
@@ -350,7 +342,7 @@ class PremiumView extends GetView<PremiumController> {
                       return const SizedBox.shrink(); // Normal close button gösteriliyorsa bu gizli
                     }
                     return Padding(
-                      padding: const EdgeInsets.only(bottom: 16),
+                      padding: const EdgeInsets.only(bottom: 10),
                       child: Center(
                         child: TextButton(
                           onPressed: controller.closeScreen,

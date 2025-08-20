@@ -117,40 +117,6 @@ class _SettingsViewState extends State<SettingsView> {
                 ),
               ),
 
-              // Tema ayarları
-              Obx(
-                () => Container(
-                  alignment: Alignment.bottomLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                      top: 15,
-                      bottom: 15,
-                      left: 10,
-                      right: 10,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'settings_dark_mode'.tr,
-                          style: TextStyle(
-                            color: AppThemeConfig.textPrimary,
-                            fontSize: 18,
-                          ),
-                        ),
-                        CupertinoSwitch(
-                          value: controller.isDarkMode.value,
-                          onChanged: (value) {
-                            HapticFeedback.selectionClick();
-                            controller.toggleTheme();
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-
               Divider(height: 1, thickness: 1, color: AppThemeConfig.divider),
 
               // SSS

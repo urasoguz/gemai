@@ -25,7 +25,7 @@
 /// ```
 class ApiEndpoints {
   // Base URL'ler - MyHelper ile uyumlu
-  static const String baseUrl = 'https://dermai.test';
+  static const String baseUrl = 'http://gemai.test';
   static const String appApiKey = 'oguz123';
   static const String authBaseUrl = '$baseUrl/api/v1/auth';
   static const String skinAnalysisBaseUrl = '$baseUrl/api/v1/scan';

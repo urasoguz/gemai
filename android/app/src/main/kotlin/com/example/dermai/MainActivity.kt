@@ -1,4 +1,4 @@
-package com.zyntec.dermai
+package com.zyntec.gemai
 
 import io.flutter.embedding.android.FlutterActivity
 
