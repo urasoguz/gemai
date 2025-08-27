@@ -12,6 +12,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:gemai/app/shared/controllers/lang_controller.dart';
 import 'package:gemai/app/modules/auth/controller/user_controller.dart';
+import 'package:gemai/app/core/services/sembast_service.dart';
 
 class SettingsController extends GetxController {
   final LangController langController = Get.find<LangController>();
@@ -98,16 +99,118 @@ class SettingsController extends GetxController {
       }
     } catch (e) {
       if (kDebugMode) {
-        print('❌ Account settings restore exception: $e');
+        print('❌ Account settings restore hatası: $e');
       }
-      final colors = AppThemeConfig.primary;
+    }
+  }
+
+  /// Veritabanını temizler - İLERDE KULLANILABİLİR
+  /*
+  Future<void> clearDatabase() async {
+    try {
+      if (kDebugMode) {
+        print('🧹 Veritabanı temizleme başlatılıyor...');
+      }
+
+      final sembastService = SembastService();
+
+      // Onay dialog'u göster
+      bool confirmed = false;
+      ShrineDialogService.showSimpleConfirm(
+        message:
+            'Tüm analiz verileri kalıcı olarak silinecek. Bu işlem geri alınamaz. Devam etmek istiyor musunuz?',
+        title: 'Veritabanını Temizle',
+        showCancelButton: true,
+        showOkButton: true,
+        okButtonColor: Colors.red,
+        onConfirm: (result) async {
+          confirmed = result;
+          if (confirmed) {
+            await sembastService.clearAllData();
+
+            if (kDebugMode) {
+              print('✅ Veritabanı temizlendi');
+            }
+
+            // Başarı mesajı göster
+            ShrineDialogService.showInfoDialog(
+              message: 'Veritabanı başarıyla temizlendi.',
+              title: 'Başarılı',
+              showCancelButton: false,
+              showOkButton: true,
+              okButtonColor: Colors.green,
+            );
+          }
+        },
+      );
+    } catch (e) {
+      if (kDebugMode) {
+        print('❌ Veritabanı temizleme hatası: $e');
+      }
+
+      // Hata mesajı göster
       ShrineDialogService.showError(
-        'settings_restore_purchases_error'.tr,
-        colors,
+        'Veritabanı temizlenirken hata oluştu: $e',
+        AppThemeConfig.primary,
         duration: const Duration(seconds: 3),
       );
     }
   }
+  */
+
+  /// Sadece test verilerini temizler - İLERDE KULLANILABİLİR
+  /*
+  Future<void> clearTestData() async {
+    try {
+      if (kDebugMode) {
+        print('🧹 Test verileri temizleme başlatılıyor...');
+      }
+
+      final sembastService = SembastService();
+
+      // Onay dialog'u göster
+      bool confirmed = false;
+      ShrineDialogService.showSimpleConfirm(
+        message:
+            'Test analiz verileri kalıcı olarak silinecek. Devam etmek istiyor musunuz?',
+        title: 'Test Verilerini Temizle',
+        showCancelButton: true,
+        showOkButton: true,
+        okButtonColor: Colors.orange,
+        onConfirm: (result) async {
+          confirmed = result;
+          if (confirmed) {
+            await sembastService.clearTestData();
+
+            if (kDebugMode) {
+              print('✅ Test verileri temizlendi');
+            }
+
+            // Başarı mesajı göster
+            ShrineDialogService.showInfoDialog(
+              message: 'Test verileri başarıyla temizlendi.',
+              title: 'Başarılı',
+              showCancelButton: false,
+              showOkButton: true,
+              okButtonColor: Colors.green,
+            );
+          }
+        },
+      );
+    } catch (e) {
+      if (kDebugMode) {
+        print('❌ Test verileri temizleme hatası: $e');
+      }
+
+      // Hata mesajı göster
+      ShrineDialogService.showError(
+        'Test verileri temizlenirken hata oluştu: $e',
+        AppThemeConfig.primary,
+        duration: const Duration(seconds: 3),
+      );
+    }
+  }
+  */
 
   void openPrivacyPolicy() {
     Get.toNamed(AppRoutes.pageDetail, arguments: {'slug': 'privacy'});

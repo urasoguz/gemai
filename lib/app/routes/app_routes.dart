@@ -13,4 +13,5 @@ abstract class AppRoutes {
   static const String premium = '/premium';
   static const String pages = '/pages';
   static const String pageDetail = '/page-detail';
+  static const String gemResult = '/gem-result';
 }

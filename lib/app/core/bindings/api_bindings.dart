@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:gemai/app/data/api/auth_api_service.dart';
 import 'package:gemai/app/data/api/skin_analysis_api_service.dart';
 import 'package:gemai/app/core/services/image_processing_service.dart';
+import 'package:gemai/app/core/services/sembast_service.dart';
 
 /// API servisleri için dependency injection binding'leri
 ///
@@ -28,6 +29,9 @@ import 'package:gemai/app/core/services/image_processing_service.dart';
 class ApiBindings extends Bindings {
   @override
   void dependencies() {
+    // SembastService - Veritabanı işlemleri için
+    Get.lazyPut<SembastService>(() => SembastService(), fenix: true);
+
     // Auth API servisi - Singleton olarak kaydet
     Get.lazyPut<AuthApiService>(() => AuthApiService(), fenix: true);
 

@@ -31,6 +31,10 @@ class PremiumController extends GetxController
   final RxString weeklyPrice = ''.obs;
   final RxBool hasTrial = true.obs;
   final RxList<Package> packages = <Package>[].obs;
+
+  /// Onboarding'den gelinip gelinmediğini kontrol eder
+  bool get isFromOnboarding => Get.arguments?['fromOnboarding'] == true;
+
   // Basit premium özellikler listesi
   final List<Map<String, dynamic>> features = [
     {
@@ -64,6 +68,33 @@ class PremiumController extends GetxController
   /// Paywall kapatma butonu gösterilsin mi?
   bool get showCloseButton =>
       _appSettings.paywallSettings?.paywallCloseButton ?? true;
+
+  /// Paywall UI tasarımı (1: eski tasarım, 2: yeni tasarım)
+  int get paywallUi => _appSettings.paywallUi;
+
+  /// Yeni paywall tasarımında paketler gizli mi?
+  final RxBool showPackages = false.obs;
+
+  /// Paketleri göster/gizle
+  void togglePackages() {
+    showPackages.value = !showPackages.value;
+  }
+
+  /// Yeni paywall tasarımında varsayılan paket seçimi
+  void selectDefaultPackage() {
+    if (packages.isEmpty) return;
+
+    // Weekly paket varsa onu seç, yoksa ilk paketi seç
+    final weeklyIndex = packages.indexWhere(
+      (pkg) => pkg.packageType == PackageType.weekly,
+    );
+
+    if (weeklyIndex != -1) {
+      selectedPlan.value = weeklyIndex;
+    } else if (packages.isNotEmpty) {
+      selectedPlan.value = 0;
+    }
+  }
 
   // Periyot kodunu locale string'e çeviren yardımcı fonksiyon
   String getLocalizedPeriod(String? periodCode) {
@@ -227,6 +258,12 @@ class PremiumController extends GetxController
       });
     } else {
       showXIcon.value = true;
+    }
+
+    // Yeni paywall tasarımı için varsayılan paket seçimi
+    if (paywallUi == 2) {
+      // Paketler yüklendikten sonra varsayılan seçimi yap
+      ever(packages, (_) => selectDefaultPackage());
     }
   }
 

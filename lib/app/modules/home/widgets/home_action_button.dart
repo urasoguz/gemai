@@ -16,7 +16,7 @@ class HomeActionButton extends StatelessWidget {
         width: 72,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: AppThemeConfig.primary,
+          color: AppThemeConfig.background,
           boxShadow: [
             BoxShadow(
               color: AppThemeConfig.buttonShadow.withValues(alpha: 0.08),
@@ -43,7 +43,7 @@ class HomeActionButton extends StatelessWidget {
             child: Icon(
               CupertinoIcons.camera_viewfinder,
               color: AppThemeConfig.buttonIcon,
-              size: 32,
+              size: 40,
             ),
           ),
         ),

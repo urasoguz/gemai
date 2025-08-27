@@ -10,6 +10,9 @@ class AppColors {
   static const Color lightBackground = Colors.white;
   static const Color darkBackground = Colors.black;
 
+  // Primary renk ekledim
+  static const Color primary = Color(0xFF2196F3);
+
   AppColors({
     required this.appBarColor,
     required this.backgroundColor,

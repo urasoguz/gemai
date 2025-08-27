@@ -24,6 +24,8 @@ import 'package:gemai/app/modules/skin_analysis/view/skin_analysis_view.dart';
 import 'package:gemai/app/modules/pages/pages_binding.dart';
 import 'package:gemai/app/modules/pages/view/pages_list_view.dart';
 import 'package:gemai/app/modules/pages/view/page_detail_view.dart';
+import 'package:gemai/app/modules/gem_result/view/gem_result_view.dart';
+import 'package:gemai/app/modules/gem_result/gem_result_binding.dart';
 
 class AppPages {
   static final pages = [
@@ -105,6 +107,13 @@ class AppPages {
       name: AppRoutes.pageDetail,
       page: () => const PageDetailView(),
       binding: PagesBinding(),
+      transition: Transition.cupertino,
+    ),
+    // Yeni GemAI Sonuc sayfasi (Debug/Test icin)
+    GetPage(
+      name: AppRoutes.gemResult,
+      page: () => const GemResultView(),
+      binding: GemResultBinding(),
       transition: Transition.cupertino,
     ),
   ];

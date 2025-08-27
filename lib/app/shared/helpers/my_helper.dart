@@ -10,6 +10,7 @@ class MyHelper {
   static const String revenuecatApiKeyAndroid =
       "goog_xxx"; // Buraya kendi Android anahtarını yaz
 
+  static const String appStoreId = "6719422900";
   //from this below no need to change. If anything change app will not work
   // Bu endpoint'ler artık ApiEndpoints'te tanımlı
   // static const String registerViaDeviceUrl = "api/register-device";

@@ -1,5 +1,6 @@
 import 'package:gemai/app/core/services/shrine_dialog_service.dart';
 import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/core/services/app_settings_service.dart';
 import 'package:gemai/app/shared/helpers/my_helper.dart';
 import 'package:gemai/app/shared/widgets/modular_app_bar.dart';
 import 'package:flutter/cupertino.dart';
@@ -14,6 +15,18 @@ class AccountView extends GetView<AccountController> {
 
   @override
   Widget build(BuildContext context) {
+    // Üst bardaki sistem metinlerini siyah yap (account için)
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent, // Status bar şeffaf
+        statusBarIconBrightness: Brightness.dark, // Status bar ikonları siyah
+        statusBarBrightness: Brightness.light, // iOS için status bar açık tema
+        systemNavigationBarColor: Colors.transparent, // Alt navigasyon şeffaf
+        systemNavigationBarIconBrightness:
+            Brightness.dark, // Alt navigasyon ikonları koyu
+      ),
+    );
+
     final colors = AppThemeConfig.primary;
     return Scaffold(
       appBar: ModularAppBar(
@@ -130,33 +143,77 @@ class AccountView extends GetView<AccountController> {
                   if (isPremium)
                     Container(
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                        vertical: 4,
+                        horizontal: 10,
+                        vertical: 6,
                       ),
                       decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [
-                            AppThemeConfig.warning,
-                            AppThemeConfig.error,
-                          ],
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
+                        color: AppThemeConfig.primary.withOpacity(0.1),
+                        border: Border.all(
+                          color: AppThemeConfig.primary.withOpacity(0.3),
+                          width: 1,
                         ),
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppThemeConfig.primary.withOpacity(0.1),
+                            blurRadius: 8,
+                            offset: const Offset(0, 2),
+                          ),
+                        ],
                       ),
-                      child: Text(
-                        'account_type_premium'.tr,
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: AppThemeConfig.surface,
-                        ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.star_rounded,
+                            size: 14,
+                            color: AppThemeConfig.primary,
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            'account_type_premium'.tr,
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              color: AppThemeConfig.primary,
+                            ),
+                          ),
+                        ],
                       ),
                     )
                   else
-                    Text(
-                      'account_type_basic'.tr,
-                      style: TextStyle(fontSize: 16),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 6,
+                      ),
+                      decoration: BoxDecoration(
+                        color: AppThemeConfig.textSecondary.withOpacity(0.1),
+                        border: Border.all(
+                          color: AppThemeConfig.textSecondary.withOpacity(0.3),
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.person_outline,
+                            size: 14,
+                            color: AppThemeConfig.textSecondary,
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            'account_type_basic'.tr,
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                              color: AppThemeConfig.textSecondary,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                 ],
               );
@@ -186,13 +243,21 @@ class AccountView extends GetView<AccountController> {
               splashColor: Colors.transparent,
             ),
 
-          // Aboneliği iptal et
-          ListTile(
-            title: Text('account_cancel_subscription'.tr),
-            trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-            onTap: controller.cancelSubscription,
-            splashColor: Colors.transparent,
-          ),
+          // Aboneliği iptal et - Sadece inceleme modunda göster (normal modda gizle)
+          Obx(() {
+            final appSettings = Get.find<AppSettingsService>();
+            final isReviewMode = appSettings.isAppReviewMode;
+
+            // Normal modda ise gösterme (sadece inceleme modunda göster)
+            if (!isReviewMode) return const SizedBox.shrink();
+
+            return ListTile(
+              title: Text('account_cancel_subscription'.tr),
+              trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+              onTap: controller.cancelSubscription,
+              splashColor: Colors.transparent,
+            );
+          }),
 
           // Premium olmayan kullanıcılar için premium butonu
           // Obx(() {

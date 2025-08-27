@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:gemai/app/shared/helpers/my_helper.dart';
 import 'package:get/get.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:share_plus/share_plus.dart';
@@ -14,7 +15,7 @@ class AppShare extends GetxController {
       storeUrl = 'https://play.google.com/store/apps/details?id=$packageName';
     } else if (Platform.isIOS) {
       storeUrl =
-          'https://apps.apple.com/app/<your-app-id>'; // Replace <your-app-id> with your App Store ID
+          'https://apps.apple.com/app/${MyHelper.appStoreId}'; // Replace <your-app-id> with your App Store ID
     } else {
       throw UnsupportedError("Unsupported platform");
     }
@@ -35,7 +36,7 @@ class AppShare extends GetxController {
       shareUrl = 'http://play.google.com/store/apps/details?id=$packageName';
     } else if (Platform.isIOS) {
       shareUrl =
-          'https://apps.apple.com/app/<your-app-id>'; // Replace <your-app-id> with your App Store ID
+          'https://apps.apple.com/app/${MyHelper.appStoreId}'; // Replace <your-app-id> with your App Store ID
     } else {
       throw UnsupportedError("Unsupported platform");
     }

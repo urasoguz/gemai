@@ -149,8 +149,22 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final networkService = Get.find<NetworkService>();
 
+    // Üst bardaki sistem metinlerini beyaz yap
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent, // Status bar şeffaf
+        statusBarIconBrightness: Brightness.light, // Status bar ikonları beyaz
+        statusBarBrightness: Brightness.dark, // iOS için status bar koyu tema
+        systemNavigationBarColor: Colors.transparent, // Alt navigasyon şeffaf
+        systemNavigationBarIconBrightness:
+            Brightness.dark, // Alt navigasyon ikonları koyu
+      ),
+    );
+
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      showPerformanceOverlay: false, // Performance overlay'i kapat
+      showSemanticsDebugger: false, // Semantics debugger'ı kapat
       navigatorKey: MyDialog.navigatorKey,
       theme: _buildThemeData(),
       translations: AppTranslations(),

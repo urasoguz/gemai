@@ -128,8 +128,8 @@ class NoInternetScreen extends StatelessWidget {
                     // Bağlantıyı kontrol et
                     final isConnected = await networkService.checkConnection();
                     if (isConnected) {
-                      // Bağlantı varsa uygulamayı yeniden başlat
-                      Get.offAllNamed('/');
+                      // Bağlantı varsa sadece bu ekranı kapat, kaldığı yerden devam et
+                      Get.back();
                     }
                   },
                   style: ElevatedButton.styleFrom(
@@ -156,7 +156,6 @@ class NoInternetScreen extends StatelessWidget {
                 child: OutlinedButton(
                   onPressed: () {
                     // WiFi ayarlarını aç
-                    // Bu kısım platform-specific olabilir
                     launchUrl(Uri.parse('settings://'));
                   },
                   style: OutlinedButton.styleFrom(

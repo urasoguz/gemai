@@ -10,7 +10,8 @@ class ApiClient {
   final String appBaseUrl;
   final GetStorage sharedPreferences;
   static const String noInternetMessage = 'connection_to_api_server_failed';
-  final int timeoutInSeconds = 30;
+  final int timeoutInSeconds =
+      120; // 2 dakika - büyük görseller için yeterli süre
 
   String? token;
   late Map<String, String> _mainHeaders;

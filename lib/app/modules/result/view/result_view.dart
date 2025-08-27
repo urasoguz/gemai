@@ -15,7 +15,7 @@ import '../widgets/result_info_card.dart';
 import '../widgets/result_chip_card.dart';
 import '../widgets/result_description_card.dart';
 import '../widgets/result_footer_note.dart';
-import '../widgets/result_reference_card.dart';
+//import '../widgets/result_reference_card.dart.n';
 
 class ResultView extends GetView<ResultController> {
   const ResultView({super.key});
@@ -199,11 +199,11 @@ class ResultView extends GetView<ResultController> {
                 ),
 
               // Reference card'ı
-              if (result.reference != null) ...[
-                const SizedBox(height: 10),
-                ResultReferenceCard(reference: result.reference!),
-                const SizedBox(height: 10),
-              ],
+              // if (result.reference != null) ...[
+              //   const SizedBox(height: 10),
+              //   //ResultReferenceCard(reference: result.reference!),
+              //   const SizedBox(height: 10),
+              // ],
 
               // Footer notu
               ResultFooterNote(),
@@ -371,11 +371,11 @@ class ResultView extends GetView<ResultController> {
                       ),
 
                       // Reference card'ı
-                      if (result.reference != null) ...[
-                        const SizedBox(height: 10),
-                        ResultReferenceCard(reference: result.reference!),
-                        const SizedBox(height: 10),
-                      ],
+                      // if (result.reference != null) ...[
+                      //   const SizedBox(height: 10),
+                      //   //ResultReferenceCard(reference: result.reference!),
+                      //   const SizedBox(height: 10),
+                      // ],
 
                       // Footer notu
                       ResultFooterNote(),

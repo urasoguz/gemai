@@ -64,81 +64,109 @@ class _HomeAnalyzeButtonWidgetState extends State<HomeAnalyzeButtonWidget>
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        GestureDetector(
-          onTapDown: _onTapDown,
-          onTapUp: _onTapUp,
-          onTapCancel: _onTapCancel,
-          child: AnimatedBuilder(
-            animation: _scaleAnim,
-            builder: (context, child) {
-              return Transform.scale(scale: _scaleAnim.value, child: child);
-            },
-            child: Column(
-              children: [
-                Container(
-                  width: 110,
-                  height: 110,
+    return Container(
+      width: double.infinity,
+      margin: const EdgeInsets.symmetric(horizontal: 20),
+      decoration: BoxDecoration(
+        color: AppThemeConfig.background,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(1),
+        child: Column(
+          children: [
+            // Üstteki görsel (assets/home/home_top.png) - sınırlı
+            ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: Image.asset(
+                'assets/home/home_top.png',
+                width: double.infinity,
+                height: 150,
+                fit: BoxFit.fill,
+              ),
+            ),
+
+            const SizedBox(height: 16),
+
+            // Ana başlık
+            Text(
+              'Know Your Rocks',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: AppThemeConfig.textPrimary,
+                height: 1.1,
+              ),
+              textAlign: TextAlign.center,
+            ),
+
+            const SizedBox(height: 2),
+
+            // Alt başlık
+            Text(
+              'Tap here to recognize a rock',
+              style: TextStyle(
+                fontSize: 13,
+                color: AppThemeConfig.textSecondary,
+                height: 1.1,
+              ),
+              textAlign: TextAlign.center,
+            ),
+
+            const SizedBox(height: 16),
+
+            // Identify butonu
+            GestureDetector(
+              onTapDown: _onTapDown,
+              onTapUp: _onTapUp,
+              onTapCancel: _onTapCancel,
+              child: AnimatedBuilder(
+                animation: _scaleAnim,
+                builder: (context, child) {
+                  return Transform.scale(scale: _scaleAnim.value, child: child);
+                },
+                child: Container(
+                  width: 200,
+                  height: 48,
                   decoration: BoxDecoration(
-                    shape: BoxShape.circle,
+                    borderRadius: BorderRadius.circular(32),
                     gradient: LinearGradient(
                       colors: [
                         AppThemeConfig.gradientPrimary,
                         AppThemeConfig.gradientSecondary,
                       ],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: AppThemeConfig.buttonShadow.withValues(
-                          alpha: 0.10,
-                        ),
-                        blurRadius: 24,
-                        offset: const Offset(0, 8),
+                        color: Colors.black.withValues(alpha: 0.2),
+                        blurRadius: 12,
+                        offset: const Offset(0, 4),
                       ),
                     ],
                   ),
-                  child: Center(
-                    child: Container(
-                      width: 64,
-                      height: 64,
-                      decoration: BoxDecoration(
-                        color: AppThemeConfig.primary,
-                        shape: BoxShape.circle,
-                        boxShadow: [
-                          BoxShadow(
-                            color: AppThemeConfig.buttonShadow.withValues(
-                              alpha: 0.04,
-                            ),
-                            blurRadius: 8,
-                            offset: const Offset(0, 2),
-                          ),
-                        ],
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.add, color: Colors.white, size: 20),
+                      const SizedBox(width: 8),
+                      Text(
+                        'Identify',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                      child: Icon(
-                        CupertinoIcons.camera_viewfinder,
-                        color: AppThemeConfig.analyzeButtonIcon,
-                        size: 38,
-                      ),
-                    ),
+                    ],
                   ),
                 ),
-                const SizedBox(height: 14),
-                Text(
-                  'home_analyze_button_title'.tr,
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: AppThemeConfig.textTertiary,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }

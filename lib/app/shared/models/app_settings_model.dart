@@ -19,12 +19,14 @@ class PaywallSettings {
   final bool? paywallDelayedCloseButton;
   final int? paywallCloseButtonDelay;
   final bool? paywallCloseButton;
+  final int? paywallUi; // 1: eski tasarım, 2: yeni tasarım
 
   PaywallSettings({
     this.paywallEveryLaunch,
     this.paywallDelayedCloseButton,
     this.paywallCloseButtonDelay,
     this.paywallCloseButton,
+    this.paywallUi,
   });
 
   factory PaywallSettings.fromJson(Map<String, dynamic> json) {
@@ -33,6 +35,7 @@ class PaywallSettings {
       paywallDelayedCloseButton: json['paywall_delayed_close_button'],
       paywallCloseButtonDelay: json['paywall_close_button_delay'],
       paywallCloseButton: json['paywall_close_button'],
+      paywallUi: json['paywall_ui'],
     );
   }
 
@@ -42,6 +45,7 @@ class PaywallSettings {
       'paywall_delayed_close_button': paywallDelayedCloseButton,
       'paywall_close_button_delay': paywallCloseButtonDelay,
       'paywall_close_button': paywallCloseButton,
+      'paywall_ui': paywallUi,
     };
   }
 }

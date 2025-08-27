@@ -10,7 +10,7 @@ import 'package:flutter/foundation.dart';
 class OnboardingController extends GetxController {
   late final UserController userController;
   final RxInt pageIndex = 0.obs;
-  final int pageCount = 3;
+  final int pageCount = 3; // Tekrar 3'e döndürüldü
   final box = GetStorage();
 
   final ApiClient apiClient;
@@ -29,9 +29,25 @@ class OnboardingController extends GetxController {
     }
   }
 
+  /// Sonraki sayfaya geç
   void nextPage() {
-    if (pageIndex.value < pageCount - 1) {
+    if (pageIndex.value < 2) {
+      // Tekrar 2'ye döndürüldü
+      // Sayfa geçişini animasyonlu yap
       pageIndex.value++;
+      print('Onboarding: Sayfa ${pageIndex.value + 1} açıldı');
+    } else {
+      // Son sayfada paywall'a geç - onboarding'den geldiğini belirt
+      Get.offAllNamed('/premium', arguments: {'fromOnboarding': true});
+    }
+  }
+
+  /// Önceki sayfaya dön
+  void previousPage() {
+    if (pageIndex.value > 0) {
+      // Sayfa geçişini animasyonlu yap
+      pageIndex.value--;
+      print('Onboarding: Sayfa ${pageIndex.value + 1} açıldı');
     }
   }
 
@@ -59,7 +75,7 @@ class OnboardingController extends GetxController {
         if (kDebugMode) {
           print('💎 Premium ekranına yönlendiriliyor...');
         }
-        Get.offAllNamed(AppRoutes.premium);
+        Get.offAllNamed(AppRoutes.premium, arguments: {'fromOnboarding': true});
         return;
       }
 

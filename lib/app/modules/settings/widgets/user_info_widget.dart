@@ -48,36 +48,83 @@ class UserInfoWidget extends GetView<UserController> {
                             true)
                           Container(
                             padding: const EdgeInsets.symmetric(
-                              horizontal: 8,
-                              vertical: 4,
+                              horizontal: 10,
+                              vertical: 6,
                             ),
                             decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                  AppThemeConfig.warning,
-                                  AppThemeConfig.error,
-                                ],
-                                begin: Alignment.centerLeft,
-                                end: Alignment.centerRight,
+                              color: AppThemeConfig.primary.withOpacity(0.1),
+                              border: Border.all(
+                                color: AppThemeConfig.primary.withOpacity(0.3),
+                                width: 1,
                               ),
-                              borderRadius: BorderRadius.circular(12),
+                              borderRadius: BorderRadius.circular(20),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: AppThemeConfig.primary.withOpacity(
+                                    0.1,
+                                  ),
+                                  blurRadius: 8,
+                                  offset: const Offset(0, 2),
+                                ),
+                              ],
                             ),
-                            child: Text(
-                              'account_type_premium'.tr,
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                                color: AppThemeConfig.surface,
-                              ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
+                                  Icons.star_rounded,
+                                  size: 14,
+                                  color: AppThemeConfig.primary,
+                                ),
+                                const SizedBox(width: 4),
+                                Text(
+                                  'account_type_premium'.tr,
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600,
+                                    color: AppThemeConfig.primary,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         if (GetStorage().read(MyHelper.isAccountPremium) ==
                             false)
-                          Text(
-                            'account_type_basic'.tr,
-                            style: TextStyle(
-                              color: AppThemeConfig.error,
-                              fontSize: 12,
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 6,
+                            ),
+                            decoration: BoxDecoration(
+                              color: AppThemeConfig.textSecondary.withOpacity(
+                                0.1,
+                              ),
+                              border: Border.all(
+                                color: AppThemeConfig.textSecondary.withOpacity(
+                                  0.3,
+                                ),
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
+                                  Icons.person_outline,
+                                  size: 14,
+                                  color: AppThemeConfig.textSecondary,
+                                ),
+                                const SizedBox(width: 4),
+                                Text(
+                                  'account_type_basic'.tr,
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w500,
+                                    color: AppThemeConfig.textSecondary,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
 

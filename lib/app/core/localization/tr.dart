@@ -52,9 +52,9 @@ const Map<String, String> tr = {
   'plan_title_yearly': 'Yıllık Plan',
   'plan_title_monthly': 'Aylık Plan',
   'plan_title_weekly': 'Haftalık Plan',
-  'trial_title_days': '{days} gün ücretsiz',
-  'trial_title_week': '1 hafta ücretsiz',
-  'trial_title_month': '1 ay ücretsiz',
+  'trial_title_days': '{days} Gün Ücretsiz',
+  'trial_title_week': '1 Hafta Ücretsiz',
+  'trial_title_month': '1 Ay Ücretsiz',
   'plan_title_lifetime': 'Ömür Boyu',
   'best_value': 'EN İYİ FİYAT',
   'continue': 'Devam Et',
@@ -106,13 +106,14 @@ const Map<String, String> tr = {
   //home
   'home_welcome_title': 'Hoş geldin',
   'home_welcome_desc':
-      'Cildini analiz etmeye başla ve geçmiş sonuçlarını incele.',
-  'home_analyze_button_title': 'Cilt analizi başlatmak için dokun.',
+      'Değerli taşlarını analiz etmeye başla ve geçmiş sonuçlarını incele.',
+  'home_analyze_button_title': 'Taş analizi başlatmak için dokun.',
   'home_tip_title':
       'Daha iyi sonuçlar için gün ışığında yada aydınlık bir ortamda fotoğraf çekin.',
   'home_recent_history_title': 'Son İşlemler',
   'home_recent_history_view_more': 'Daha fazla gör',
   'home_recent_history_no_history': 'Henüz analiz yapılmadı.',
+  'home_popular_gems_title': 'Popüler Taşlar',
   'home': 'Ana Sayfa',
   'history': 'Geçmiş',
 
@@ -124,6 +125,9 @@ const Map<String, String> tr = {
 
   //history
   'history_no_history': 'Henüz analiz yapılmadı.',
+  'history_favorites': 'Favoriler',
+  'history_all': 'Tümü',
+  'history_no_favorites': 'Henüz favori analiz yok.',
 
   // Tarih formatlaması için çeviri anahtarları
   'just_now': 'Az önce',

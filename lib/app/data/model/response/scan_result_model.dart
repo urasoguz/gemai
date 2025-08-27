@@ -1,284 +1,302 @@
 class ScanResultModel {
-  // Temel bilgiler
-  final String? imagePath;
-  final DateTime? createdAt;
-  final bool isFavorite; // Favori durumu
-
-  // Gem basic info
-  final String? type;
-  final String? chemicalFormula;
-  final int? mohsHardness;
-  final String? colorSpectrum;
-  final String? description;
-
-  // Value analysis
-  final String? rawValuePerKg;
-  final String? processedValuePerCarat;
-  final String? collectorMarketValue;
-  final String? marketReferenceYear;
-
-  // Scientific verification
-  final int? rarityScore;
-  final List<String>? possibleFakeIndicators;
-  final String? crystalSystem;
-  final String? estimatedRefractiveIndex;
-
-  // Commercial collector info
-  final List<String>? foundRegions;
-  final String? imitationWarning;
-  final int? processingDifficulty;
-
-  // Safety legal info
-  final String? radioactivity;
-  final List<String>? legalRestrictions;
-  final List<String>? cleaningMaintenanceTips;
-
-  // Visual properties
-  final String? transparency;
-  final String? luster;
-  final String? inclusions;
-
-  // Additional tools
-  final List<String>? similarStones;
-  final String? astrologicalMythologicalMeaning;
-
-  // Sistem bilgileri
-  final OptimizationInfo? optimizationInfo;
-  final ReferenceModel? reference;
+  final dynamic id;
+  final dynamic imagePath;
+  final DateTime? createdAt; // DateTime? olarak geri getirildi
+  final dynamic isFavorite;
+  final dynamic type;
+  final dynamic chemicalFormula;
+  final dynamic mohsHardness;
+  final dynamic colorSpectrum;
+  final dynamic description;
+  final dynamic rawValuePerKg;
+  final dynamic processedValuePerCarat;
+  final dynamic collectorMarketValue;
+  final dynamic marketReferenceYear;
+  final dynamic valuePerCarat;
+  final dynamic rarityScore;
+  final dynamic possibleFakeIndicators;
+  final dynamic crystalSystem;
+  final dynamic estimatedRefractiveIndex;
+  final dynamic processingDifficulty;
+  final dynamic foundRegions;
+  final dynamic imitationWarning;
+  final dynamic radioactivity;
+  final dynamic legalRestrictions;
+  final dynamic cleaningMaintenanceTips;
+  final dynamic transparency;
+  final dynamic luster;
+  final dynamic inclusions;
+  final dynamic similarStones;
+  final dynamic astrologicalMythologicalMeaning;
+  final dynamic extendedColorSpectrum;
+  final dynamic magnetism;
+  final dynamic tenacity;
+  final dynamic cleavage;
+  final dynamic fracture;
+  final dynamic density;
+  final dynamic chemicalClassification;
+  final dynamic elements;
+  final dynamic commonImpurities;
+  final dynamic formation;
+  final dynamic ageRange;
+  final dynamic ageDescription;
+  final dynamic uses;
+  final dynamic culturalSignificance;
 
   ScanResultModel({
+    this.id,
     this.imagePath,
-    this.createdAt,
-    this.isFavorite = false, // Varsayılan olarak favori değil
-    // Gem basic info
+    this.createdAt, // required kaldırıldı
+    this.isFavorite,
     this.type,
     this.chemicalFormula,
     this.mohsHardness,
     this.colorSpectrum,
     this.description,
-    // Value analysis
     this.rawValuePerKg,
     this.processedValuePerCarat,
     this.collectorMarketValue,
     this.marketReferenceYear,
-    // Scientific verification
+    this.valuePerCarat,
     this.rarityScore,
     this.possibleFakeIndicators,
     this.crystalSystem,
     this.estimatedRefractiveIndex,
-    // Commercial collector info
+    this.processingDifficulty,
     this.foundRegions,
     this.imitationWarning,
-    this.processingDifficulty,
-    // Safety legal info
     this.radioactivity,
     this.legalRestrictions,
     this.cleaningMaintenanceTips,
-    // Visual properties
     this.transparency,
     this.luster,
     this.inclusions,
-    // Additional tools
     this.similarStones,
     this.astrologicalMythologicalMeaning,
-    // Sistem bilgileri
-    this.optimizationInfo,
-    this.reference,
+    this.extendedColorSpectrum,
+    this.magnetism,
+    this.tenacity,
+    this.cleavage,
+    this.fracture,
+    this.density,
+    this.chemicalClassification,
+    this.elements,
+    this.commonImpurities,
+    this.formation,
+    this.ageRange,
+    this.ageDescription,
+    this.uses,
+    this.culturalSignificance,
   });
 
   factory ScanResultModel.fromMap(Map<String, dynamic> map) {
-    final reference =
-        map['reference'] != null
-            ? ReferenceModel.fromMap(map['reference'])
-            : null;
+    List<dynamic> _asDynamicList(dynamic value) {
+      if (value == null) return [];
+      if (value is List) {
+        return value; // Direkt listeyi döndür
+      }
+      return [];
+    }
 
     return ScanResultModel(
-      imagePath: map['imagePath'] as String?,
+      id: map['id'],
+      imagePath:
+          map['imagePath'] ??
+          map['image_path'], // Hem imagePath hem de image_path key'lerini kontrol et
       createdAt:
-          map['createdAt'] != null ? DateTime.tryParse(map['createdAt']) : null,
-      isFavorite: map['isFavorite'] as bool? ?? false, // Favori durumu
-      // Gem basic info
-      type: map['type'] as String?,
-      chemicalFormula: map['chemical_formula'] as String?,
-      mohsHardness: map['mohs_hardness'] as int?,
-      colorSpectrum: map['color_spectrum'] as String?,
-      description: map['description'] as String?,
-      // Value analysis
-      rawValuePerKg: map['raw_value_per_kg'] as String?,
-      processedValuePerCarat: map['processed_value_per_carat'] as String?,
-      collectorMarketValue: map['collector_market_value'] as String?,
-      marketReferenceYear: map['market_reference_year'] as String?,
-      // Scientific verification
-      rarityScore: map['rarity_score'] as int?,
-      possibleFakeIndicators:
-          (map['possible_fake_indicators'] as List?)
-              ?.map((e) => e.toString())
-              .toList(),
-      crystalSystem: map['crystal_system'] as String?,
-      estimatedRefractiveIndex: map['estimated_refractive_index'] as String?,
-      // Commercial collector info
-      foundRegions:
-          (map['found_regions'] as List?)?.map((e) => e.toString()).toList(),
-      imitationWarning: map['imitation_warning'] as String?,
-      processingDifficulty: map['processing_difficulty'] as int?,
-      // Safety legal info
-      radioactivity: map['radioactivity'] as String?,
-      legalRestrictions:
-          (map['legal_restrictions'] as List?)
-              ?.map((e) => e.toString())
-              .toList(),
-      cleaningMaintenanceTips:
-          (map['cleaning_maintenance_tips'] as List?)
-              ?.map((e) => e.toString())
-              .toList(),
-      // Visual properties
-      transparency: map['transparency'] as String?,
-      luster: map['luster'] as String?,
-      inclusions: map['inclusions'] as String?,
-      // Additional tools
-      similarStones:
-          (map['similar_stones'] as List?)?.map((e) => e.toString()).toList(),
-      astrologicalMythologicalMeaning:
-          map['astrological_mythological_meaning'] as String?,
-      // Sistem bilgileri
-      optimizationInfo:
-          map['optimization_info'] != null
-              ? OptimizationInfo.fromMap(map['optimization_info'])
-              : null,
-      reference: reference,
+          map['created_at'] != null
+              ? DateTime.tryParse(map['created_at'].toString())
+              : null, // Eski haline geri getirildi
+      isFavorite: map['is_favorite'],
+      type: map['type'],
+      chemicalFormula: map['chemical_formula'],
+      mohsHardness: map['mohs_hardness'],
+      colorSpectrum: map['color_spectrum'],
+      description: map['description'],
+      rawValuePerKg: map['raw_value_per_kg'],
+      processedValuePerCarat: map['processed_value_per_carat'],
+      collectorMarketValue: map['collector_market_value'],
+      marketReferenceYear: map['market_reference_year'],
+      valuePerCarat: map['value_per_carat'],
+      rarityScore: map['rarity_score'],
+      possibleFakeIndicators: _asDynamicList(map['possible_fake_indicators']),
+      crystalSystem: map['crystal_system'],
+      estimatedRefractiveIndex: map['estimated_refractive_index'],
+      processingDifficulty: map['processing_difficulty'],
+      foundRegions: _asDynamicList(map['found_regions']),
+      imitationWarning: map['imitation_warning'],
+      radioactivity: map['radioactivity'],
+      legalRestrictions: _asDynamicList(map['legal_restrictions']),
+      cleaningMaintenanceTips: _asDynamicList(map['cleaning_maintenance_tips']),
+      transparency: _asDynamicList(map['transparency']),
+      luster: _asDynamicList(map['luster']),
+      inclusions: map['inclusions'],
+      similarStones: _asDynamicList(map['similar_stones']),
+      astrologicalMythologicalMeaning: map['astrological_mythological_meaning'],
+      extendedColorSpectrum: _asDynamicList(map['extended_color_spectrum']),
+      magnetism: map['magnetism'],
+      tenacity: map['tenacity'],
+      cleavage: map['cleavage'],
+      fracture: map['fracture'],
+      density: map['density'],
+      chemicalClassification: map['chemical_classification'],
+      elements: _asDynamicList(map['elements']),
+      commonImpurities: _asDynamicList(map['common_impurities']),
+      formation: map['formation'],
+      ageRange: map['age_range'],
+      ageDescription: map['age_description'],
+      uses: map['uses'],
+      culturalSignificance: map['cultural_significance'],
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
-      'imagePath': imagePath,
-      'createdAt': createdAt?.toIso8601String(),
-      'isFavorite': isFavorite, // Favori durumu
-      // Gem basic info
+      'id': id,
+      'imagePath': imagePath, // imagePath key'ini de ekle
+      'image_path': imagePath, // Eski key'i de koru
+      'created_at':
+          createdAt?.toIso8601String(), // DateTime olarak geri getirildi
+      'is_favorite': isFavorite,
       'type': type,
       'chemical_formula': chemicalFormula,
       'mohs_hardness': mohsHardness,
       'color_spectrum': colorSpectrum,
       'description': description,
-      // Value analysis
       'raw_value_per_kg': rawValuePerKg,
       'processed_value_per_carat': processedValuePerCarat,
       'collector_market_value': collectorMarketValue,
       'market_reference_year': marketReferenceYear,
-      // Scientific verification
+      'value_per_carat': valuePerCarat,
       'rarity_score': rarityScore,
       'possible_fake_indicators': possibleFakeIndicators,
       'crystal_system': crystalSystem,
       'estimated_refractive_index': estimatedRefractiveIndex,
-      // Commercial collector info
+      'processing_difficulty': processingDifficulty,
       'found_regions': foundRegions,
       'imitation_warning': imitationWarning,
-      'processing_difficulty': processingDifficulty,
-      // Safety legal info
       'radioactivity': radioactivity,
       'legal_restrictions': legalRestrictions,
       'cleaning_maintenance_tips': cleaningMaintenanceTips,
-      // Visual properties
       'transparency': transparency,
       'luster': luster,
       'inclusions': inclusions,
-      // Additional tools
       'similar_stones': similarStones,
       'astrological_mythological_meaning': astrologicalMythologicalMeaning,
-      // Sistem bilgileri
-      'optimization_info': optimizationInfo?.toMap(),
-      'reference': reference?.toMap(),
+      'extended_color_spectrum': extendedColorSpectrum,
+      'magnetism': magnetism,
+      'tenacity': tenacity,
+      'cleavage': cleavage,
+      'fracture': fracture,
+      'density': density,
+      'chemical_classification': chemicalClassification,
+      'elements': elements,
+      'common_impurities': commonImpurities,
+      'formation': formation,
+      'age_range': ageRange,
+      'age_description': ageDescription,
+      'uses': uses,
+      'cultural_significance': culturalSignificance,
     };
   }
 
-  /// Favori durumunu değiştir
-  ScanResultModel toggleFavorite() {
+  ScanResultModel copyWith({
+    dynamic id,
+    dynamic imagePath,
+    dynamic createdAt,
+    dynamic isFavorite,
+    dynamic type,
+    dynamic chemicalFormula,
+    dynamic mohsHardness,
+    dynamic colorSpectrum,
+    dynamic description,
+    dynamic rawValuePerKg,
+    dynamic processedValuePerCarat,
+    dynamic collectorMarketValue,
+    dynamic marketReferenceYear,
+    dynamic valuePerCarat,
+    dynamic rarityScore,
+    dynamic possibleFakeIndicators,
+    dynamic crystalSystem,
+    dynamic estimatedRefractiveIndex,
+    dynamic processingDifficulty,
+    dynamic foundRegions,
+    dynamic imitationWarning,
+    dynamic radioactivity,
+    dynamic legalRestrictions,
+    dynamic cleaningMaintenanceTips,
+    dynamic transparency,
+    dynamic luster,
+    dynamic inclusions,
+    dynamic similarStones,
+    dynamic astrologicalMythologicalMeaning,
+    dynamic extendedColorSpectrum,
+    dynamic magnetism,
+    dynamic tenacity,
+    dynamic cleavage,
+    dynamic fracture,
+    dynamic density,
+    dynamic chemicalClassification,
+    dynamic elements,
+    dynamic commonImpurities,
+    dynamic formation,
+    dynamic ageRange,
+    dynamic ageDescription,
+    dynamic uses,
+    dynamic culturalSignificance,
+  }) {
     return ScanResultModel(
-      imagePath: imagePath,
-      createdAt: createdAt,
-      isFavorite: !isFavorite, // Favori durumunu tersine çevir
-      // Gem basic info
-      type: type,
-      chemicalFormula: chemicalFormula,
-      mohsHardness: mohsHardness,
-      colorSpectrum: colorSpectrum,
-      description: description,
-      // Value analysis
-      rawValuePerKg: rawValuePerKg,
-      processedValuePerCarat: processedValuePerCarat,
-      collectorMarketValue: collectorMarketValue,
-      marketReferenceYear: marketReferenceYear,
-      // Scientific verification
-      rarityScore: rarityScore,
-      possibleFakeIndicators: possibleFakeIndicators,
-      crystalSystem: crystalSystem,
-      estimatedRefractiveIndex: estimatedRefractiveIndex,
-      // Commercial collector info
-      foundRegions: foundRegions,
-      imitationWarning: imitationWarning,
-      processingDifficulty: processingDifficulty,
-      // Safety legal info
-      radioactivity: radioactivity,
-      legalRestrictions: legalRestrictions,
-      cleaningMaintenanceTips: cleaningMaintenanceTips,
-      // Visual properties
-      transparency: transparency,
-      luster: luster,
-      inclusions: inclusions,
-      // Additional tools
-      similarStones: similarStones,
-      astrologicalMythologicalMeaning: astrologicalMythologicalMeaning,
-      // Sistem bilgileri
-      optimizationInfo: optimizationInfo,
-      reference: reference,
+      id: id ?? this.id,
+      imagePath: imagePath ?? this.imagePath,
+      createdAt: createdAt ?? this.createdAt,
+      isFavorite: isFavorite ?? this.isFavorite,
+      type: type ?? this.type,
+      chemicalFormula: chemicalFormula ?? this.chemicalFormula,
+      mohsHardness: mohsHardness ?? this.mohsHardness,
+      colorSpectrum: colorSpectrum ?? this.colorSpectrum,
+      description: description ?? this.description,
+      rawValuePerKg: rawValuePerKg ?? this.rawValuePerKg,
+      processedValuePerCarat:
+          processedValuePerCarat ?? this.processedValuePerCarat,
+      collectorMarketValue: collectorMarketValue ?? this.collectorMarketValue,
+      marketReferenceYear: marketReferenceYear ?? this.marketReferenceYear,
+      valuePerCarat: valuePerCarat ?? this.valuePerCarat,
+      rarityScore: rarityScore ?? this.rarityScore,
+      possibleFakeIndicators:
+          possibleFakeIndicators ?? this.possibleFakeIndicators,
+      crystalSystem: crystalSystem ?? this.crystalSystem,
+      estimatedRefractiveIndex:
+          estimatedRefractiveIndex ?? this.estimatedRefractiveIndex,
+      processingDifficulty: processingDifficulty ?? this.processingDifficulty,
+      foundRegions: foundRegions ?? this.foundRegions,
+      imitationWarning: imitationWarning ?? this.imitationWarning,
+      radioactivity: radioactivity ?? this.radioactivity,
+      legalRestrictions: legalRestrictions ?? this.legalRestrictions,
+      cleaningMaintenanceTips:
+          cleaningMaintenanceTips ?? this.cleaningMaintenanceTips,
+      transparency: transparency ?? this.transparency,
+      luster: luster ?? this.luster,
+      inclusions: inclusions ?? this.inclusions,
+      similarStones: similarStones ?? this.similarStones,
+      astrologicalMythologicalMeaning:
+          astrologicalMythologicalMeaning ??
+          this.astrologicalMythologicalMeaning,
+      extendedColorSpectrum:
+          extendedColorSpectrum ?? this.extendedColorSpectrum,
+      magnetism: magnetism ?? this.magnetism,
+      tenacity: tenacity ?? this.tenacity,
+      cleavage: cleavage ?? this.cleavage,
+      fracture: fracture ?? this.fracture,
+      density: density ?? this.density,
+      chemicalClassification:
+          chemicalClassification ?? this.chemicalClassification,
+      elements: elements ?? this.elements,
+      commonImpurities: commonImpurities ?? this.commonImpurities,
+      formation: formation ?? this.formation,
+      ageRange: ageRange ?? this.ageRange,
+      ageDescription: ageDescription ?? this.ageDescription,
+      uses: uses ?? this.uses,
+      culturalSignificance: culturalSignificance ?? this.culturalSignificance,
     );
-  }
-}
-
-/// Referans bilgileri için model
-class ReferenceModel {
-  final String label;
-  final String url;
-
-  ReferenceModel({required this.label, required this.url});
-
-  factory ReferenceModel.fromMap(Map<String, dynamic> map) {
-    return ReferenceModel(
-      label: map['label'] as String? ?? '',
-      url: map['url'] as String? ?? '',
-    );
-  }
-
-  Map<String, dynamic> toMap() {
-    return {'label': label, 'url': url};
-  }
-}
-
-/// Optimizasyon bilgileri için model
-class OptimizationInfo {
-  final bool applied;
-  final double compressionRatio;
-  final int bytesSaved;
-
-  OptimizationInfo({
-    required this.applied,
-    required this.compressionRatio,
-    required this.bytesSaved,
-  });
-
-  factory OptimizationInfo.fromMap(Map<String, dynamic> map) {
-    return OptimizationInfo(
-      applied: map['applied'] as bool? ?? false,
-      compressionRatio: (map['compression_ratio'] as num?)?.toDouble() ?? 0.0,
-      bytesSaved: map['bytes_saved'] as int? ?? 0,
-    );
-  }
-
-  Map<String, dynamic> toMap() {
-    return {
-      'applied': applied,
-      'compression_ratio': compressionRatio,
-      'bytes_saved': bytesSaved,
-    };
   }
 }

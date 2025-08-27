@@ -21,7 +21,7 @@ class AppThemeConfig {
   static const Color textSecondary = Color(0xFF757575); // İkincil metin rengi
   static const Color textTertiary = Color(0xFF222222); // Üçüncü metin rengi
   static const Color textHint = Color(0xFFBDBDBD); // İpucu metin rengi
-  static const Color textLink = Color(0xFF1268A4); // Link metin rengi
+  static const Color textLink = Color(0xFFD4A574); // Link metin rengi
 
   // ===== UI ELEMENT RENKLERİ =====
   static const Color appBar = Color(0xFFFFFFFF); // AppBar rengi
@@ -35,8 +35,11 @@ class AppThemeConfig {
   static const Color info = Color(0xFF2196F3); // Bilgi rengi
 
   // ===== GRADIENT RENKLERİ =====
-  static const Color gradientPrimary = Color(0xFF134E5E);
-  static const Color gradientSecondary = Color(0xFF71B280);
+  static const Color gradientPrimary = Color(0xFFE6D7B8);
+  static const Color gradientSecondary = Color(0xFFD4A574);
+
+  // static const Color gradientPrimary = Color(0xFFF5D58A);
+  // static const Color gradientSecondary = Color(0xFFD8A64E);
 
   // ===== BUTTON RENKLERİ =====
   static const Color buttonIcon = Color(0xFFFFFFFF);
@@ -63,6 +66,9 @@ class AppThemeConfig {
   static const Color cameraScanFrameBackground = Color(0xFF000000);
   static const Color cameraScanFrameTitleText = Color(0xFFFFFFFF);
   static const Color cameraScanFrameBorder = Color(0xFF71B280);
+  static const Color cameraScanFrameColor = Color(
+    0xFFFFD700,
+  ); // Sarı çerçeve rengi
   static const Color cameraScanDecorationBackground = Color(0xFFFFFFFF);
   static const Color cameraScanDecorationShadow = Color(0xFF000000);
   static const Color cameraScanDecorationText = Color(0xFF000000);
@@ -122,6 +128,7 @@ class AppThemeConfig {
   static const Color cardBackground = Color(0xFFFFFFFF);
   static const Color borderColor = Color(0xFFE0E0E0);
   static const Color black = Colors.black;
+  static const Color white = Color(0xFFFFFFFF);
   static const Color orange = Color(0xFFFF9800);
   static const Color red = Color(0xFFF44336);
 

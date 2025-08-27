@@ -5,14 +5,11 @@ import 'package:get/get.dart';
 import 'package:gemai/app/modules/history/widgets/history_list_item.dart';
 import 'package:gemai/app/modules/home/controller/home_controller.dart';
 
-class HomeRecentHistoryWidget extends StatelessWidget {
-  const HomeRecentHistoryWidget({super.key});
+class HomeRecentHistoryWidget extends GetView<HomeController> {
+  HomeRecentHistoryWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Tema renklerini al
-
-    final homeController = Get.find<HomeController>();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -41,7 +38,7 @@ class HomeRecentHistoryWidget extends StatelessWidget {
                 child: TextButton(
                   onPressed: () {
                     // Geçmiş sekmesine geç
-                    homeController.changeTab(1);
+                    controller.changeTab(1);
                   },
                   style: TextButton.styleFrom(
                     foregroundColor: AppThemeConfig.textLink,
@@ -68,33 +65,35 @@ class HomeRecentHistoryWidget extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 10),
-        Obx(() {
-          final items = homeController.recentItems;
-          if (items.isEmpty) {
-            return Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-              child: Text(
-                'home_recent_history_no_history'.tr,
-                style: TextStyle(
-                  color: AppThemeConfig.textSecondary,
-                  fontSize: 14,
+        GetBuilder<HomeController>(
+          builder: (controller) {
+            final items = controller.recentItems;
+            if (items.isEmpty) {
+              return Padding(
+                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                child: Text(
+                  'home_recent_history_no_history'.tr,
+                  style: TextStyle(
+                    color: AppThemeConfig.textSecondary,
+                    fontSize: 14,
+                  ),
+                ),
+              );
+            }
+            return Column(
+              children: List.generate(
+                items.length > 2 ? 2 : items.length,
+                (i) => HistoryListItem(
+                  item: items[i],
+                  index: i,
+                  onTap: () {
+                    Get.toNamed(AppRoutes.gemResult, arguments: items[i].id);
+                  },
                 ),
               ),
             );
-          }
-          return Column(
-            children: List.generate(
-              items.length > 2 ? 2 : items.length,
-              (i) => HistoryListItem(
-                item: items[i],
-                index: i,
-                onTap: () {
-                  Get.toNamed(AppRoutes.result, arguments: items[i].id);
-                },
-              ),
-            ),
-          );
-        }),
+          },
+        ),
       ],
     );
   }

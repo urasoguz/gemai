@@ -17,7 +17,8 @@ class HomeBottomNavBar extends StatelessWidget {
       color: AppThemeConfig.bottomNav,
       elevation: 0,
       shape: const CircularNotchedRectangle(),
-      notchMargin: 8,
+      height: 70,
+      notchMargin: 5,
       child: SizedBox(
         height: 64,
         child: Row(

@@ -175,6 +175,9 @@ class AppSettingsService extends GetxService {
       paywallSettings?.paywallCloseButtonDelay ??
       _defaultPaywallCloseButtonDelay;
 
+  /// Paywall UI tasarımı (1: eski tasarım, 2: yeni tasarım)
+  int get paywallUi => paywallSettings?.paywallUi ?? _defaultPaywallUi;
+
   /// İletişim e-posta adresi
   String? get contactEmail => uiSettings?.mail ?? _defaultContactEmail;
 
@@ -229,4 +232,5 @@ class AppSettingsService extends GetxService {
       true; // Default inceleme modu (güvenlik için - sunucu bağlantısı yoksa inceleme modunda çalış)
   static const bool _defaultGoogleReview =
       true; // Default inceleme modu (güvenlik için - sunucu bağlantısı yoksa inceleme modunda çalış)
+  static const int _defaultPaywallUi = 2; // 1 Default paywall UI tasarımı
 }

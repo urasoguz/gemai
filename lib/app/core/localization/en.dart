@@ -111,6 +111,7 @@ const Map<String, String> en = {
   'home_recent_history_title': 'Recent Analysis',
   'home_recent_history_view_more': 'View More',
   'home_recent_history_no_history': 'No analysis performed yet.',
+  'home_popular_gems_title': 'Popular Gems',
   'home': 'Home',
   'history': 'History',
 
@@ -122,6 +123,9 @@ const Map<String, String> en = {
 
   //history
   'history_no_history': 'No analysis performed yet.',
+  'history_favorites': 'Favorites',
+  'history_all': 'All',
+  'history_no_favorites': 'No favorite analysis yet.',
 
   // Date formatting translation keys
   'just_now': 'Just now',

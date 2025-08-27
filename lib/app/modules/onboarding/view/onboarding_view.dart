@@ -6,12 +6,43 @@ import 'package:gemai/app/modules/onboarding/controller/onboarding_controller.da
 import 'package:gemai/app/modules/onboarding/widgets/onboarding_image_widget.dart';
 import 'package:gemai/app/modules/onboarding/widgets/onboarding_title_widget.dart';
 import 'package:gemai/app/modules/onboarding/widgets/onboarding_desc_widget.dart';
+import 'package:gemai/app/modules/onboarding/view/new_onboarding_view.dart';
+import 'package:gemai/app/core/services/app_settings_service.dart';
 
 class OnboardingView extends GetView<OnboardingController> {
   const OnboardingView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Üst bardaki sistem metinlerini beyaz yap
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent, // Status bar şeffaf
+        statusBarIconBrightness: Brightness.light, // Status bar ikonları beyaz
+        statusBarBrightness: Brightness.dark, // iOS için status bar koyu tema
+        systemNavigationBarColor: Colors.transparent, // Alt navigasyon şeffaf
+        systemNavigationBarIconBrightness:
+            Brightness.dark, // Alt navigasyon ikonları koyu
+      ),
+    );
+
+    // Küçük ekran kontrolü
+    final screenHeight = MediaQuery.of(context).size.height;
+    final isSmallScreen = screenHeight < 700;
+
+    // App settings service'den paywall UI değerini al
+    final appSettings = Get.find<AppSettingsService>();
+    final paywallUi = appSettings.paywallUi;
+
+    // PaywallUi == 2 ise yeni onboarding, değilse eski onboarding
+    if (paywallUi == 2) {
+      return NewOnboardingView(
+        isSmallScreen: isSmallScreen,
+        controller: controller,
+      );
+    }
+
+    // Eski onboarding (mevcut kod)
     final pageController = PageController();
     return Scaffold(
       backgroundColor: AppThemeConfig.background,

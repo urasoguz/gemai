@@ -1,7 +1,11 @@
-import 'dart:io';
-import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
+import 'dart:io';
+import 'package:get/get.dart';
+import 'package:gemai/app/routes/app_routes.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:gemai/app/data/model/response/scan_result_model.dart';
+import 'package:flutter/foundation.dart';
 
 class ResultImageWidget extends StatelessWidget {
   final String? imagePath;
@@ -9,24 +13,43 @@ class ResultImageWidget extends StatelessWidget {
   final double height;
   final double borderRadius;
   final EdgeInsetsGeometry? margin;
+  final ScanResultModel? model; // Model parametresi eklendi
 
   const ResultImageWidget({
     super.key,
     this.imagePath,
-    this.width = 140,
-    this.height = 100,
+    required this.width,
+    required this.height,
     this.borderRadius = 20,
     this.margin,
+    this.model, // Model parametresi eklendi
   });
 
   @override
   Widget build(BuildContext context) {
     Widget? imageWidget;
+
+    if (kDebugMode) {
+      print(
+        '🔍 ResultImageWidget - imagePath: ${imagePath != null ? "Mevcut (${imagePath!.length} karakter)" : "Yok"}',
+      );
+      if (imagePath != null) {
+        print(
+          '🔍 ResultImageWidget - ImagePath başlangıcı: ${imagePath!.substring(0, 50)}...',
+        );
+      }
+    }
+
     // Base64 görsel desteği
     if (imagePath != null && imagePath!.startsWith('data:image')) {
       try {
         final base64Str = imagePath!.split(',').last;
         final bytes = base64Decode(base64Str);
+        if (kDebugMode) {
+          print(
+            '🔍 ResultImageWidget - Base64 görsel yüklendi - Boyut: ${bytes.length} bytes',
+          );
+        }
         imageWidget = ClipRRect(
           borderRadius: BorderRadius.circular(borderRadius),
           child: Image.memory(
@@ -34,9 +57,24 @@ class ResultImageWidget extends StatelessWidget {
             width: width,
             height: height,
             fit: BoxFit.cover,
+            errorBuilder: (context, error, stackTrace) {
+              if (kDebugMode) {
+                print(
+                  '❌ ResultImageWidget - Base64 görsel yüklenemedi: $error',
+                );
+              }
+              return Icon(
+                Icons.broken_image,
+                size: width * 0.6,
+                color: AppThemeConfig.error,
+              );
+            },
           ),
         );
       } catch (e) {
+        if (kDebugMode) {
+          print('❌ ResultImageWidget - Base64 decode hatası: $e');
+        }
         imageWidget = Icon(
           Icons.broken_image,
           size: width * 0.6,
@@ -57,9 +95,16 @@ class ResultImageWidget extends StatelessWidget {
       );
     }
 
-    // Tıklanınca ImageResultWidget tarzı dialog göster
+    // Tıklanınca result sayfasına yönlendir (zoom yok)
     return GestureDetector(
-      onTap: imageWidget is ClipRRect ? () => _showImageDialog(context) : null,
+      onTap: () {
+        // Eğer bu widget gem_result sayfasında kullanılıyorsa hiçbir şey yapma
+        // Eğer history/home sayfalarında kullanılıyorsa result sayfasına git
+        if (Get.currentRoute != AppRoutes.gemResult && model?.id != null) {
+          // Result sayfasına git
+          Get.toNamed(AppRoutes.gemResult, arguments: model!.id);
+        }
+      },
       child: Container(
         width: width,
         height: height,
@@ -70,100 +115,6 @@ class ResultImageWidget extends StatelessWidget {
         ),
         child: imageWidget,
       ),
-    );
-  }
-
-  /// Görsel dialog'unu gösterir
-  void _showImageDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return Dialog(
-          backgroundColor: Colors.transparent,
-          child: Container(
-            width: double.infinity,
-            height: double.infinity,
-            decoration: BoxDecoration(
-              color: AppThemeConfig.cameraScaffold.withValues(alpha: 0.9),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Stack(
-              children: [
-                // Büyük görsel
-                Center(child: _buildDialogImageWidget()),
-                // Kapat butonu
-                Positioned(
-                  top: 20,
-                  right: 20,
-                  child: GestureDetector(
-                    onTap: () => Navigator.of(context).pop(),
-                    child: Container(
-                      width: 40,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        color: AppThemeConfig.buttonShadow.withValues(
-                          alpha: 0.1,
-                        ),
-                        shape: BoxShape.circle,
-                      ),
-                      child: Icon(
-                        Icons.close,
-                        color: AppThemeConfig.cameraAnalyzeText,
-                        size: 24,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-  /// Dialog için görsel widget'ı
-  Widget _buildDialogImageWidget() {
-    // Base64 görsel desteği
-    if (imagePath != null && imagePath!.startsWith('data:image')) {
-      try {
-        final base64Str = imagePath!.split(',').last;
-        final bytes = base64Decode(base64Str);
-        return Image.memory(
-          bytes,
-          fit: BoxFit.contain,
-          errorBuilder: (context, error, stackTrace) {
-            return _buildDialogErrorWidget();
-          },
-        );
-      } catch (e) {
-        return _buildDialogErrorWidget();
-      }
-    } else if (imagePath != null && imagePath!.isNotEmpty) {
-      return Image.file(
-        File(imagePath!),
-        fit: BoxFit.contain,
-        errorBuilder: (context, error, stackTrace) {
-          return _buildDialogErrorWidget();
-        },
-      );
-    } else {
-      return _buildDialogErrorWidget();
-    }
-  }
-
-  /// Dialog hata durumu için widget
-  Widget _buildDialogErrorWidget() {
-    return Builder(
-      builder: (context) {
-        return Center(
-          child: Icon(
-            Icons.error_outline,
-            size: 64,
-            color: AppThemeConfig.cameraAnalyzeText,
-          ),
-        );
-      },
     );
   }
 }
