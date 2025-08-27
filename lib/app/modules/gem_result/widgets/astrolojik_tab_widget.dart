@@ -219,20 +219,6 @@ class AstrolojikTabWidget extends StatelessWidget {
   }
 
   // Helper metodlar
-  bool _isValidList(dynamic list) {
-    return list is List && list.isNotEmpty;
-  }
-
-  List<dynamic> _asDynamicList(dynamic list) {
-    if (list is List) {
-      return list;
-    }
-    return [];
-  }
-
-  bool _isValidLegalRestrictionsField(dynamic value) {
-    return value != null && (value is String || value is List);
-  }
 
   List<dynamic> _normalizeLegalRestrictionsField(dynamic value) {
     if (value is String) {
@@ -242,10 +228,6 @@ class AstrolojikTabWidget extends StatelessWidget {
       return value;
     }
     return [];
-  }
-
-  bool _isValidSimilarStonesField(dynamic value) {
-    return value != null && (value is String || value is List);
   }
 
   List<dynamic> _normalizeSimilarStonesField(dynamic value) {

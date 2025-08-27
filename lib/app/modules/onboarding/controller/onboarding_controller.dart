@@ -35,7 +35,9 @@ class OnboardingController extends GetxController {
       // Tekrar 2'ye döndürüldü
       // Sayfa geçişini animasyonlu yap
       pageIndex.value++;
-      print('Onboarding: Sayfa ${pageIndex.value + 1} açıldı');
+      if (kDebugMode) {
+        print('Onboarding: Sayfa ${pageIndex.value + 1} açıldı');
+      }
     } else {
       // Son sayfada paywall'a geç - onboarding'den geldiğini belirt
       Get.offAllNamed('/premium', arguments: {'fromOnboarding': true});
@@ -47,7 +49,9 @@ class OnboardingController extends GetxController {
     if (pageIndex.value > 0) {
       // Sayfa geçişini animasyonlu yap
       pageIndex.value--;
-      print('Onboarding: Sayfa ${pageIndex.value + 1} açıldı');
+      if (kDebugMode) {
+        print('Onboarding: Sayfa ${pageIndex.value + 1} açıldı');
+      }
     }
   }
 

@@ -7,8 +7,6 @@ import 'package:camerawesome/camerawesome_plugin.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:gemai/app/modules/camera/controller/camera_controller.dart';
 import 'package:gemai/app/modules/camera/widgets/photo_tips_dialog.dart';
-import 'package:flutter/foundation.dart';
-import 'package:gemai/app/core/services/shrine_dialog_service.dart';
 
 /// DermAI için Camerawesome ile gömülü kamera widget'ı
 class CamerawesomeWidget extends GetView<CameraController> {
@@ -428,19 +426,6 @@ class CamerawesomeWidget extends GetView<CameraController> {
           ),
           const SizedBox(height: 24), // Alttan boşluk artırıldı
         ],
-      ),
-    );
-  }
-
-  Widget _buildMainCameraButton(BuildContext context, CameraState state) {
-    return SizedBox(
-      width: 80,
-      height: 80,
-      child: AwesomeBottomActions(
-        state: state,
-        left: const SizedBox.shrink(),
-        right: const SizedBox.shrink(),
-        padding: const EdgeInsets.all(0),
       ),
     );
   }

@@ -11,9 +11,6 @@ import 'dart:convert'; // Added for base64Decode
 import 'package:share_plus/share_plus.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
-import 'dart:typed_data';
-import 'dart:ui' as ui;
-import 'package:flutter/rendering.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:gemai/app/modules/gem_result/widgets/shareable_gem_result_widget.dart';
 
@@ -70,42 +67,6 @@ class _TopVisualWidgetState extends State<TopVisualWidget> {
         ),
       ),
     );
-  }
-
-  // Nadirlik skorundan etiket ve ikon üretir (renk tonları altın vurgulu)
-  Map<String, dynamic> _rarityStyleFromScore(int? score) {
-    final int s = (score ?? 5).clamp(0, 10);
-    const Color darkGold = Color(0xFFB8860B);
-    const Color gold = Color(0xFFDAA520);
-    if (s >= 9) {
-      return {
-        'label': 'Efsanevi',
-        'icon': Icons.auto_awesome,
-        'color': gold,
-        'intensity': 0.55,
-      };
-    } else if (s >= 7) {
-      return {
-        'label': 'Nadir',
-        'icon': Icons.diamond,
-        'color': darkGold,
-        'intensity': 0.42,
-      };
-    } else if (s >= 4) {
-      return {
-        'label': 'Sık',
-        'icon': Icons.blur_on,
-        'color': const Color(0xFFD4B483),
-        'intensity': 0.28,
-      };
-    } else {
-      return {
-        'label': 'Yaygın',
-        'icon': Icons.circle,
-        'color': const Color(0xFFA8937A),
-        'intensity': 0.20,
-      };
-    }
   }
 
   // Camsı nadirlik rozeti (sade altın vurgulu iOS stil)
@@ -179,43 +140,6 @@ class _TopVisualWidgetState extends State<TopVisualWidget> {
     }
 
     return 5; // Default değer
-  }
-
-  // Fiyat için tier belirle (değere göre vurgu)
-  Map<String, dynamic> _priceStyle(dynamic pricePerCarat) {
-    final double p = _normalizePriceValue(pricePerCarat);
-    const Color darkGold = Color(0xFFB8860B);
-    const Color gold = Color(0xFFDAA520);
-    if (p >= 5000) {
-      return {'accent': gold, 'intensity': 0.55}; // premium
-    } else if (p >= 1500) {
-      return {'accent': darkGold, 'intensity': 0.40}; // yüksek
-    } else {
-      return {'accent': const Color(0xFFA8937A), 'intensity': 0.25}; // normal
-    }
-  }
-
-  // Helper method for price value normalization
-  double _normalizePriceValue(dynamic value) {
-    if (value == null) return 0.0;
-
-    if (value is int) {
-      return value.toDouble();
-    }
-
-    if (value is double) {
-      return value;
-    }
-
-    if (value is String) {
-      try {
-        return double.parse(value);
-      } catch (e) {
-        return 0.0; // Default değer
-      }
-    }
-
-    return 0.0; // Default değer
   }
 
   // Camsı fiyat rozeti (sade altın vurgulu iOS stil)
@@ -920,10 +844,12 @@ class _TopVisualWidgetState extends State<TopVisualWidget> {
       final Uint8List imageBytes = await screenshotController
           .captureFromLongWidget(
             InheritedTheme.captureAll(
+              // ignore: use_build_context_synchronously
               context,
               Material(
                 color: AppThemeConfig.background,
-                child: Container(
+                child: SizedBox(
+                  // ignore: use_build_context_synchronously
                   width: MediaQuery.of(context).size.width,
                   child: ShareableGemResultWidget(
                     result: result,
@@ -937,6 +863,7 @@ class _TopVisualWidgetState extends State<TopVisualWidget> {
               ),
             ),
             delay: const Duration(milliseconds: 120),
+            // ignore: use_build_context_synchronously
             context: context,
           );
       return imageBytes;

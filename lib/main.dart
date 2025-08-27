@@ -152,12 +152,12 @@ class MyApp extends StatelessWidget {
     // Üst bardaki sistem metinlerini beyaz yap
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent, // Status bar şeffaf
-        statusBarIconBrightness: Brightness.light, // Status bar ikonları beyaz
-        statusBarBrightness: Brightness.dark, // iOS için status bar koyu tema
-        systemNavigationBarColor: Colors.transparent, // Alt navigasyon şeffaf
-        systemNavigationBarIconBrightness:
-            Brightness.dark, // Alt navigasyon ikonları koyu
+        //statusBarColor: Colors.transparent, // Status bar şeffaf
+        //statusBarIconBrightness: Brightness.light, // Status bar ikonları beyaz
+        //statusBarBrightness: Brightness.dark, // iOS için status bar koyu tema
+        //systemNavigationBarColor: Colors.transparent, // Alt navigasyon şeffaf
+        //systemNavigationBarIconBrightness:
+        //    Brightness.dark, // Alt navigasyon ikonları koyu
       ),
     );
 

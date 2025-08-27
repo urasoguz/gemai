@@ -6,7 +6,7 @@ import 'package:gemai/app/modules/history/widgets/history_list_item.dart';
 import 'package:gemai/app/modules/home/controller/home_controller.dart';
 
 class HomeRecentHistoryWidget extends GetView<HomeController> {
-  HomeRecentHistoryWidget({super.key});
+  const HomeRecentHistoryWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

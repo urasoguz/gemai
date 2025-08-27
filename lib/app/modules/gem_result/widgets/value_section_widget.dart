@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'dart:ui';
-import 'package:flutter/services.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:gemai/app/data/model/response/scan_result_model.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:gemai/app/shared/helpers/my_helper.dart';
-import 'package:gemai/app/core/theme/app_colors.dart';
 
 /// Değer analizi bölümü widget'ı - iOS tarzı kilitli içerik
 class ValueSectionWidget extends StatelessWidget {
@@ -270,7 +267,7 @@ class ValueSectionWidget extends StatelessWidget {
           ),
           const SizedBox(height: 14),
           // Maskeleme: gri bloklarla örnek satırlar
-          ...List.generate(5, (i) => i).map((_) => _skeletonRow()).toList(),
+          ...List.generate(5, (i) => i).map((_) => _skeletonRow()),
           const SizedBox(height: 14),
           // CTA: Kilidi Aç
           SizedBox(
@@ -341,228 +338,7 @@ class ValueSectionWidget extends StatelessWidget {
     );
   }
 
-  // Blur edilmiş değer satırı
-  Widget _buildBlurredValueItem(IconData icon, String label, String value) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      decoration: BoxDecoration(
-        color: Colors.grey.withOpacity(0.05),
-        borderRadius: BorderRadius.circular(4),
-        border: Border.all(color: Colors.grey.withOpacity(0.2), width: 1),
-      ),
-      child: Row(
-        children: [
-          Container(
-            padding: const EdgeInsets.all(3),
-            decoration: BoxDecoration(
-              color: Colors.grey.withOpacity(0.1),
-              borderRadius: BorderRadius.circular(3),
-            ),
-            child: Icon(icon, size: 12, color: Colors.grey),
-          ),
-          const SizedBox(width: 6),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  label,
-                  style: const TextStyle(
-                    color: Colors.grey,
-                    fontSize: 11,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                const SizedBox(height: 1),
-                Text(
-                  value,
-                  style: TextStyle(
-                    color: Colors.grey.withOpacity(0.7),
-                    fontSize: 11,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Icon(Icons.lock, size: 16, color: Colors.grey.withOpacity(0.5)),
-        ],
-      ),
-    );
-  }
-
-  // Kilidi aç butonu
-  Widget _buildUnlockButton() {
-    return GestureDetector(
-      onTap: () {
-        // Premium sayfasına yönlendir
-        Get.toNamed('/premium');
-      },
-      child: Container(
-        width: 200,
-        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
-        decoration: BoxDecoration(
-          gradient: const LinearGradient(
-            colors: [Color(0xFFB8860B), Color(0xFFDAA520)],
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-          ),
-          borderRadius: BorderRadius.circular(12),
-          boxShadow: [
-            BoxShadow(
-              color: const Color(0xFFB8860B).withOpacity(0.3),
-              blurRadius: 8,
-              spreadRadius: 0,
-              offset: const Offset(0, 4),
-            ),
-          ],
-        ),
-        child: const Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.lock_open, color: Colors.white, size: 16),
-            SizedBox(width: 8),
-            Text(
-              'Kilidi Aç',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 14,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  // Oluşum bölümü
-  Widget _buildFormationSection(ScanResultModel? data) {
-    if (data?.formation == null || data!.formation!.isEmpty) {
-      return const SizedBox.shrink();
-    }
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Oluşum ve Yaş',
-          style: TextStyle(
-            color: AppThemeConfig.textSecondary,
-            fontSize: 14,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-        const SizedBox(height: 12),
-        _buildFormationCard(data),
-      ],
-    );
-  }
-
-  Widget _buildFormationCard(ScanResultModel data) {
-    return Container(
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.grey.withOpacity(0.2), width: 1),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          if (data.formation != null) ...[
-            _buildInfoCardRow('Oluşum Süreci', data.formation!, isLast: false),
-          ],
-          if (data.ageRange != null) ...[
-            _buildInfoCardRow('Yaş Aralığı', data.ageRange!, isLast: false),
-          ],
-          if (data.ageDescription != null) ...[
-            _buildInfoCardRow(
-              'Yaş Açıklaması',
-              data.ageDescription!,
-              isLast: true,
-            ),
-          ],
-        ],
-      ),
-    );
-  }
-
-  Widget _buildInfoCardRow(String label, String value, {bool isLast = false}) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-      child: Row(
-        children: [
-          Expanded(
-            flex: 2,
-            child: Text(
-              label,
-              style: TextStyle(
-                color: AppThemeConfig.textSecondary,
-                fontSize: 13,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ),
-          const SizedBox(width: 10),
-          Expanded(
-            flex: 3,
-            child: Text(
-              value,
-              style: TextStyle(
-                color: AppThemeConfig.textPrimary,
-                fontSize: 13,
-                fontWeight: FontWeight.w500,
-                height: 1.4,
-              ),
-              textAlign: TextAlign.right,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
   // Kullanım alanları bölümü
-  Widget _buildUsesSection(ScanResultModel? data) {
-    if (data?.uses == null || data!.uses!.isEmpty) {
-      return const SizedBox.shrink();
-    }
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Kullanım Alanları',
-          style: TextStyle(
-            color: AppThemeConfig.textSecondary,
-            fontSize: 14,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-        const SizedBox(height: 12),
-        Container(
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: Colors.grey.withOpacity(0.2), width: 1),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Text(
-              data.uses!,
-              style: TextStyle(
-                color: AppThemeConfig.textPrimary,
-                fontSize: 13,
-                height: 1.4,
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
 }
 
 class _RarityPill extends StatelessWidget {
@@ -597,13 +373,11 @@ class _RarityPill extends StatelessWidget {
 }
 
 class _KpiTile extends StatelessWidget {
-  final double? width;
   final IconData icon;
   final String label;
   final String value;
   final bool highlight;
   const _KpiTile({
-    this.width,
     required this.icon,
     required this.label,
     required this.value,
@@ -612,7 +386,7 @@ class _KpiTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: width ?? double.infinity,
+      width: double.infinity,
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: highlight ? const Color(0xFFF8F6F0) : Colors.white,

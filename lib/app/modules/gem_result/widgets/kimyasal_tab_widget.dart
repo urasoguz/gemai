@@ -484,8 +484,9 @@ class KimyasalTabWidget extends StatelessWidget {
   /// Taklit uyarısı (BasicsSectionWidget'tan)
   Widget _buildImitationWarningFromBasics(ScanResultModel result) {
     final warning = result.imitationWarning;
-    if (warning == null || warning.toString().isEmpty)
+    if (warning == null || warning.toString().isEmpty) {
       return const SizedBox.shrink();
+    }
 
     return Container(
       width: double.infinity,
@@ -538,10 +539,6 @@ class KimyasalTabWidget extends StatelessWidget {
     if (value is String) return value.split(',').map((s) => s.trim()).toList();
     if (value is List) return value;
     return [];
-  }
-
-  bool _isValidFakeIndicatorsField(dynamic value) {
-    return value != null && (value is String || value is List);
   }
 
   List<dynamic> _normalizeFakeIndicatorsField(dynamic value) {

@@ -162,10 +162,12 @@ class SembastService {
       print('🔍 getAllResults - Ham veri sıralaması:');
       for (int i = 0; i < snapshots.length && i < 5; i++) {
         final snap = snapshots[i];
-        final created_at = snap.value['created_at'];
-        print(
-          '🔍 getAllResults - Index $i: Key=${snap.key}, created_at=$created_at',
-        );
+        final createdAt = snap.value['created_at'];
+        if (kDebugMode) {
+          print(
+            '🔍 getAllResults - Index $i: Key=${snap.key}, created_at=$createdAt',
+          );
+        }
       }
     }
 
@@ -201,21 +203,27 @@ class SembastService {
         }).toList();
 
     if (kDebugMode && result.isNotEmpty) {
-      print('🔍 getAllResults - Sonuç sıralaması kontrolü:');
-      print(
-        '🔍 getAllResults - İlk öğe (en yeni): ID: ${result.first.id}, Tarih: ${result.first.model.createdAt}',
-      );
-      print(
-        '🔍 getAllResults - Son öğe (en eski): ID: ${result.last.id}, Tarih: ${result.last.model.createdAt}',
-      );
-
-      // Tüm sonuçları tarihe göre kontrol et
-      print('🔍 getAllResults - Tüm sonuçlar tarih sırasına göre:');
-      for (int i = 0; i < result.length; i++) {
-        final item = result[i];
+      if (kDebugMode) {
+        print('🔍 getAllResults - Sonuç sıralaması kontrolü:');
+      }
+      if (kDebugMode) {
         print(
-          '🔍 getAllResults - Index $i: ID=${item.id}, Tarih=${item.model.createdAt}',
+          '🔍 getAllResults - İlk öğe (en yeni): ID: ${result.first.id}, Tarih: ${result.first.model.createdAt}',
         );
+      }
+      if (kDebugMode) {
+        print(
+          '🔍 getAllResults - Son öğe (en eski): ID: ${result.last.id}, Tarih: ${result.last.model.createdAt}',
+        );
+
+        // Tüm sonuçları tarihe göre kontrol et
+        print('🔍 getAllResults - Tüm sonuçlar tarih sırasına göre:');
+        for (int i = 0; i < result.length; i++) {
+          final item = result[i];
+          print(
+            '🔍 getAllResults - Index $i: ID=${item.id}, Tarih=${item.model.createdAt}',
+          );
+        }
       }
     }
 
@@ -255,9 +263,9 @@ class SembastService {
       print('🔍 getFavoriteResults - Ham veri sıralaması:');
       for (int i = 0; i < snapshots.length && i < 5; i++) {
         final snap = snapshots[i];
-        final created_at = snap.value['created_at'];
+        final createdAt = snap.value['created_at'];
         print(
-          '🔍 getFavoriteResults - Index $i: Key=${snap.key}, created_at=$created_at',
+          '🔍 getFavoriteResults - Index $i: Key=${snap.key}, created_at=$createdAt',
         );
       }
     }
@@ -287,21 +295,31 @@ class SembastService {
         }).toList();
 
     if (kDebugMode && result.isNotEmpty) {
-      print('🔍 getFavoriteResults - Sonuç sıralaması kontrolü:');
-      print(
-        '🔍 getFavoriteResults - İlk öğe (en yeni): ID: ${result.first.id}, Tarih: ${result.first.model.createdAt}',
-      );
-      print(
-        '🔍 getFavoriteResults - Son öğe (en eski): ID: ${result.last.id}, Tarih: ${result.last.model.createdAt}',
-      );
-
-      // Tüm sonuçları tarihe göre kontrol et
-      print('🔍 getFavoriteResults - Tüm sonuçlar tarih sırasına göre:');
-      for (int i = 0; i < result.length; i++) {
-        final item = result[i];
+      if (kDebugMode) {
+        print('🔍 getFavoriteResults - Sonuç sıralaması kontrolü:');
+      }
+      if (kDebugMode) {
         print(
-          '🔍 getFavoriteResults - Index $i: ID=${item.id}, Tarih=${item.model.createdAt}',
+          '🔍 getFavoriteResults - İlk öğe (en yeni): ID: ${result.first.id}, Tarih: ${result.first.model.createdAt}',
         );
+      }
+      if (kDebugMode) {
+        print(
+          '🔍 getFavoriteResults - Son öğe (en eski): ID: ${result.last.id}, Tarih: ${result.last.model.createdAt}',
+        );
+
+        // Tüm sonuçları tarihe göre kontrol et
+        if (kDebugMode) {
+          print('🔍 getFavoriteResults - Tüm sonuçlar tarih sırasına göre:');
+        }
+        for (int i = 0; i < result.length; i++) {
+          final item = result[i];
+          if (kDebugMode) {
+            print(
+              '🔍 getFavoriteResults - Index $i: ID=${item.id}, Tarih=${item.model.createdAt}',
+            );
+          }
+        }
       }
     }
 

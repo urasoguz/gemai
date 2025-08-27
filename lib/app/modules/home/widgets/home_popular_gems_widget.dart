@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:gemai/app/shared/widgets/webview_screen.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +9,9 @@ class HomePopularGemsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('🔍 Popular Gems Widget build ediliyor...');
+    if (kDebugMode) {
+      print('🔍 Popular Gems Widget build ediliyor...');
+    }
 
     // Popüler taşlar listesi
     final List<Map<String, String>> popularGems = [
@@ -126,8 +129,12 @@ class HomePopularGemsWidget extends StatelessWidget {
                               width: double.infinity,
                               height: double.infinity,
                               errorBuilder: (context, error, stackTrace) {
-                                print('❌ Görsel yüklenemedi: ${gem['image']}');
-                                print('❌ Hata: $error');
+                                if (kDebugMode) {
+                                  print(
+                                    '❌ Görsel yüklenemedi: ${gem['image']}',
+                                  );
+                                  print('❌ Hata: $error');
+                                }
                                 return Container(
                                   color: Colors.grey[200],
                                   child: Column(

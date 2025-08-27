@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:gemai/app/core/theme/app_theme_config.dart';
-import 'package:gemai/app/core/services/date_formatting_service.dart';
 import 'package:gemai/app/data/model/response/scan_result_model.dart';
-import 'package:gemai/app/routes/app_routes.dart';
 import 'package:gemai/app/modules/gem_result/controller/gem_result_controller.dart';
 import 'package:gemai/app/modules/gem_result/widgets/value_section_widget.dart';
 import 'package:flutter/foundation.dart';
@@ -12,8 +9,6 @@ import 'package:gemai/app/modules/gem_result/widgets/temel_tab_widget.dart';
 import 'package:gemai/app/modules/gem_result/widgets/kimyasal_tab_widget.dart';
 import 'package:gemai/app/modules/gem_result/widgets/astrolojik_tab_widget.dart';
 import 'package:gemai/app/modules/gem_result/widgets/top_visual_widget.dart';
-import 'package:flutter/rendering.dart';
-import 'package:screenshot/screenshot.dart';
 
 /// GemAI sonuç sayfası
 /// - Taş analiz sonuçlarını detaylı şekilde gösterir
@@ -148,85 +143,5 @@ class GemResultView extends GetView<GemResultController> {
           return TemelTabWidget(data: result);
       }
     });
-  }
-
-  /// Resim zoom dialog'unu gösterir
-  void _showImageZoomDialog(ScanResultModel result) {
-    showDialog(
-      context: Get.context!,
-      builder: (BuildContext context) {
-        return Dialog(
-          backgroundColor: Colors.transparent,
-          child: Stack(
-            children: [
-              // Arka plan - tıklanabilir
-              Positioned.fill(
-                child: GestureDetector(
-                  onTap: () => Navigator.of(context).pop(),
-                  child: Container(color: Colors.black.withOpacity(0.8)),
-                ),
-              ),
-              // Resim
-              Center(
-                child: Container(
-                  margin: const EdgeInsets.all(20),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child:
-                        result.imagePath != null && result.imagePath!.isNotEmpty
-                            ? Image.network(
-                              result.imagePath!,
-                              fit: BoxFit.contain,
-                              errorBuilder: (context, error, stackTrace) {
-                                return Container(
-                                  width: 300,
-                                  height: 300,
-                                  color: Colors.grey[300],
-                                  child: const Icon(
-                                    Icons.image_not_supported,
-                                    size: 50,
-                                    color: Colors.grey,
-                                  ),
-                                );
-                              },
-                            )
-                            : Container(
-                              width: 300,
-                              height: 300,
-                              color: Colors.grey[300],
-                              child: const Icon(
-                                Icons.image_not_supported,
-                                size: 50,
-                                color: Colors.grey,
-                              ),
-                            ),
-                  ),
-                ),
-              ),
-              // Kapat butonu
-              Positioned(
-                top: 40,
-                right: 20,
-                child: GestureDetector(
-                  onTap: () => Navigator.of(context).pop(),
-                  child: Container(
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.6),
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Icon(
-                      Icons.close,
-                      color: Colors.white,
-                      size: 24,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        );
-      },
-    );
   }
 }

@@ -13,8 +13,6 @@ import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/foundation.dart';
 import 'package:gemai/app/core/services/sembast_service.dart';
 import 'package:gemai/app/data/model/response/scan_result_model.dart';
-import 'package:gemai/app/modules/home/controller/home_controller.dart';
-import 'package:gemai/app/modules/history/controller/history_controller.dart';
 import 'dart:async'; // Added for Timer
 
 /// GemAI için kamera controller'ı

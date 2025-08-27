@@ -1,9 +1,6 @@
 // lib/app/core/theme/theme_service.dart
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
-import 'package:gemai/app/shared/helpers/my_helper.dart';
 
 class ThemeService {
   /// Tek tema kullanıldığı için her zaman light mode döner

@@ -1,7 +1,6 @@
 import 'package:gemai/app/core/services/shrine_dialog_service.dart';
 import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:gemai/app/shared/helpers/my_helper.dart';

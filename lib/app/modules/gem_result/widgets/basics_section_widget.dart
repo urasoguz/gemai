@@ -118,8 +118,9 @@ class BasicsSectionWidget extends StatelessWidget {
   }
 
   Widget _buildDescriptionSection(String? description) {
-    if (description == null || description.isEmpty)
+    if (description == null || description.isEmpty) {
       return const SizedBox.shrink();
+    }
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(16),
@@ -143,50 +144,11 @@ class BasicsSectionWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildDisclaimerNote() {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: const Color(0xFFFFF8E1),
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: const Color(0xFFFFE082), width: 1),
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            padding: const EdgeInsets.all(6),
-            decoration: BoxDecoration(
-              color: const Color(0xFFFFE082),
-              borderRadius: BorderRadius.circular(6),
-            ),
-            child: const Icon(
-              Icons.info_outline,
-              size: 16,
-              color: Color(0xFF8D6E63),
-            ),
-          ),
-          const SizedBox(width: 10),
-          Expanded(
-            child: Text(
-              'Bu bölümdeki bilgiler kestirime dayalıdır ve kesin değildir. Kesin tanı ve doğrulama için bir taş analizi uzmanına danışmanız önerilir.',
-              style: TextStyle(
-                color: const Color(0xFF5D4037),
-                fontSize: 12.5,
-                height: 1.4,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
   Widget _buildFoundRegionsSection() {
     final regions = data?.foundRegions;
-    if (regions == null || !_isValidRegionsField(regions))
+    if (regions == null || !_isValidRegionsField(regions)) {
       return const SizedBox.shrink();
+    }
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -283,10 +245,6 @@ class BasicsSectionWidget extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  bool _isValidList(dynamic list) {
-    return list is List && list.isNotEmpty;
   }
 
   bool _isValidRegionsField(dynamic value) {

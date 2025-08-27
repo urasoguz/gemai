@@ -4,7 +4,6 @@ import 'package:gemai/app/data/model/response/response_model.dart';
 import 'package:gemai/app/data/model/gem_analysis/gem_analysis_request_model.dart';
 import 'package:gemai/app/data/model/response/scan_result_model.dart';
 import 'package:flutter/foundation.dart';
-import 'package:get/get.dart';
 
 /// Gem analysis API servisi
 ///
@@ -33,7 +32,7 @@ class GemAnalysisApiService extends BaseApiService {
   /// - request: Gem analysis isteği modeli
   ///
   /// Returns:
-  /// - ResponseModel<ScanResultModel>: Analiz sonucu veya hata
+
   Future<ResponseModel<ScanResultModel>> analyzeGem(
     GemAnalysisRequestModel request,
   ) async {

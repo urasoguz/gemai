@@ -90,7 +90,7 @@ class ScanResultModel {
   });
 
   factory ScanResultModel.fromMap(Map<String, dynamic> map) {
-    List<dynamic> _asDynamicList(dynamic value) {
+    List<dynamic> asDynamicList(dynamic value) {
       if (value == null) return [];
       if (value is List) {
         return value; // Direkt listeyi döndür
@@ -119,29 +119,29 @@ class ScanResultModel {
       marketReferenceYear: map['market_reference_year'],
       valuePerCarat: map['value_per_carat'],
       rarityScore: map['rarity_score'],
-      possibleFakeIndicators: _asDynamicList(map['possible_fake_indicators']),
+      possibleFakeIndicators: asDynamicList(map['possible_fake_indicators']),
       crystalSystem: map['crystal_system'],
       estimatedRefractiveIndex: map['estimated_refractive_index'],
       processingDifficulty: map['processing_difficulty'],
-      foundRegions: _asDynamicList(map['found_regions']),
+      foundRegions: asDynamicList(map['found_regions']),
       imitationWarning: map['imitation_warning'],
       radioactivity: map['radioactivity'],
-      legalRestrictions: _asDynamicList(map['legal_restrictions']),
-      cleaningMaintenanceTips: _asDynamicList(map['cleaning_maintenance_tips']),
-      transparency: _asDynamicList(map['transparency']),
-      luster: _asDynamicList(map['luster']),
+      legalRestrictions: asDynamicList(map['legal_restrictions']),
+      cleaningMaintenanceTips: asDynamicList(map['cleaning_maintenance_tips']),
+      transparency: asDynamicList(map['transparency']),
+      luster: asDynamicList(map['luster']),
       inclusions: map['inclusions'],
-      similarStones: _asDynamicList(map['similar_stones']),
+      similarStones: asDynamicList(map['similar_stones']),
       astrologicalMythologicalMeaning: map['astrological_mythological_meaning'],
-      extendedColorSpectrum: _asDynamicList(map['extended_color_spectrum']),
+      extendedColorSpectrum: asDynamicList(map['extended_color_spectrum']),
       magnetism: map['magnetism'],
       tenacity: map['tenacity'],
       cleavage: map['cleavage'],
       fracture: map['fracture'],
       density: map['density'],
       chemicalClassification: map['chemical_classification'],
-      elements: _asDynamicList(map['elements']),
-      commonImpurities: _asDynamicList(map['common_impurities']),
+      elements: asDynamicList(map['elements']),
+      commonImpurities: asDynamicList(map['common_impurities']),
       formation: map['formation'],
       ageRange: map['age_range'],
       ageDescription: map['age_description'],

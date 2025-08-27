@@ -87,7 +87,6 @@ class GemAnalysisController extends GetxController {
         // 🚨 YENİ: Başarılı analiz sonrası token düşür
         _decrementLocalToken();
 
-        // TODO: Yeni result sayfası hazır olduğunda aktif edilecek
         // Başarılı analiz sonrası veritabanına kaydet ve result sayfasına git
         await _handleSuccessfulAnalysis(imagePath);
 
@@ -246,7 +245,6 @@ class GemAnalysisController extends GetxController {
     }
   }
 
-  // TODO: Yeni result sayfası hazır olduğunda aktif edilecek
   /// Analiz sonucunu veritabanına kaydeder
   Future<int> _saveAnalysisResult(
     ScanResultModel result,
@@ -322,7 +320,6 @@ class GemAnalysisController extends GetxController {
     }
   }
 
-  // TODO: Yeni result sayfası hazır olduğunda aktif edilecek
   /// Başarılı analiz sonrası geçmişi günceller
   void _updateHistoryAfterSuccess(
     int id,

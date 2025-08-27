@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:gemai/app/modules/onboarding/controller/onboarding_controller.dart';
 import 'package:gemai/app/modules/onboarding/widgets/new_onboarding_header.dart';
 import 'package:gemai/app/modules/onboarding/widgets/new_onboarding_footer.dart';

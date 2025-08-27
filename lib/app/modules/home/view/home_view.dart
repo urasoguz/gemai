@@ -11,7 +11,6 @@ import 'package:gemai/app/modules/home/widgets/home_bottom_navbar.dart';
 import 'package:gemai/app/modules/history/view/history_view.dart';
 import 'package:gemai/app/modules/home/widgets/home_welcome_widget.dart';
 import 'package:gemai/app/modules/home/widgets/home_analyze_button_widget.dart';
-import 'package:gemai/app/modules/home/widgets/home_tip_widget.dart';
 import 'package:gemai/app/modules/home/widgets/home_popular_gems_widget.dart';
 import 'package:gemai/app/modules/home/widgets/home_recent_history_widget.dart';
 import 'package:gemai/app/routes/app_routes.dart';

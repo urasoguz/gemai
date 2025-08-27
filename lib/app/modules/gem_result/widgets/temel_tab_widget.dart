@@ -173,14 +173,6 @@ class TemelTabWidget extends StatelessWidget {
     );
   }
 
-  bool _isValidList(List? list) {
-    return list != null && list.isNotEmpty;
-  }
-
-  List<dynamic> _asDynamicList(List? list) {
-    return list ?? [];
-  }
-
   bool _isValidUsesField(dynamic value) {
     return value != null && (value is String || value is List);
   }

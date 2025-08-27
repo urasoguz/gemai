@@ -5,7 +5,6 @@ import 'package:gemai/app/data/api/api_endpoints.dart';
 import 'package:gemai/app/modules/auth/controller/user_controller.dart';
 import 'package:gemai/app/routes/app_routes.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 

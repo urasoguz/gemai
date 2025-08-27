@@ -1,5 +1,6 @@
 import 'package:gemai/app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:gemai/app/core/theme/app_theme_config.dart';
@@ -133,42 +134,117 @@ class HistoryView extends StatelessWidget {
 
         // İçerik - PageView ile sağa/sola kaydırarak tab geçişi
         Expanded(
-          child: Obx(
-            () => PageView(
+          child: Obx(() {
+            return PageView(
               controller: controller.pageController,
               onPageChanged: (int index) {
                 controller.selectedTab.value = index;
               },
               children: [
-                // Tümü tab - tüm geçmiş
-                RefreshIndicator(
-                  onRefresh: () async {
-                    await controller.refreshHistory();
-                  },
-                  child: _buildHistoryList(),
-                ),
-                // Favoriler tab - sadece favoriler
-                RefreshIndicator(
-                  onRefresh: () async {
-                    await controller.loadFavorites();
-                  },
-                  child: _buildFavoritesList(),
-                ),
+                // Tümü tab - iOS stili tüm platformlarda
+                _buildCupertinoHistoryScroll(context),
+                // Favoriler tab - iOS stili tüm platformlarda
+                _buildCupertinoFavoritesScroll(context),
               ],
-            ),
+            );
+          }),
+        ),
+      ],
+    );
+  }
+
+  /// iOS stili: Tümü için Cupertino sliver yenileme + sonsuz liste
+  Widget _buildCupertinoHistoryScroll(BuildContext context) {
+    return CustomScrollView(
+      controller: scrollController,
+      physics: const BouncingScrollPhysics(
+        parent: AlwaysScrollableScrollPhysics(),
+      ),
+      slivers: [
+        CupertinoSliverRefreshControl(
+          onRefresh: () async => controller.refreshHistory(),
+        ),
+        SliverList(
+          delegate: SliverChildBuilderDelegate(
+            (context, index) {
+              if (controller.items.isEmpty && controller.isLoading.value) {
+                return const Padding(
+                  padding: EdgeInsets.all(24),
+                  child: Center(child: CircularProgressIndicator()),
+                );
+              }
+              if (controller.items.isEmpty) {
+                return _buildEmptyHistoryState();
+              }
+              if (index < controller.items.length) {
+                final item = controller.items[index];
+                return HistoryListItem(
+                  item: item,
+                  index: index,
+                  onTap: () {
+                    Get.toNamed(AppRoutes.gemResult, arguments: item.id);
+                  },
+                );
+              }
+              if (controller.hasMore.value) {
+                return const Padding(
+                  padding: EdgeInsets.all(16),
+                  child: Center(child: CircularProgressIndicator()),
+                );
+              }
+              return const SizedBox.shrink();
+            },
+            childCount:
+                controller.items.isEmpty
+                    ? 1
+                    : controller.items.length +
+                        (controller.hasMore.value ? 1 : 0),
           ),
         ),
       ],
     );
   }
 
-  /// Tüm geçmiş listesini oluşturur
-  Widget _buildHistoryList() {
-    if (controller.items.isEmpty && controller.isLoading.value) {
-      return const Center(child: CircularProgressIndicator());
-    }
-    if (controller.items.isEmpty) {
-      return Center(
+  /// iOS stili: Favoriler için Cupertino sliver yenileme + liste
+  Widget _buildCupertinoFavoritesScroll(BuildContext context) {
+    return CustomScrollView(
+      physics: const BouncingScrollPhysics(
+        parent: AlwaysScrollableScrollPhysics(),
+      ),
+      slivers: [
+        CupertinoSliverRefreshControl(
+          onRefresh: () async => controller.loadFavorites(),
+        ),
+        SliverList(
+          delegate: SliverChildBuilderDelegate(
+            (context, index) {
+              if (controller.favoriteItems.isEmpty) {
+                return _buildEmptyFavoritesState();
+              }
+              final item = controller.favoriteItems[index];
+              return HistoryListItem(
+                item: item,
+                index: index,
+                onTap: () {
+                  Get.toNamed(AppRoutes.gemResult, arguments: item.id);
+                },
+              );
+            },
+            childCount:
+                controller.favoriteItems.isEmpty
+                    ? 1
+                    : controller.favoriteItems.length,
+          ),
+        ),
+      ],
+    );
+  }
+
+  // iOS boş durum yardımcıları
+  Widget _buildEmptyHistoryState() {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 48),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -187,55 +263,14 @@ class HistoryView extends StatelessWidget {
             ),
           ],
         ),
-      );
-    }
-
-    return ListView.builder(
-      controller: scrollController,
-      itemCount: controller.items.length + (controller.hasMore.value ? 1 : 0),
-      itemBuilder: (context, index) {
-        if (index == 0) {
-          return Column(
-            children: [
-              const SizedBox(
-                height: 2,
-              ), // Tümü listesi ile aynı boşluk - azaltıldı
-              HistoryListItem(
-                item: controller.items[index],
-                index: index,
-                onTap: () {
-                  Get.toNamed(
-                    AppRoutes.gemResult,
-                    arguments: controller.items[index].id,
-                  );
-                },
-              ),
-            ],
-          );
-        }
-        if (index < controller.items.length) {
-          final item = controller.items[index];
-          return HistoryListItem(
-            item: item,
-            index: index,
-            onTap: () {
-              Get.toNamed(AppRoutes.gemResult, arguments: item.id);
-            },
-          );
-        } else {
-          return const Padding(
-            padding: EdgeInsets.all(16),
-            child: Center(child: CircularProgressIndicator()),
-          );
-        }
-      },
+      ),
     );
   }
 
-  /// Favoriler listesini oluşturur
-  Widget _buildFavoritesList() {
-    if (controller.favoriteItems.isEmpty) {
-      return Center(
+  Widget _buildEmptyFavoritesState() {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 48),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -254,37 +289,7 @@ class HistoryView extends StatelessWidget {
             ),
           ],
         ),
-      );
-    }
-
-    return ListView.builder(
-      itemCount: controller.favoriteItems.length,
-      itemBuilder: (context, index) {
-        final item = controller.favoriteItems[index];
-        if (index == 0) {
-          return Column(
-            children: [
-              const SizedBox(
-                height: 2,
-              ), // Tümü listesi ile aynı boşluk - azaltıldı
-              HistoryListItem(
-                item: item,
-                index: index,
-                onTap: () {
-                  Get.toNamed(AppRoutes.gemResult, arguments: item.id);
-                },
-              ),
-            ],
-          );
-        }
-        return HistoryListItem(
-          item: item,
-          index: index,
-          onTap: () {
-            Get.toNamed(AppRoutes.gemResult, arguments: item.id);
-          },
-        );
-      },
+      ),
     );
   }
 }

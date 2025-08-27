@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gemai/app/core/services/sembast_service.dart';
 import 'package:gemai/app/data/model/response/scan_result_model.dart';
@@ -202,10 +201,5 @@ class GemResultController extends GetxController {
     });
 
     loadById();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
   }
 }

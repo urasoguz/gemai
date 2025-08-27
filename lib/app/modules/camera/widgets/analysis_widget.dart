@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:get/get.dart';
 import 'package:gemai/app/modules/camera/controller/camera_controller.dart';
 import 'dart:math';
@@ -94,7 +93,9 @@ class _AnalysisWidgetState extends State<AnalysisWidget>
     try {
       _scanningController?.dispose();
       _magnifierController?.dispose();
-    } catch (e) {}
+    } catch (e) {
+      return;
+    }
     super.dispose();
   }
 
@@ -103,7 +104,9 @@ class _AnalysisWidgetState extends State<AnalysisWidget>
     try {
       _scanningController?.repeat();
       _magnifierController?.repeat();
-    } catch (e) {}
+    } catch (e) {
+      return;
+    }
   }
 
   void _stopAnimations() {
@@ -114,7 +117,9 @@ class _AnalysisWidgetState extends State<AnalysisWidget>
       try {
         _scanningController?.stop();
         _magnifierController?.stop();
-      } catch (e) {}
+      } catch (e) {
+        return;
+      }
     }
   }
 
@@ -401,7 +406,7 @@ class _AnalysisWidgetState extends State<AnalysisWidget>
       final controller = Get.find<CameraController>();
       final progress = controller.scanProgress.value;
 
-      return Container(
+      return SizedBox(
         width: 80,
         height: 80,
         child: Stack(

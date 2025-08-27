@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gemai/app/modules/onboarding/controller/onboarding_controller.dart';
-import 'package:gemai/app/core/theme/app_theme_config.dart';
 
 /// Yeni onboarding tasarımı için header widget'ı
 class NewOnboardingHeader extends StatefulWidget {

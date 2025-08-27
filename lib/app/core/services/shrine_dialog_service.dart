@@ -966,7 +966,6 @@ class _ExampleCard extends StatelessWidget {
           ),
         );
       case RetakeEffect.none:
-      default:
         // Varsayılan: tam sığdır
         return Container(color: const Color(0xFF0E0E0E), child: contained);
     }

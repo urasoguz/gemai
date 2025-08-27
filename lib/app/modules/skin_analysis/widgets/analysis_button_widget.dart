@@ -10,7 +10,6 @@ class AnalysisButtonWidget extends GetView<SkinAnalysisController> {
 
   @override
   Widget build(BuildContext context) {
-    final colors = AppThemeConfig.primary;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
       child: Obx(
