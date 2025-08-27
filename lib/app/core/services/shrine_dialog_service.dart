@@ -15,16 +15,17 @@ import 'package:gemai/app/modules/camera/controller/camera_controller.dart';
 class ShrineDialogService {
   /// Hata koduna göre uygun shirne dialog'u gösterir
   static void handleError(int errorCode, String errorMessage) {
-    final colors = AppThemeConfig.primary;
+    final Color colors = AppThemeConfig.textLink;
     try {
       switch (errorCode) {
         case 0:
           // Timeout hatası - API çağrısı zaman aşımına uğradı
           try {
-            showWarning(
-              'Analiz devam ediyor ama biraz daha uzun sürebilir. Lütfen bekleyin ve tekrar deneyin.',
-              colors,
-              duration: const Duration(seconds: 5),
+            showNativeAlert(
+              title: 'scan_dialog_title_info'.tr,
+              message: 'scan_dialog_0'.tr,
+              okButtonText: 'scan_dialog_ok'.tr,
+              onOkPressed: () {},
             );
           } catch (e) {
             if (kDebugMode) {
@@ -89,12 +90,11 @@ class ShrineDialogService {
         case 501:
           // Sistem bakım modunda
           try {
-            showInfoDialog(
-              message: 'scan_dialog_501'.tr,
+            showNativeAlert(
               title: 'scan_dialog_title_info'.tr,
-              showCancelButton: false,
-              showOkButton: true,
-              okButtonColor: AppThemeConfig.primary,
+              message: 'scan_dialog_501'.tr,
+              okButtonText: 'scan_dialog_ok'.tr,
+              onOkPressed: () {},
             );
           } catch (e) {
             if (kDebugMode) {
@@ -106,10 +106,11 @@ class ShrineDialogService {
         case 503:
           // Sistem yoğun hatası
           try {
-            showWarning(
-              'scan_dialog_503'.tr,
-              colors,
-              duration: const Duration(seconds: 3),
+            showNativeAlert(
+              title: 'scan_dialog_title_info'.tr,
+              message: 'scan_dialog_503'.tr,
+              okButtonText: 'scan_dialog_ok'.tr,
+              onOkPressed: () {},
             );
           } catch (e) {
             if (kDebugMode) {
@@ -118,99 +119,16 @@ class ShrineDialogService {
           }
           break;
 
-        case 1001:
-          // Görsel insan cildiyle ilgili değil - Kamera'ya yönlendir
+        case 5000:
           try {
-            showWarningConfirm(
-              message: 'scan_dialog_1001'.tr,
-              title: 'scan_dialog_title_warning'.tr,
-              showCancelButton: false,
-              showOkButton: true,
-              colors: colors,
-              onConfirm: (confirmed) {
+            showNativeAlert(
+              title: 'scan_dialog_title_info'.tr,
+              message: 'scan_dialog_5000'.tr,
+              okButtonText: 'scan_dialog_ok'.tr,
+              onOkPressed: () {
                 Get.offAllNamed(AppRoutes.home);
               },
             );
-          } catch (e) {
-            if (kDebugMode) {
-              print('🔥 MyDialog.confirm hatası (1001): $e');
-            }
-          }
-          break;
-
-        case 1002:
-          // 🚨 YENİ: Görsel taş ile ilgili değil - Kamera'ya yönlendir
-          try {
-            showWarningConfirm(
-              message:
-                  'GemAI analizi için lütfen taş fotoğrafı çekin. Görsel taş ile ilgili değil.',
-              title: 'Taş Fotoğrafı Gerekli',
-              showCancelButton: false,
-              showOkButton: true,
-              colors: colors,
-              onConfirm: (confirmed) {
-                Get.back(); // Kamera ekranına geri dön
-              },
-            );
-          } catch (e) {
-            if (kDebugMode) {
-              print('🔥 MyDialog.confirm hatası (1002): $e');
-            }
-          }
-          break;
-
-        case 1003:
-          // 🚨 YENİ: Taş çok küçük veya net değil - Kamera'ya yönlendir
-          try {
-            showWarningConfirm(
-              message:
-                  'Taş çok küçük veya net değil. Lütfen daha yakından ve net bir fotoğraf çekin.',
-              title: 'Daha Net Fotoğraf Gerekli',
-              showCancelButton: false,
-              showOkButton: true,
-              colors: colors,
-              onConfirm: (confirmed) {
-                Get.back(); // Kamera ekranına geri dön
-              },
-            );
-          } catch (e) {
-            if (kDebugMode) {
-              print('🔥 MyDialog.confirm hatası (1003): $e');
-            }
-          }
-          break;
-
-        case 1004:
-          // 🚨 YENİ: Taş türü tanınamadı - Kamera'ya yönlendir
-          try {
-            showWarningConfirm(
-              message:
-                  'Taş türü tanınamadı. Lütfen farklı bir açıdan veya daha net bir fotoğraf çekin.',
-              title: 'Taş Tanınamadı',
-              showCancelButton: false,
-              showOkButton: true,
-              colors: colors,
-              onConfirm: (confirmed) {
-                Get.back(); // Kamera ekranına geri dön
-              },
-            );
-          } catch (e) {
-            if (kDebugMode) {
-              print('🔥 MyDialog.confirm hatası (1004): $e');
-            }
-          }
-          break;
-
-        case 5000:
-          try {
-            showWarning(
-              'scan_dialog_5000'.tr,
-              colors,
-              duration: const Duration(seconds: 3),
-            );
-            Future.delayed(const Duration(seconds: 3), () {
-              Get.offAllNamed(AppRoutes.home);
-            });
           } catch (e) {
             if (kDebugMode) {
               print('🔥 MyDialog.confirm hatası (5000): $e');
@@ -220,14 +138,14 @@ class ShrineDialogService {
 
         case 429:
           try {
-            showWarning(
-              'scan_dialog_429'.tr,
-              colors,
-              duration: const Duration(seconds: 3),
+            showNativeAlert(
+              title: 'scan_dialog_title_info'.tr,
+              message: 'scan_dialog_429'.tr,
+              okButtonText: 'scan_dialog_ok'.tr,
+              onOkPressed: () {
+                Get.offAllNamed(AppRoutes.home);
+              },
             );
-            Future.delayed(const Duration(seconds: 3), () {
-              Get.offAllNamed(AppRoutes.home);
-            });
           } catch (e) {
             if (kDebugMode) {
               print('🔥 MyDialog.confirm hatası (429): $e');
@@ -242,10 +160,6 @@ class ShrineDialogService {
               '🔥 handleError default case: kod=$errorCode, mesaj=$errorMessage',
             );
           }
-          showNativeAlert(
-            title: 'scan_dialog_error'.tr,
-            message: 'scan_dialog_error'.tr,
-          );
 
           break;
       }
@@ -254,10 +168,11 @@ class ShrineDialogService {
         print('🔥 handleError içinde hata: $e');
       }
       // Fallback olarak basit toast göster
-      showError(
-        'scan_dialog_error'.tr,
-        colors,
-        duration: const Duration(seconds: 3),
+      showNativeAlert(
+        title: 'scan_dialog_title_error'.tr,
+        message: 'scan_dialog_error'.tr,
+        okButtonText: 'scan_dialog_ok'.tr,
+        onOkPressed: () {},
       );
     }
   }
@@ -309,7 +224,10 @@ class ShrineDialogService {
             ),
             content: Text(
               message,
-              style: TextStyle(fontSize: 13, color: CupertinoColors.systemGrey),
+              style: TextStyle(
+                fontSize: 13,
+                color: AppThemeConfig.textSecondary,
+              ),
             ),
             actions: [
               CupertinoDialogAction(
@@ -318,11 +236,11 @@ class ShrineDialogService {
                   onOkPressed?.call();
                 },
                 child: Text(
-                  okButtonText ?? 'Tamam',
+                  okButtonText ?? 'OK',
                   style: TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.w600,
-                    color: CupertinoColors.activeBlue,
+                    color: AppThemeConfig.primary,
                   ),
                 ),
               ),
@@ -343,7 +261,10 @@ class ShrineDialogService {
             ),
             content: Text(
               message,
-              style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+              style: TextStyle(
+                fontSize: 14,
+                color: AppThemeConfig.textSecondary,
+              ),
             ),
             actions: [
               TextButton(
@@ -352,7 +273,7 @@ class ShrineDialogService {
                   onOkPressed?.call();
                 },
                 child: Text(
-                  okButtonText ?? 'Tamam',
+                  okButtonText ?? 'OK',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
@@ -391,7 +312,10 @@ class ShrineDialogService {
             ),
             content: Text(
               message,
-              style: TextStyle(fontSize: 13, color: CupertinoColors.systemGrey),
+              style: TextStyle(
+                fontSize: 13,
+                color: AppThemeConfig.textSecondary,
+              ),
             ),
             actions: [
               CupertinoDialogAction(
@@ -401,11 +325,11 @@ class ShrineDialogService {
                 },
                 isDestructiveAction: false,
                 child: Text(
-                  cancelText ?? 'İptal',
+                  cancelText ?? 'Cancel',
                   style: TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.w400,
-                    color: CupertinoColors.systemGrey,
+                    color: AppThemeConfig.textSecondary,
                   ),
                 ),
               ),
@@ -416,11 +340,11 @@ class ShrineDialogService {
                 },
                 isDefaultAction: true,
                 child: Text(
-                  confirmText ?? 'Onayla',
+                  confirmText ?? 'OK',
                   style: TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.w600,
-                    color: CupertinoColors.activeBlue,
+                    color: AppThemeConfig.primary,
                   ),
                 ),
               ),
@@ -441,7 +365,10 @@ class ShrineDialogService {
             ),
             content: Text(
               message,
-              style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+              style: TextStyle(
+                fontSize: 14,
+                color: AppThemeConfig.textSecondary,
+              ),
             ),
             actions: [
               TextButton(
@@ -450,11 +377,11 @@ class ShrineDialogService {
                   onCancel?.call();
                 },
                 child: Text(
-                  cancelText ?? 'İptal',
+                  cancelText ?? 'Cancel',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
-                    color: Colors.grey[600],
+                    color: AppThemeConfig.textSecondary,
                   ),
                 ),
               ),
@@ -464,7 +391,7 @@ class ShrineDialogService {
                   onConfirm?.call();
                 },
                 child: Text(
-                  confirmText ?? 'Onayla',
+                  confirmText ?? 'OK',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
@@ -590,13 +517,12 @@ class ShrineDialogService {
     Color? okButtonColor,
     Color? cancelButtonColor,
     Function(bool)? onConfirm,
-    required dynamic colors,
   }) {
     showConfirm(
       message,
       title,
       DialogType.error,
-      colors.red,
+      okButtonColor ?? AppThemeConfig.error,
       cancelButtonColor,
       showCancelButton,
       showOkButton,
@@ -613,14 +539,13 @@ class ShrineDialogService {
     Color? okButtonColor,
     Color? cancelButtonColor,
     Function(bool)? onConfirm,
-    required dynamic colors,
   }) {
     showConfirm(
       message,
       title,
       DialogType.warning,
-      colors.primary,
-      colors.primary,
+      okButtonColor ?? AppThemeConfig.primary,
+      cancelButtonColor ?? AppThemeConfig.primary,
       showCancelButton,
       showOkButton,
       onConfirm: onConfirm,
@@ -666,15 +591,24 @@ class ShrineDialogService {
   /// Yeniden çekim nedenleri
   /// 1001-1004 gibi durumlar için kullanılacak
   // Türkçe açıklamalar UI içinde gösterilecek
-  static const Map<RetakeReason, String> _reasonTitles = <RetakeReason, String>{
-    RetakeReason.notFound: 'Taş bulunamadı',
-    RetakeReason.notStone: 'Görsel taş ile ilgili değil',
-    RetakeReason.tooFarOrClose: 'Çok uzak ya da çok yakın',
-    RetakeReason.blurry: 'Bulanık çekim',
-    RetakeReason.multipleStones: 'Birden çok tür',
-    RetakeReason.notRecognized: 'Taş tanınamadı',
-    RetakeReason.tooDark: 'Çok karanlık',
-  };
+  /// Çeviri anahtarlarını tutar; çeviri çalışma zamanında yapılır
+  static const Map<RetakeReason, String> _reasonTitleKeys =
+      <RetakeReason, String>{
+        RetakeReason.notFound: 'retake_dialog_title_not_found',
+        RetakeReason.notStone: 'retake_dialog_title_not_stone',
+        RetakeReason.tooFarOrClose: 'retake_dialog_title_too_far_or_close',
+        RetakeReason.blurry: 'retake_dialog_title_blurry',
+        RetakeReason.multipleStones: 'retake_dialog_title_multiple_stones',
+        RetakeReason.notRecognized: 'retake_dialog_title_not_recognized',
+        RetakeReason.tooDark: 'retake_dialog_title_too_dark',
+      };
+
+  /// Verilen nedene göre başlık çevirisini döndürür
+  static String getReasonTitle(RetakeReason reason) {
+    final String? key = _reasonTitleKeys[reason];
+    if (key == null) return 'Retake';
+    return key.tr;
+  }
 
   /// 1001-1004 için özel "tekrar çek" alt sayfası
   /// imagePath: Kullanıcının az önce çektiği fotoğraf yolu
@@ -685,23 +619,19 @@ class ShrineDialogService {
     final BuildContext? ctx = Get.context;
     if (ctx == null) return;
 
-    final String title = _reasonTitles[reason] ?? 'Tekrar deneyin';
+    final String title = getReasonTitle(reason);
 
     // Türkçe açıklama satırı
     final String subtitle = switch (reason) {
-      RetakeReason.notStone =>
-        'GemAI analizi için lütfen yalnızca taş fotoğrafı çekin.',
+      RetakeReason.notStone => 'retake_dialog_subtitle_not_stone'.tr,
       RetakeReason.tooFarOrClose =>
-        'Taşı kadrajda büyüterek ve merkezde tutarak fotoğraf çekin.',
-      RetakeReason.blurry => 'Kamerayı sabitleyip daha net bir fotoğraf çekin.',
+        'retake_dialog_subtitle_too_far_or_close'.tr,
+      RetakeReason.blurry => 'retake_dialog_subtitle_blurry'.tr,
       RetakeReason.multipleStones =>
-        'Tek bir taş olacak şekilde fotoğraf çekin.',
-      RetakeReason.notRecognized =>
-        'Farklı açıdan veya daha net bir fotoğraf deneyin.',
-      RetakeReason.tooDark =>
-        'Aydınlık bir ortamda veya flaş ile tekrar deneyin.',
-      RetakeReason.notFound =>
-        'Taş algılanamadı. Daha belirgin ve net bir fotoğraf çekin.',
+        'retake_dialog_subtitle_multiple_stones'.tr,
+      RetakeReason.notRecognized => 'retake_dialog_subtitle_not_recognized'.tr,
+      RetakeReason.tooDark => 'retake_dialog_subtitle_too_dark'.tr,
+      RetakeReason.notFound => 'retake_dialog_subtitle_not_found'.tr,
     };
 
     await showModalBottomSheet<void>(
@@ -730,7 +660,7 @@ class ShrineDialogService {
               right: 0,
               bottom: 0,
               height: 400, // Sadece alt kısımda overlay
-              child: Container(color: Colors.black.withOpacity(0.45)),
+              child: Container(color: AppThemeConfig.black.withOpacity(0.45)),
             ),
 
             // Sol üst kapat düğmesi
@@ -743,11 +673,15 @@ class ShrineDialogService {
                   width: 40,
                   height: 40,
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.4),
+                    color: AppThemeConfig.black.withOpacity(0.4),
                     shape: BoxShape.circle,
                   ),
                   child: const Center(
-                    child: Icon(Icons.close, size: 22, color: Colors.white),
+                    child: Icon(
+                      Icons.close,
+                      size: 22,
+                      color: AppThemeConfig.white,
+                    ),
                   ),
                 ),
               ),
@@ -760,7 +694,7 @@ class ShrineDialogService {
               bottom: 0,
               child: Container(
                 decoration: const BoxDecoration(
-                  color: Colors.white,
+                  color: AppThemeConfig.white,
                   borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
                 ),
                 padding: EdgeInsets.fromLTRB(
@@ -778,7 +712,7 @@ class ShrineDialogService {
                       children: <Widget>[
                         const Icon(
                           Icons.error_outline,
-                          color: Colors.redAccent,
+                          color: AppThemeConfig.severityIndicatorColor4,
                         ),
                         const SizedBox(width: 8),
                         Expanded(
@@ -787,7 +721,7 @@ class ShrineDialogService {
                             style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w700,
-                              color: Colors.black,
+                              color: AppThemeConfig.black,
                             ),
                           ),
                         ),
@@ -798,7 +732,7 @@ class ShrineDialogService {
                       subtitle,
                       style: TextStyle(
                         fontSize: 13,
-                        color: Colors.black.withOpacity(0.7),
+                        color: AppThemeConfig.black.withOpacity(0.7),
                       ),
                     ),
                     const SizedBox(height: 14),
@@ -818,15 +752,15 @@ class ShrineDialogService {
                       onPressed: () => Navigator.of(context).pop(),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppThemeConfig.textLink,
-                        foregroundColor: Colors.white,
+                        foregroundColor: AppThemeConfig.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(28),
                         ),
                         padding: const EdgeInsets.symmetric(vertical: 14),
                       ),
                       icon: const Icon(Icons.camera_alt_outlined),
-                      label: const Text(
-                        'tekrar al',
+                      label: Text(
+                        'retake_button_title'.tr,
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
@@ -879,7 +813,7 @@ class _ExampleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: const Color(0xFF1F1F1F),
+        color: AppThemeConfig.neutralSurfaceDark,
         borderRadius: BorderRadius.circular(16),
       ),
       padding: const EdgeInsets.all(12),
@@ -898,7 +832,10 @@ class _ExampleCard extends StatelessWidget {
               Icon(
                 good ? Icons.check_circle : Icons.cancel,
                 size: 18,
-                color: good ? const Color(0xFF4CAF50) : const Color(0xFFE53935),
+                color:
+                    good
+                        ? AppThemeConfig.success
+                        : AppThemeConfig.severityIndicatorColor4,
               ),
               const SizedBox(width: 6),
               Expanded(
@@ -907,7 +844,7 @@ class _ExampleCard extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
-                    color: Colors.white,
+                    color: AppThemeConfig.white,
                     fontSize: 12,
                     fontWeight: FontWeight.w600,
                   ),
@@ -937,7 +874,9 @@ class _ExampleCard extends StatelessWidget {
         // Karanlık overlay ile, görsel tam sığdır
         return Stack(
           children: <Widget>[
-            Positioned.fill(child: Container(color: const Color(0xFF0E0E0E))),
+            Positioned.fill(
+              child: Container(color: AppThemeConfig.neutralSurfaceAlmostBlack),
+            ),
             Positioned.fill(child: contained),
             Positioned.fill(
               child: Container(color: Colors.black.withOpacity(0.65)),
@@ -947,7 +886,7 @@ class _ExampleCard extends StatelessWidget {
       case RetakeEffect.far:
         // Uzak: görseli daha da küçült, merkezde tut
         return Container(
-          color: const Color(0xFF0E0E0E),
+          color: AppThemeConfig.neutralSurfaceAlmostBlack,
           child: Center(
             child: SizedBox(
               width: 25,
@@ -959,7 +898,7 @@ class _ExampleCard extends StatelessWidget {
       case RetakeEffect.blurry:
         // Bulanık: tam sığdır + blur
         return Container(
-          color: const Color(0xFF0E0E0E),
+          color: AppThemeConfig.neutralSurfaceAlmostBlack,
           child: ImageFiltered(
             imageFilter: ui.ImageFilter.blur(sigmaX: 6.0, sigmaY: 6.0),
             child: contained,
@@ -967,7 +906,10 @@ class _ExampleCard extends StatelessWidget {
         );
       case RetakeEffect.none:
         // Varsayılan: tam sığdır
-        return Container(color: const Color(0xFF0E0E0E), child: contained);
+        return Container(
+          color: AppThemeConfig.neutralSurfaceAlmostBlack,
+          child: contained,
+        );
     }
   }
 }
@@ -977,9 +919,11 @@ class _CorrectExampleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: const Color(0xFFF5F0E8),
+        color: AppThemeConfig.panelBackground,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: const Color(0xFF8D6E63).withOpacity(0.25)),
+        border: Border.all(
+          color: AppThemeConfig.panelBorderBrown.withOpacity(0.25),
+        ),
       ),
       padding: const EdgeInsets.all(12),
       child: Row(
@@ -989,7 +933,7 @@ class _CorrectExampleCard extends StatelessWidget {
             child: Container(
               width: 120,
               height: 80,
-              color: const Color(0xFF0E0E0E),
+              color: AppThemeConfig.neutralSurfaceAlmostBlack,
               child: Center(
                 child: Image.asset(
                   'assets/camera/amethyst.png',
@@ -999,17 +943,17 @@ class _CorrectExampleCard extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 12),
-          const Expanded(
+          Expanded(
             child: Text(
-              'Doğru çekim',
+              'retake_dialog_correct_example'.tr,
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w700,
-                color: Colors.black,
+                color: AppThemeConfig.black,
               ),
             ),
           ),
-          const Icon(Icons.check_circle, color: Color(0xFF4CAF50)),
+          const Icon(Icons.check_circle, color: AppThemeConfig.success),
         ],
       ),
     );
@@ -1037,26 +981,26 @@ class _BadExamplesGrid extends StatelessWidget {
   List<_ExampleCard> _buildBadItems(RetakeReason r) {
     // 4 kart döner - her biri farklı efekt uygular
     final List<_ExampleCard> list = <_ExampleCard>[
-      const _ExampleCard(
-        label: 'Çok karanlık',
+      _ExampleCard(
+        label: 'retake_dialog_dark'.tr,
         good: false,
         asset: 'assets/camera/amethyst.png',
         effect: RetakeEffect.dark,
       ),
-      const _ExampleCard(
-        label: 'Çok uzak',
+      _ExampleCard(
+        label: 'retake_dialog_far'.tr,
         good: false,
         asset: 'assets/camera/amethyst.png',
         effect: RetakeEffect.far,
       ),
-      const _ExampleCard(
-        label: 'Bulanık',
+      _ExampleCard(
+        label: 'retake_dialog_blurry'.tr,
         good: false,
         asset: 'assets/camera/amethyst.png',
         effect: RetakeEffect.blurry,
       ),
       _ExampleCard(
-        label: 'Birden çok tür',
+        label: 'retake_dialog_multiple_stones'.tr,
         good: false,
         asset:
             r == RetakeReason.multipleStones

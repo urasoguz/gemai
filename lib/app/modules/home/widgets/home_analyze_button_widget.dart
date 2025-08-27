@@ -47,8 +47,8 @@ class _HomeAnalyzeButtonWidgetState extends State<HomeAnalyzeButtonWidget>
     _controller.reverse();
     if (remainingToken == 0 && ispremium == true) {
       ShrineDialogService.showInfo(
-        'scan_dialog_125'.tr,
-        AppThemeConfig.primary,
+        'home_premium_token_error'.tr,
+        AppThemeConfig.textLink,
       );
     } else if (remainingToken == 0 && ispremium == false) {
       Get.toNamed(AppRoutes.premium);
@@ -88,28 +88,38 @@ class _HomeAnalyzeButtonWidgetState extends State<HomeAnalyzeButtonWidget>
             const SizedBox(height: 16),
 
             // Ana başlık
-            Text(
-              'Know Your Rocks',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: AppThemeConfig.textPrimary,
-                height: 1.1,
+            GestureDetector(
+              onTapDown: _onTapDown,
+              onTapUp: _onTapUp,
+              onTapCancel: _onTapCancel,
+              child: Text(
+                'home_rock_title'.tr,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: AppThemeConfig.textPrimary,
+                  height: 1.1,
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
             ),
 
             const SizedBox(height: 2),
 
             // Alt başlık
-            Text(
-              'Tap here to recognize a rock',
-              style: TextStyle(
-                fontSize: 13,
-                color: AppThemeConfig.textSecondary,
-                height: 1.1,
+            GestureDetector(
+              onTapDown: _onTapDown,
+              onTapUp: _onTapUp,
+              onTapCancel: _onTapCancel,
+              child: Text(
+                'home_rock_desc'.tr,
+                style: TextStyle(
+                  fontSize: 13,
+                  color: AppThemeConfig.textSecondary,
+                  height: 1.1,
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
             ),
 
             const SizedBox(height: 16),
@@ -139,7 +149,7 @@ class _HomeAnalyzeButtonWidgetState extends State<HomeAnalyzeButtonWidget>
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withValues(alpha: 0.2),
+                        color: AppThemeConfig.black.withValues(alpha: 0.2),
                         blurRadius: 12,
                         offset: const Offset(0, 4),
                       ),
@@ -148,12 +158,12 @@ class _HomeAnalyzeButtonWidgetState extends State<HomeAnalyzeButtonWidget>
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(Icons.add, color: Colors.white, size: 20),
-                      const SizedBox(width: 8),
+                      Icon(Icons.add, color: AppThemeConfig.white, size: 20),
+                      const SizedBox(width: 3),
                       Text(
-                        'Identify',
+                        'home_rock_button'.tr,
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppThemeConfig.white,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:gemai/app/data/model/response/scan_result_model.dart';
+import 'package:get/get.dart';
 
 /// Temel bilgiler bölümü widget'ı - iOS tarzı minimalist tasarım
 class BasicsSectionWidget extends StatelessWidget {
@@ -24,7 +25,7 @@ class BasicsSectionWidget extends StatelessWidget {
               width: double.infinity,
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: AppThemeConfig.white,
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(
                   color: AppThemeConfig.divider.withOpacity(0.3),
@@ -82,14 +83,14 @@ class BasicsSectionWidget extends StatelessWidget {
             children: [
               Icon(
                 Icons.info_outline_rounded,
-                color: const Color(0xFFB8860B), // Koyu altın renk
+                color: AppThemeConfig.astroTitleIcon, // Koyu altın renk
                 size: 18,
               ),
               const SizedBox(width: 10),
               Text(
-                'Temel Bilgiler',
+                'basics_title'.tr,
                 style: TextStyle(
-                  color: const Color(0xFF2F2F2F), // Koyu gri
+                  color: AppThemeConfig.textPrimary, // Koyu gri
                   fontSize: 18,
                   fontWeight: FontWeight.w700, // Daha kalın
                   letterSpacing: 0.2,
@@ -104,8 +105,8 @@ class BasicsSectionWidget extends StatelessWidget {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  const Color(0xFFE6D7C3), // Altın/bej renk
-                  const Color(0xFFE6D7C3).withOpacity(0.3), // Hafif altın
+                  AppThemeConfig.astroDivider, // Altın/bej renk
+                  AppThemeConfig.astroDivider.withOpacity(0.3), // Hafif altın
                 ],
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
@@ -125,7 +126,7 @@ class BasicsSectionWidget extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppThemeConfig.white,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
           color: AppThemeConfig.divider.withOpacity(0.3),
@@ -153,14 +154,16 @@ class BasicsSectionWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildSubSectionTitle('Bulunduğu Bölgeler', Icons.location_on_outlined),
+        _buildSubSectionTitle('basics_regions'.tr, Icons.location_on_outlined),
         Container(
           width: double.infinity, // Tam genişlik
           decoration: BoxDecoration(
-            color: Colors.white, // Beyaz arka plan
+            color: AppThemeConfig.white, // Beyaz arka plan
             borderRadius: BorderRadius.circular(12), // Hafif radius
             border: Border.all(
-              color: Colors.grey.withOpacity(0.2), // Hafif gri border
+              color: AppThemeConfig.borderColor.withOpacity(
+                0.2,
+              ), // Hafif gri border
               width: 1,
             ),
           ),
@@ -188,14 +191,14 @@ class BasicsSectionWidget extends StatelessWidget {
             children: [
               Icon(
                 icon,
-                color: const Color(0xFFB8860B), // Koyu altın renk
+                color: AppThemeConfig.astroTitleIcon, // Koyu altın renk
                 size: 18,
               ),
               const SizedBox(width: 10),
               Text(
                 title,
                 style: TextStyle(
-                  color: const Color(0xFF2F2F2F), // Koyu gri
+                  color: AppThemeConfig.textPrimary, // Koyu gri
                   fontSize: 18,
                   fontWeight: FontWeight.w700,
                   letterSpacing: 0.2,
@@ -210,8 +213,8 @@ class BasicsSectionWidget extends StatelessWidget {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  const Color(0xFFE6D7C3), // Altın/bej renk
-                  const Color(0xFFE6D7C3).withOpacity(0.3), // Hafif altın
+                  AppThemeConfig.astroDivider, // Altın/bej renk
+                  AppThemeConfig.astroDivider.withOpacity(0.3), // Hafif altın
                 ],
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
@@ -227,19 +230,21 @@ class BasicsSectionWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
-        color: const Color(
-          0xFFE6D7C3,
-        ).withOpacity(0.3), // Hafif altın arka plan
+        color: AppThemeConfig.astroDivider.withOpacity(
+          0.3,
+        ), // Hafif altın arka plan
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: const Color(0xFFB8860B).withOpacity(0.4), // Altın kenarlık
+          color: AppThemeConfig.astroTitleIcon.withOpacity(
+            0.4,
+          ), // Altın kenarlık
           width: 1,
         ),
       ),
       child: Text(
         region,
         style: TextStyle(
-          color: const Color(0xFFB8860B), // Altın metin rengi
+          color: AppThemeConfig.astroTitleIcon, // Altın metin rengi
           fontSize: 12,
           fontWeight: FontWeight.w500,
         ),

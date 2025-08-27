@@ -18,10 +18,11 @@ class AccountView extends GetView<AccountController> {
     // Üst bardaki sistem metinlerini siyah yap (account için)
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent, // Status bar şeffaf
+        statusBarColor: AppThemeConfig.transparent, // Status bar şeffaf
         statusBarIconBrightness: Brightness.dark, // Status bar ikonları siyah
         statusBarBrightness: Brightness.light, // iOS için status bar açık tema
-        systemNavigationBarColor: Colors.transparent, // Alt navigasyon şeffaf
+        systemNavigationBarColor:
+            AppThemeConfig.transparent, // Alt navigasyon şeffaf
         systemNavigationBarIconBrightness:
             Brightness.dark, // Alt navigasyon ikonları koyu
       ),
@@ -35,10 +36,10 @@ class AccountView extends GetView<AccountController> {
         leading: IconButton(
           icon: const Icon(CupertinoIcons.back, size: 30),
           onPressed: () => Get.back(),
-          splashColor: Colors.transparent,
-          highlightColor: Colors.transparent,
-          hoverColor: Colors.transparent,
-          focusColor: Colors.transparent,
+          splashColor: AppThemeConfig.transparent,
+          highlightColor: AppThemeConfig.transparent,
+          hoverColor: AppThemeConfig.transparent,
+          focusColor: AppThemeConfig.transparent,
           splashRadius: 0.1,
           enableFeedback: false,
         ),
@@ -240,7 +241,7 @@ class AccountView extends GetView<AccountController> {
               title: Text('account_restore_purchases'.tr),
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
               onTap: controller.restorePurchases,
-              splashColor: Colors.transparent,
+              splashColor: AppThemeConfig.transparent,
             ),
 
           // Aboneliği iptal et - Sadece inceleme modunda göster (normal modda gizle)
@@ -255,7 +256,7 @@ class AccountView extends GetView<AccountController> {
               title: Text('account_cancel_subscription'.tr),
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
               onTap: controller.cancelSubscription,
-              splashColor: Colors.transparent,
+              splashColor: AppThemeConfig.transparent,
             );
           }),
 

@@ -458,33 +458,33 @@ class _NewOnboardingHeaderState extends State<NewOnboardingHeader>
       case 0: // İlk sayfa - Rock Experience
         switch (index) {
           case 0:
-            return 'Identify rocks instantly';
+            return 'onboarding_new_header_title_1'.tr;
           case 3:
-            return '5000+ rocks and minerals';
+            return 'onboarding_new_header_title_2'.tr;
           case 4:
-            return 'Learn stone values';
+            return 'onboarding_new_header_title_3'.tr;
           default:
             return '';
         }
       case 1: // İkinci sayfa - AI Technology
         switch (index) {
           case 0:
-            return 'Advanced AI technology';
+            return 'onboarding_new_header_title_1'.tr;
           case 3:
-            return 'Real-time analysis';
+            return 'onboarding_new_header_title_2'.tr;
           case 4:
-            return 'Professional results';
+            return 'onboarding_new_header_title_3'.tr;
           default:
             return '';
         }
       case 2: // Üçüncü sayfa - Premium Features
         switch (index) {
           case 0:
-            return 'Chemical information';
+            return 'onboarding_new_header_title_4'.tr;
           case 3:
-            return 'Astrological information';
+            return 'onboarding_new_header_title_5'.tr;
           case 4:
-            return 'Gemstone information';
+            return 'onboarding_new_header_title_6'.tr;
           default:
             return '';
         }

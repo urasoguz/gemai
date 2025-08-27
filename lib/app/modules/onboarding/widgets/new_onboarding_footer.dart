@@ -43,7 +43,7 @@ class NewOnboardingFooter extends StatelessWidget {
               return Text(
                 _getMainTitle(pageIndex),
                 style: TextStyle(
-                  fontSize: isSmallScreen ? 20 : 24,
+                  fontSize: isSmallScreen ? 18 : 20,
                   fontWeight: FontWeight.bold,
                   color: AppThemeConfig.textPrimary,
                   height: 1.2,
@@ -60,7 +60,7 @@ class NewOnboardingFooter extends StatelessWidget {
               return Text(
                 _getSubTitle(pageIndex),
                 style: TextStyle(
-                  fontSize: isSmallScreen ? 16 : 18,
+                  fontSize: isSmallScreen ? 14 : 14,
                   color:
                       AppThemeConfig
                           .textPrimary, // Sarı yerine normal text rengi
@@ -130,11 +130,12 @@ class NewOnboardingFooter extends StatelessWidget {
                   children: [
                     Text(
                       controller.pageIndex.value == controller.pageCount - 1
-                          ? 'continue'
+                          ? 'onboarding_new_continue'
                               .tr // Son sayfada continue
-                          : 'continue'.tr, // Tüm sayfalarda continue
+                          : 'onboarding_new_continue'
+                              .tr, // Tüm sayfalarda continue
                       style: const TextStyle(
-                        color: Colors.white,
+                        color: AppThemeConfig.white,
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
                         decoration: TextDecoration.none, // Alt çizgiyi kaldır
@@ -143,7 +144,7 @@ class NewOnboardingFooter extends StatelessWidget {
                     const SizedBox(width: 8),
                     const Icon(
                       Icons.arrow_forward_ios,
-                      color: Colors.white,
+                      color: AppThemeConfig.white,
                       size: 16,
                     ),
                   ],
@@ -158,14 +159,14 @@ class NewOnboardingFooter extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 _buildFooterButton(
-                  text: 'Terms of Use',
+                  text: 'onboarding_terms'.tr,
                   onPressed: () {
                     // Terms sayfasına git
                     Get.toNamed('/legal', arguments: {'type': 'terms'});
                   },
                 ),
                 _buildFooterButton(
-                  text: 'Privacy Policy',
+                  text: 'onboarding_privacy'.tr,
                   onPressed: () {
                     // Privacy sayfasına git
                     Get.toNamed('/legal', arguments: {'type': 'privacy'});
@@ -184,11 +185,11 @@ class NewOnboardingFooter extends StatelessWidget {
   String _getMainTitle(int pageIndex) {
     switch (pageIndex) {
       case 0:
-        return 'Discover detailed\ninfo about rocks';
+        return 'onboarding_new_title_1'.tr;
       case 1:
-        return 'Best results with\ncustom AI model';
+        return 'onboarding_new_title_2'.tr;
       case 2:
-        return 'Create and manage\nyour collection';
+        return 'onboarding_new_title_3'.tr;
       default:
         return '';
     }
@@ -197,11 +198,11 @@ class NewOnboardingFooter extends StatelessWidget {
   String _getSubTitle(int pageIndex) {
     switch (pageIndex) {
       case 0:
-        return 'Dive deep into the specifics of each rock and mineral you encounter';
+        return 'onboarding_new_desc_1'.tr;
       case 1:
-        return 'With our advanced database, you can learn the value of every stone you see.';
+        return 'onboarding_new_desc_2'.tr;
       case 2:
-        return 'Organize, manage, and showcase your growing rock collection with ease';
+        return 'onboarding_new_desc_3'.tr;
       default:
         return '';
     }
@@ -215,11 +216,11 @@ class NewOnboardingFooter extends StatelessWidget {
     return TextButton(
       onPressed: onPressed,
       style: ButtonStyle(
-        overlayColor: WidgetStateProperty.all(Colors.transparent),
+        overlayColor: WidgetStateProperty.all(AppThemeConfig.transparent),
         splashFactory: NoSplash.splashFactory,
-        shadowColor: WidgetStateProperty.all(Colors.transparent),
+        shadowColor: WidgetStateProperty.all(AppThemeConfig.transparent),
         foregroundColor: WidgetStateProperty.all(AppThemeConfig.textSecondary),
-        backgroundColor: WidgetStateProperty.all(Colors.transparent),
+        backgroundColor: WidgetStateProperty.all(AppThemeConfig.transparent),
         padding: WidgetStateProperty.all(
           const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
         ),

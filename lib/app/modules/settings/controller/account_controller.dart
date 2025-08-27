@@ -35,7 +35,7 @@ class AccountController extends GetxController {
       if (kDebugMode) {
         print('❌ Account settings restore exception: $e');
       }
-      final colors = AppThemeConfig.primary;
+      final colors = AppThemeConfig.textHint;
       ShrineDialogService.showError(
         'settings_restore_purchases_error'.tr,
         colors,
@@ -46,7 +46,7 @@ class AccountController extends GetxController {
 
   void cancelSubscription() async {
     try {
-      final colors = AppThemeConfig.primary;
+      final colors = AppThemeConfig.textHint;
       final url =
           Platform.isIOS
               ? 'https://apps.apple.com/account/subscriptions'

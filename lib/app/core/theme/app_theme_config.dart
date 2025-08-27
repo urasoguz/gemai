@@ -30,9 +30,13 @@ class AppThemeConfig {
 
   // ===== DURUM RENKLERİ =====
   static const Color success = Color(0xFF4CAF50); // Başarı rengi
+  static const Color successGreen = Color(0xFF4CAF50); // Yeşil başarı rengi
   static const Color warning = Color(0xFFFFC700); // Uyarı rengi
   static const Color error = Color(0xFFF44336); // Hata rengi
   static const Color info = Color(0xFF2196F3); // Bilgi rengi
+  static const Color bestValueRed = Color(
+    0xFFFF3B30,
+  ); // En iyi değer badge rengi
 
   // ===== GRADIENT RENKLERİ =====
   static const Color gradientPrimary = Color(0xFFE6D7B8);
@@ -91,6 +95,46 @@ class AppThemeConfig {
   static const Color paywallCardBorderCheck = Color(0xFF000000);
   static const Color paywallCardCheck = Color(0xFFBDBDBD);
 
+  // ===== GLASSMORPHISM RENKLERİ =====
+  static const Color glassmorphismBackground = Color(
+    0x14FFFFFF,
+  ); // Colors.white.withOpacity(0.08)
+  static const Color glassmorphismBorder = Color(
+    0x4DFFFFFF,
+  ); // Colors.white.withOpacity(0.3)
+  static const Color glassmorphismShadow = Color(
+    0x33FFFFFF,
+  ); // Colors.white.withOpacity(0.15)
+  static const Color glassmorphismGradient1 = Color(
+    0x26FFFFFF,
+  ); // Colors.white.withOpacity(0.15)
+  static const Color glassmorphismGradient2 = Color(
+    0x05FFFFFF,
+  ); // Colors.white.withOpacity(0.02)
+  static const Color glassmorphismGradient3 = Color(
+    0x14FFFFFF,
+  ); // Colors.white.withOpacity(0.08)
+
+  // ===== GLOW RENKLERİ =====
+  static const Color glowColor1 = Color(
+    0x77071A27,
+  ); // Color.fromARGB(119, 7, 25, 39)
+  static const Color glowColor2 = Color(
+    0x3A422E0B,
+  ); // Color.fromARGB(58, 66, 46, 11)
+  static const Color glowColor3 = Color(
+    0x5904343A,
+  ); // Color.fromARGB(89, 4, 52, 58)
+
+  // ===== CIRCLE PROGRESS RENKLERİ =====
+  static const Color circleProgressLight = Color.fromARGB(
+    255,
+    228,
+    228,
+    228,
+  ); // Açık tema için
+  static const Color circleProgressDark = Color(0xFFBDBDBD); // Koyu tema için
+
   // ===== SKIN ANALYSIS RENKLERİ =====
   static const Color skinAnalysisYearText = Color(0xFF134E5E);
   static const Color symptomChipColor = Color(0xFFD32F2F);
@@ -129,8 +173,40 @@ class AppThemeConfig {
   static const Color borderColor = Color(0xFFE0E0E0);
   static const Color black = Colors.black;
   static const Color white = Color(0xFFFFFFFF);
+  static const Color white54 = Colors.white54;
   static const Color orange = Color(0xFFFF9800);
   static const Color red = Color(0xFFF44336);
+  static const Color grey50 = Color(0xFFFAFAFA);
+  static const Color grey200 = Color(0xFFEEEEEE);
+  static const Color grey600 = Color(0xFF757575);
+  static const Color starGold = Color(0xFFFFD700); // Yıldız rating rengi
+  static const Color blue = Colors.blue;
+  static const Color purple = Colors.purple;
+
+  // ===== EK NÖTR VE PANEL RENKLERİ =====
+  // Uyarı/örnek kart arka planı için koyu nötr zemin
+  static const Color neutralSurfaceDark = Color(0xFF1F1F1F);
+  // Görsel alanı arka planı için neredeyse siyah zemin
+  static const Color neutralSurfaceAlmostBlack = Color(0xFF0E0E0E);
+  // Bilgilendirici beyaz panel arka planı (alt sayfa)
+  static const Color panelBackground = Color(0xFFF5F0E8);
+  // Panel kenarlığı için kahverengi ton
+  static const Color panelBorderBrown = Color(0xFF8D6E63);
+
+  // ===== ASTROLOJIK TAB RENKLERI =====
+  // Başlık ikonu için koyu altın tonu
+  static const Color astroTitleIcon = Color(0xFFB8860B);
+  // Bölüm alt çizgisi/bej tonu
+  static const Color astroDivider = Color(0xFFE6D7C3);
+  static const Color astroGold = Color(0xFFDAA520);
+  static const Color accentPurple = Colors.purple;
+  static const Color valueHighlight = Color(0xFFF8F6F0);
+  static const Color skeletonShimmer = Color(0xFFEFEFEF);
+
+  // ===== DISCLAIMER RENKLERI =====
+  static const Color disclaimerBackground = Color(0xFFFFF8E1);
+  static const Color disclaimerBorder = Color(0xFFFFE082);
+  static const Color disclaimerTextBrown = Color(0xFF5D4037);
 
   // ===== TEMA AYARLARI =====
   static const double borderRadius = 16.0;

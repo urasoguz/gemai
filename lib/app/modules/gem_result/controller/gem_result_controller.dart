@@ -17,10 +17,10 @@ class GemResultController extends GetxController {
 
   // Sekme başlıkları (sıraları sayfadaki bölüm sırası ile eşleşir)
   final List<String> sectionTitles = <String>[
-    'Temel',
-    'Fiyat',
-    'Kimyasal',
-    'Astrolojik',
+    'section_title_basic'.tr,
+    'section_title_price'.tr,
+    'section_title_chemical'.tr,
+    'section_title_astrological'.tr,
   ];
 
   /// Aktif sekme index'i

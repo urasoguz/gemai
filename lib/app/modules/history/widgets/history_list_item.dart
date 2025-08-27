@@ -24,25 +24,29 @@ class HistoryListItem extends StatelessWidget {
     final int s = (score ?? 0).clamp(0, 10);
     String label;
     if (s >= 9) {
-      label = 'Efsanevi';
+      label = 'top_visual_rarity_desc_1'.tr;
     } else if (s >= 7) {
-      label = 'Nadir';
+      label = 'top_visual_rarity_desc_2'.tr;
     } else if (s >= 4) {
-      label = 'Sık';
+      label = 'top_visual_rarity_desc_3'.tr;
     } else {
-      label = 'Yaygın';
+      label = 'top_visual_rarity_desc_4'.tr;
     }
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
       decoration: BoxDecoration(
-        color: const Color(0xFFE6D7C3).withOpacity(0.35),
+        color: AppThemeConfig.astroDivider.withOpacity(0.35),
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: const Color(0xFFE6D7C3), width: 1),
+        border: Border.all(color: AppThemeConfig.astroDivider, width: 1),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Icon(Icons.star, size: 12, color: Color(0xFFB8860B)),
+          const Icon(
+            Icons.star,
+            size: 12,
+            color: AppThemeConfig.astroTitleIcon,
+          ),
           const SizedBox(width: 4),
           Text(
             label,
@@ -64,7 +68,7 @@ class HistoryListItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
       child: Material(
-        color: Colors.white,
+        color: AppThemeConfig.white,
         borderRadius: BorderRadius.circular(12),
         elevation: 0,
         child: InkWell(
@@ -74,12 +78,12 @@ class HistoryListItem extends StatelessWidget {
           highlightColor: AppThemeConfig.divider.withOpacity(0.03),
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: AppThemeConfig.white,
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: const Color(0xFFE6D7C3), width: 1),
+              border: Border.all(color: AppThemeConfig.astroDivider, width: 1),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.04),
+                  color: AppThemeConfig.black.withOpacity(0.04),
                   blurRadius: 6,
                   offset: const Offset(0, 1),
                 ),
@@ -143,10 +147,10 @@ class HistoryListItem extends StatelessWidget {
                                 vertical: 3,
                               ),
                               decoration: BoxDecoration(
-                                color: const Color(0xFFF8F6F0),
+                                color: AppThemeConfig.valueHighlight,
                                 borderRadius: BorderRadius.circular(8),
                                 border: Border.all(
-                                  color: const Color(0xFFE6D7C3),
+                                  color: AppThemeConfig.astroDivider,
                                   width: 1,
                                 ),
                               ),
@@ -156,7 +160,7 @@ class HistoryListItem extends StatelessWidget {
                                   const Icon(
                                     Icons.attach_money,
                                     size: 12,
-                                    color: Color(0xFFB8860B),
+                                    color: AppThemeConfig.astroTitleIcon,
                                   ),
                                   const SizedBox(width: 4),
                                   Text(

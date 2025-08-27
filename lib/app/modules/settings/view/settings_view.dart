@@ -29,10 +29,11 @@ class _SettingsViewState extends State<SettingsView> {
     // Üst bardaki sistem metinlerini siyah yap (settings için)
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent, // Status bar şeffaf
+        statusBarColor: AppThemeConfig.transparent, // Status bar şeffaf
         statusBarIconBrightness: Brightness.dark, // Status bar ikonları siyah
         statusBarBrightness: Brightness.light, // iOS için status bar açık tema
-        systemNavigationBarColor: Colors.transparent, // Alt navigasyon şeffaf
+        systemNavigationBarColor:
+            AppThemeConfig.transparent, // Alt navigasyon şeffaf
         systemNavigationBarIconBrightness:
             Brightness.dark, // Alt navigasyon ikonları koyu
       ),
@@ -45,10 +46,10 @@ class _SettingsViewState extends State<SettingsView> {
         leading: IconButton(
           icon: const Icon(CupertinoIcons.back, size: 30),
           onPressed: () => Get.back(),
-          splashColor: Colors.transparent,
-          highlightColor: Colors.transparent,
-          hoverColor: Colors.transparent,
-          focusColor: Colors.transparent,
+          splashColor: AppThemeConfig.transparent,
+          highlightColor: AppThemeConfig.transparent,
+          hoverColor: AppThemeConfig.transparent,
+          focusColor: AppThemeConfig.transparent,
           splashRadius: 0.1,
           enableFeedback: false,
         ),
@@ -67,11 +68,11 @@ class _SettingsViewState extends State<SettingsView> {
 
               // Dil ayarları
               Material(
-                color: Colors.transparent,
+                color: AppThemeConfig.transparent,
                 child: InkWell(
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
+                  splashColor: AppThemeConfig.transparent,
+                  highlightColor: AppThemeConfig.transparent,
+                  hoverColor: AppThemeConfig.transparent,
                   onTap: () async {
                     final result = await Get.toNamed(AppRoutes.language);
                     if (result == true) {
@@ -133,11 +134,11 @@ class _SettingsViewState extends State<SettingsView> {
 
               // SSS
               Material(
-                color: Colors.transparent,
+                color: AppThemeConfig.transparent,
                 child: InkWell(
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
+                  splashColor: AppThemeConfig.transparent,
+                  highlightColor: AppThemeConfig.transparent,
+                  hoverColor: AppThemeConfig.transparent,
                   onTap: () {
                     controller.openFAQ();
                   },
@@ -174,11 +175,11 @@ class _SettingsViewState extends State<SettingsView> {
 
               // Hakkında
               Material(
-                color: Colors.transparent,
+                color: AppThemeConfig.transparent,
                 child: InkWell(
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
+                  splashColor: AppThemeConfig.transparent,
+                  highlightColor: AppThemeConfig.transparent,
+                  hoverColor: AppThemeConfig.transparent,
                   onTap: () {
                     controller.openAbout();
                   },
@@ -215,11 +216,11 @@ class _SettingsViewState extends State<SettingsView> {
 
               // İletişim
               Material(
-                color: Colors.transparent,
+                color: AppThemeConfig.transparent,
                 child: InkWell(
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
+                  splashColor: AppThemeConfig.transparent,
+                  highlightColor: AppThemeConfig.transparent,
+                  hoverColor: AppThemeConfig.transparent,
                   onTap: () {
                     controller.contactUs();
                   },
@@ -258,11 +259,11 @@ class _SettingsViewState extends State<SettingsView> {
 
               // // Premium'a geç
               // Material(
-              //   color: Colors.transparent,
+              //   color: AppThemeConfig.transparent,
               //   child: InkWell(
-              //     splashColor: Colors.transparent,
-              //     highlightColor: Colors.transparent,
-              //     hoverColor: Colors.transparent,
+              //     splashColor: AppThemeConfig.transparent,
+              //     highlightColor: AppThemeConfig.transparent,
+              //     hoverColor: AppThemeConfig.transparent,
               //     onTap: () {
               //       // RevenueCat paywall'ı aç
               //       RevenueCatService.showRevenueCatPaywall(
@@ -303,11 +304,11 @@ class _SettingsViewState extends State<SettingsView> {
               // Satın almaları geri yükle
               if (GetStorage().read(MyHelper.isAccountPremium) == false)
                 Material(
-                  color: Colors.transparent,
+                  color: AppThemeConfig.transparent,
                   child: InkWell(
-                    splashColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
+                    splashColor: AppThemeConfig.transparent,
+                    highlightColor: AppThemeConfig.transparent,
+                    hoverColor: AppThemeConfig.transparent,
                     onTap: () {
                       controller.restorePurchases();
                     },
@@ -344,11 +345,11 @@ class _SettingsViewState extends State<SettingsView> {
 
               // Uygulamayı paylaş
               Material(
-                color: Colors.transparent,
+                color: AppThemeConfig.transparent,
                 child: InkWell(
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
+                  splashColor: AppThemeConfig.transparent,
+                  highlightColor: AppThemeConfig.transparent,
+                  hoverColor: AppThemeConfig.transparent,
                   onTap: () {
                     controller.shareApp();
                   },
@@ -385,11 +386,11 @@ class _SettingsViewState extends State<SettingsView> {
 
               // Uygulamayı değerlendir
               Material(
-                color: Colors.transparent,
+                color: AppThemeConfig.transparent,
                 child: InkWell(
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
+                  splashColor: AppThemeConfig.transparent,
+                  highlightColor: AppThemeConfig.transparent,
+                  hoverColor: AppThemeConfig.transparent,
                   onTap: () {
                     controller.rateApp();
                   },
@@ -459,11 +460,11 @@ class _SettingsViewState extends State<SettingsView> {
                       children: [
                         // Test verilerini temizle
                         Material(
-                          color: Colors.transparent,
+                          color: AppThemeConfig.transparent,
                           child: InkWell(
-                            splashColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
+                            splashColor: AppThemeConfig.transparent,
+                            highlightColor: AppThemeConfig.transparent,
+                            hoverColor: AppThemeConfig.transparent,
                             borderRadius: BorderRadius.circular(8),
                             onTap: () => controller.clearTestData(),
                             child: Container(
@@ -472,10 +473,10 @@ class _SettingsViewState extends State<SettingsView> {
                                 vertical: 12,
                               ),
                               decoration: BoxDecoration(
-                                color: Colors.orange.withOpacity(0.1),
+                                color: AppThemeConfig.orange.withOpacity(0.1),
                                 borderRadius: BorderRadius.circular(8),
                                 border: Border.all(
-                                  color: Colors.orange.withOpacity(0.3),
+                                  color: AppThemeConfig.orange.withOpacity(0.3),
                                   width: 1,
                                 ),
                               ),
@@ -484,14 +485,14 @@ class _SettingsViewState extends State<SettingsView> {
                                 children: [
                                   Icon(
                                     Icons.cleaning_services,
-                                    color: Colors.orange,
+                                    color: AppThemeConfig.orange,
                                     size: 20,
                                   ),
                                   const SizedBox(width: 8),
                                   Text(
                                     'Test Verilerini Temizle',
                                     style: TextStyle(
-                                      color: Colors.orange,
+                                      color: AppThemeConfig.orange,
                                       fontSize: 14,
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -506,11 +507,11 @@ class _SettingsViewState extends State<SettingsView> {
 
                         // Tüm verileri temizle
                         Material(
-                          color: Colors.transparent,
+                          color: AppThemeConfig.transparent,
                           child: InkWell(
-                            splashColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
+                            splashColor: AppThemeConfig.transparent,
+                            highlightColor: AppThemeConfig.transparent,
+                            hoverColor: AppThemeConfig.transparent,
                             borderRadius: BorderRadius.circular(8),
                             onTap: () => controller.clearDatabase(),
                             child: Container(
@@ -519,10 +520,10 @@ class _SettingsViewState extends State<SettingsView> {
                                 vertical: 12,
                               ),
                               decoration: BoxDecoration(
-                                color: Colors.red.withOpacity(0.1),
+                                color: AppThemeConfig.red.withOpacity(0.1),
                                 borderRadius: BorderRadius.circular(8),
                                 border: Border.all(
-                                  color: Colors.red.withOpacity(0.3),
+                                  color: AppThemeConfig.red.withOpacity(0.3),
                                   width: 1,
                                 ),
                               ),
@@ -531,14 +532,14 @@ class _SettingsViewState extends State<SettingsView> {
                                 children: [
                                   Icon(
                                     Icons.delete_forever,
-                                    color: Colors.red,
+                                    color: AppThemeConfig.red,
                                     size: 20,
                                   ),
                                   const SizedBox(width: 8),
                                   Text(
                                     'Tüm Verileri Temizle',
                                     style: TextStyle(
-                                      color: Colors.red,
+                                      color: AppThemeConfig.red,
                                       fontSize: 14,
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -560,11 +561,11 @@ class _SettingsViewState extends State<SettingsView> {
                     children: <Widget>[
                       // Gizlilik Politikası
                       Material(
-                        color: Colors.transparent,
+                        color: AppThemeConfig.transparent,
                         child: InkWell(
-                          splashColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
+                          splashColor: AppThemeConfig.transparent,
+                          highlightColor: AppThemeConfig.transparent,
+                          hoverColor: AppThemeConfig.transparent,
                           borderRadius: BorderRadius.circular(4),
                           onTap: () {
                             controller.openPrivacyPolicy();
@@ -599,11 +600,11 @@ class _SettingsViewState extends State<SettingsView> {
 
                       // Hizmet Şartları
                       Material(
-                        color: Colors.transparent,
+                        color: AppThemeConfig.transparent,
                         child: InkWell(
-                          splashColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
+                          splashColor: AppThemeConfig.transparent,
+                          highlightColor: AppThemeConfig.transparent,
+                          hoverColor: AppThemeConfig.transparent,
                           borderRadius: BorderRadius.circular(4),
                           onTap: () {
                             controller.openTerms();

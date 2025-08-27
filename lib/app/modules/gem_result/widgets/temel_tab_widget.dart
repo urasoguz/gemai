@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:gemai/app/data/model/response/scan_result_model.dart';
 import 'package:gemai/app/modules/gem_result/widgets/basics_section_widget.dart';
+import 'package:get/get.dart';
 
 /// Temel tab widget'ı
 class TemelTabWidget extends StatelessWidget {
@@ -20,7 +21,7 @@ class TemelTabWidget extends StatelessWidget {
         if (data.uses != null && _isValidUsesField(data.uses))
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: _buildTemelSectionTitle('Kullanım Alanları', Icons.build),
+            child: _buildTemelSectionTitle('basics_uses'.tr, Icons.build),
           ),
         if (data.uses != null && _isValidUsesField(data.uses))
           _buildTemelInfoSection(_normalizeUsesField(data.uses)),
@@ -31,7 +32,10 @@ class TemelTabWidget extends StatelessWidget {
         if (data.formation != null && data.formation.toString().isNotEmpty)
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: _buildTemelSectionTitle('Formasyon ve Yaş', Icons.timeline),
+            child: _buildTemelSectionTitle(
+              'basics_formation'.tr,
+              Icons.timeline,
+            ),
           ),
         if (data.formation != null && data.formation.toString().isNotEmpty)
           _buildTemelInfoSection([data.formation.toString()]),
@@ -63,14 +67,14 @@ class TemelTabWidget extends StatelessWidget {
             children: [
               Icon(
                 icon,
-                color: const Color(0xFFB8860B), // Koyu altın renk
+                color: AppThemeConfig.astroTitleIcon, // Koyu altın renk
                 size: 18,
               ),
               const SizedBox(width: 10),
               Text(
                 title,
                 style: TextStyle(
-                  color: const Color(0xFF2F2F2F), // Koyu gri
+                  color: AppThemeConfig.textPrimary, // Koyu gri
                   fontSize: 18,
                   fontWeight: FontWeight.w700,
                   letterSpacing: 0.2,
@@ -85,8 +89,8 @@ class TemelTabWidget extends StatelessWidget {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  const Color(0xFFE6D7C3), // Altın/bej renk
-                  const Color(0xFFE6D7C3).withOpacity(0.3), // Hafif altın
+                  AppThemeConfig.astroDivider, // Altın/bej renk
+                  AppThemeConfig.astroDivider.withOpacity(0.3), // Hafif altın
                 ],
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
@@ -104,9 +108,12 @@ class TemelTabWidget extends StatelessWidget {
       width: double.infinity,
       margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppThemeConfig.white,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.grey.withOpacity(0.2), width: 1),
+        border: Border.all(
+          color: AppThemeConfig.borderColor.withOpacity(0.2),
+          width: 1,
+        ),
       ),
       padding: const EdgeInsets.all(16),
       child: Column(
@@ -138,9 +145,9 @@ class TemelTabWidget extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: const Color(0xFFFFF8E1),
+        color: AppThemeConfig.disclaimerBackground,
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: const Color(0xFFFFE082), width: 1),
+        border: Border.all(color: AppThemeConfig.disclaimerBorder, width: 1),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -148,21 +155,21 @@ class TemelTabWidget extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(6),
             decoration: BoxDecoration(
-              color: const Color(0xFFFFE082),
+              color: AppThemeConfig.disclaimerBorder,
               borderRadius: BorderRadius.circular(6),
             ),
             child: const Icon(
               Icons.info_outline,
               size: 16,
-              color: Color(0xFF8D6E63),
+              color: AppThemeConfig.panelBorderBrown,
             ),
           ),
           const SizedBox(width: 10),
           Expanded(
             child: Text(
-              'Bu sayfadaki temel bilgiler ve açıklamalar kestirime dayalıdır ve kesin değildir. Kesin doğrulama için sertifikalı bir taş analizi uzmanına danışın.',
+              'basics_disclaimer'.tr,
               style: TextStyle(
-                color: const Color(0xFF5D4037),
+                color: AppThemeConfig.disclaimerTextBrown,
                 fontSize: 12.5,
                 height: 1.4,
               ),

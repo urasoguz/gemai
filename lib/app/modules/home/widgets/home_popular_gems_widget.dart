@@ -94,11 +94,11 @@ class HomePopularGemsWidget extends StatelessWidget {
                   width: 110, // Genişliği azalttım
                   margin: const EdgeInsets.only(right: 16, bottom: 10),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: AppThemeConfig.white,
                     borderRadius: BorderRadius.circular(16),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.05),
+                        color: AppThemeConfig.black.withOpacity(0.05),
                         blurRadius: 12,
                         offset: const Offset(0, 1),
                         spreadRadius: 0,
@@ -112,7 +112,7 @@ class HomePopularGemsWidget extends StatelessWidget {
                         child: Container(
                           width: double.infinity,
                           decoration: BoxDecoration(
-                            color: Colors.grey[50],
+                            color: AppThemeConfig.grey50,
                             borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(16),
                               topRight: Radius.circular(16),
@@ -136,21 +136,21 @@ class HomePopularGemsWidget extends StatelessWidget {
                                   print('❌ Hata: $error');
                                 }
                                 return Container(
-                                  color: Colors.grey[200],
+                                  color: AppThemeConfig.grey200,
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Icon(
                                         Icons.diamond,
                                         size: 24,
-                                        color: Colors.grey[600],
+                                        color: AppThemeConfig.grey600,
                                       ),
                                       const SizedBox(height: 4),
                                       Text(
-                                        'Hata',
+                                        'error',
                                         style: TextStyle(
                                           fontSize: 10,
-                                          color: Colors.grey[600],
+                                          color: AppThemeConfig.grey600,
                                         ),
                                       ),
                                     ],

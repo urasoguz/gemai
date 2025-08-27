@@ -38,12 +38,12 @@ class HomeBottomNavBar extends StatelessWidget {
                   Future.delayed(const Duration(seconds: 1), entry.remove);
                 },
                 borderRadius: BorderRadius.circular(12),
-                splashColor: Colors.transparent, // 💧 Splash efekt kapalı
-                highlightColor: Colors.transparent, // ☀️ Highlight efekt kapalı
+                splashColor: AppThemeConfig.transparent, // 💧 Splash efekt kapalı
+                highlightColor: AppThemeConfig.transparent, // ☀️ Highlight efekt kapalı
                 hoverColor:
-                    Colors.transparent, // (isteğe bağlı) Hover efekt kapalı
+                    AppThemeConfig.transparent, // (isteğe bağlı) Hover efekt kapalı
                 focusColor:
-                    Colors.transparent, // (isteğe bağlı) Focus efekti kapalı
+                    AppThemeConfig.transparent, // (isteğe bağlı) Focus efekti kapalı
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -88,12 +88,12 @@ class HomeBottomNavBar extends StatelessWidget {
                   Future.delayed(const Duration(seconds: 1), entry.remove);
                 },
                 borderRadius: BorderRadius.circular(12),
-                splashColor: Colors.transparent, // 💧 Splash efekt kapalı
-                highlightColor: Colors.transparent, // ☀️ Highlight efekt kapalı
+                splashColor: AppThemeConfig.transparent, // 💧 Splash efekt kapalı
+                highlightColor: AppThemeConfig.transparent, // ☀️ Highlight efekt kapalı
                 hoverColor:
-                    Colors.transparent, // (isteğe bağlı) Hover efekt kapalı
+                    AppThemeConfig.transparent, // (isteğe bağlı) Hover efekt kapalı
                 focusColor:
-                    Colors.transparent, // (isteğe bağlı) Focus efekti kapalı
+                    AppThemeConfig.transparent, // (isteğe bağlı) Focus efekti kapalı
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

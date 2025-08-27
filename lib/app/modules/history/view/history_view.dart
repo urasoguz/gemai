@@ -17,10 +17,11 @@ class HistoryView extends StatelessWidget {
     // Üst bardaki sistem metinlerini siyah yap (history için)
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent, // Status bar şeffaf
+        statusBarColor: AppThemeConfig.transparent, // Status bar şeffaf
         statusBarIconBrightness: Brightness.dark, // Status bar ikonları siyah
         statusBarBrightness: Brightness.light, // iOS için status bar açık tema
-        systemNavigationBarColor: Colors.transparent, // Alt navigasyon şeffaf
+        systemNavigationBarColor:
+            AppThemeConfig.transparent, // Alt navigasyon şeffaf
         systemNavigationBarIconBrightness:
             Brightness.dark, // Alt navigasyon ikonları koyu
       ),
@@ -55,7 +56,7 @@ class HistoryView extends StatelessWidget {
                         color:
                             controller.selectedTab.value == 0
                                 ? AppThemeConfig.background
-                                : Colors.transparent,
+                                : AppThemeConfig.transparent,
                         borderRadius: BorderRadius.circular(12),
                         boxShadow:
                             controller.selectedTab.value == 0
@@ -96,7 +97,7 @@ class HistoryView extends StatelessWidget {
                         color:
                             controller.selectedTab.value == 1
                                 ? AppThemeConfig.background
-                                : Colors.transparent,
+                                : AppThemeConfig.transparent,
                         borderRadius: BorderRadius.circular(12),
                         boxShadow:
                             controller.selectedTab.value == 1

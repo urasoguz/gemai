@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:gemai/app/data/model/response/scan_result_model.dart';
+import 'package:get/get.dart';
 
 /// Astrolojik tab widget'ı
 class AstrolojikTabWidget extends StatelessWidget {
@@ -18,7 +19,7 @@ class AstrolojikTabWidget extends StatelessWidget {
           if (data.astrologicalMythologicalMeaning != null &&
               data.astrologicalMythologicalMeaning.toString().isNotEmpty)
             _buildAstrolojikSectionTitle(
-              'Astrolojik Anlamlar',
+              'astrolojik_title'.tr,
               Icons.auto_awesome,
             ),
           if (data.astrologicalMythologicalMeaning != null &&
@@ -33,7 +34,10 @@ class AstrolojikTabWidget extends StatelessWidget {
           // Kültürel önem
           if (data.culturalSignificance != null &&
               data.culturalSignificance.toString().isNotEmpty)
-            _buildAstrolojikSectionTitle('Kültürel Önem', Icons.history_edu),
+            _buildAstrolojikSectionTitle(
+              'astrolojik_cultural'.tr,
+              Icons.history_edu,
+            ),
           if (data.culturalSignificance != null &&
               data.culturalSignificance.toString().isNotEmpty)
             _buildAstrolojikInfoSection([data.culturalSignificance.toString()]),
@@ -44,7 +48,7 @@ class AstrolojikTabWidget extends StatelessWidget {
           // Yasal kısıtlamalar
           if (data.legalRestrictions != null &&
               data.legalRestrictions!.isNotEmpty)
-            _buildAstrolojikSectionTitle('Yasal Kısıtlamalar', Icons.gavel),
+            _buildAstrolojikSectionTitle('astrolojik_legal'.tr, Icons.gavel),
           if (data.legalRestrictions != null &&
               data.legalRestrictions!.isNotEmpty)
             _buildLegalRestrictionsSection(data),
@@ -54,7 +58,10 @@ class AstrolojikTabWidget extends StatelessWidget {
 
           // Benzer taşlar
           if (data.similarStones != null && data.similarStones!.isNotEmpty)
-            _buildAstrolojikSectionTitle('Benzer Taşlar', Icons.compare_arrows),
+            _buildAstrolojikSectionTitle(
+              'astrolojik_similar'.tr,
+              Icons.compare_arrows,
+            ),
           if (data.similarStones != null && data.similarStones!.isNotEmpty)
             _buildSimilarStonesSection(data),
         ],
@@ -73,14 +80,14 @@ class AstrolojikTabWidget extends StatelessWidget {
             children: [
               Icon(
                 icon,
-                color: const Color(0xFFB8860B), // Koyu altın renk
+                color: AppThemeConfig.astroTitleIcon, // Koyu altın renk
                 size: 18,
               ),
               const SizedBox(width: 10),
               Text(
                 title,
                 style: TextStyle(
-                  color: const Color(0xFF2F2F2F), // Koyu gri
+                  color: AppThemeConfig.textPrimary, // Koyu gri
                   fontSize: 18,
                   fontWeight: FontWeight.w700,
                   letterSpacing: 0.2,
@@ -95,8 +102,8 @@ class AstrolojikTabWidget extends StatelessWidget {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  const Color(0xFFE6D7C3), // Altın/bej renk
-                  const Color(0xFFE6D7C3).withOpacity(0.3), // Hafif altın
+                  AppThemeConfig.astroDivider, // Altın/bej renk
+                  AppThemeConfig.astroDivider.withOpacity(0.3), // Hafif altın
                 ],
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
@@ -114,9 +121,12 @@ class AstrolojikTabWidget extends StatelessWidget {
       width: double.infinity,
       margin: EdgeInsets.zero,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppThemeConfig.white,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.grey.withOpacity(0.2), width: 1),
+        border: Border.all(
+          color: AppThemeConfig.borderColor.withOpacity(0.2),
+          width: 1,
+        ),
       ),
       padding: const EdgeInsets.all(16),
       child: Column(
@@ -153,9 +163,12 @@ class AstrolojikTabWidget extends StatelessWidget {
       width: double.infinity,
       margin: EdgeInsets.zero,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppThemeConfig.white,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.grey.withOpacity(0.2), width: 1),
+        border: Border.all(
+          color: AppThemeConfig.borderColor.withOpacity(0.2),
+          width: 1,
+        ),
       ),
       padding: const EdgeInsets.all(16),
       child: Column(
@@ -190,9 +203,12 @@ class AstrolojikTabWidget extends StatelessWidget {
       width: double.infinity,
       margin: EdgeInsets.zero,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppThemeConfig.white,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.grey.withOpacity(0.2), width: 1),
+        border: Border.all(
+          color: AppThemeConfig.borderColor.withOpacity(0.2),
+          width: 1,
+        ),
       ),
       padding: const EdgeInsets.all(16),
       child: Column(

@@ -50,7 +50,7 @@ class HomeRecentHistoryWidget extends GetView<HomeController> {
                     minimumSize: Size(0, 0),
                     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     // 👇  Efektleri kaldıran satırlar
-                    overlayColor: Colors.transparent,
+                    overlayColor: AppThemeConfig.transparent,
                     splashFactory: NoSplash.splashFactory,
                   ),
                   child: Text(
@@ -64,7 +64,7 @@ class HomeRecentHistoryWidget extends GetView<HomeController> {
             ],
           ),
         ),
-        const SizedBox(height: 10),
+
         GetBuilder<HomeController>(
           builder: (controller) {
             final items = controller.recentItems;

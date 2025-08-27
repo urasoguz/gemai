@@ -201,7 +201,9 @@ class CamerawesomeWidget extends GetView<CameraController> {
             frameSize: frameSize,
             spacing: spacing,
             isSmallScreen: isSmallScreen,
-            overlayColor: Colors.black.withValues(alpha: 0.6),
+            overlayColor: AppThemeConfig.cameraScanFrameBackground.withValues(
+              alpha: 0.6,
+            ),
           ),
           child: Center(
             child: _buildCenteredContent(
@@ -263,14 +265,16 @@ class CamerawesomeWidget extends GetView<CameraController> {
             borderRadius: BorderRadius.circular(isSmallScreen ? 16 : 20),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withValues(alpha: 0.1),
+                color: AppThemeConfig.cameraScanDecorationShadow.withValues(
+                  alpha: 0.1,
+                ),
                 blurRadius: 8,
                 offset: const Offset(0, 2),
               ),
             ],
           ),
           child: Text(
-            'Taşın en desenli kısmına odaklayın',
+            'camera_dialog_top_title'.tr,
             textAlign: TextAlign.center,
             style: TextStyle(
               color: AppThemeConfig.cameraScanFrameTitleText,
@@ -322,7 +326,7 @@ class CamerawesomeWidget extends GetView<CameraController> {
       height: 70,
       child: CustomPaint(
         painter: CornerPainter(
-          color: const Color(0xFFFFD700),
+          color: AppThemeConfig.cameraScanFrameColor,
           thickness: 4,
           isTopLeft: topLeft,
           isTopRight: topRight,
@@ -387,7 +391,7 @@ class CamerawesomeWidget extends GetView<CameraController> {
                       ? AppThemeConfig.cameraThemeBackgroundColor.withValues(
                         alpha: 0.8,
                       )
-                      : Colors.transparent,
+                      : AppThemeConfig.transparent,
               borderRadius: BorderRadius.circular(16),
             ),
             child: Text(
@@ -409,7 +413,7 @@ class CamerawesomeWidget extends GetView<CameraController> {
 
   Widget _buildModernBottomBar(BuildContext context, CameraState state) {
     return Container(
-      color: Colors.black, // Tam siyah yapıldı
+      color: AppThemeConfig.cameraScaffold, // Tam siyah yapıldı
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart' as intl hide TextDirection;
 import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:get/get.dart';
 import 'package:gemai/app/modules/gem_result/controller/gem_result_controller.dart';
@@ -49,15 +50,15 @@ class _TopVisualWidgetState extends State<TopVisualWidget> {
         child: Container(
           padding: padding,
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(bgOpacity),
+            color: AppThemeConfig.white.withOpacity(bgOpacity),
             borderRadius: BorderRadius.circular(borderRadius),
             border: Border.all(
-              color: (borderColor ?? Colors.white.withOpacity(0.28)),
+              color: (borderColor ?? AppThemeConfig.white.withOpacity(0.28)),
               width: borderWidth,
             ),
             boxShadow: [
               BoxShadow(
-                color: (shadowColor ?? Colors.black.withOpacity(0.18)),
+                color: (shadowColor ?? AppThemeConfig.black.withOpacity(0.18)),
                 blurRadius: shadowBlur,
                 offset: shadowOffset,
               ),
@@ -75,21 +76,21 @@ class _TopVisualWidgetState extends State<TopVisualWidget> {
     final int s = _normalizeRarityScore(score).clamp(0, 10);
     String label;
     if (s >= 9) {
-      label = 'Efsanevi';
+      label = 'top_visual_rarity_desc_1'.tr;
     } else if (s >= 7) {
-      label = 'Nadir';
+      label = 'top_visual_rarity_desc_2'.tr;
     } else if (s >= 4) {
-      label = 'Sık';
+      label = 'top_visual_rarity_desc_3'.tr;
     } else {
-      label = 'Yaygın';
+      label = 'top_visual_rarity_desc_4'.tr;
     }
-    const Color gold = Color(0xFFDAA520);
-    const Color darkGold = Color(0xFFB8860B);
+    const Color gold = AppThemeConfig.astroGold;
+    const Color darkGold = AppThemeConfig.astroTitleIcon;
 
     return _glassCard(
       bgOpacity: 0.12,
-      borderColor: Colors.white.withOpacity(0.25),
-      shadowColor: Colors.black.withOpacity(0.12),
+      borderColor: AppThemeConfig.white.withOpacity(0.25),
+      shadowColor: AppThemeConfig.black.withOpacity(0.12),
       shadowBlur: 12,
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -101,13 +102,17 @@ class _TopVisualWidgetState extends State<TopVisualWidget> {
               borderRadius: BorderRadius.circular(6),
               border: Border.all(color: darkGold.withOpacity(0.35), width: 0.8),
             ),
-            child: const Icon(Icons.diamond, size: 16, color: Colors.white),
+            child: const Icon(
+              Icons.diamond,
+              size: 16,
+              color: AppThemeConfig.white,
+            ),
           ),
           const SizedBox(width: 8),
           Text(
             label,
             style: const TextStyle(
-              color: Colors.white,
+              color: AppThemeConfig.white,
               fontSize: 13,
               fontWeight: FontWeight.w700,
               letterSpacing: 0.3,
@@ -145,13 +150,13 @@ class _TopVisualWidgetState extends State<TopVisualWidget> {
   // Camsı fiyat rozeti (sade altın vurgulu iOS stil)
   Widget _buildPriceChip(dynamic pricePerCarat) {
     final String valueText = _formatPriceValue(pricePerCarat);
-    const Color gold = Color(0xFFDAA520);
-    const Color darkGold = Color(0xFFB8860B);
+    const Color gold = AppThemeConfig.astroGold;
+    const Color darkGold = AppThemeConfig.astroTitleIcon;
 
     return _glassCard(
       bgOpacity: 0.12,
-      borderColor: Colors.white.withOpacity(0.25),
-      shadowColor: Colors.black.withOpacity(0.12),
+      borderColor: AppThemeConfig.white.withOpacity(0.25),
+      shadowColor: AppThemeConfig.black.withOpacity(0.12),
       shadowBlur: 12,
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -165,7 +170,7 @@ class _TopVisualWidgetState extends State<TopVisualWidget> {
             ),
             child: const Icon(
               Icons.attach_money,
-              color: Colors.white,
+              color: AppThemeConfig.white,
               size: 16,
             ),
           ),
@@ -173,7 +178,7 @@ class _TopVisualWidgetState extends State<TopVisualWidget> {
           Text(
             valueText,
             style: const TextStyle(
-              color: Colors.white,
+              color: AppThemeConfig.white,
               fontSize: 13,
               fontWeight: FontWeight.w700,
               letterSpacing: 0.3,
@@ -184,28 +189,29 @@ class _TopVisualWidgetState extends State<TopVisualWidget> {
     );
   }
 
-  // Helper method for price formatting
+  // Fiyat formatlama yardımcı metodu
+  // Türkçe binlik ayraç (.) kullanarak sayıyı formatlar
   String _formatPriceValue(dynamic value) {
     if (value == null) return '—';
-
-    if (value is int) {
+    num? numeric;
+    if (value is int)
+      numeric = value;
+    else if (value is double)
+      numeric = value;
+    else if (value is String) {
+      try {
+        numeric = num.parse(value);
+      } catch (_) {
+        return value; // Parse edilemiyorsa olduğu gibi döndür
+      }
+    } else {
       return value.toString();
     }
 
-    if (value is double) {
-      return value.toStringAsFixed(0);
-    }
-
-    if (value is String) {
-      try {
-        final doubleValue = double.parse(value);
-        return doubleValue.toStringAsFixed(0);
-      } catch (e) {
-        return value; // String olarak göster
-      }
-    }
-
-    return value.toString();
+    final intl.NumberFormat formatter = intl.NumberFormat.decimalPattern(
+      'tr_TR',
+    );
+    return formatter.format(numeric.round());
   }
 
   // Helper method for placeholder image
@@ -218,7 +224,7 @@ class _TopVisualWidgetState extends State<TopVisualWidget> {
           colors: [
             AppColors.primary.withOpacity(0.8),
             AppColors.primary.withOpacity(0.6),
-            Colors.purple.withOpacity(0.4),
+            AppThemeConfig.accentPurple.withOpacity(0.4),
           ],
         ),
       ),
@@ -229,7 +235,7 @@ class _TopVisualWidgetState extends State<TopVisualWidget> {
             Icon(Icons.diamond, size: 80, color: Colors.white.withOpacity(0.8)),
             const SizedBox(height: 16),
             Text(
-              'Gem Analysis',
+              'top_visual_gem_analysis'.tr,
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 24,
@@ -259,7 +265,7 @@ class _TopVisualWidgetState extends State<TopVisualWidget> {
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
+            color: AppThemeConfig.black.withOpacity(0.1),
             blurRadius: 10,
             offset: const Offset(0, 5),
           ),
@@ -363,7 +369,10 @@ class _TopVisualWidgetState extends State<TopVisualWidget> {
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
-                    colors: [Colors.black.withOpacity(0.6), Colors.transparent],
+                    colors: [
+                      AppThemeConfig.black.withOpacity(0.6),
+                      AppThemeConfig.transparent,
+                    ],
                   ),
                 ),
               ),
@@ -380,7 +389,10 @@ class _TopVisualWidgetState extends State<TopVisualWidget> {
                   gradient: LinearGradient(
                     begin: Alignment.bottomCenter,
                     end: Alignment.topCenter,
-                    colors: [Colors.black.withOpacity(0.7), Colors.transparent],
+                    colors: [
+                      AppThemeConfig.black.withOpacity(0.7),
+                      AppThemeConfig.transparent,
+                    ],
                   ),
                 ),
               ),
@@ -433,9 +445,9 @@ class _TopVisualWidgetState extends State<TopVisualWidget> {
                           return Text(
                             title != null && title.isNotEmpty
                                 ? title
-                                : 'Analiz Sonuç',
+                                : 'top_visual_analysis_title'.tr,
                             style: TextStyle(
-                              color: Colors.white,
+                              color: AppThemeConfig.white,
                               fontSize: 20,
                               fontWeight: FontWeight.w600,
                               shadows: [
@@ -477,7 +489,7 @@ class _TopVisualWidgetState extends State<TopVisualWidget> {
                             Shadow(
                               offset: const Offset(1, 1),
                               blurRadius: 2,
-                              color: Colors.black.withOpacity(
+                              color: AppThemeConfig.black.withOpacity(
                                 0.8,
                               ), // Siyah gölge
                             ),
@@ -647,7 +659,9 @@ class _TopVisualWidgetState extends State<TopVisualWidget> {
                                 builder:
                                     (context) => _PhotoViewScreen(
                                       imagePath: result.imagePath!,
-                                      title: result.type ?? 'Analiz Görseli',
+                                      title:
+                                          result.type ??
+                                          'top_visual_analysis_image'.tr,
                                     ),
                               ),
                             );
@@ -708,7 +722,7 @@ class _TopVisualWidgetState extends State<TopVisualWidget> {
       if (bytes == null) {
         if (context.mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Görsel oluşturulamadı')),
+            SnackBar(content: Text('top_visual_picture_error'.tr)),
           );
         }
         return;
@@ -718,14 +732,17 @@ class _TopVisualWidgetState extends State<TopVisualWidget> {
       final file = File('${tempDir.path}/gemai_share.png');
       await file.writeAsBytes(bytes);
 
-      await Share.shareXFiles([
-        XFile(file.path),
-      ], text: 'GemAI Analiz Sonucu: ${result.type ?? 'Bilinmeyen Taş'}');
+      await Share.shareXFiles(
+        [XFile(file.path)],
+        text: 'top_visual_share_text'.trParams({
+          'type': (result.type ?? 'unknown_gem'.tr),
+        }),
+      );
     } catch (e) {
       if (context.mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showSnackBar(SnackBar(content: Text('Paylaşım hatası: $e')));
+        ).showSnackBar(SnackBar(content: Text('share_result_error'.tr)));
       }
     }
   }
@@ -775,7 +792,7 @@ class _TopVisualWidgetState extends State<TopVisualWidget> {
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    'Paylaşılacak Bölümleri Seç',
+                    'top_visual_select_sections'.tr,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: AppThemeConfig.textPrimary,
@@ -785,27 +802,27 @@ class _TopVisualWidgetState extends State<TopVisualWidget> {
                   ),
                   const SizedBox(height: 8),
                   _buildCheckboxTile(
-                    'Üst Görsel',
+                    'top_visual_image'.tr,
                     includeImage,
                     (v) => setState(() => includeImage = v),
                   ),
                   _buildCheckboxTile(
-                    'Temel Bilgiler',
+                    'top_visual_basics'.tr,
                     includeBasics,
                     (v) => setState(() => includeBasics = v),
                   ),
                   _buildCheckboxTile(
-                    'Fiyat / Değer',
+                    'top_visual_price'.tr,
                     includeValue,
                     (v) => setState(() => includeValue = v),
                   ),
                   _buildCheckboxTile(
-                    'Kimyasal',
+                    'top_visual_chemical'.tr,
                     includeChemical,
                     (v) => setState(() => includeChemical = v),
                   ),
                   _buildCheckboxTile(
-                    'Astrolojik',
+                    'top_visual_astrological'.tr,
                     includeAstro,
                     (v) => setState(() => includeAstro = v),
                   ),
@@ -818,10 +835,10 @@ class _TopVisualWidgetState extends State<TopVisualWidget> {
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
-                    child: const Padding(
+                    child: Padding(
                       padding: EdgeInsets.symmetric(vertical: 12),
                       child: Text(
-                        'Devam et',
+                        'top_visual_continue'.tr,
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w600,
@@ -965,14 +982,14 @@ class _PhotoViewScreen extends StatelessWidget {
   Widget _buildErrorWidget() {
     return Container(
       color: Colors.grey[900],
-      child: const Center(
+      child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(Icons.broken_image, size: 80, color: Colors.white54),
             SizedBox(height: 16),
             Text(
-              'Görsel yüklenemedi',
+              'top_visual_picture_error'.tr,
               style: TextStyle(color: Colors.white54, fontSize: 18),
             ),
           ],

@@ -432,11 +432,10 @@ class GemAnalysisController extends GetxController {
       }
 
       // JSON parsing hatası durumunda kullanıcıya bilgi ver
-      errorMessage.value =
-          'Analiz sonuçları işlenirken hata oluştu. Lütfen tekrar deneyin.';
+      errorMessage.value = 'analysis_error'.tr;
 
       ShrineDialogService.showWarning(
-        'Analiz tamamlandı ama sonuçlar işlenirken hata oluştu. Lütfen tekrar deneyin.',
+        'analysis_error'.tr,
         AppThemeConfig.primary,
         duration: const Duration(seconds: 4),
       );
@@ -459,16 +458,13 @@ class GemAnalysisController extends GetxController {
     // Timeout hatası için özel mesaj
     if (error.toString().contains('TimeoutException')) {
       ShrineDialogService.showWarning(
-        'Analiz devam ediyor ama biraz daha uzun sürebilir. Lütfen bekleyin ve tekrar deneyin.',
+        'scan_dialog_0'.tr,
         colors,
         duration: const Duration(seconds: 5),
       );
     } else {
       // Genel hata mesajı
-      ShrineDialogService.showError(
-        'GemAI analizi sırasında bir hata oluştu. Lütfen tekrar deneyin.',
-        colors,
-      );
+      ShrineDialogService.showError('analysis_error'.tr, colors);
     }
   }
 

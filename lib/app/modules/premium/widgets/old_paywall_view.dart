@@ -27,16 +27,16 @@ class OldPaywallView extends StatelessWidget {
     // Status bar metin/ikonlarını siyah yap
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
+        statusBarColor: AppThemeConfig.transparent,
         statusBarIconBrightness: Brightness.dark,
         statusBarBrightness: Brightness.light,
-        systemNavigationBarColor: Colors.transparent,
+        systemNavigationBarColor: AppThemeConfig.transparent,
         systemNavigationBarIconBrightness: Brightness.dark,
       ),
     );
 
     return Scaffold(
-      backgroundColor: Colors.transparent,
+      backgroundColor: AppThemeConfig.transparent,
       body: SingleChildScrollView(
         physics: const NeverScrollableScrollPhysics(),
         child: SizedBox(
@@ -155,7 +155,7 @@ class OldPaywallView extends StatelessWidget {
                     Center(
                       child: AnimatedAppIcon(
                         size: compact ? 110 : (isSmallScreen ? 140 : 170),
-                        backgroundColor: Colors.transparent,
+                        backgroundColor: AppThemeConfig.transparent,
                         child: Image.asset(
                           'assets/premium/logo.png',
                           width: compact ? 92 : (isSmallScreen ? 120 : 150),
@@ -366,16 +366,16 @@ class OldPaywallView extends StatelessWidget {
                               children: [
                                 Text(
                                   isTrial ? 'try_for_free'.tr : 'continue'.tr,
-                                  style: const TextStyle(
-                                    color: Colors.white,
+                                  style: TextStyle(
+                                    color: AppThemeConfig.white,
                                     fontSize: 18,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
                                 const SizedBox(width: 8),
-                                const Icon(
+                                Icon(
                                   Icons.arrow_forward_ios,
-                                  color: Colors.white,
+                                  color: AppThemeConfig.white,
                                   size: 16,
                                 ),
                               ],
@@ -456,11 +456,11 @@ class OldPaywallView extends StatelessWidget {
     return TextButton(
       onPressed: onPressed,
       style: ButtonStyle(
-        overlayColor: WidgetStateProperty.all(Colors.transparent),
+        overlayColor: WidgetStateProperty.all(AppThemeConfig.transparent),
         splashFactory: NoSplash.splashFactory,
-        shadowColor: WidgetStateProperty.all(Colors.transparent),
+        shadowColor: WidgetStateProperty.all(AppThemeConfig.transparent),
         foregroundColor: WidgetStateProperty.all(AppThemeConfig.textSecondary),
-        backgroundColor: WidgetStateProperty.all(Colors.transparent),
+        backgroundColor: WidgetStateProperty.all(AppThemeConfig.transparent),
         padding: WidgetStateProperty.all(
           const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
         ),
@@ -483,11 +483,11 @@ class OldPaywallView extends StatelessWidget {
     return TextButton(
       onPressed: onPressed,
       style: ButtonStyle(
-        overlayColor: WidgetStateProperty.all(Colors.transparent),
+        overlayColor: WidgetStateProperty.all(AppThemeConfig.transparent),
         splashFactory: NoSplash.splashFactory,
-        shadowColor: WidgetStateProperty.all(Colors.transparent),
+        shadowColor: WidgetStateProperty.all(AppThemeConfig.transparent),
         foregroundColor: WidgetStateProperty.all(AppThemeConfig.textSecondary),
-        backgroundColor: WidgetStateProperty.all(Colors.transparent),
+        backgroundColor: WidgetStateProperty.all(AppThemeConfig.transparent),
         padding: WidgetStateProperty.all(
           const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
         ),
@@ -526,8 +526,8 @@ class _CircleProgressPainter extends CustomPainter {
         Paint()
           ..color =
               Get.isDarkMode
-                  ? const Color(0xFFBDBDBD)
-                  : const Color.fromARGB(255, 228, 228, 228)
+                  ? AppThemeConfig.circleProgressDark
+                  : AppThemeConfig.circleProgressLight
           ..style = PaintingStyle.stroke
           ..strokeWidth = 3;
     final Rect rect = Offset.zero & size;

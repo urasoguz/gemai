@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:get/get.dart';
 import 'package:gemai/app/modules/onboarding/controller/onboarding_controller.dart';
 import 'package:gemai/app/modules/onboarding/widgets/new_onboarding_header.dart';
 import 'package:gemai/app/modules/onboarding/widgets/new_onboarding_footer.dart';
+// duplicate removed
 
 /// Yeni onboarding tasarımı (paywall tasarımının onboarding versiyonu)
 class NewOnboardingView extends StatelessWidget {
@@ -22,7 +24,7 @@ class NewOnboardingView extends StatelessWidget {
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
+        statusBarColor: AppThemeConfig.transparent,
         statusBarIconBrightness: Brightness.light,
         statusBarBrightness: Brightness.dark,
       ),

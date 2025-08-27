@@ -77,7 +77,7 @@ class RestorePremiumService {
 
   /// Restore başarılı olduğunda yapılacak işlemler
   Future<void> _handleSuccessfulRestore() async {
-    final colors = AppThemeConfig.primary;
+    final colors = AppThemeConfig.textHint;
     try {
       if (kDebugMode) {
         print('🔄 Restore başarılı - Ana sayfaya yönlendiriliyor...');
@@ -143,7 +143,7 @@ class RestorePremiumService {
   /// RevenueCat restore yapar, backend'e gönderir, kullanıcıyı günceller
   /// Returns [bool] - İşlem başarılı mı?
   Future<bool> performCompleteRestore() async {
-    final colors = AppThemeConfig.primary;
+    final colors = AppThemeConfig.textHint;
     try {
       if (kDebugMode) {
         print('🔄 Merkezi restore işlemi başlatılıyor...');

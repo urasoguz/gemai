@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:get/get.dart';
 import 'package:gemai/app/modules/camera/controller/camera_controller.dart';
 import 'dart:math';
@@ -21,9 +22,9 @@ class _AnalysisWidgetState extends State<AnalysisWidget>
   Animation<double>? _magnifierAnimation;
   bool _isDisposed = false;
 
-  // iOS tarzı renk paleti
-  static const Color primaryGold = Color(0xFFE6D7B8);
-  static const Color secondaryGold = Color(0xFFD4A574);
+  // iOS tarzı renk paleti (tema üzerinden)
+  static const Color primaryGold = AppThemeConfig.gradientPrimary;
+  static const Color secondaryGold = AppThemeConfig.gradientSecondary;
 
   @override
   void initState() {
@@ -129,7 +130,7 @@ class _AnalysisWidgetState extends State<AnalysisWidget>
     final screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: AppThemeConfig.cameraAnalyzeBackground,
       body: PopScope(
         canPop: !controller.isAnalyzing.value,
         child: AbsorbPointer(
@@ -148,7 +149,7 @@ class _AnalysisWidgetState extends State<AnalysisWidget>
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 24.0),
                     child: Text(
-                      'Identification...',
+                      'analysis_title'.tr,
                       style: TextStyle(
                         fontSize: 24,
                         color: primaryGold,
@@ -200,7 +201,8 @@ class _AnalysisWidgetState extends State<AnalysisWidget>
                                         );
                                       }
                                       return Container(
-                                        color: Colors.grey[900],
+                                        color:
+                                            AppThemeConfig.neutralSurfaceDark,
                                         child: Icon(
                                           Icons.image_outlined,
                                           size: 48,
@@ -272,11 +274,11 @@ class _AnalysisWidgetState extends State<AnalysisWidget>
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Colors.transparent,
+                  AppThemeConfig.transparent,
                   primaryGold.withOpacity(0.4),
                   primaryGold,
                   primaryGold.withOpacity(0.4),
-                  Colors.transparent,
+                  AppThemeConfig.transparent,
                 ],
                 stops: const [0.0, 0.3, 0.5, 0.7, 1.0],
               ),
@@ -387,7 +389,7 @@ class _AnalysisWidgetState extends State<AnalysisWidget>
             height: 60,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: Colors.black.withOpacity(0.8),
+              color: AppThemeConfig.cameraAnalyzeBackground.withOpacity(0.8),
               border: Border.all(
                 color: secondaryGold.withOpacity(0.6),
                 width: 1.5,
@@ -418,7 +420,7 @@ class _AnalysisWidgetState extends State<AnalysisWidget>
                 height: 80,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Colors.grey[900],
+                  color: AppThemeConfig.neutralSurfaceDark,
                   border: Border.all(
                     color: primaryGold.withOpacity(0.2),
                     width: 2,
@@ -464,13 +466,13 @@ class _AnalysisWidgetState extends State<AnalysisWidget>
 
       String statusText;
       if (progress < 0.25) {
-        statusText = 'Object recognition';
+        statusText = 'analysis_object_recognition'.tr;
       } else if (progress < 0.5) {
-        statusText = 'AI analysis...';
+        statusText = 'analysis_ai_analysis'.tr;
       } else if (progress < 0.75) {
-        statusText = 'Processing data...';
+        statusText = 'analysis_processing_data'.tr;
       } else {
-        statusText = 'Finalizing results...';
+        statusText = 'analysis_finalizing_results'.tr;
       }
 
       return Text(
@@ -491,7 +493,7 @@ class _MinimalGridPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final paint =
         Paint()
-          ..color = const Color(0xFFE6D7B8).withOpacity(0.1)
+          ..color = AppThemeConfig.gradientPrimary.withOpacity(0.1)
           ..strokeWidth = 0.5;
 
     // Sabit boyutlu kareler - her kare 20x20 piksel

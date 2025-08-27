@@ -5,6 +5,7 @@ import 'package:gemai/app/modules/premium/controller/premium_controller.dart';
 import 'package:gemai/app/modules/premium/widgets/old_paywall_view.dart';
 import 'package:gemai/app/modules/premium/widgets/new_paywall_view.dart';
 import 'package:gemai/app/core/services/app_settings_service.dart';
+import 'package:gemai/app/core/theme/app_theme_config.dart';
 
 class PremiumView extends GetView<PremiumController> {
   const PremiumView({super.key});
@@ -14,10 +15,11 @@ class PremiumView extends GetView<PremiumController> {
     // Üst bardaki sistem metinlerini beyaz yap
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent, // Status bar şeffaf
+        statusBarColor: AppThemeConfig.transparent, // Status bar şeffaf
         statusBarIconBrightness: Brightness.light, // Status bar ikonları beyaz
         statusBarBrightness: Brightness.dark, // iOS için status bar koyu tema
-        systemNavigationBarColor: Colors.transparent, // Alt navigasyon şeffaf
+        systemNavigationBarColor:
+            AppThemeConfig.transparent, // Alt navigasyon şeffaf
         systemNavigationBarIconBrightness:
             Brightness.dark, // Alt navigasyon ikonları koyu
       ),

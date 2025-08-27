@@ -40,17 +40,22 @@ class PremiumController extends GetxController
     {
       'icon': Icons.search,
       'title': 'premium_desc_1'.tr,
-      'color': const Color(0xFF4CAF50),
+      'color': AppThemeConfig.successGreen,
     },
     {
       'icon': Icons.auto_awesome,
       'title': 'premium_desc_2'.tr,
-      'color': const Color(0xFF4CAF50),
+      'color': AppThemeConfig.successGreen,
     },
     {
       'icon': Icons.lock_open,
       'title': 'premium_desc_3'.tr,
-      'color': const Color(0xFF4CAF50),
+      'color': AppThemeConfig.successGreen,
+    },
+    {
+      'icon': Icons.price_change,
+      'title': 'premium_desc_4'.tr,
+      'color': AppThemeConfig.successGreen,
     },
   ];
   late final PremiumConfigService premiumConfig;
@@ -182,14 +187,14 @@ class PremiumController extends GetxController
     if (isTrial) {
       // Trial planları için
       badgeText = 'free'.tr;
-      badgeColor = Colors.white;
+      badgeColor = AppThemeConfig.white;
     } else {
       // Normal planlar için plan tipine göre badge belirle
       switch (package.packageType) {
         case PackageType.lifetime:
           // Ömür boyu plan için "Best Value" badge'i
           badgeText = 'best_value'.tr;
-          badgeColor = const Color(0xFFFF3B30); // Kırmızı
+          badgeColor = AppThemeConfig.bestValueRed; // Kırmızı
           break;
         case PackageType.annual:
           // Yıllık plan için indirim badge'i (eğer indirim varsa)
@@ -198,23 +203,23 @@ class PremiumController extends GetxController
               '{percent}',
               discountPercent.value.toStringAsFixed(0),
             );
-            badgeColor = const Color(0xFFFF3B30); // Kırmızı
+            badgeColor = AppThemeConfig.bestValueRed; // Kırmızı
           }
           break;
         case PackageType.monthly:
           // Aylık plan için badge yok (opsiyonel)
           badgeText = '';
-          badgeColor = Colors.transparent;
+          badgeColor = AppThemeConfig.transparent;
           break;
         case PackageType.weekly:
           // Haftalık plan için badge yok (opsiyonel)
           badgeText = '';
-          badgeColor = Colors.transparent;
+          badgeColor = AppThemeConfig.transparent;
           break;
         default:
           // Diğer plan tipleri için badge yok
           badgeText = '';
-          badgeColor = Colors.transparent;
+          badgeColor = AppThemeConfig.transparent;
           break;
       }
     }
@@ -424,7 +429,7 @@ class PremiumController extends GetxController
       if (offering == null) {
         ShrineDialogService.showError(
           'premium_no_packages'.tr,
-          AppThemeConfig.primary,
+          AppThemeConfig.textHint,
           duration: const Duration(seconds: 3),
         );
         return;
@@ -446,7 +451,7 @@ class PremiumController extends GetxController
       if (package == null) {
         ShrineDialogService.showError(
           'premium_no_selected_package'.tr,
-          AppThemeConfig.primary,
+          AppThemeConfig.textHint,
           duration: const Duration(seconds: 3),
         );
         return;
@@ -469,7 +474,7 @@ class PremiumController extends GetxController
       } else {
         ShrineDialogService.showError(
           'premium_purchase_failed'.tr,
-          AppThemeConfig.primary,
+          AppThemeConfig.textHint,
           duration: const Duration(seconds: 3),
         );
       }
@@ -537,7 +542,7 @@ class PremiumController extends GetxController
       }
       ShrineDialogService.showError(
         'premium_restore_error'.tr,
-        AppThemeConfig.primary,
+        AppThemeConfig.textHint,
         duration: const Duration(seconds: 3),
       );
     } finally {

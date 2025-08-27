@@ -133,9 +133,9 @@ class OnboardingView extends GetView<OnboardingController> {
                     children: [
                       Text(
                         controller.pageIndex.value == controller.pageCount - 1
-                            ? 'continue'
+                            ? 'onboarding_next'
                                 .tr // Son sayfada paywall ile aynı metin
-                            : 'continue'.tr, // Tüm sayfalarda continue
+                            : 'onboarding_next'.tr, // Tüm sayfalarda continue
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 18,

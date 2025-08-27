@@ -67,7 +67,7 @@ class GemResultView extends GetView<GemResultController> {
           ),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.05),
+              color: AppThemeConfig.black.withOpacity(0.05),
               blurRadius: 10,
               offset: const Offset(0, 2),
             ),
@@ -101,7 +101,7 @@ class GemResultView extends GetView<GemResultController> {
                         color:
                             selected
                                 ? AppThemeConfig.gradientSecondary
-                                : Colors.transparent,
+                                : AppThemeConfig.transparent,
                         width: 2,
                       ),
                     ),

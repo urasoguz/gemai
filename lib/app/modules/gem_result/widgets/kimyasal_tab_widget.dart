@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:gemai/app/data/model/response/scan_result_model.dart';
+import 'package:get/get.dart';
 
 /// Kimyasal tab widget'ı
 class KimyasalTabWidget extends StatelessWidget {
@@ -15,40 +16,46 @@ class KimyasalTabWidget extends StatelessWidget {
       child: Column(
         children: [
           // Fiziksel özellikler
-          _buildKimyasalSectionTitle('Fiziksel Özellikler', Icons.science),
+          _buildKimyasalSectionTitle('kimyasal_physical'.tr, Icons.science),
           _buildKimyasalInfoSection(data),
           const SizedBox(height: 16),
 
           // Kimyasal yapı
-          _buildKimyasalSectionTitle('Kimyasal Yapı', Icons.science_outlined),
+          _buildKimyasalSectionTitle(
+            'kimyasal_chemical'.tr,
+            Icons.science_outlined,
+          ),
           _buildChemicalElementsSection(data),
           const SizedBox(height: 16),
 
           // Kristal özellikler
-          _buildKimyasalSectionTitle('Kristal Özellikler', Icons.diamond),
+          _buildKimyasalSectionTitle('kimyasal_crystal'.tr, Icons.diamond),
           _buildCrystalPropertiesSection(data),
           const SizedBox(height: 16),
 
           // Renk ve parlaklık
-          _buildKimyasalSectionTitle('Renk ve Parlaklık', Icons.palette),
+          _buildKimyasalSectionTitle('kimyasal_color'.tr, Icons.palette),
           _buildColorAndLusterSection(data),
           const SizedBox(height: 16),
 
           // Safsızlıklar ve içerikler (DB'den dinamik)
           _buildKimyasalSectionTitle(
-            'Safsızlıklar ve İçerikler',
+            'kimyasal_impurities'.tr,
             Icons.bug_report,
           ),
           _buildImpuritiesSection(data),
           const SizedBox(height: 16),
 
           // İşleme ve bakım
-          _buildKimyasalSectionTitle('İşleme ve Bakım', Icons.build_circle),
+          _buildKimyasalSectionTitle(
+            'kimyasal_processing'.tr,
+            Icons.build_circle,
+          ),
           _buildProcessingAndCareSection(data),
           const SizedBox(height: 16),
 
           // Güvenlik
-          _buildKimyasalSectionTitle('Güvenlik', Icons.security),
+          _buildKimyasalSectionTitle('kimyasal_safety'.tr, Icons.security),
           _buildSafetySection(data),
         ],
       ),
@@ -66,14 +73,14 @@ class KimyasalTabWidget extends StatelessWidget {
             children: [
               Icon(
                 icon,
-                color: const Color(0xFFB8860B), // Koyu altın renk
+                color: AppThemeConfig.astroTitleIcon, // Koyu altın renk
                 size: 18,
               ),
               const SizedBox(width: 10),
               Text(
                 title,
                 style: TextStyle(
-                  color: const Color(0xFF2F2F2F), // Koyu gri
+                  color: AppThemeConfig.textPrimary, // Koyu gri
                   fontSize: 18,
                   fontWeight: FontWeight.w700,
                   letterSpacing: 0.2,
@@ -88,8 +95,8 @@ class KimyasalTabWidget extends StatelessWidget {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  const Color(0xFFE6D7C3), // Altın/bej renk
-                  const Color(0xFFE6D7C3).withOpacity(0.3), // Hafif altın
+                  AppThemeConfig.astroDivider, // Altın/bej renk
+                  AppThemeConfig.astroDivider.withOpacity(0.3), // Hafif altın
                 ],
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
@@ -104,12 +111,12 @@ class KimyasalTabWidget extends StatelessWidget {
   /// Fiziksel özellikler bölümü
   Widget _buildKimyasalInfoSection(ScanResultModel result) {
     final Map<String, String?> specs = {
-      'Sertlik (Mohs)': result.mohsHardness?.toString(),
-      'Kristal Sistemi': result.crystalSystem,
-      'Kırılma İndeksi': result.estimatedRefractiveIndex,
-      'Yoğunluk': result.density,
-      'Manyetizma': result.magnetism,
-      'Dayanıklılık': result.tenacity,
+      'kimyasal_mohs'.tr: result.mohsHardness?.toString(),
+      'kimyasal_crystal_system'.tr: result.crystalSystem,
+      'kimyasal_refractive_index'.tr: result.estimatedRefractiveIndex,
+      'kimyasal_density'.tr: result.density,
+      'kimyasal_magnetism'.tr: result.magnetism,
+      'kimyasal_tenacity'.tr: result.tenacity,
     };
 
     final entries =
@@ -119,9 +126,12 @@ class KimyasalTabWidget extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppThemeConfig.white,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.grey.withOpacity(0.2), width: 1),
+        border: Border.all(
+          color: AppThemeConfig.borderColor.withOpacity(0.2),
+          width: 1,
+        ),
       ),
       child: Column(
         children: [
@@ -140,8 +150,8 @@ class KimyasalTabWidget extends StatelessWidget {
   /// Kimyasal elementler bölümü
   Widget _buildChemicalElementsSection(ScanResultModel result) {
     final Map<String, String?> elements = {
-      'Ana Element': result.chemicalClassification,
-      'Formül': result.chemicalFormula,
+      'kimyasal_chemical_classification'.tr: result.chemicalClassification,
+      'kimyasal_chemical_formula'.tr: result.chemicalFormula,
       // Kristal Yapı kaldırıldı - Önemli Bilgiler'de zaten var
     };
 
@@ -152,9 +162,12 @@ class KimyasalTabWidget extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppThemeConfig.white,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.grey.withOpacity(0.2), width: 1),
+        border: Border.all(
+          color: AppThemeConfig.borderColor.withOpacity(0.2),
+          width: 1,
+        ),
       ),
       child: Column(
         children: [
@@ -173,9 +186,9 @@ class KimyasalTabWidget extends StatelessWidget {
   /// Kristal özellikler bölümü
   Widget _buildCrystalPropertiesSection(ScanResultModel result) {
     final Map<String, String?> properties = {
-      'Kristal Sistemi': result.crystalSystem,
-      'Dilinim': result.cleavage,
-      'Kırılma': result.fracture,
+      'kimyasal_crystal_system'.tr: result.crystalSystem,
+      'kimyasal_cleavage'.tr: result.cleavage,
+      'kimyasal_fracture'.tr: result.fracture,
     };
 
     final entries =
@@ -185,9 +198,12 @@ class KimyasalTabWidget extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppThemeConfig.white,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.grey.withOpacity(0.2), width: 1),
+        border: Border.all(
+          color: AppThemeConfig.borderColor.withOpacity(0.2),
+          width: 1,
+        ),
       ),
       child: Column(
         children: [
@@ -242,16 +258,19 @@ class KimyasalTabWidget extends StatelessWidget {
           Container(
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: AppThemeConfig.white,
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: Colors.grey.withOpacity(0.2), width: 1),
+              border: Border.all(
+                color: AppThemeConfig.borderColor.withOpacity(0.2),
+                width: 1,
+              ),
             ),
             padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'İçerikler',
+                  'kimyasal_impurities_title'.tr,
                   style: TextStyle(
                     color: AppThemeConfig.textSecondary,
                     fontSize: 13,
@@ -276,16 +295,19 @@ class KimyasalTabWidget extends StatelessWidget {
           Container(
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: AppThemeConfig.white,
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: Colors.grey.withOpacity(0.2), width: 1),
+              border: Border.all(
+                color: AppThemeConfig.borderColor.withOpacity(0.2),
+                width: 1,
+              ),
             ),
             padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Yaygın Safsızlıklar',
+                  'kimyasal_impurities_desc'.tr,
                   style: TextStyle(
                     color: AppThemeConfig.textSecondary,
                     fontSize: 13,
@@ -311,8 +333,8 @@ class KimyasalTabWidget extends StatelessWidget {
   /// İşleme ve bakım bölümü
   Widget _buildProcessingAndCareSection(ScanResultModel result) {
     final Map<String, String?> properties = {
-      'İşleme Zorluğu': result.processingDifficulty?.toString(),
-      'Radyoaktivite': result.radioactivity,
+      'kimyasal_processing_title'.tr: result.processingDifficulty?.toString(),
+      'kimyasal_radioactivity'.tr: result.radioactivity,
     };
 
     final entries =
@@ -325,9 +347,12 @@ class KimyasalTabWidget extends StatelessWidget {
           Container(
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: AppThemeConfig.white,
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: Colors.grey.withOpacity(0.2), width: 1),
+              border: Border.all(
+                color: AppThemeConfig.borderColor.withOpacity(0.2),
+                width: 1,
+              ),
             ),
             child: Column(
               children: [
@@ -439,9 +464,12 @@ class KimyasalTabWidget extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppThemeConfig.white,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.grey.withOpacity(0.2), width: 1),
+        border: Border.all(
+          color: AppThemeConfig.borderColor.withOpacity(0.2),
+          width: 1,
+        ),
       ),
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
       child: Wrap(
@@ -463,9 +491,12 @@ class KimyasalTabWidget extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppThemeConfig.white,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.grey.withOpacity(0.2), width: 1),
+        border: Border.all(
+          color: AppThemeConfig.borderColor.withOpacity(0.2),
+          width: 1,
+        ),
       ),
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
       child: Wrap(
@@ -491,9 +522,12 @@ class KimyasalTabWidget extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppThemeConfig.white,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.grey.withOpacity(0.2), width: 1),
+        border: Border.all(
+          color: AppThemeConfig.borderColor.withOpacity(0.2),
+          width: 1,
+        ),
       ),
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
       child: Column(children: [_buildWarningRow(warning.toString())]),
@@ -559,16 +593,19 @@ class KimyasalTabWidget extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppThemeConfig.white,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.grey.withOpacity(0.2), width: 1),
+        border: Border.all(
+          color: AppThemeConfig.borderColor.withOpacity(0.2),
+          width: 1,
+        ),
       ),
       padding: const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Şeffaflık',
+            'kimyasal_transparency'.tr,
             style: TextStyle(
               color: AppThemeConfig.textSecondary,
               fontSize: 13,
@@ -597,16 +634,19 @@ class KimyasalTabWidget extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppThemeConfig.white,
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.grey.withOpacity(0.2), width: 1),
+        border: Border.all(
+          color: AppThemeConfig.borderColor.withOpacity(0.2),
+          width: 1,
+        ),
       ),
       padding: const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Parlaklık',
+            'kimyasal_luster'.tr,
             style: TextStyle(
               color: AppThemeConfig.textSecondary,
               fontSize: 13,
@@ -694,19 +734,19 @@ class KimyasalTabWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
-        color: const Color(
-          0xFFE6D7C3,
-        ).withOpacity(0.3), // Hafif altın arka plan
+        color: AppThemeConfig.astroDivider.withOpacity(
+          0.3,
+        ), // Hafif altın arka plan
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: const Color(0xFFE6D7C3).withOpacity(0.5), // Altın border
+          color: AppThemeConfig.astroDivider.withOpacity(0.5), // Altın border
           width: 1,
         ),
       ),
       child: Text(
         color,
         style: TextStyle(
-          color: const Color(0xFF2F2F2F), // Koyu gri metin
+          color: AppThemeConfig.textPrimary, // Koyu gri metin
           fontSize: 12,
           fontWeight: FontWeight.w500,
         ),
@@ -719,19 +759,17 @@ class KimyasalTabWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
-        color: const Color(
-          0xFFFF6B6B,
-        ).withOpacity(0.1), // Hafif kırmızı arka plan
+        color: AppThemeConfig.error.withOpacity(0.1), // Hafif kırmızı arka plan
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: const Color(0xFFFF6B6B).withOpacity(0.5), // Kırmızı border
+          color: AppThemeConfig.error.withOpacity(0.5), // Kırmızı border
           width: 1,
         ),
       ),
       child: Text(
         indicator,
         style: TextStyle(
-          color: const Color(0xFFD32F2F), // Koyu kırmızı metin
+          color: AppThemeConfig.error, // Koyu kırmızı metin
           fontSize: 12,
           fontWeight: FontWeight.w500,
         ),
@@ -747,14 +785,14 @@ class KimyasalTabWidget extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(4),
           decoration: BoxDecoration(
-            color: const Color(
-              0xFFFF9800,
-            ).withOpacity(0.1), // Hafif turuncu arka plan
+            color: AppThemeConfig.orange.withOpacity(
+              0.1,
+            ), // Hafif turuncu arka plan
             borderRadius: BorderRadius.circular(4),
           ),
           child: Icon(
             Icons.warning_amber_rounded,
-            color: const Color(0xFFFF9800), // Turuncu ikon
+            color: AppThemeConfig.orange, // Turuncu ikon
             size: 16,
           ),
         ),

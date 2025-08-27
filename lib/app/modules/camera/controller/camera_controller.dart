@@ -11,8 +11,6 @@ import 'package:gemai/app/routes/app_routes.dart';
 import 'package:gemai/app/core/services/shrine_dialog_service.dart';
 import 'package:gemai/app/core/theme/app_theme_config.dart';
 import 'package:flutter/foundation.dart';
-import 'package:gemai/app/core/services/sembast_service.dart';
-import 'package:gemai/app/data/model/response/scan_result_model.dart';
 import 'dart:async'; // Added for Timer
 
 /// GemAI için kamera controller'ı
@@ -54,9 +52,11 @@ class CameraController extends GetxController {
       if (remainingToken <= 0) {
         if (isPremium) {
           // Premium kullanıcı ama token bitti
-          ShrineDialogService.showWarning(
-            'Premium kullanıcı olmanıza rağmen analiz hakkınız bitti. Lütfen daha sonra tekrar deneyin.',
-            AppThemeConfig.primary,
+          ShrineDialogService.showNativeAlert(
+            title: 'scan_dialog_title_info'.tr,
+            message: 'scan_dialog_premium_no_limit'.tr,
+            okButtonText: 'scan_dialog_ok'.tr,
+            onOkPressed: () {},
           );
           return false;
         } else {
@@ -70,9 +70,12 @@ class CameraController extends GetxController {
       return true;
     } catch (e) {
       ShrineDialogService.showError(
-        'Analiz izni kontrol edilirken hata oluştu. Lütfen tekrar deneyin.',
-        AppThemeConfig.primary,
+        'camera_permission_error'.tr,
+        AppThemeConfig.textLink,
       );
+      if (kDebugMode) {
+        print('❌ Analiz izni kontrol hatası: $e');
+      }
       return false;
     }
   }
@@ -206,165 +209,5 @@ class CameraController extends GetxController {
   /// Hata mesajını temizler
   void clearError() {
     _analysisController.clearError();
-  }
-
-  /// 🧪 TEST: Analiz ekranı UI'ını simüle eder (gerçek API çağrısı yapmaz)
-  void debugSimulateAnalysisUI() {
-    try {
-      isAnalyzing.value = true;
-      scanProgress.value = 0.0;
-
-      Timer.periodic(const Duration(milliseconds: 120), (timer) {
-        if (!isAnalyzing.value) {
-          timer.cancel();
-          return;
-        }
-        if (scanProgress.value >= 1.0) {
-          timer.cancel();
-          Future.delayed(const Duration(milliseconds: 400), () {
-            isAnalyzing.value = false; // UI test bittiğinde kapanır
-            scanProgress.value = 0.0;
-          });
-        } else {
-          scanProgress.value = (scanProgress.value + 0.03).clamp(0.0, 1.0);
-        }
-      });
-    } catch (_) {
-      isAnalyzing.value = false;
-    }
-  }
-
-  /// 🧪 TEST: iOS tarzı native alert gösterir
-  void showTestNativeAlert() {
-    ShrineDialogService.showNativeAlert(
-      title: 'Test Başlık',
-      message: 'Bu bir test mesajıdır. iOS tarzı native alert gösteriliyor.',
-      okButtonText: 'Anladım',
-      onOkPressed: () {
-        if (kDebugMode) {
-          print('✅ Test alert onaylandı');
-        }
-      },
-    );
-  }
-
-  /// 🧪 TEST: iOS tarzı native confirmation gösterir
-  void showTestNativeConfirm() {
-    ShrineDialogService.showNativeConfirm(
-      title: 'Test Onay',
-      message: 'Bu işlemi gerçekleştirmek istediğinizden emin misiniz?',
-      confirmText: 'Evet',
-      cancelText: 'Hayır',
-      onConfirm: () {
-        if (kDebugMode) {
-          print('✅ Test confirmation onaylandı');
-        }
-      },
-      onCancel: () {
-        if (kDebugMode) {
-          print('❌ Test confirmation iptal edildi');
-        }
-      },
-    );
-  }
-
-  /// 🧪 TEST: Sahte bir sonuc kaydi olustur ve yeni GemResult sayfasini ac
-  Future<void> debugCreateFakeResultAndOpen() async {
-    try {
-      final SembastService db = SembastService();
-      final ScanResultModel model = ScanResultModel(
-        createdAt: DateTime.now(),
-        isFavorite: false, // Test için favori olmayan olarak ayarla
-        type: "Safir (Pembeden Moraya Doğru Renk Tonları)",
-        chemicalFormula: "Al₂O₃",
-        mohsHardness: 9,
-        colorSpectrum: "Mavi, Pembe, Mor",
-        description:
-            "Safir, korund mineralinin alüminyum oksit (Al₂O₃) yapısındaki krom ve demir gibi eser elementlerin neden olduğu renklere sahip değerli bir çeşididir. Bu numuneler, büyüme bantları ve ışık oyunları sergileyen, doğal, kesilmemiş hallerindedir.",
-        rawValuePerKg: "Yüksek (Değişken)",
-        processedValuePerCarat: "Çok Yüksek (Değişken)",
-        collectorMarketValue: "Yüksek",
-        marketReferenceYear: "2024",
-        valuePerCarat: 5000.0,
-        rarityScore: 8,
-        possibleFakeIndicators: [
-          "Çok homojen renk dağılımı",
-          "Sentetik görünümde parlaklık",
-          "Düşük sertlik hissi",
-        ],
-        crystalSystem: "Trigonal (Triklinik)",
-        estimatedRefractiveIndex: "1.762-1.770",
-        processingDifficulty: 8,
-        foundRegions: [
-          "Sri Lanka",
-          "Myanmar",
-          "Madagaskar",
-          "Tayland",
-          "Avustralya",
-          "ABD (Montana)",
-        ],
-        imitationWarning:
-            "Doğal safirlerin yerine, sentetik safirler veya cam ve spinel gibi başka taşlar kullanılabilir. Renk, berraklık ve kapanımlar dikkatlice incelenmelidir.",
-        radioactivity: "Yok",
-        legalRestrictions: [],
-        cleaningMaintenanceTips: [
-          "Hafif sabunlu ılık su ile temizlenebilir. Ultrasonik temizleyiciler ve buhar temizleyiciler bazı durumlarda kullanılabilir ancak dikkatli olunmalıdır. Sert kimyasallardan kaçının.",
-        ],
-        transparency: ["Şeffaf", "Yarı Şeffaf"],
-        luster: ["Camsı"],
-        inclusions:
-            "Genellikle iğnemsi kapanımlar (rutil iğneleri), büyüme bantları ve diğer mineraller görülebilir.",
-        similarStones: [
-          "İndigolit (Turmalin)",
-          "Kabaşon Kesim Safir",
-          "Sentetik Safir",
-        ],
-        astrologicalMythologicalMeaning:
-            "Genellikle bilgeliği, ruhsal aydınlanmayı, sadakati ve huzuru temsil ettiğine inanılır. Eylül ayının taşıdır.",
-        extendedColorSpectrum: [
-          "Mavi (en bilinen)",
-          "Pembe",
-          "Mor",
-          "Sarı",
-          "Yeşil",
-          "Turuncu",
-          "Renksiz",
-          "Siyah",
-        ],
-        magnetism: "Manyetik değil",
-        tenacity: "Sert ama Kırılgan",
-        cleavage: "Yok (Sıkça görülen yontulmuş yüzeyler)",
-        fracture: "Düzensiz, Sıkça Musluklu",
-        density: "3.95 - 4.03 g/cm³",
-        chemicalClassification: "Oksitler",
-        elements: ["Al", "O"],
-        commonImpurities: ["Fe", "Ti", "V", "Cr", "Mg", "Si", "Ni"],
-        formation:
-            "Safirler, magmatik kayaçların oluşumu sırasında yüksek sıcaklık ve basınç altında kristalleşir veya metamorfik kayaçlarda, genellikle mermerlerde veya pegmatitlerde bulunurlar.",
-        ageRange: "Milyonlarca - Milyarlarca yıl",
-        ageDescription:
-            "Safirlerin oluşumu genellikle Dünya'nın erken jeolojik dönemlerine dayanır, ancak daha genç jeolojik olaylarla da ilişkili olabilirler.",
-        uses:
-            "Takı yapımı, endüstriyel uygulamalar (pencere, lensler, saat camları) ve bilimsel araştırmalarda kullanılır.",
-        culturalSignificance:
-            "Tarih boyunca kraliyet aileleri, soylular ve dini liderler tarafından güç, koruma ve ruhsal bağlantı sembolü olarak kullanılmıştır. Antik Yunanlılar safirin savaşı önlediğine inanırlardı.",
-      );
-
-      if (kDebugMode) {
-        print('🧪 Test kaydı oluşturuluyor - isFavorite: ${model.isFavorite}');
-      }
-
-      final int id = await db.addScanResult(model);
-
-      if (kDebugMode) {
-        print('🧪 Test kaydı oluşturuldu - ID: $id');
-      }
-
-      Get.toNamed(AppRoutes.gemResult, arguments: id);
-    } catch (e) {
-      if (kDebugMode) {
-        print('❌ Test kaydı oluşturulamadı: $e');
-      }
-    }
   }
 }

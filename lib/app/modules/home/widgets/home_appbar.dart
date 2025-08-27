@@ -41,10 +41,10 @@ class HomeAppBar extends StatelessWidget {
                   onPressed: () {
                     Get.toNamed(AppRoutes.settings);
                   },
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  focusColor: Colors.transparent,
+                  splashColor: AppThemeConfig.transparent,
+                  highlightColor: AppThemeConfig.transparent,
+                  hoverColor: AppThemeConfig.transparent,
+                  focusColor: AppThemeConfig.transparent,
                   splashRadius:
                       0.1, // çok küçük yaparak dalga yayılmasını engelle
                   enableFeedback:

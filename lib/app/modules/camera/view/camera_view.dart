@@ -15,10 +15,11 @@ class CameraView extends StatelessWidget {
     // Üst bardaki sistem metinlerini siyah yap (camera için - home'a dönünce siyah olsun)
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent, // Status bar şeffaf
+        statusBarColor: AppThemeConfig.transparent, // Status bar şeffaf
         statusBarIconBrightness: Brightness.dark, // Status bar ikonları siyah
         statusBarBrightness: Brightness.light, // iOS için status bar açık tema
-        systemNavigationBarColor: Colors.transparent, // Alt navigasyon şeffaf
+        systemNavigationBarColor:
+            AppThemeConfig.transparent, // Alt navigasyon şeffaf
         systemNavigationBarIconBrightness:
             Brightness.dark, // Alt navigasyon ikonları koyu
       ),

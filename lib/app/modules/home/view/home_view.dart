@@ -24,10 +24,11 @@ class HomeView extends GetView<HomeController> {
     // Üst bardaki sistem metinlerini siyah yap (home için)
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent, // Status bar şeffaf
+        statusBarColor: AppThemeConfig.transparent, // Status bar şeffaf
         statusBarIconBrightness: Brightness.dark, // Status bar ikonları siyah
         statusBarBrightness: Brightness.light, // iOS için status bar açık tema
-        systemNavigationBarColor: Colors.transparent, // Alt navigasyon şeffaf
+        systemNavigationBarColor:
+            AppThemeConfig.transparent, // Alt navigasyon şeffaf
         systemNavigationBarIconBrightness:
             Brightness.dark, // Alt navigasyon ikonları koyu
       ),
@@ -59,7 +60,7 @@ class HomeView extends GetView<HomeController> {
                 // const SizedBox(height: 15),
                 //const HomeTipWidget(),
                 //button oluştur
-                const SizedBox(height: 35),
+                const SizedBox(height: 30),
                 HomeRecentHistoryWidget(),
                 const SizedBox(height: 32),
                 const HomePopularGemsWidget(),
@@ -82,8 +83,8 @@ class HomeView extends GetView<HomeController> {
         onPressed: () {
           if (remainingToken == 0 && ispremium == true) {
             ShrineDialogService.showInfo(
-              'scan_dialog_125'.tr,
-              AppThemeConfig.primary,
+              'home_premium_token_error'.tr,
+              AppThemeConfig.textLink,
             );
           } else if (remainingToken == 0 && ispremium == false) {
             Get.toNamed(AppRoutes.premium);

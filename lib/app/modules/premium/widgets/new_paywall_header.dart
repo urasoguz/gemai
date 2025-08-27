@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gemai/app/modules/premium/controller/premium_controller.dart';
 import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:get/get.dart';
 
 /// Yeni paywall tasarımı için header widget'ı
 class NewPaywallHeader extends StatefulWidget {
@@ -95,8 +96,8 @@ class _NewPaywallHeaderState extends State<NewPaywallHeader>
           end: Alignment.bottomCenter,
           stops: [1, 0.6, 0.8, 1],
           colors: [
-            Colors.transparent,
-            Colors.transparent,
+            AppThemeConfig.transparent,
+            AppThemeConfig.transparent,
             AppThemeConfig.background.withOpacity(0.7),
             AppThemeConfig.background,
           ],
@@ -134,7 +135,7 @@ class _NewPaywallHeaderState extends State<NewPaywallHeader>
                                   height: 120, // Daha karemsi yükseklik
                                   child: _buildAnimatedFeatureCard(
                                     index: 0,
-                                    text: 'Unlimited scans',
+                                    text: 'premium_new_header_title_1'.tr,
                                     isText: true,
                                     isSmallScreen: isSmallScreen,
                                   ),
@@ -148,12 +149,7 @@ class _NewPaywallHeaderState extends State<NewPaywallHeader>
                                   child: _buildAnimatedFeatureCard(
                                     index: 1,
                                     imagePath: 'assets/premium/p1_r1.png',
-                                    glowColor: const Color.fromARGB(
-                                      119,
-                                      7,
-                                      25,
-                                      39,
-                                    ),
+                                    glowColor: AppThemeConfig.glowColor1,
                                     isText: false,
                                     isSmallScreen: isSmallScreen,
                                   ),
@@ -177,12 +173,7 @@ class _NewPaywallHeaderState extends State<NewPaywallHeader>
                                   child: _buildAnimatedFeatureCard(
                                     index: 2,
                                     imagePath: 'assets/premium/p1_r2.png',
-                                    glowColor: const Color.fromARGB(
-                                      58,
-                                      66,
-                                      46,
-                                      11,
-                                    ),
+                                    glowColor: AppThemeConfig.glowColor2,
                                     isText: false,
                                     isSmallScreen: isSmallScreen,
                                   ),
@@ -195,7 +186,7 @@ class _NewPaywallHeaderState extends State<NewPaywallHeader>
                                   height: 120, // Daha karemsi yükseklik
                                   child: _buildAnimatedFeatureCard(
                                     index: 3,
-                                    text: 'Premium features',
+                                    text: 'premium_new_header_title_2'.tr,
                                     isText: true,
                                     isSmallScreen: isSmallScreen,
                                   ),
@@ -218,7 +209,7 @@ class _NewPaywallHeaderState extends State<NewPaywallHeader>
                                   height: 120, // Daha karemsi yükseklik
                                   child: _buildAnimatedFeatureCard(
                                     index: 4,
-                                    text: 'Expert support',
+                                    text: 'premium_new_header_title_3'.tr,
                                     isText: true,
                                     isSmallScreen: isSmallScreen,
                                   ),
@@ -232,12 +223,7 @@ class _NewPaywallHeaderState extends State<NewPaywallHeader>
                                   child: _buildAnimatedFeatureCard(
                                     index: 5,
                                     imagePath: 'assets/premium/p1_r3.png',
-                                    glowColor: const Color.fromARGB(
-                                      89,
-                                      4,
-                                      52,
-                                      58,
-                                    ),
+                                    glowColor: AppThemeConfig.glowColor3,
                                     isText: false,
                                     isSmallScreen: isSmallScreen,
                                   ),
@@ -312,22 +298,23 @@ class _NewPaywallHeaderState extends State<NewPaywallHeader>
           height: cardHeight,
           decoration: BoxDecoration(
             // Cam tasarımı (glassmorphism) - BackdropFilter olmadan
-            color: Colors.white.withOpacity(0.08), // Daha şeffaf arka plan
+            color:
+                AppThemeConfig.glassmorphismBackground, // Daha şeffaf arka plan
             borderRadius: BorderRadius.circular(20), // Yuvarlatılmış köşeler
             border: Border.all(
-              color: Colors.white.withOpacity(0.3), // Daha belirgin border
+              color: AppThemeConfig.glassmorphismBorder, // Daha belirgin border
               width: 1.5,
             ),
             // Cam efekti için box shadow
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.2),
+                color: AppThemeConfig.black.withOpacity(0.2),
                 blurRadius: 25,
                 spreadRadius: 0,
                 offset: const Offset(0, 15),
               ),
               BoxShadow(
-                color: Colors.white.withOpacity(0.15),
+                color: AppThemeConfig.glassmorphismShadow,
                 blurRadius: 2,
                 spreadRadius: 0,
                 offset: const Offset(0, 2),
@@ -338,9 +325,9 @@ class _NewPaywallHeaderState extends State<NewPaywallHeader>
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                Colors.white.withOpacity(0.15),
-                Colors.white.withOpacity(0.02),
-                Colors.white.withOpacity(0.08),
+                AppThemeConfig.glassmorphismGradient1,
+                AppThemeConfig.glassmorphismGradient2,
+                AppThemeConfig.glassmorphismGradient3,
               ],
               stops: const [0.0, 0.5, 1.0],
             ),
@@ -353,18 +340,18 @@ class _NewPaywallHeaderState extends State<NewPaywallHeader>
                       child: Text(
                         text!,
                         style: TextStyle(
-                          color: Colors.white, // Beyaz metin
+                          color: AppThemeConfig.white, // Beyaz metin
                           fontSize: 15, // Daha büyük font
                           fontWeight: FontWeight.w700, // Daha kalın font
                           decoration: TextDecoration.none,
                           shadows: [
                             Shadow(
-                              color: Colors.black.withOpacity(0.6),
+                              color: AppThemeConfig.black.withOpacity(0.6),
                               offset: const Offset(0, 2),
                               blurRadius: 4,
                             ),
                             Shadow(
-                              color: Colors.black.withOpacity(0.3),
+                              color: AppThemeConfig.black.withOpacity(0.3),
                               offset: const Offset(0, 1),
                               blurRadius: 2,
                             ),
@@ -413,7 +400,7 @@ class _NewPaywallHeaderState extends State<NewPaywallHeader>
           ),
           // Ek cam efekti
           BoxShadow(
-            color: Colors.white.withOpacity(0.1),
+            color: AppThemeConfig.white.withOpacity(0.1),
             blurRadius: isLarge ? 15 : 10,
             spreadRadius: isLarge ? 5 : 3,
             offset: const Offset(0, 0),
@@ -425,7 +412,10 @@ class _NewPaywallHeaderState extends State<NewPaywallHeader>
           shape: BoxShape.circle,
           // Cam efekti için gradient
           gradient: RadialGradient(
-            colors: [Colors.white.withOpacity(0.1), Colors.transparent],
+            colors: [
+              AppThemeConfig.white.withOpacity(0.1),
+              AppThemeConfig.transparent,
+            ],
           ),
         ),
         child: Center(

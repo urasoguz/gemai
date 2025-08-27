@@ -3,6 +3,7 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:gemai/app/core/theme/app_theme_config.dart';
+import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// Fotoğraf çekme ipuçları için animasyonlu dialog
@@ -44,37 +45,37 @@ class _PhotoTipsDialogState extends State<PhotoTipsDialog> {
   // İpuçları listesi - 6 farklı durum
   final List<Map<String, dynamic>> _tips = [
     {
-      'label': 'Uzak',
+      'label': 'photo_tips_label_far'.tr,
       'isGood': false,
       'image': 'assets/camera/amethyst.png',
       'effect': 'far', // Sadece uzak
     },
     {
-      'label': 'Çok yakın',
+      'label': 'photo_tips_label_close'.tr,
       'isGood': false,
       'image': 'assets/camera/amethyst.png',
       'effect': 'close', // Çok yakın
     },
     {
-      'label': 'Karanlık',
+      'label': 'photo_tips_label_dark'.tr,
       'isGood': false,
       'image': 'assets/camera/amethyst.png',
       'effect': 'dark', // Sadece karanlık
     },
     {
-      'label': 'Bulanık',
+      'label': 'photo_tips_label_blurry'.tr,
       'isGood': false,
       'image': 'assets/camera/amethyst.png',
       'effect': 'blurry',
     },
     {
-      'label': 'Farklı Türde Taşlar',
+      'label': 'photo_tips_label_multiple_stones'.tr,
       'isGood': false,
       'image': 'assets/camera/rocks.png',
       'effect': null,
     },
     {
-      'label': 'Mükemmel',
+      'label': 'photo_tips_label_perfect'.tr,
       'isGood': true,
       'image': 'assets/camera/amethyst.png',
       'effect': null,
@@ -139,7 +140,7 @@ class _PhotoTipsDialogState extends State<PhotoTipsDialog> {
 
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      backgroundColor: Colors.white,
+      backgroundColor: AppThemeConfig.white,
       insetPadding: EdgeInsets.symmetric(
         horizontal: 20,
         vertical:
@@ -162,7 +163,7 @@ class _PhotoTipsDialogState extends State<PhotoTipsDialog> {
               children: [
                 // Başlık
                 Text(
-                  'Yapış İpuçları',
+                  'photo_tips_title'.tr,
                   style: TextStyle(
                     fontSize: isSmallScreen ? 18 : 20,
                     fontWeight: FontWeight.bold,
@@ -174,7 +175,7 @@ class _PhotoTipsDialogState extends State<PhotoTipsDialog> {
 
                 // Açıklama metni
                 Text(
-                  'Net, yüksek kaliteli fotoğraflar en iyi sonuçlara yol açar',
+                  'photo_tips_desc'.tr,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: isSmallScreen ? 13 : 14,
@@ -218,12 +219,8 @@ class _PhotoTipsDialogState extends State<PhotoTipsDialog> {
                                 : Icons.error,
                             color:
                                 tip['isGood']
-                                    ? const Color(0xFF4CAF50)
-                                    : tip['effect'] == 'far_dark'
-                                    ? const Color(0xFFE53935)
-                                    : tip['effect'] == 'blurry'
-                                    ? const Color(0xFFE53935)
-                                    : const Color(0xFFE53935),
+                                    ? AppThemeConfig.success
+                                    : AppThemeConfig.severityIndicatorColor4,
                             size: isSmallScreen ? 18 : 20,
                           ),
                           SizedBox(width: isSmallScreen ? 4 : 6),
@@ -231,12 +228,14 @@ class _PhotoTipsDialogState extends State<PhotoTipsDialog> {
                             child: Text(
                               tip['label'],
                               style: TextStyle(
-                                color: Colors.black,
+                                color: AppThemeConfig.black,
                                 fontWeight: FontWeight.w700,
                                 fontSize: isSmallScreen ? 16 : 20,
                                 shadows: [
                                   Shadow(
-                                    color: Colors.black.withOpacity(0.2),
+                                    color: AppThemeConfig.black.withOpacity(
+                                      0.2,
+                                    ),
                                     blurRadius: 1,
                                     offset: const Offset(0, 1),
                                   ),
@@ -253,7 +252,7 @@ class _PhotoTipsDialogState extends State<PhotoTipsDialog> {
                               child: CircularProgressIndicator(
                                 strokeWidth: 2,
                                 valueColor: AlwaysStoppedAnimation<Color>(
-                                  const Color(0xFF4CAF50),
+                                  AppThemeConfig.success,
                                 ),
                               ),
                             ),
@@ -290,10 +289,10 @@ class _PhotoTipsDialogState extends State<PhotoTipsDialog> {
                             ? 240
                             : 280,
                     decoration: BoxDecoration(
-                      color: const Color(0xFFF5F0E8),
+                      color: AppThemeConfig.panelBackground,
                       borderRadius: BorderRadius.circular(20),
                       border: Border.all(
-                        color: const Color(0xFF8D6E63).withOpacity(0.3),
+                        color: AppThemeConfig.panelBorderBrown.withOpacity(0.3),
                         width: 1,
                       ),
                     ),
@@ -332,9 +331,9 @@ class _PhotoTipsDialogState extends State<PhotoTipsDialog> {
                       elevation: 0,
                     ),
                     child: Text(
-                      'Anladım!',
+                      'photo_tips_ok'.tr,
                       style: TextStyle(
-                        color: Colors.white,
+                        color: AppThemeConfig.white,
                         fontSize: isSmallScreen ? 15 : 16,
                         fontWeight: FontWeight.w600,
                       ),
@@ -403,7 +402,7 @@ class _PhotoTipsDialogState extends State<PhotoTipsDialog> {
           Positioned.fill(
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.65),
+                color: AppThemeConfig.black.withOpacity(0.65),
                 borderRadius: BorderRadius.circular(20),
               ),
             ),

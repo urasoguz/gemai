@@ -37,7 +37,9 @@ class NewPaywallFooter extends StatelessWidget {
                 width: 32,
                 height: 32,
                 child: CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    AppThemeConfig.white,
+                  ),
                   strokeWidth: 3,
                 ),
               ),
@@ -66,18 +68,21 @@ class NewPaywallFooter extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    isTrial ? 'Try for Free' : 'Continue',
-                    style: const TextStyle(
+                    isTrial ? 'try_for_free'.tr : 'continue'.tr,
+                    style: TextStyle(
                       color:
-                          Colors.white, // Eski paywall ile aynı (beyaz metin)
+                          AppThemeConfig
+                              .white, // Eski paywall ile aynı (beyaz metin)
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   const SizedBox(width: 8),
-                  const Icon(
+                  Icon(
                     Icons.arrow_forward_ios,
-                    color: Colors.white, // Eski paywall ile aynı (beyaz ikon)
+                    color:
+                        AppThemeConfig
+                            .white, // Eski paywall ile aynı (beyaz ikon)
                     size: 16,
                   ),
                 ],
@@ -91,16 +96,16 @@ class NewPaywallFooter extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             _buildFooterButton(
-              text: 'Other Plans',
+              text: 'premium_other_plans'.tr,
               icon: Icons.keyboard_arrow_up, // Yukarı ok
               onPressed: () => _showPlansBottomSheet(context),
             ),
             _buildFooterButton(
-              text: 'Restore',
+              text: 'premium_restore'.tr,
               onPressed: controller.restorePurchases,
             ),
             _buildFooterButton(
-              text: 'Privacy & EULA',
+              text: 'premium_privacy_eula'.tr,
               onPressed: controller.openPrivacy,
             ),
           ],
@@ -118,7 +123,7 @@ class NewPaywallFooter extends StatelessWidget {
 
     showModalBottomSheet(
       context: context,
-      backgroundColor: Colors.transparent,
+      backgroundColor: AppThemeConfig.transparent,
       isScrollControlled: true,
       isDismissible: false, // Sadece Hide Plans ile kapanabilir
       enableDrag: true, // Yukarıdan aşağı kaydırma ile kapanabilir
@@ -135,11 +140,11 @@ class NewPaywallFooter extends StatelessWidget {
     return TextButton(
       onPressed: onPressed,
       style: ButtonStyle(
-        overlayColor: WidgetStateProperty.all(Colors.transparent),
+        overlayColor: WidgetStateProperty.all(AppThemeConfig.transparent),
         splashFactory: NoSplash.splashFactory,
-        shadowColor: WidgetStateProperty.all(Colors.transparent),
+        shadowColor: WidgetStateProperty.all(AppThemeConfig.transparent),
         foregroundColor: WidgetStateProperty.all(AppThemeConfig.textSecondary),
-        backgroundColor: WidgetStateProperty.all(Colors.transparent),
+        backgroundColor: WidgetStateProperty.all(AppThemeConfig.transparent),
         padding: WidgetStateProperty.all(
           const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
         ),
@@ -184,11 +189,11 @@ class _PlansBottomSheetState extends State<_PlansBottomSheet>
   late Animation<Offset> _slideAnimation;
 
   final List<String> _testimonials = [
-    'Being a geologist, I\'ve seen many tools. This app provides consistent and reliable results. Good job, developers!',
-    'Finally, an app that actually works! I\'ve identified over 50 rocks in my collection with 100% accuracy.',
-    'As a rock collector, this app has been a game-changer. The AI recognition is incredibly accurate.',
-    'Professional geologist here. This app rivals expensive lab equipment. Highly recommended for field work.',
-    'Amazing app! I use it for my geology classes and it helps students learn rock identification quickly.',
+    'premium_new_comment_1'.tr,
+    'premium_new_comment_2'.tr,
+    'premium_new_comment_3'.tr,
+    'premium_new_comment_4'.tr,
+    'premium_new_comment_5'.tr,
   ];
 
   @override
@@ -246,10 +251,10 @@ class _PlansBottomSheetState extends State<_PlansBottomSheet>
 
             // Join Millions of Happy Users başlığı
             Text(
-              'Join Millions of Happy Users',
+              'premium_new_title'.tr,
               style: TextStyle(
                 color: AppThemeConfig.textPrimary,
-                fontSize: 24,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
               textAlign: TextAlign.center,
@@ -263,7 +268,7 @@ class _PlansBottomSheetState extends State<_PlansBottomSheet>
               children: List.generate(5, (index) {
                 return Icon(
                   Icons.star,
-                  color: const Color(0xFFFFD700),
+                  color: AppThemeConfig.starGold,
                   size: 28,
                 );
               }),
@@ -429,7 +434,7 @@ class _PlansBottomSheetState extends State<_PlansBottomSheet>
                                     color:
                                         info['isTrial'] == true
                                             ? AppThemeConfig.textPrimary
-                                            : Colors.white,
+                                            : AppThemeConfig.white,
                                     fontSize: info['isTrial'] == true ? 16 : 12,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -452,13 +457,13 @@ class _PlansBottomSheetState extends State<_PlansBottomSheet>
                                 color:
                                     selected
                                         ? AppThemeConfig.paywallCardBorderCheck
-                                        : Colors.transparent,
+                                        : AppThemeConfig.transparent,
                               ),
                               child:
                                   selected
-                                      ? const Icon(
+                                      ? Icon(
                                         Icons.check,
-                                        color: Colors.white,
+                                        color: AppThemeConfig.white,
                                         size: 16,
                                       )
                                       : null,
@@ -495,7 +500,9 @@ class _PlansBottomSheetState extends State<_PlansBottomSheet>
                     width: 32,
                     height: 32,
                     child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                        AppThemeConfig.white,
+                      ),
                       strokeWidth: 3,
                     ),
                   ),
@@ -524,20 +531,23 @@ class _PlansBottomSheetState extends State<_PlansBottomSheet>
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        isTrial ? 'Try for Free' : 'Continue',
-                        style: const TextStyle(
+                        isTrial
+                            ? 'premium_new_try_for_free'.tr
+                            : 'premium_new_continue'.tr,
+                        style: TextStyle(
                           color:
-                              Colors
+                              AppThemeConfig
                                   .white, // Eski paywall ile aynı (beyaz metin)
                           fontSize: 18,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
                       const SizedBox(width: 8),
-                      const Icon(
+                      Icon(
                         Icons.arrow_forward_ios,
                         color:
-                            Colors.white, // Eski paywall ile aynı (beyaz ikon)
+                            AppThemeConfig
+                                .white, // Eski paywall ile aynı (beyaz ikon)
                         size: 16,
                       ),
                     ],
@@ -554,7 +564,7 @@ class _PlansBottomSheetState extends State<_PlansBottomSheet>
               children: [
                 _buildFooterButton(
                   color: AppThemeConfig.textLink,
-                  text: 'Hide Plans',
+                  text: 'premium_new_hide_plans'.tr,
                   fontWeight: FontWeight.w700,
                   icon: Icons.keyboard_arrow_down, // Aşağı ok
                   onPressed: () {
@@ -565,12 +575,12 @@ class _PlansBottomSheetState extends State<_PlansBottomSheet>
                 ),
                 _buildFooterButton(
                   color: AppThemeConfig.textSecondary,
-                  text: 'Restore',
+                  text: 'premium_restore'.tr,
                   onPressed: widget.controller.restorePurchases,
                 ),
                 _buildFooterButton(
                   color: AppThemeConfig.textSecondary,
-                  text: 'Privacy & EULA',
+                  text: 'premium_privacy_eula'.tr,
                   onPressed: widget.controller.openPrivacy,
                 ),
               ],
@@ -594,11 +604,11 @@ class _PlansBottomSheetState extends State<_PlansBottomSheet>
     return TextButton(
       onPressed: onPressed,
       style: ButtonStyle(
-        overlayColor: WidgetStateProperty.all(Colors.transparent),
+        overlayColor: WidgetStateProperty.all(AppThemeConfig.transparent),
         splashFactory: NoSplash.splashFactory,
-        shadowColor: WidgetStateProperty.all(Colors.transparent),
+        shadowColor: WidgetStateProperty.all(AppThemeConfig.transparent),
         foregroundColor: WidgetStateProperty.all(AppThemeConfig.textSecondary),
-        backgroundColor: WidgetStateProperty.all(Colors.transparent),
+        backgroundColor: WidgetStateProperty.all(AppThemeConfig.transparent),
         padding: WidgetStateProperty.all(
           const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
         ),

@@ -77,8 +77,14 @@ class UserController extends GetxController {
   /// Cihazı guest olarak kaydeder ve token'ı storage'a kaydeder
   Future<void> doRegisterAsGuest() async {
     String deviceId = await getDeviceId();
+    // Ülke kodunu locale'den belirle (null olabilir)
+    final String? countryCode =
+        Get.locale?.countryCode ?? Get.deviceLocale?.countryCode;
     try {
-      final response = await _authApiService.registerDevice(deviceId: deviceId);
+      final response = await _authApiService.registerDevice(
+        deviceId: deviceId,
+        countryCode: countryCode,
+      );
       if (response.isSuccess) {
         // Token'ı response'dan al ve storage'a kaydet
         final token = response.token;

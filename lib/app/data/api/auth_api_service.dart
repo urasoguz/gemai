@@ -63,10 +63,17 @@ class AuthApiService extends BaseApiService {
   /// Sadece device_id ile cihaz kaydı yapar (guest kullanıcı)
   Future<ResponseModel<UserModel>> registerDevice({
     required String deviceId,
+    String? countryCode,
   }) async {
+    // Ülke kodunu opsiyonel olarak gönder
+    final Map<String, dynamic> body = <String, dynamic>{
+      'device_id': deviceId,
+      if (countryCode != null && countryCode.isNotEmpty)
+        'country_code': countryCode,
+    };
     return await post<UserModel>(
       ApiEndpoints.register,
-      {'device_id': deviceId},
+      body,
       fromJson: (json) => UserModel.fromJson(Map<String, dynamic>.from(json)),
     );
   }

@@ -31,6 +31,10 @@ const Map<String, String> en = {
   'share_result_share_text':
       'DermAI - Analysis Result\nAnalyze your skin with DermAI!',
 
+  //top_visual
+  'top_visual_share_text': 'GemAI Analysis Result: @type',
+  'unknown_gem': 'Unknown Gem',
+
   //account
   'account_title': 'Account',
   'account_anonymous': 'Anonymous User',

@@ -81,9 +81,9 @@ class NewPaywallView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: <Widget>[
                       Text(
-                        'Elevate Your Complete\nRock Experience',
+                        'premium_new_view_title'.tr,
                         style: TextStyle(
-                          fontSize: isSmallScreen ? 20 : 24,
+                          fontSize: isSmallScreen ? 18 : 20,
                           fontWeight: FontWeight.bold,
                           color: AppThemeConfig.textPrimary,
                           height: 1.2,
@@ -94,7 +94,7 @@ class NewPaywallView extends StatelessWidget {
                       Obx(() {
                         if (controller.packages.isEmpty) {
                           return Text(
-                            '3 days free, then ₺149,99/week',
+                            '',
                             style: TextStyle(
                               fontSize: isSmallScreen ? 16 : 18,
                               color: AppThemeConfig.textPrimary,
@@ -123,7 +123,7 @@ class NewPaywallView extends StatelessWidget {
                         return Text(
                           priceText,
                           style: TextStyle(
-                            fontSize: isSmallScreen ? 16 : 18,
+                            fontSize: isSmallScreen ? 14 : 14,
                             color: AppThemeConfig.textPrimary,
                             fontWeight: FontWeight.w500,
                           ),
@@ -132,9 +132,9 @@ class NewPaywallView extends StatelessWidget {
                       }),
                       const SizedBox(height: 1),
                       Text(
-                        'No commitment. Cancel anytime',
+                        'premium_new_view_no_commitment'.tr,
                         style: TextStyle(
-                          fontSize: isSmallScreen ? 16 : 18,
+                          fontSize: isSmallScreen ? 14 : 14,
                           color: AppThemeConfig.textPrimary,
                           fontWeight: FontWeight.w500,
                         ),

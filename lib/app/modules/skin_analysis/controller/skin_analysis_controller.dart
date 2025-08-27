@@ -137,7 +137,7 @@ class SkinAnalysisController extends GetxController {
 
   /// Token ve premium durumunu kontrol eder
   bool _checkTokenAndPremiumStatus() {
-    final colors = AppThemeConfig.primary;
+    final colors = AppThemeConfig.textHint;
     try {
       // GetStorage'dan direkt oku
       final remainingToken = userData.read(MyHelper.accountRemainingToken) ?? 0;
@@ -175,7 +175,7 @@ class SkinAnalysisController extends GetxController {
 
   /// Analizi başlatır
   Future<void> startAnalysis() async {
-    final colors = AppThemeConfig.primary;
+    final colors = AppThemeConfig.textHint;
     // Validasyon
     if (selectedBodyParts.isEmpty) {
       ShrineDialogService.showError(
